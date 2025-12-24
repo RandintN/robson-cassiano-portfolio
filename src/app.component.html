@@ -1,0 +1,295 @@
+<div class="min-h-screen flex flex-col relative overflow-hidden">
+
+  <!-- Abstract Background Shapes -->
+  <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+    <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-lime-500/10 rounded-full blur-3xl animate-pulse">
+    </div>
+    <div class="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="container mx-auto px-6 py-6 flex justify-between items-center z-10">
+    <div class="flex items-center gap-2">
+      <div
+        class="w-8 h-8 bg-gradient-to-br from-lime-400 to-green-600 rounded-lg flex items-center justify-center text-slate-900 font-bold">
+        R</div>
+      <span class="font-bold text-xl tracking-tight text-white">Robson<span class="text-lime-400">Cassiano</span></span>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+      <a href="#sobre" class="hover:text-lime-400 transition-colors">{{ 'NAV_ABOUT' | translate }}</a>
+      <a href="#atuacao" class="hover:text-lime-400 transition-colors">{{ 'NAV_ROLES' | translate }}</a>
+      <a href="#feed" class="hover:text-lime-400 transition-colors">{{ 'NAV_FEED' | translate }}</a>
+      <a href="#contato"
+        class="px-4 py-2 bg-lime-500 text-slate-900 rounded-full hover:bg-lime-400 transition-colors font-bold">{{ 'NAV_CONTACT' | translate }}</a>
+      
+      <div class="flex items-center gap-2 ml-4 border-l border-slate-800 pl-4">
+        <button (click)="changeLanguage('pt')" [class.text-lime-400]="currentLanguage() === 'pt'" class="hover:text-lime-400 transition-colors font-bold">PT</button>
+        <span class="text-slate-700">|</span>
+        <button (click)="changeLanguage('en')" [class.text-lime-400]="currentLanguage() === 'en'" class="hover:text-lime-400 transition-colors font-bold">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumb Navigation for SEO -->
+  <nav aria-label="Breadcrumb" class="container mx-auto px-6 py-2">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center gap-2 text-sm text-slate-500">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="https://eu.robsoncassiano.software/" class="hover:text-lime-400 transition-colors">
+          <span itemprop="name">Home</span>
+        </a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+  </nav>
+
+  <main class="flex-grow container mx-auto px-6 pt-10 pb-20">
+
+    <!-- Hero Section -->
+    <article itemscope itemtype="https://schema.org/ProfilePage">
+      <section class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+        <div class="order-2 lg:order-1">
+          <div
+            class="inline-block px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-lime-400 text-xs font-bold mb-6 tracking-wide uppercase">
+            {{ 'HERO_BADGE' | translate }}
+          </div>
+          <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white" [innerHTML]="'HERO_TITLE' | translate">
+          </h1>
+          <p class="text-lg text-slate-400 mb-8 max-w-xl leading-relaxed">
+            {{ 'HERO_DESCRIPTION' | translate }}
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="https://www.linkedin.com/in/robsoncassiano-software/" target="_blank"
+              class="px-6 py-3 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 transition-colors flex items-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              {{ 'HERO_LINKEDIN' | translate }}
+            </a>
+            <a href="https://global.robsoncassiano.software/" target="_blank"
+              class="px-6 py-3 bg-slate-800 text-white font-bold rounded-lg border border-slate-700 hover:border-lime-500 hover:text-lime-400 transition-all">
+              {{ 'HERO_MENTORSHIP' | translate }}
+            </a>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2 flex justify-center lg:justify-end relative">
+          <div class="relative w-72 h-72 lg:w-96 lg:h-96">
+            <div class="absolute inset-0 bg-lime-500 rounded-3xl rotate-6 opacity-20"></div>
+            <div class="absolute inset-0 bg-slate-800 rounded-3xl -rotate-3 border border-slate-700"></div>
+            <!-- Profile Image -->
+            <img [ngSrc]="profileImage()" width="500" height="500" priority alt="Robson Cassiano"
+              class="relative w-full h-full object-cover rounded-2xl border-2 border-slate-700 shadow-2xl transition-all duration-500">
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- Philosophy Section -->
+    <article itemscope itemtype="https://schema.org/Article">
+      <section id="sobre"
+        class="mb-24 p-8 lg:p-12 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl border border-slate-800 relative overflow-hidden">
+        <div class="absolute top-0 right-0 p-12 opacity-5 text-9xl font-serif italic text-white select-none">"</div>
+
+        <h2 class="text-3xl font-bold mb-6 text-white flex items-center gap-3">
+          <span class="w-1 h-8 bg-lime-500 rounded-full block"></span>
+          {{ 'PHILOSOPHY_TITLE' | translate }}
+        </h2>
+
+        <div class="space-y-6 text-slate-300 leading-relaxed max-w-4xl">
+          <p class="text-xl font-light italic text-lime-200/90">
+            {{ 'PHILOSOPHY_QUOTE' | translate }}
+          </p>
+          <p>
+            {{ 'PHILOSOPHY_P1' | translate }}
+          </p>
+          <p>
+            {{ 'PHILOSOPHY_P2' | translate }}
+          </p>
+        </div>
+      </section>
+    </article>
+
+    <!-- Roles Grid -->
+    <article itemscope itemtype="https://schema.org/ItemList">
+      <section id="atuacao" class="mb-24">
+        <h2 class="text-3xl font-bold mb-10 text-white text-center">{{ 'ROLES_TITLE' | translate }}</h2>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <app-role-card [title]="'ROLE_SOFTWARE_ENGINEER_TITLE' | translate" iconClass="fas fa-code">
+            {{ 'ROLE_SOFTWARE_ENGINEER_DESC' | translate }}
+          </app-role-card>
+
+          <app-role-card [title]="'ROLE_MENTOR_TITLE' | translate" iconClass="fas fa-compass"
+            link="https://global.robsoncassiano.software/">
+            {{ 'ROLE_MENTOR_DESC' | translate }}
+          </app-role-card>
+
+          <app-role-card [title]="'ROLE_ENTREPRENEUR_TITLE' | translate" iconClass="fas fa-briefcase"
+            link="https://www.linkedin.com/company/simple-software-sa/">
+            <span [innerHTML]="'ROLE_ENTREPRENEUR_DESC' | translate"></span>
+          </app-role-card>
+
+          <app-role-card [title]="'ROLE_TEACHER_TITLE' | translate" iconClass="fas fa-language"
+            link="https://payfast.greenn.com.br/76109/offer/2RMfq0?ch_id=14454&b_id_1=56463&b_offer_1=Em9QkN">
+            {{ 'ROLE_TEACHER_DESC' | translate }}
+          </app-role-card>
+
+          <app-role-card [title]="'ROLE_PHILOSOPHER_TITLE' | translate" iconClass="fas fa-university" link="https://academiatlantico.com.br/">
+            {{ 'ROLE_PHILOSOPHER_DESC' | translate }}
+          </app-role-card>
+
+          <div
+            class="h-full p-6 rounded-xl border border-dashed border-slate-700 flex items-center justify-center text-center group hover:border-lime-500/50 transition-colors">
+            <div>
+              <div class="text-4xl text-slate-700 mb-2 group-hover:text-lime-500 transition-colors">+</div>
+              <p class="text-slate-500 font-medium">{{ 'ROLE_LEARNING' | translate }}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <!-- Feed Section -->
+    <article itemscope itemtype="https://schema.org/Blog">
+      <section id="feed" class="max-w-3xl mx-auto">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold text-white">{{ 'FEED_TITLE' | translate }}</h2>
+          <a href="https://www.linkedin.com/in/robsoncassiano-software/recent-activity/all/" target="_blank"
+            class="text-lime-400 hover:text-lime-300 text-sm font-semibold">{{ 'FEED_VIEW_ALL' | translate }} &rarr;</a>
+        </div>
+
+        <div class="space-y-6">
+          @for (post of posts(); track post.id) {
+          <app-post-item [authorImage]="profileImage()" [date]="post.date" [content]="post.content"
+            [likes]="post.likes" />
+          }
+        </div>
+      </section>
+
+      <!-- FAQ Section for AEO -->
+      <section id="faq" class="max-w-3xl mx-auto mb-24">
+        <h2 class="text-3xl font-bold mb-10 text-white text-center">{{ 'FAQ_TITLE' | translate }}</h2>
+
+        <div class="space-y-4">
+          <details
+            class="group bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-lime-500/50 transition-colors">
+            <summary
+              class="cursor-pointer font-semibold text-lg text-white list-none flex justify-between items-center">
+              <span>{{ 'FAQ_Q1' | translate }}</span>
+              <span class="text-lime-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-4 text-slate-400 leading-relaxed">
+              {{ 'FAQ_A1' | translate }}
+            </p>
+          </details>
+
+          <details
+            class="group bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-lime-500/50 transition-colors">
+            <summary
+              class="cursor-pointer font-semibold text-lg text-white list-none flex justify-between items-center">
+              <span>{{ 'FAQ_Q2' | translate }}</span>
+              <span class="text-lime-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-4 text-slate-400 leading-relaxed">
+              {{ 'FAQ_A2' | translate }}
+            </p>
+          </details>
+
+          <details
+            class="group bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-lime-500/50 transition-colors">
+            <summary
+              class="cursor-pointer font-semibold text-lg text-white list-none flex justify-between items-center">
+              <span>{{ 'FAQ_Q3' | translate }}</span>
+              <span class="text-lime-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-4 text-slate-400 leading-relaxed">
+              {{ 'FAQ_A3' | translate }}
+            </p>
+          </details>
+
+          <details
+            class="group bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-lime-500/50 transition-colors">
+            <summary
+              class="cursor-pointer font-semibold text-lg text-white list-none flex justify-between items-center">
+              <span>{{ 'FAQ_Q4' | translate }}</span>
+              <span class="text-lime-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-4 text-slate-400 leading-relaxed">
+              {{ 'FAQ_A4' | translate }}
+            </p>
+          </details>
+
+          <details
+            class="group bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-lime-500/50 transition-colors">
+            <summary
+              class="cursor-pointer font-semibold text-lg text-white list-none flex justify-between items-center">
+              <span>{{ 'FAQ_Q5' | translate }}</span>
+              <span class="text-lime-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-4 text-slate-400 leading-relaxed">
+              {{ 'FAQ_A5' | translate }}
+            </p>
+          </details>
+
+          <details
+            class="group bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-lime-500/50 transition-colors">
+            <summary
+              class="cursor-pointer font-semibold text-lg text-white list-none flex justify-between items-center">
+              <span>{{ 'FAQ_Q6' | translate }}</span>
+              <span class="text-lime-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-4 text-slate-400 leading-relaxed">
+              {{ 'FAQ_A6' | translate }}
+            </p>
+          </details>
+
+          <details
+            class="group bg-slate-900 border border-slate-800 rounded-xl p-6 hover:border-lime-500/50 transition-colors">
+            <summary
+              class="cursor-pointer font-semibold text-lg text-white list-none flex justify-between items-center">
+              <span>{{ 'FAQ_Q7' | translate }}</span>
+              <span class="text-lime-400 group-open:rotate-180 transition-transform">▼</span>
+            </summary>
+            <p class="mt-4 text-slate-400 leading-relaxed" [innerHTML]="'FAQ_A7' | translate">
+            </p>
+          </details>
+        </div>
+      </section>
+    </article>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="contato" class="border-t border-slate-800 bg-slate-950 pt-16 pb-8">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+        <div class="text-center md:text-left">
+          <h3 class="text-2xl font-bold text-white mb-2" [innerHTML]="'FOOTER_TITLE' | translate"></h3>
+          <p class="text-slate-400">{{ 'FOOTER_SUBTITLE' | translate }}</p>
+        </div>
+
+        <div class="flex gap-4">
+          @for (social of socials(); track social.name) {
+          <a [href]="social.url" target="_blank"
+            class="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-lime-500 hover:text-slate-900 hover:border-lime-500 transition-all duration-300"
+            [title]="social.name">
+            <i [class]="social.icon"></i>
+          </a>
+          }
+        </div>
+      </div>
+
+      <div class="text-center text-slate-600 text-sm border-t border-slate-900 pt-8">
+        &copy; {{ currentYear() }} Simple Software LTDA. {{ 'FOOTER_RIGHTS' | translate }}
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- FontAwesome CDN for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
