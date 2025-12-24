@@ -26,7 +26,8 @@
               },
               "robots.txt",
               "sitemap.xml",
-              "metadata.json"
+              "metadata.json",
+              "CNAME"
             ]
           },
           "configurations": {
