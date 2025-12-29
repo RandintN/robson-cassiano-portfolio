@@ -16,6 +16,12 @@
       <span class="font-bold text-xl tracking-tight text-white">Robson<span class="text-lime-400">Cassiano</span></span>
     </div>
 
+    <div class="flex md:hidden items-center gap-2 text-slate-400">
+      <button (click)="changeLanguage('pt')" [class.text-lime-400]="currentLanguage() === 'pt'" class="hover:text-lime-400 transition-colors font-bold">PT</button>
+      <span class="text-slate-700">|</span>
+      <button (click)="changeLanguage('en')" [class.text-lime-400]="currentLanguage() === 'en'" class="hover:text-lime-400 transition-colors font-bold">EN</button>
+    </div>
+
     <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
       <a href="#sobre" class="hover:text-lime-400 transition-colors">{{ 'NAV_ABOUT' | translate }}</a>
       <a href="#atuacao" class="hover:text-lime-400 transition-colors">{{ 'NAV_ROLES' | translate }}</a>
