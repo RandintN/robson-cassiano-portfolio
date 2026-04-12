@@ -108,12 +108,26 @@ export class AppComponent {
       const description = this.languageService.translate('SEO_DESCRIPTION');
 
       this.titleService.setTitle(title);
+      const locale = this.currentLanguage() === 'pt' ? 'pt_BR' : 'en_US';
+      const languageTag = this.currentLanguage() === 'pt' ? 'pt-BR' : 'en-US';
+
       this.metaService.updateTag({ name: 'description', content: description });
+      this.metaService.updateTag({ name: 'robots', content: 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' });
+
+      this.metaService.updateTag({ property: 'og:type', content: 'profile' });
+      this.metaService.updateTag({ property: 'og:site_name', content: 'Robson Cassiano' });
       this.metaService.updateTag({ property: 'og:title', content: title });
       this.metaService.updateTag({ property: 'og:description', content: description });
+      this.metaService.updateTag({ property: 'og:url', content: 'https://eu.robsoncassiano.software/' });
+      this.metaService.updateTag({ property: 'og:image', content: this.profileImage() });
+      this.metaService.updateTag({ property: 'og:locale', content: locale });
+
+      this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
       this.metaService.updateTag({ name: 'twitter:title', content: title });
       this.metaService.updateTag({ name: 'twitter:description', content: description });
-      this.metaService.updateTag({ property: 'og:locale', content: this.currentLanguage() === 'pt' ? 'pt_BR' : 'en_US' });
+      this.metaService.updateTag({ name: 'twitter:image', content: this.profileImage() });
+
+      this.metaService.updateTag({ name: 'language', content: languageTag });
 
       this.updateStructuredData();
     });
@@ -150,9 +164,22 @@ export class AppComponent {
       ]
     };
 
+    const profilePageSchema = {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": "Robson Cassiano",
+      "url": "https://eu.robsoncassiano.software/",
+      "inLanguage": isPt ? "pt-BR" : "en-US",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Robson Cassiano"
+      }
+    };
+
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "inLanguage": isPt ? "pt-BR" : "en-US",
       "mainEntity": [
         {
           "@type": "Question",
@@ -177,6 +204,38 @@ export class AppComponent {
             "@type": "Answer",
             "text": this.languageService.translate('FAQ_A3')
           }
+        },
+        {
+          "@type": "Question",
+          "name": this.languageService.translate('FAQ_Q4'),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": this.languageService.translate('FAQ_A4')
+          }
+        },
+        {
+          "@type": "Question",
+          "name": this.languageService.translate('FAQ_Q5'),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": this.languageService.translate('FAQ_A5')
+          }
+        },
+        {
+          "@type": "Question",
+          "name": this.languageService.translate('FAQ_Q6'),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": this.languageService.translate('FAQ_A6')
+          }
+        },
+        {
+          "@type": "Question",
+          "name": this.languageService.translate('FAQ_Q7'),
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": this.languageService.translate('FAQ_A7')
+          }
         }
       ]
     };
@@ -188,7 +247,7 @@ export class AppComponent {
       scriptTag.type = 'application/ld+json';
       document.head.appendChild(scriptTag);
     }
-    scriptTag.text = JSON.stringify([personSchema, faqSchema]);
+    scriptTag.text = JSON.stringify([personSchema, profilePageSchema, faqSchema]);
   }
 
   changeLanguage(lang: Language) {
