@@ -1,0 +1,17 @@
+# Robson Cassiano
+
+> Robson Cassiano é Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais, empresário fundador da Simple Software, professor de inglês e estudante de filosofia clássica.
+
+## Overview
+- Website: https://eu.robsoncassiano.software/
+- Mentoria Internacional: https://global.robsoncassiano.software/
+- Empresa (Simple Software): https://www.linkedin.com/company/simple-software-sa/
+- LinkedIn: https://www.linkedin.com/in/robsoncassiano-software/
+- GitHub: https://github.com/randintn
+- YouTube: https://www.youtube.com/@RobsonCassianoSoftware
+- Instagram: https://www.instagram.com/robsoncassiano.software/
+- Twitter / X: https://twitter.com/RobsonDev
+
+## Docs & Resources
+- [Markdown Portfolio](https://eu.robsoncassiano.software/index.md): Versão completa em Markdown com Perguntas Frequentes (FAQ), Filosofia e Áreas de Atuação.
+- [Full LLMs Context](https://eu.robsoncassiano.software/llms-full.txt): Contexto integral para Large Language Models e AI Agents.

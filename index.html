@@ -3,29 +3,48 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Robson Cassiano | Senior Software Engineer, Mentor Internacional e Filósofo</title>
+  <title>Robson Cassiano | Senior Software Engineer, Mentor de Carreira Internacional e Filósofo</title>
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- SEO / AEO baseline (SSR-safe) -->
-  <meta name="description" content="Robson Cassiano é Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais, fundador da Simple Software, professor de inglês e estudante de filosofia clássica." />
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  
+  <!-- Canonical & SEO Meta Tags -->
   <link rel="canonical" href="https://eu.robsoncassiano.software/" />
+  <meta name="description" content="Robson Cassiano é Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais, fundador da Simple Software, professor de inglês e estudante de filosofia clássica." />
+  <meta name="author" content="Robson Cassiano" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-  <!-- Open Graph -->
+  <!-- Multilingual Alternates -->
+  <link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
+  <link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/" />
+  <link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
+
+  <!-- Markdown for Agents & LLMs Discovery -->
+  <link rel="alternate" type="text/markdown" href="https://eu.robsoncassiano.software/index.md" title="Markdown Version for AI Agents" />
+  <link rel="alternate" type="text/plain" href="https://eu.robsoncassiano.software/llms.txt" title="LLMs.txt" />
+  <link rel="alternate" type="text/plain" href="https://eu.robsoncassiano.software/llms-full.txt" title="LLMs Full Context" />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="profile" />
   <meta property="og:site_name" content="Robson Cassiano" />
-  <meta property="og:title" content="Robson Cassiano | Senior Software Engineer, Mentor Internacional e Filósofo" />
-  <meta property="og:description" content="Especialista em Java Backend, mentor internacional e fundador da Simple Software." />
   <meta property="og:url" content="https://eu.robsoncassiano.software/" />
+  <meta property="og:title" content="Robson Cassiano | Senior Software Engineer, Mentor de Carreira Internacional e Filósofo" />
+  <meta property="og:description" content="Robson Cassiano é Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais, fundador da Simple Software e filósofo." />
   <meta property="og:image" content="https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg" />
+  <meta property="og:image:width" content="500" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:image:alt" content="Robson Cassiano" />
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:locale:alternate" content="en_US" />
+  <meta property="profile:first_name" content="Robson" />
+  <meta property="profile:last_name" content="Cassiano" />
+  <meta property="profile:username" content="RobsonDev" />
 
-  <!-- Twitter -->
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Robson Cassiano | Senior Software Engineer, Mentor Internacional e Filósofo" />
-  <meta name="twitter:description" content="Especialista em Java Backend, mentor internacional e fundador da Simple Software." />
+  <meta name="twitter:site" content="@RobsonDev" />
+  <meta name="twitter:creator" content="@RobsonDev" />
+  <meta name="twitter:title" content="Robson Cassiano | Senior Software Engineer, Mentor de Carreira Internacional e Filósofo" />
+  <meta name="twitter:description" content="Robson Cassiano é Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais, fundador da Simple Software e filósofo." />
   <meta name="twitter:image" content="https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg" />
 
   <!-- Performance & Optimization -->
@@ -42,38 +61,64 @@
   <link rel="shortcut icon" href="assets/icons/favicon.ico">
   <link rel="manifest" href="assets/icons/site.webmanifest">
 
-  <!-- Structured Data (SSR-safe baseline) -->
-  <script type="application/ld+json" id="structured-data-static">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Structured Data (JSON-LD Baseline) -->
+  <script id="structured-data" type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
-        "name": "Robson Cassiano",
-        "alternateName": "Robson Cassiano Software",
-        "url": "https://eu.robsoncassiano.software/",
-        "image": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
-        "jobTitle": "Senior Software Engineer",
-        "sameAs": [
-          "https://www.linkedin.com/in/robsoncassiano-software/",
-          "https://github.com/randintn",
-          "https://www.instagram.com/robsoncassiano.software/",
-          "https://www.youtube.com/@RobsonCassianoSoftware",
-          "https://twitter.com/RobsonDev"
-        ]
-      },
-      {
         "@type": "ProfilePage",
-        "name": "Robson Cassiano",
+        "@id": "https://eu.robsoncassiano.software/#profilepage",
         "url": "https://eu.robsoncassiano.software/",
+        "name": "Robson Cassiano",
+        "inLanguage": "pt-BR",
         "mainEntity": {
           "@type": "Person",
-          "name": "Robson Cassiano"
-        },
-        "inLanguage": "pt-BR"
+          "@id": "https://eu.robsoncassiano.software/#person",
+          "name": "Robson Cassiano",
+          "alternateName": "Robson Cassiano Software",
+          "url": "https://eu.robsoncassiano.software/",
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
+            "width": 500,
+            "height": 500
+          },
+          "sameAs": [
+            "https://www.linkedin.com/in/robsoncassiano-software/",
+            "https://github.com/randintn",
+            "https://www.instagram.com/robsoncassiano.software/",
+            "https://www.youtube.com/@RobsonCassianoSoftware",
+            "https://twitter.com/RobsonDev"
+          ],
+          "jobTitle": "Senior Software Engineer",
+          "description": "Robson Cassiano é Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais, empresário fundador da Simple Software, professor de inglês e estudante de filosofia clássica. Poliglota (Português, Inglês, Japonês, Latim e Grego Antigo).",
+          "knowsAbout": [
+            "Java",
+            "Spring Framework",
+            "PostgreSQL",
+            "Software Architecture",
+            "International Career",
+            "Backend Development",
+            "Mentorship",
+            "Philosophy",
+            "English Teaching",
+            "Entrepreneurship"
+          ],
+          "knowsLanguage": ["pt-BR", "en", "ja", "la", "grc"],
+          "worksFor": {
+            "@type": "Organization",
+            "name": "Simple Software",
+            "url": "https://www.linkedin.com/company/simple-software-sa/"
+          }
+        }
       },
       {
         "@type": "FAQPage",
+        "@id": "https://eu.robsoncassiano.software/#faq",
         "inLanguage": "pt-BR",
         "mainEntity": [
           {
@@ -81,7 +126,7 @@
             "name": "Quem é Robson Cassiano?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Robson Cassiano é Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais, empresário fundador da Simple Software, professor de inglês e estudante de filosofia clássica."
+              "text": "Robson Cassiano é Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais, empresário fundador da Simple Software, professor de inglês e estudante de filosofia clássica. É poliglota fluente em Português, Inglês, Japonês, Latim e Grego Antigo, com personalidade INTJ-A."
             }
           },
           {
@@ -89,17 +134,66 @@
             "name": "Qual é a especialidade técnica de Robson Cassiano?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Robson é especialista em desenvolvimento Backend na plataforma Java, com foco em performance e arquitetura robusta usando Spring Framework, PostgreSQL e REST APIs."
+              "text": "Robson é especialista em desenvolvimento Backend na plataforma Java, com foco em soluções lucrativas, performance e arquitetura robusta usando Spring Framework, PostgreSQL e REST APIs. Ele prioriza código limpo, escalabilidade e práticas de engenharia de software de alto nível."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Como Robson Cassiano pode ajudar na minha carreira internacional?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Como mentor de carreira, Robson mostra através de exemplos práticos como ter uma carreira internacional como programador(a) e ultrapassar os 30k de renda por mês. Ele foca em posicionamento profissional, desenvolvimento de competências técnicas e domínio do inglês para o mercado global."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "O que é a Simple Software?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Simple Software é a empresa fundada por Robson Cassiano. Ele abriu sua primeira empresa aos 19 anos e aprendeu na prática o que é gerenciar negócios. Hoje atua de forma leve e estratégica, aplicando princípios de engenharia de software e gestão empresarial."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual é a filosofia de vida de Robson Cassiano?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Robson segue o provérbio \"Standing on the shoulders of giants\" (Nos ombros de gigantes), atribuído a Isaac Newton. Ele reconhece que suas conquistas são resultado das fundações estabelecidas por aqueles que vieram antes de dele. É um estudante perpétuo, amante da filosofia clássica e busca o conhecimento clássico para entender as bases do pensamento humano."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quais idiomas Robson Cassiano fala?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Robson é poliglota fluente em cinco idiomas: Português (nativo), Inglês, Japonês, Latim e Grego Antigo. Ele também ensina inglês com foco total em conversação e inglês da vida real, sem enrolação."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como entrar em contato com Robson Cassiano?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Você pode conectar-se com Robson através do LinkedIn, Instagram, YouTube, GitHub ou Twitter. Para mentoria internacional, visite global.robsoncassiano.software."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://eu.robsoncassiano.software/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://eu.robsoncassiano.software/"
           }
         ]
       }
     ]
   }
   </script>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;

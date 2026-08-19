@@ -27,7 +27,10 @@
               "robots.txt",
               "sitemap.xml",
               "metadata.json",
-              "CNAME"
+              "CNAME",
+              "index.md",
+              "llms.txt",
+              "llms-full.txt"
             ]
           },
           "configurations": {

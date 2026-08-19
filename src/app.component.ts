@@ -1,4 +1,3 @@
-
 import { Component, signal, inject, effect, computed, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RoleCardComponent } from './components/role-card.component';
@@ -106,11 +105,11 @@ export class AppComponent {
     effect(() => {
       const title = this.languageService.translate('SEO_TITLE');
       const description = this.languageService.translate('SEO_DESCRIPTION');
+      const isPt = this.currentLanguage() === 'pt';
+      const locale = isPt ? 'pt_BR' : 'en_US';
+      const languageTag = isPt ? 'pt-BR' : 'en-US';
 
       this.titleService.setTitle(title);
-      const locale = this.currentLanguage() === 'pt' ? 'pt_BR' : 'en_US';
-      const languageTag = this.currentLanguage() === 'pt' ? 'pt-BR' : 'en-US';
-
       this.metaService.updateTag({ name: 'description', content: description });
       this.metaService.updateTag({ name: 'robots', content: 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1' });
 
@@ -137,48 +136,49 @@ export class AppComponent {
     const lang = this.currentLanguage();
     const isPt = lang === 'pt';
 
-    const personSchema = {
-      "@context": "https://schema.org/",
-      "@type": "Person",
-      "name": "Robson Cassiano",
-      "alternateName": "Robson Cassiano Software",
-      "url": "https://eu.robsoncassiano.software/",
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
-        "width": 500,
-        "height": 500
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/robsoncassiano-software/",
-        "https://github.com/randintn",
-        "https://www.instagram.com/robsoncassiano.software/",
-        "https://www.youtube.com/@RobsonCassianoSoftware",
-        "https://twitter.com/RobsonDev"
-      ],
-      "jobTitle": isPt ? "Senior Software Engineer" : "Senior Software Engineer",
-      "description": this.languageService.translate('SEO_DESCRIPTION'),
-      "knowsAbout": [
-        "Java", "Spring Framework", "PostgreSQL", "Software Architecture", "International Career",
-        "Backend Development", "Mentorship", "Philosophy", "English Teaching", "Entrepreneurship"
-      ]
-    };
-
     const profilePageSchema = {
-      "@context": "https://schema.org",
       "@type": "ProfilePage",
-      "name": "Robson Cassiano",
+      "@id": "https://eu.robsoncassiano.software/#profilepage",
       "url": "https://eu.robsoncassiano.software/",
+      "name": "Robson Cassiano",
       "inLanguage": isPt ? "pt-BR" : "en-US",
       "mainEntity": {
         "@type": "Person",
-        "name": "Robson Cassiano"
+        "@id": "https://eu.robsoncassiano.software/#person",
+        "name": "Robson Cassiano",
+        "alternateName": "Robson Cassiano Software",
+        "url": "https://eu.robsoncassiano.software/",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
+          "width": 500,
+          "height": 500
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/robsoncassiano-software/",
+          "https://github.com/randintn",
+          "https://www.instagram.com/robsoncassiano.software/",
+          "https://www.youtube.com/@RobsonCassianoSoftware",
+          "https://twitter.com/RobsonDev"
+        ],
+        "jobTitle": isPt ? "Senior Software Engineer" : "Senior Software Engineer",
+        "description": this.languageService.translate('SEO_DESCRIPTION'),
+        "knowsAbout": [
+          "Java", "Spring Framework", "PostgreSQL", "Software Architecture", "International Career",
+          "Backend Development", "Mentorship", "Philosophy", "English Teaching", "Entrepreneurship"
+        ],
+        "knowsLanguage": ["pt-BR", "en", "ja", "la", "grc"],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Simple Software",
+          "url": "https://www.linkedin.com/company/simple-software-sa/"
+        }
       }
     };
 
     const faqSchema = {
-      "@context": "https://schema.org",
       "@type": "FAQPage",
+      "@id": "https://eu.robsoncassiano.software/#faq",
       "inLanguage": isPt ? "pt-BR" : "en-US",
       "mainEntity": [
         {
@@ -234,8 +234,21 @@ export class AppComponent {
           "name": this.languageService.translate('FAQ_Q7'),
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": this.languageService.translate('FAQ_A7')
+            "text": this.languageService.translate('FAQ_A7').replace(/<[^>]*>/g, '')
           }
+        }
+      ]
+    };
+
+    const breadcrumbSchema = {
+      "@type": "BreadcrumbList",
+      "@id": "https://eu.robsoncassiano.software/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://eu.robsoncassiano.software/"
         }
       ]
     };
@@ -247,7 +260,10 @@ export class AppComponent {
       scriptTag.type = 'application/ld+json';
       document.head.appendChild(scriptTag);
     }
-    scriptTag.text = JSON.stringify([personSchema, profilePageSchema, faqSchema]);
+    scriptTag.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [profilePageSchema, faqSchema, breadcrumbSchema]
+    });
   }
 
   changeLanguage(lang: Language) {

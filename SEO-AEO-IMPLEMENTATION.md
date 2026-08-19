@@ -39,27 +39,24 @@ Este documento detalha todas as otimizações de SEO (Search Engine Optimization
 
 ## 2. Structured Data (JSON-LD)
 
-### Schema.org Person
-Implementado schema completo com:
-- ✅ Nome e nome alternativo
+### Schema.org ProfilePage & Person
+Implementado schema oficial de ProfilePage do Google com `mainEntity` (Person) completo:
+- ✅ **ProfilePage** com `@id` e `mainEntity` obrigatório para Rich Results do Google
+- ✅ Nome e nome alternativo (Robson Cassiano Software)
 - ✅ URL e imagem estruturada (ImageObject)
-- ✅ Links de redes sociais (sameAs)
-- ✅ Múltiplos job titles
-- ✅ Descrição detalhada
-- ✅ **knowsAbout**: Lista de 14+ competências técnicas e profissionais
-- ✅ **knowsLanguage**: 5 idiomas estruturados (Português, Inglês, Japonês, Latim, Grego Antigo)
-- ✅ **worksFor**: Simple Software com founder relationship
-- ✅ **alumniOf**: Academia Atlântico
-- ✅ **hasOccupation**: 4 ocupações detalhadas com categorias SOC
-- ✅ **award** e **seeks**: Informações adicionais
+- ✅ Links de redes sociais (sameAs: LinkedIn, GitHub, Instagram, YouTube, Twitter)
+- ✅ Job title e descrição detalhada
+- ✅ **knowsAbout**: Lista abrangente de competências técnicas e profissionais
+- ✅ **knowsLanguage**: Idiomas estruturados (pt-BR, en, ja, la, grc)
+- ✅ **worksFor**: Simple Software com relação empresarial
 
 ### Schema.org FAQPage
-- ✅ 7 perguntas e respostas estruturadas
+- ✅ 7 perguntas e respostas estruturadas no `@graph`
 - ✅ Cobertura completa: quem é, especialidades, mentoria, empresa, filosofia, idiomas, contato
 - ✅ Formato otimizado para Answer Engines (Google, Bing, ChatGPT, Perplexity)
 
 ### Schema.org BreadcrumbList
-- ✅ Navegação breadcrumb com microdata
+- ✅ Navegação breadcrumb estruturada no JSON-LD
 - ✅ Estrutura hierárquica para melhor compreensão de crawlers
 
 ---
@@ -67,19 +64,11 @@ Implementado schema completo com:
 ## 3. Estrutura Semântica HTML5
 
 ### Tags Semânticas
-- ✅ `<article>` para cada seção principal:
-  - ProfilePage (Hero)
-  - Article (Filosofia)
-  - ItemList (Áreas de Atuação)
-  - Blog (Feed)
-  - FAQ (implícito)
+- ✅ `<article>` para cada seção principal (Hero, Filosofia, Atuação, Feed, FAQ)
 - ✅ `<nav>` com aria-label para navegação
 - ✅ `<header>`, `<main>`, `<footer>` estruturados
 - ✅ `<section>` com IDs únicos para navegação
-
-### Microdata
-- ✅ `itemscope` e `itemtype` em elementos principais
-- ✅ `itemprop` para propriedades específicas (breadcrumb)
+- ✅ JSON-LD centralizado e padronizado (recomendado pelo Google sobre Microdata)
 
 ---
 
@@ -143,22 +132,28 @@ Implementado schema completo com:
 
 ---
 
-## 7. Answer Engine Optimization (AEO)
+## 7. Answer Engine Optimization (AEO) & Agent Readiness
 
 ### Estratégias Implementadas
-1. **Conteúdo Estruturado**: FAQ com respostas diretas e concisas
-2. **Schema Markup Completo**: Person + FAQPage para máxima compreensão
-3. **Linguagem Natural**: Perguntas formuladas como usuários reais perguntariam
-4. **Informações Factuais**: Dados específicos (idiomas, tecnologias, valores)
-5. **Contexto Rico**: Descrições detalhadas em knowsAbout e hasOccupation
-6. **Crawlers de IA**: Permissões explícitas em robots.txt
+1. **Markdown Content Negotiation (`Accept: text/markdown`)**:
+   - Resposta com texto em Markdown limpo para requisições de agentes de IA com `Accept: text/markdown`.
+   - Headers `Content-Type: text/markdown; charset=utf-8`, `Vary: Accept` e `x-markdown-tokens`.
+   - Netlify Edge Function em [`netlify/edge-functions/markdown-negotiation.ts`](file:///C:/Coding/simple-software/portfolio/netlify/edge-functions/markdown-negotiation.ts).
+2. **Padrão `llms.txt` e `llms-full.txt`**:
+   - Arquivo [`llms.txt`](file:///C:/Coding/simple-software/portfolio/llms.txt) e [`llms-full.txt`](file:///C:/Coding/simple-software/portfolio/llms-full.txt) na raiz do domínio para consumo direto de LLMs.
+   - Tags de descoberta em [`index.html`](file:///C:/Coding/simple-software/portfolio/index.html).
+3. **Conteúdo Estruturado**: FAQ com respostas diretas e concisas
+4. **Schema Markup Completo**: `ProfilePage` + `Person` + `FAQPage` + `BreadcrumbList` em JSON-LD (`@graph`)
+5. **Linguagem Natural**: Perguntas formuladas como usuários e agentes perguntam
+6. **Informações Factuais**: Dados específicos (idiomas, tecnologias, empresa, links)
+7. **Crawlers de IA**: Permissões explícitas em `robots.txt`
 
 ### Benefícios Esperados
-- ✅ Aparição em Featured Snippets do Google
-- ✅ Respostas diretas em Bing Chat
-- ✅ Citações em ChatGPT, Claude, Perplexity
-- ✅ Rich Results em SERPs
-- ✅ Knowledge Graph potencial
+- ✅ Aprovação nos testes do [isitagentready.com](https://isitagentready.com/) (Content Accessibility & Markdown Negotiation: PASS)
+- ✅ Consumo de baixo custo de tokens por agentes de IA
+- ✅ Aparição em Featured Snippets do Google e respostas de IA (Perplexity, ChatGPT, Claude, Gemini)
+- ✅ Rich Results no Google Search Console
+- ✅ Consolidação de Entidade no Knowledge Graph
 
 ---
 
