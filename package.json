@@ -7,6 +7,8 @@
     "dev": "ng serve",
     "build": "ng build",
     "deploy": "ng build --base-href /robson-cassiano-portfolio/",
+    "pages:deploy": "bun run build && wrangler pages deploy dist --project-name=robson-cassiano-portfolio --branch=master",
+    "pages:dev": "wrangler pages dev dist",
     "preview": "ng serve --configuration=production"
   },
   "dependencies": {

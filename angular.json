@@ -30,7 +30,9 @@
               "CNAME",
               "index.md",
               "llms.txt",
-              "llms-full.txt"
+              "llms-full.txt",
+              "_redirects",
+              "_headers"
             ]
           },
           "configurations": {
