@@ -1,4 +1,4 @@
-import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, OnInit, afterNextRender } from '@angular/core';
+import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RoleCardComponent } from './components/role-card.component';
 import { PostItemComponent } from './components/post-item.component';
@@ -25,11 +25,7 @@ interface BlogPost {
   selector: 'app-root',
   imports: [NgOptimizedImage, RoleCardComponent, PostItemComponent, TranslatePipe],
   templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '(document:mouseleave)': 'onDocumentMouseLeave($event)',
-    '(document:keydown.escape)': 'onEscape()'
-  }
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   private languageService = inject(LanguageService);
@@ -42,10 +38,6 @@ export class AppComponent implements OnInit {
   // Local optimized image served on the same edge origin (Cloudflare Pages)
   profileImage = signal('assets/images/robson-cassiano-mentor.jpg');
   fullCanonicalImageUrl = 'https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg';
-
-  // CRO & Exit-Intent Modal State
-  isExitModalOpen = signal(false);
-  private hasTriggeredExitModal = signal(false);
 
   socials = signal<SocialLink[]>([
     { id: 'linkedin', name: 'LinkedIn', url: 'https://www.linkedin.com/in/robsoncassiano-software/' },
@@ -142,76 +134,10 @@ export class AppComponent implements OnInit {
 
       this.updateStructuredData();
     });
-
-    afterNextRender(() => {
-      this.initExitIntentListeners();
-    });
   }
 
   ngOnInit() {
     // Initialization hooks
-  }
-
-  private initExitIntentListeners() {
-    if (typeof window === 'undefined') return;
-
-    // 1. Mouseout / mouseleave listener on window & document
-    const handleExit = (e: MouseEvent) => {
-      if (e.clientY <= 30 || (!e.relatedTarget && e.clientY <= 60)) {
-        this.openExitModal();
-      }
-    };
-
-    document.addEventListener('mouseleave', handleExit);
-    document.addEventListener('mouseout', (e: MouseEvent) => {
-      if (!e.relatedTarget && e.clientY <= 30) {
-        this.openExitModal();
-      }
-    });
-
-    // 2. Mobile scroll up detection
-    let lastScrollY = window.scrollY;
-    let maxScrollY = 0;
-
-    window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > maxScrollY) {
-        maxScrollY = currentScrollY;
-      }
-      if (maxScrollY > 400 && currentScrollY < maxScrollY - 150 && currentScrollY < 200) {
-        this.openExitModal();
-      }
-      lastScrollY = currentScrollY;
-    }, { passive: true });
-
-    // 3. Timer fallback (20s)
-    setTimeout(() => {
-      this.openExitModal();
-    }, 20000);
-  }
-
-  onDocumentMouseLeave(event: MouseEvent) {
-    if (event.clientY <= 30) {
-      this.openExitModal();
-    }
-  }
-
-  onEscape() {
-    if (this.isExitModalOpen()) {
-      this.closeExitModal();
-    }
-  }
-
-  openExitModal() {
-    if (this.hasTriggeredExitModal()) {
-      return;
-    }
-    this.hasTriggeredExitModal.set(true);
-    this.isExitModalOpen.set(true);
-  }
-
-  closeExitModal() {
-    this.isExitModalOpen.set(false);
   }
 
   private updateStructuredData() {
