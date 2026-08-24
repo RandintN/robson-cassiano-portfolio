@@ -17,9 +17,9 @@
     </div>
 
     <div class="flex md:hidden items-center gap-2 text-slate-400">
-      <button (click)="changeLanguage('pt')" [class.text-lime-400]="currentLanguage() === 'pt'" class="hover:text-lime-400 transition-colors font-bold">PT</button>
+      <button (click)="changeLanguage('pt')" [class.text-lime-400]="currentLanguage() === 'pt'" aria-label="Mudar idioma para Português" class="hover:text-lime-400 transition-colors font-bold">PT</button>
       <span class="text-slate-700">|</span>
-      <button (click)="changeLanguage('en')" [class.text-lime-400]="currentLanguage() === 'en'" class="hover:text-lime-400 transition-colors font-bold">EN</button>
+      <button (click)="changeLanguage('en')" [class.text-lime-400]="currentLanguage() === 'en'" aria-label="Switch language to English" class="hover:text-lime-400 transition-colors font-bold">EN</button>
     </div>
 
     <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
@@ -32,9 +32,9 @@
         class="px-4 py-2 bg-lime-500 text-slate-900 rounded-full hover:bg-lime-400 transition-colors font-bold">{{ 'NAV_CONTACT' | translate }}</a>
       
       <div class="flex items-center gap-2 ml-4 border-l border-slate-800 pl-4">
-        <button (click)="changeLanguage('pt')" [class.text-lime-400]="currentLanguage() === 'pt'" class="hover:text-lime-400 transition-colors font-bold">PT</button>
+        <button (click)="changeLanguage('pt')" [class.text-lime-400]="currentLanguage() === 'pt'" aria-label="Mudar idioma para Português" class="hover:text-lime-400 transition-colors font-bold">PT</button>
         <span class="text-slate-700">|</span>
-        <button (click)="changeLanguage('en')" [class.text-lime-400]="currentLanguage() === 'en'" class="hover:text-lime-400 transition-colors font-bold">EN</button>
+        <button (click)="changeLanguage('en')" [class.text-lime-400]="currentLanguage() === 'en'" aria-label="Switch language to English" class="hover:text-lime-400 transition-colors font-bold">EN</button>
       </div>
     </nav>
   </header>
@@ -43,7 +43,7 @@
   <nav aria-label="Breadcrumb" class="container mx-auto px-6 py-2">
     <ol class="flex items-center gap-2 text-sm text-slate-500">
       <li>
-        <a href="https://eu.robsoncassiano.software/" class="hover:text-lime-400 transition-colors">
+        <a href="https://eu.robsoncassiano.software/" aria-label="Página Inicial Robson Cassiano" class="hover:text-lime-400 transition-colors">
           <span>Home</span>
         </a>
       </li>
@@ -68,10 +68,12 @@
 
           <div class="flex flex-wrap gap-4 mb-6">
             <a href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer"
+              aria-label="Conhecer o Treinamento Descomplica DEV Na Gringa"
               class="px-6 py-3.5 bg-lime-500 text-slate-950 font-bold rounded-lg hover:bg-lime-400 transition-all shadow-lg shadow-lime-500/20 flex items-center gap-2">
               {{ 'HERO_MENTORSHIP' | translate }}
             </a>
             <a href="https://www.linkedin.com/in/robsoncassiano-software/" target="_blank" rel="noopener noreferrer"
+              aria-label="Acessar o perfil de Robson Cassiano no LinkedIn"
               class="px-6 py-3.5 bg-slate-800 text-white font-bold rounded-lg border border-slate-700 hover:border-lime-500 hover:text-lime-400 transition-colors flex items-center gap-2">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -91,9 +93,9 @@
           <div class="relative w-72 h-72 lg:w-96 lg:h-96">
             <div class="absolute inset-0 bg-lime-500 rounded-3xl rotate-6 opacity-20"></div>
             <div class="absolute inset-0 bg-slate-800 rounded-3xl -rotate-3 border border-slate-700"></div>
-            <!-- Profile Image (Local Optimized) -->
-            <img [ngSrc]="profileImage()" width="500" height="500" priority alt="Robson Cassiano - Senior Software Engineer e Mentor Internacional"
-              class="relative w-full h-full object-cover rounded-2xl border-2 border-slate-700 shadow-2xl transition-all duration-500">
+            <!-- Profile Image (Exact 1:1 Aspect Ratio) -->
+            <img [ngSrc]="profileImage()" width="344" height="344" priority alt="Robson Cassiano - Senior Software Engineer e Mentor Internacional"
+              class="relative w-full h-full object-cover rounded-2xl border-2 border-slate-700 shadow-2xl transition-all duration-500 aspect-square">
           </div>
         </div>
       </section>
@@ -243,6 +245,7 @@
         <div class="flex items-center justify-between mb-8">
           <h2 class="text-3xl font-bold text-white">{{ 'FEED_TITLE' | translate }}</h2>
           <a href="https://www.linkedin.com/in/robsoncassiano-software/recent-activity/all/" target="_blank" rel="noopener noreferrer"
+            aria-label="Ver todas as publicações de Robson Cassiano no LinkedIn"
             class="text-lime-400 hover:text-lime-300 text-sm font-semibold">{{ 'FEED_VIEW_ALL' | translate }} &rarr;</a>
         </div>
 
@@ -378,6 +381,7 @@
         <div class="flex gap-4">
           @for (social of socials(); track social.id) {
           <a [href]="social.url" target="_blank" rel="noopener noreferrer"
+            [attr.aria-label]="social.name"
             class="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center text-slate-400 hover:bg-lime-500 hover:text-slate-900 hover:border-lime-500 transition-all duration-300"
             [title]="social.name">
             @switch (social.id) {
@@ -426,6 +430,7 @@
       <span class="text-xs text-lime-400 font-bold">{{ 'STICKY_MOBILE_LABEL' | translate }}</span>
     </div>
     <a href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer"
+      aria-label="Conhecer método para conquistar vagas remotas na gringa de 30k+"
       class="px-4 py-2.5 bg-lime-500 text-slate-950 text-xs font-extrabold rounded-lg hover:bg-lime-400 transition-all shadow-md shadow-lime-500/20 flex items-center gap-1.5 whitespace-nowrap">
       {{ 'STICKY_MOBILE_CTA' | translate }}
     </a>
