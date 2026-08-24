@@ -1,4 +1,4 @@
-import { Component, signal, inject, effect, computed, ChangeDetectionStrategy } from '@angular/core';
+import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, OnInit, afterNextRender } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RoleCardComponent } from './components/role-card.component';
 import { PostItemComponent } from './components/post-item.component';
@@ -24,8 +24,12 @@ interface BlogPost {
   imports: [NgOptimizedImage, RoleCardComponent, PostItemComponent, TranslatePipe],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(document:mouseleave)': 'onDocumentMouseLeave($event)',
+    '(document:keydown.escape)': 'onEscape()'
+  }
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   private languageService = inject(LanguageService);
   private titleService = inject(Title);
   private metaService = inject(Meta);
@@ -35,12 +39,16 @@ export class AppComponent {
 
   profileImage = signal('https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg');
 
+  // CRO & Exit-Intent Modal State
+  isExitModalOpen = signal(false);
+  private hasTriggeredExitModal = signal(false);
+
   socials = signal<SocialLink[]>([
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/robsoncassiano-software/', icon: 'fab fa-linkedin-in' },
     { name: 'GitHub', url: 'https://github.com/randintn', icon: 'fab fa-github' },
     { name: 'Instagram', url: 'https://www.instagram.com/robsoncassiano.software/', icon: 'fab fa-instagram' },
     { name: 'YouTube', url: 'https://www.youtube.com/@RobsonCassianoSoftware', icon: 'fab fa-youtube' },
-    { name: 'Twitter', url: 'https://twitter.com/RobsonDev', icon: 'fab fa-twitter' }
+    { name: 'Twitter', url: 'https://x.com/RobsonDev', icon: 'fab fa-twitter' }
   ]);
 
   posts = computed(() => {
@@ -130,6 +138,77 @@ export class AppComponent {
 
       this.updateStructuredData();
     });
+
+    afterNextRender(() => {
+      this.initExitIntentListeners();
+    });
+  }
+
+  ngOnInit() {
+    // Basic setup if needed
+  }
+
+  private initExitIntentListeners() {
+    if (typeof window === 'undefined') return;
+
+    // 1. Mouseout / mouseleave listener on window & document
+    const handleExit = (e: MouseEvent) => {
+      if (e.clientY <= 30 || (!e.relatedTarget && e.clientY <= 60)) {
+        this.openExitModal();
+      }
+    };
+
+    document.addEventListener('mouseleave', handleExit);
+    document.addEventListener('mouseout', (e: MouseEvent) => {
+      if (!e.relatedTarget && e.clientY <= 30) {
+        this.openExitModal();
+      }
+    });
+
+    // 2. Mobile scroll up detection
+    let lastScrollY = window.scrollY;
+    let maxScrollY = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > maxScrollY) {
+        maxScrollY = currentScrollY;
+      }
+      // If user scrolled down past 400px and then scrolled up rapidly towards the top
+      if (maxScrollY > 400 && currentScrollY < maxScrollY - 150 && currentScrollY < 200) {
+        this.openExitModal();
+      }
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+
+    // 3. Timer fallback (20s)
+    setTimeout(() => {
+      this.openExitModal();
+    }, 20000);
+  }
+
+  onDocumentMouseLeave(event: MouseEvent) {
+    if (event.clientY <= 30) {
+      this.openExitModal();
+    }
+  }
+
+  onEscape() {
+    if (this.isExitModalOpen()) {
+      this.closeExitModal();
+    }
+  }
+
+  openExitModal() {
+    if (this.hasTriggeredExitModal()) {
+      return;
+    }
+    this.hasTriggeredExitModal.set(true);
+    this.isExitModalOpen.set(true);
+  }
+
+  closeExitModal() {
+    this.isExitModalOpen.set(false);
   }
 
   private updateStructuredData() {
@@ -140,104 +219,120 @@ export class AppComponent {
       "@type": "ProfilePage",
       "@id": "https://eu.robsoncassiano.software/#profilepage",
       "url": "https://eu.robsoncassiano.software/",
-      "name": "Robson Cassiano",
+      "name": isPt ? "Robson Cassiano | Senior Software Engineer, Mentor e Filósofo" : "Robson Cassiano | Senior Software Engineer, Mentor and Philosopher",
       "inLanguage": isPt ? "pt-BR" : "en-US",
       "mainEntity": {
         "@type": "Person",
         "@id": "https://eu.robsoncassiano.software/#person",
         "name": "Robson Cassiano",
-        "alternateName": "Robson Cassiano Software",
+        "alternateName": ["RobsonDev", "Robson Cassiano Software", "randintn"],
         "url": "https://eu.robsoncassiano.software/",
         "image": {
           "@type": "ImageObject",
           "url": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
           "width": 500,
-          "height": 500
+          "height": 500,
+          "caption": "Robson Cassiano - Senior Software Engineer & Mentor Internacional"
         },
         "sameAs": [
           "https://www.linkedin.com/in/robsoncassiano-software/",
           "https://github.com/randintn",
           "https://www.instagram.com/robsoncassiano.software/",
           "https://www.youtube.com/@RobsonCassianoSoftware",
-          "https://twitter.com/RobsonDev"
+          "https://x.com/RobsonDev"
         ],
-        "jobTitle": isPt ? "Senior Software Engineer" : "Senior Software Engineer",
+        "jobTitle": isPt ? "Senior Software Engineer & Mentor Internacional" : "Senior Software Engineer & International Career Mentor",
         "description": this.languageService.translate('SEO_DESCRIPTION'),
         "knowsAbout": [
-          "Java", "Spring Framework", "PostgreSQL", "Software Architecture", "International Career",
-          "Backend Development", "Mentorship", "Philosophy", "English Teaching", "Entrepreneurship"
+          "Java Backend Development",
+          "Spring Framework & Spring Boot",
+          "PostgreSQL Database Optimization",
+          "Software Architecture & Clean Architecture",
+          "International Career Acceleration",
+          "Remote Work Negotiation",
+          "English for Software Engineers",
+          "Classical Philosophy"
         ],
-        "knowsLanguage": ["pt-BR", "en", "ja", "la", "grc"],
+        "knowsLanguage": [
+          { "@type": "Language", "name": "Portuguese", "alternateName": "pt-BR" },
+          { "@type": "Language", "name": "English", "alternateName": "en" },
+          { "@type": "Language", "name": "Japanese", "alternateName": "ja" },
+          { "@type": "Language", "name": "Latin", "alternateName": "la" },
+          { "@type": "Language", "name": "Ancient Greek", "alternateName": "grc" }
+        ],
         "worksFor": {
           "@type": "Organization",
-          "name": "Simple Software",
-          "url": "https://www.linkedin.com/company/simple-software-sa/"
+          "@id": "https://eu.robsoncassiano.software/#organization"
+        },
+        "founder": {
+          "@type": "Organization",
+          "@id": "https://eu.robsoncassiano.software/#organization"
         }
       }
     };
+
+    const organizationSchema = {
+      "@type": "Organization",
+      "@id": "https://eu.robsoncassiano.software/#organization",
+      "name": "Simple Software LTDA",
+      "url": "https://www.linkedin.com/company/simple-software-sa/",
+      "logo": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://eu.robsoncassiano.software/#person"
+      },
+      "description": isPt
+        ? "Software house e consultoria de alta engenharia fundada por Robson Cassiano."
+        : "Software engineering company and consulting founded by Robson Cassiano."
+    };
+
+    const programSchema = {
+      "@type": "EducationalOccupationalProgram",
+      "@id": "https://global.robsoncassiano.software/#program",
+      "name": "Descomplica DEV Na Gringa - Mentoria de Carreira Internacional",
+      "description": isPt
+        ? "Programa de mentoria e aceleração para desenvolvedores conquistarem contratos internacionais acima de R$ 30.000 mensais."
+        : "Mentorship and career acceleration program for software engineers targeting $6k-$12k+/month remote roles.",
+      "provider": {
+        "@type": "Person",
+        "@id": "https://eu.robsoncassiano.software/#person"
+      },
+      "url": "https://global.robsoncassiano.software/",
+      "timeToComplete": "P3M",
+      "occupationalCategory": "Software Developers",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "BRL",
+        "category": "Mentoria & Aceleração de Carreira",
+        "availability": "https://schema.org/InStock",
+        "url": "https://global.robsoncassiano.software/"
+      }
+    };
+
+    const faqQuestions = [
+      { q: 'FAQ_Q1', a: 'FAQ_A1' },
+      { q: 'FAQ_Q2', a: 'FAQ_A2' },
+      { q: 'FAQ_Q3', a: 'FAQ_A3' },
+      { q: 'FAQ_Q4', a: 'FAQ_A4' },
+      { q: 'FAQ_Q5', a: 'FAQ_A5' },
+      { q: 'FAQ_Q6', a: 'FAQ_A6' },
+      { q: 'FAQ_Q7', a: 'FAQ_A7' },
+      { q: 'FAQ_Q8', a: 'FAQ_A8' }
+    ];
 
     const faqSchema = {
       "@type": "FAQPage",
       "@id": "https://eu.robsoncassiano.software/#faq",
       "inLanguage": isPt ? "pt-BR" : "en-US",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": this.languageService.translate('FAQ_Q1'),
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": this.languageService.translate('FAQ_A1')
-          }
-        },
-        {
-          "@type": "Question",
-          "name": this.languageService.translate('FAQ_Q2'),
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": this.languageService.translate('FAQ_A2')
-          }
-        },
-        {
-          "@type": "Question",
-          "name": this.languageService.translate('FAQ_Q3'),
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": this.languageService.translate('FAQ_A3')
-          }
-        },
-        {
-          "@type": "Question",
-          "name": this.languageService.translate('FAQ_Q4'),
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": this.languageService.translate('FAQ_A4')
-          }
-        },
-        {
-          "@type": "Question",
-          "name": this.languageService.translate('FAQ_Q5'),
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": this.languageService.translate('FAQ_A5')
-          }
-        },
-        {
-          "@type": "Question",
-          "name": this.languageService.translate('FAQ_Q6'),
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": this.languageService.translate('FAQ_A6')
-          }
-        },
-        {
-          "@type": "Question",
-          "name": this.languageService.translate('FAQ_Q7'),
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": this.languageService.translate('FAQ_A7').replace(/<[^>]*>/g, '')
-          }
+      "mainEntity": faqQuestions.map(item => ({
+        "@type": "Question",
+        "name": this.languageService.translate(item.q),
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": this.languageService.translate(item.a).replace(/<[^>]*>/g, '')
         }
-      ]
+      }))
     };
 
     const breadcrumbSchema = {
@@ -262,7 +357,7 @@ export class AppComponent {
     }
     scriptTag.text = JSON.stringify({
       "@context": "https://schema.org",
-      "@graph": [profilePageSchema, faqSchema, breadcrumbSchema]
+      "@graph": [profilePageSchema, organizationSchema, programSchema, faqSchema, breadcrumbSchema]
     });
   }
 
