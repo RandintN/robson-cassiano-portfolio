@@ -6,10 +6,12 @@ import { LanguageService, Language } from './app/services/language.service';
 import { TranslatePipe } from './app/pipes/translate.pipe';
 import { Title, Meta } from '@angular/platform-browser';
 
+export type SocialPlatform = 'linkedin' | 'github' | 'instagram' | 'youtube' | 'twitter';
+
 interface SocialLink {
+  id: SocialPlatform;
   name: string;
   url: string;
-  icon: string;
 }
 
 interface BlogPost {
@@ -37,18 +39,20 @@ export class AppComponent implements OnInit {
   currentYear = signal(new Date().getFullYear());
   currentLanguage = this.languageService.language;
 
-  profileImage = signal('https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg');
+  // Local optimized image served on the same edge origin (Cloudflare Pages)
+  profileImage = signal('assets/images/robson-cassiano-mentor.jpg');
+  fullCanonicalImageUrl = 'https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg';
 
   // CRO & Exit-Intent Modal State
   isExitModalOpen = signal(false);
   private hasTriggeredExitModal = signal(false);
 
   socials = signal<SocialLink[]>([
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/robsoncassiano-software/', icon: 'fab fa-linkedin-in' },
-    { name: 'GitHub', url: 'https://github.com/randintn', icon: 'fab fa-github' },
-    { name: 'Instagram', url: 'https://www.instagram.com/robsoncassiano.software/', icon: 'fab fa-instagram' },
-    { name: 'YouTube', url: 'https://www.youtube.com/@RobsonCassianoSoftware', icon: 'fab fa-youtube' },
-    { name: 'Twitter', url: 'https://x.com/RobsonDev', icon: 'fab fa-twitter' }
+    { id: 'linkedin', name: 'LinkedIn', url: 'https://www.linkedin.com/in/robsoncassiano-software/' },
+    { id: 'github', name: 'GitHub', url: 'https://github.com/randintn' },
+    { id: 'instagram', name: 'Instagram', url: 'https://www.instagram.com/robsoncassiano.software/' },
+    { id: 'youtube', name: 'YouTube', url: 'https://www.youtube.com/@RobsonCassianoSoftware' },
+    { id: 'twitter', name: 'Twitter / X', url: 'https://x.com/RobsonDev' }
   ]);
 
   posts = computed(() => {
@@ -126,13 +130,13 @@ export class AppComponent implements OnInit {
       this.metaService.updateTag({ property: 'og:title', content: title });
       this.metaService.updateTag({ property: 'og:description', content: description });
       this.metaService.updateTag({ property: 'og:url', content: 'https://eu.robsoncassiano.software/' });
-      this.metaService.updateTag({ property: 'og:image', content: this.profileImage() });
+      this.metaService.updateTag({ property: 'og:image', content: this.fullCanonicalImageUrl });
       this.metaService.updateTag({ property: 'og:locale', content: locale });
 
       this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
       this.metaService.updateTag({ name: 'twitter:title', content: title });
       this.metaService.updateTag({ name: 'twitter:description', content: description });
-      this.metaService.updateTag({ name: 'twitter:image', content: this.profileImage() });
+      this.metaService.updateTag({ name: 'twitter:image', content: this.fullCanonicalImageUrl });
 
       this.metaService.updateTag({ name: 'language', content: languageTag });
 
@@ -145,7 +149,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Basic setup if needed
+    // Initialization hooks
   }
 
   private initExitIntentListeners() {
@@ -174,7 +178,6 @@ export class AppComponent implements OnInit {
       if (currentScrollY > maxScrollY) {
         maxScrollY = currentScrollY;
       }
-      // If user scrolled down past 400px and then scrolled up rapidly towards the top
       if (maxScrollY > 400 && currentScrollY < maxScrollY - 150 && currentScrollY < 200) {
         this.openExitModal();
       }
@@ -229,7 +232,7 @@ export class AppComponent implements OnInit {
         "url": "https://eu.robsoncassiano.software/",
         "image": {
           "@type": "ImageObject",
-          "url": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
+          "url": this.fullCanonicalImageUrl,
           "width": 500,
           "height": 500,
           "caption": "Robson Cassiano - Senior Software Engineer & Mentor Internacional"
@@ -276,7 +279,7 @@ export class AppComponent implements OnInit {
       "@id": "https://eu.robsoncassiano.software/#organization",
       "name": "Simple Software LTDA",
       "url": "https://www.linkedin.com/company/simple-software-sa/",
-      "logo": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
+      "logo": this.fullCanonicalImageUrl,
       "founder": {
         "@type": "Person",
         "@id": "https://eu.robsoncassiano.software/#person"
