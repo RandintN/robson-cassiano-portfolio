@@ -27,16 +27,16 @@
     </image:image>
   </url>
 
-  <!-- Artigo: Polyworking: Uma Prática que Não é Tão Vantajosa quanto Pensa -->
+  <!-- Artigo: Polyworking na Engenharia de Software: A Realidade Operacional, Riscos Jurídicos e a Ilusão da Escala -->
   <url>
-    <loc>https://eu.robsoncassiano.software/artigos/polyworking-nao-é-tão-vantajoso-quanto-pensa</loc>
+    <loc>https://eu.robsoncassiano.software/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa</loc>
     <lastmod>2026-08-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
       <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Polyworking: Uma Prática que Não é Tão Vantajosa quanto Pensa</image:title>
-      <image:caption>A prática de polyworking pode parecer uma maneira de ganhar mais dinheiro, mas ela tem consequências legais e psicológicas que devem ser consideradas.</image:caption>
+      <image:title>Polyworking na Engenharia de Software: A Realidade Operacional, Riscos Jurídicos e a Ilusão da Escala</image:title>
+      <image:caption>Análise técnica sobre a prática de múltiplos contratos remotos simultâneos: limites biológicos, dirigismo contratual, jurisprudência trabalhista e o teto da venda de horas.</image:caption>
     </image:image>
   </url>
 
