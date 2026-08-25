@@ -2,7 +2,11 @@ import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, O
 import { NgOptimizedImage } from '@angular/common';
 import { RoleCardComponent } from './components/role-card.component';
 import { PostItemComponent } from './components/post-item.component';
+import { ArticleCardComponent } from './components/article-card.component';
+import { ArticleReaderComponent } from './components/article-reader.component';
+import { NewsletterFormComponent } from './components/newsletter-form.component';
 import { LanguageService, Language } from './app/services/language.service';
+import { ContentService } from './app/services/content.service';
 import { TranslatePipe } from './app/pipes/translate.pipe';
 import { Title, Meta } from '@angular/platform-browser';
 
@@ -23,7 +27,15 @@ interface BlogPost {
 
 @Component({
   selector: 'app-root',
-  imports: [NgOptimizedImage, RoleCardComponent, PostItemComponent, TranslatePipe],
+  imports: [
+    NgOptimizedImage,
+    RoleCardComponent,
+    PostItemComponent,
+    ArticleCardComponent,
+    ArticleReaderComponent,
+    NewsletterFormComponent,
+    TranslatePipe
+  ],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -31,6 +43,7 @@ export class AppComponent implements OnInit {
   private languageService = inject(LanguageService);
   private titleService = inject(Title);
   private metaService = inject(Meta);
+  readonly contentService = inject(ContentService);
 
   currentYear = signal(new Date().getFullYear());
   currentLanguage = this.languageService.language;

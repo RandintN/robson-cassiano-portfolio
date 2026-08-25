@@ -1,0 +1,41 @@
+[
+  {
+    "slug": "por-que-spring-boot-domina-backend-global",
+    "title": "Por que o Spring Boot e Java Dominam os Melhores Contratos Globais de Backend",
+    "date": "01 Mar 2026",
+    "author": "Robson Cassiano",
+    "category": "Engenharia de Software",
+    "readTime": "5 min de leitura",
+    "tags": ["Java", "Spring Boot", "Arquitetura", "Enterprise"],
+    "summary": "Enquanto novos frameworks surgem a cada semana, o ecossistema Java/Spring continua sustentando as aplicações mais críticas e lucrativas do mundo. Entenda por que empresas no exterior pagam mais de $8k/mês por quem domina essa stack.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global",
+    "content": "Na indústria de desenvolvimento de software, existe uma tentação constante de perseguir o 'novo framework da moda'. A cada trimestre, uma nova biblioteca promete revolucionar o desenvolvimento web com sintaxes ultra concisas.\n\nNo entanto, quando olhamos para as corporações globais que movimentam bilhões de dólares — bancos, seguradoras, fintechs multinacionais e plataformas SaaS de alta escala nos EUA e Europa —, uma tecnologia permanece inabalável no topo: **Java e o ecossistema Spring Boot**.\n\n---\n\n### 1. O Princípio da Robustez Corporativa\n\nSistemas corporativos não são construídos para testes de vaidade; são construídos para **durabilidade, conformidade e altíssima disponibilidade**.\n\nO Spring Framework oferece três pilares inegociáveis para engenharia de grande porte:\n- **Tipagem Forte e Previsibilidade:** Refatorações em sistemas com milhões de linhas de código são seguras e auditáveis pelo compilador.\n- **Gerenciamento Transacional Robusto (`@Transactional`):** Garantia ACID em fluxos financeiros complexos sem surpresas de concorrência.\n- **Injeção de Dependências e Inversão de Controle:** Facilita a adesão à *Clean Architecture* e princípios SOLID, isolando a regra de negócio de frameworks e bancos.\n\n---\n\n### 2. Por que Empresas Estrangeiras Pagam $6k a $12k+/mês por Devs Java?\n\nEmpresas no exterior não contratam desenvolvedores Java apenas para 'digitar código'. Elas contratam **confiança e maturidade arquitetural**.\n\n- **Migração de Monólitos para Microsserviços Resilientes:** Domínio de mensageria (Kafka, RabbitMQ) com Spring Cloud e Docker/Kubernetes.\n- **Otimização de Banco de Dados:** Saber quando usar JPA/Hibernate e quando descer para SQL puro ou tuning de índices no PostgreSQL.\n- **Mentalidade de Negócio:** Entender o impacto de uma falha de latência em operações críticas.\n\n---\n\n### 3. Conclusão: Especialização Profunda vs Generalismo Raso\n\nSe o seu objetivo é alcançar contratos remotos de **R$ 30.000 a R$ 60.000 mensais** no mercado global, o caminho não é aprender cinco linguagens superficiais. É dominar os fundamentos da engenharia de software na plataforma que sustenta a economia mundial."
+  },
+  {
+    "slug": "como-negociar-contratos-8k-mes-dev-java",
+    "title": "Como Negociar Contratos de $8k+/mês no Exterior sem Inglês Nativo",
+    "date": "15 Mar 2026",
+    "author": "Robson Cassiano",
+    "category": "Carreira Internacional",
+    "readTime": "6 min de leitura",
+    "tags": ["Carreira Remota", "Dólar", "Negociação", "Real English"],
+    "summary": "O maior obstáculo para desenvolvedores sênior ganharem em dólar não é a técnica, mas o medo do inglês acadêmico. Descubra o método 'Real English' e o framework de negociação para fechar contratos de R$ 30k+/mês.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java",
+    "content": "Uma das maiores crenças limitantes que vejo em engenheiros de software sênior no Brasil é a ideia de que *'preciso estudar mais 3 anos de inglês antes de me candidatar para fora'*.\n\nEssa mentalidade faz com que desenvolvedores brilhantes, que lideram equipes e sustentam arquiteturas críticas no Brasil ganhando R$ 12k a R$ 18k, deixem de faturar **R$ 40.000 a R$ 60.000 mensais** trabalhando de casa para empresas dos Estados Unidos e Europa.\n\n---\n\n### 1. O Conceito de 'Real English' vs Inglês Acadêmico\n\nNo mercado corporativo de tecnologia internacional, **ninguém está avaliando sua pronúncia de Shakespeare**.\n\nO que os recrutadores e CTOs internacionais realmente buscam é:\n1. **Comunicação Funcional e Clara:** Capacidade de explicar uma decisão arquitetural, listar prós e contras de uma solução e dar estimativas realistas.\n2. **Vocabulário Técnico Preciso:** Saber termos como *trade-offs, bottlenecks, deadlocks, race conditions, failover, throughput* e *idempotency*.\n3. **Assertividade nas Dailies:** Comunicar o que foi feito, o que será feito e quais são os impedimentos (*blockers*) em menos de 2 minutos.\n\n---\n\n### 2. O Framework de Negociação Salarial em Moeda Forte\n\nAo negociar com empresas americanas ou europeias, nunca dê um número fixo logo de início. Use a ancoragem de valor com base em entrega e senioridade técnica."
+  },
+  {
+    "slug": "filosofia-classica-e-arquitetura-de-software",
+    "title": "O que Aristóteles e a Filosofia Clássica Ensinam sobre Arquitetura de Software",
+    "date": "01 Abr 2026",
+    "author": "Robson Cassiano",
+    "category": "Filosofia & Engenharia",
+    "readTime": "5 min de leitura",
+    "tags": ["Filosofia", "Clean Code", "Arquitetura", "Modelos Mentais"],
+    "summary": "Como a busca pelas causas primeiras, a virtude do equilíbrio e o princípio da simplicidade da filosofia clássica transformam desenvolvedores juniores e plenos em líderes técnicos de referência.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software",
+    "content": "Muitos desenvolvedores acreditam que a evolução técnica se resume a aprender a sintaxe de novas linguagens e memorizar decorators de bibliotecas modernas.\n\nPorém, quando você atinge o nível sênior e de liderança arquitetural, o desafio principal deixa de ser a sintaxe e passa a ser **a tomada de decisão sob incerteza**. É exatamente aqui que a **Filosofia Clássica** se torna uma das ferramentas mais práticas e poderosas da engenharia.\n\n---\n\n### 1. As Quatro Causas de Aristóteles Aplicadas a Sistemas\n\nAristóteles propunha que, para compreender verdadeiramente qualquer ente ou criação humana, devemos analisar suas **Quatro Causas**:\n\n1. **Causa Material:** Do que o sistema é feito? (A stack, a linguagem Java, o banco de dados PostgreSQL, a memória alocada).\n2. **Causa Formal:** Qual é a estrutura e arquitetura do código? (Clean Architecture, padrões de projeto, separação de camadas e domínios).\n3. **Causa Eficiente:** Quem constrói e opera o sistema? (A equipe de engenharia, os processos de CI/CD e as práticas de revisão de código).\n4. **Causa Final (*Telos*):** **Para que o sistema existe?** (O valor econômico e o problema real do usuário que o software resolve).\n\n---\n\n### 2. A Navalha de Occam e o Princípio da Simplicidade\n\n*'Não multiplique as entidades além do estritamente necessário.'*\n\nNo design de software, adicionar uma fila assíncrona, um cluster de microsserviços ou um cache distribuído antes da hora cria complexidade acidental. O bom arquiteto é aquele que resolve o problema com o menor número de peças móveis possíveis."
+  }
+]

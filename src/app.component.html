@@ -25,6 +25,7 @@
     <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
       <a href="#sobre" class="hover:text-lime-400 transition-colors">{{ 'NAV_ABOUT' | translate }}</a>
       <a href="#atuacao" class="hover:text-lime-400 transition-colors">{{ 'NAV_ROLES' | translate }}</a>
+      <a href="#artigos" class="hover:text-lime-400 transition-colors">{{ 'NAV_ARTICLES' | translate }}</a>
       <a href="#comparativo" class="hover:text-lime-400 transition-colors">{{ 'NAV_COMPARISON' | translate }}</a>
       <a href="#feed" class="hover:text-lime-400 transition-colors">{{ 'NAV_FEED' | translate }}</a>
       <a href="#faq" class="hover:text-lime-400 transition-colors">{{ 'NAV_FAQ' | translate }}</a>
@@ -244,6 +245,45 @@
       </section>
     </article>
 
+    <!-- Articles & Insights CMS Section (100% Cloudflare & Markdown Native) -->
+    <article>
+      <section id="artigos" class="mb-24">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-block px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-lime-400 text-xs font-bold mb-3 uppercase tracking-wide">
+            {{ 'ARTICLES_BADGE' | translate }}
+          </div>
+          <h2 class="text-3xl font-bold text-white mb-3">{{ 'ARTICLES_TITLE' | translate }}</h2>
+          <p class="text-slate-400 text-sm md:text-base">{{ 'ARTICLES_SUBTITLE' | translate }}</p>
+        </div>
+
+        <!-- Category filter pills -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
+          @for (cat of contentService.categories(); track cat) {
+            <button
+              type="button"
+              (click)="contentService.setCategory(cat)"
+              [class.bg-lime-500]="contentService.selectedCategory() === cat"
+              [class.text-slate-950]="contentService.selectedCategory() === cat"
+              [class.font-extrabold]="contentService.selectedCategory() === cat"
+              [class.bg-slate-900]="contentService.selectedCategory() !== cat"
+              [class.text-slate-400]="contentService.selectedCategory() !== cat"
+              [class.hover:text-white]="contentService.selectedCategory() !== cat"
+              class="px-4 py-2 rounded-full border border-slate-800 text-xs font-semibold transition-all"
+            >
+              {{ cat === 'all' ? 'Todos os Artigos' : cat }}
+            </button>
+          }
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          @for (art of contentService.articles(); track art.slug) {
+            <app-article-card [article]="art" (onRead)="contentService.selectArticle($event)" />
+          }
+        </div>
+      </section>
+    </article>
+
     <!-- Feed Section -->
     <article>
       <section id="feed" class="max-w-3xl mx-auto mb-24">
@@ -372,6 +412,13 @@
       </section>
     </article>
 
+    <!-- Native Cloudflare Newsletter & VIP List Section -->
+    <article>
+      <section id="newsletter" class="max-w-3xl mx-auto mb-24">
+        <app-newsletter-form />
+      </section>
+    </article>
+
   </main>
 
   <!-- Footer -->
@@ -440,5 +487,10 @@
       {{ 'STICKY_MOBILE_CTA' | translate }}
     </a>
   </aside>
+
+  <!-- ================= ARTICLE READER MODAL ================= -->
+  @if (contentService.selectedArticle(); as selectedArt) {
+    <app-article-reader [article]="selectedArt" (onClose)="contentService.closeArticle()" />
+  }
 
 </div>
