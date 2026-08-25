@@ -34,11 +34,7 @@ for (const art of articles) {
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 uppercase tracking-wider">Gravação Original</span>
           <span class="text-xs text-slate-300 font-semibold">🎥 Quer se aprofundar? Assista à transmissão que deu origem a este ensaio:</span>
         </div>
-        <lite-youtube videoid="${art.youtubeVideoId}" playlabel="Assistir transmissão original de Robson Cassiano">
-          <a href="https://www.youtube.com/watch?v=${art.youtubeVideoId}" class="lty-playbtn" title="Assistir no YouTube">
-            <span class="lyt-visually-hidden">Assistir transmissão original no YouTube</span>
-          </a>
-        </lite-youtube>
+        <lite-youtube videoid="${art.youtubeVideoId}" playlabel="Assistir transmissão original de Robson Cassiano"></lite-youtube>
       </div>
     `;
 
@@ -133,8 +129,51 @@ ${JSON.stringify(jsonLd, null, 2)}
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.css" />
-  <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.js" defer></script>
+  <script>
+    class LiteYouTube extends HTMLElement {
+      connectedCallback() {
+        const videoId = this.getAttribute('videoid');
+        if (!videoId || this.dataset.initialized) return;
+        this.dataset.initialized = 'true';
+
+        const playLabel = this.getAttribute('playlabel') || 'Assistir transmissão';
+        this.innerHTML = \`
+          <div class="relative w-full aspect-video bg-slate-950 rounded-xl overflow-hidden cursor-pointer group shadow-2xl border border-slate-800 transition-all">
+            <img 
+              src="https://i.ytimg.com/vi/\${videoId}/hqdefault.jpg" 
+              alt="\${playLabel}"
+              loading="lazy"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/20 flex items-center justify-center">
+              <div class="w-16 h-12 bg-red-600/90 group-hover:bg-red-600 rounded-2xl flex items-center justify-center text-white shadow-xl transition-all group-hover:scale-110">
+                <svg class="w-6 h-6 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
+        \`;
+
+        this.firstElementChild?.addEventListener('click', (e) => {
+          e.preventDefault();
+          const origin = encodeURIComponent(window.location.origin);
+          this.innerHTML = \`
+            <iframe 
+              src="https://www.youtube.com/embed/\${videoId}?autoplay=1&origin=\${origin}"
+              title="\${playLabel}"
+              class="w-full aspect-video rounded-xl shadow-2xl border border-slate-800"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          \`;
+        }, { once: true });
+      }
+    }
+    if (!customElements.get('lite-youtube')) {
+      customElements.define('lite-youtube', LiteYouTube);
+    }
+  </script>
   <style>
     body { background-color: #020617; color: #cbd5e1; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
     .article-body h1 { font-size: 1.875rem; font-weight: 800; color: #ffffff; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3; }
