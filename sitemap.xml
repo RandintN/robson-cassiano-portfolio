@@ -104,4 +104,17 @@
       <image:caption>Enquanto novos frameworks surgem a cada semana, o ecossistema Java/Spring continua sustentando as aplicações mais críticas e lucrativas do mundo. Entenda por que empresas no exterior pagam mais de $8k/mês por quem domina essa stack.</image:caption>
     </image:image>
   </url>
+
+  <!-- Artigo: O Mercado Real de Engenharia de Software: Fundamentos, Choque Prático e a Longevidade da Carreira -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski</loc>
+    <lastmod>2023-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>O Mercado Real de Engenharia de Software: Fundamentos, Choque Prático e a Longevidade da Carreira</image:title>
+      <image:caption>Ensaio analítico sobre a primeira live técnica do canal: o abismo entre o ensino acadêmico e a produção real, e os princípios que sustentam mais de uma década na engenharia de software.</image:caption>
+    </image:image>
+  </url>
 </urlset>

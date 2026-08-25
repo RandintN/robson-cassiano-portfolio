@@ -1,0 +1,5552 @@
+1
+00:00:00,080 --> 00:00:06,960
+você já chegou a fazer Live alguma vez
+
+2
+00:00:01,719 --> 00:00:10,080
+no YouTube cara no YouTube só streaming
+
+3
+00:00:06,960 --> 00:00:13,200
+de jogo mesmo assim sabe Ah então e
+
+4
+00:00:10,080 --> 00:00:16,279
+privado mesmo privado é olha como
+
+5
+00:00:13,200 --> 00:00:19,600
+aparece aqui para mim eu achava que ele
+
+6
+00:00:16,279 --> 00:00:23,920
+ia aparecer aqui Junto desses outros
+
+7
+00:00:19,600 --> 00:00:26,920
+vídeos mas ele não apareceu ainda Ah
+
+8
+00:00:23,920 --> 00:00:30,080
+aqui a minha transmissão apareceu mesmo
+
+9
+00:00:26,920 --> 00:00:33,920
+deixa eu ver se já eu sei que o pessoal
+
+10
+00:00:30,080 --> 00:00:35,879
+profissional é tá tava registrando mesmo
+
+11
+00:00:33,920 --> 00:00:39,920
+tá certinho
+
+12
+00:00:35,879 --> 00:00:43,480
+beleza quer retomar aí beleza então
+
+13
+00:00:39,920 --> 00:00:45,600
+Eh vamos falar um pouco sobre carreira
+
+14
+00:00:43,480 --> 00:00:46,719
+né a gente compartilhar Nossa
+
+15
+00:00:45,600 --> 00:00:48,199
+experiência com o pessoal que vai
+
+16
+00:00:46,719 --> 00:00:51,440
+assistir a
+
+17
+00:00:48,199 --> 00:00:53,840
+gente eh fala sobre sobre a sua carreira
+
+18
+00:00:51,440 --> 00:00:56,680
+O que que você já tem tem feito seja na
+
+19
+00:00:53,840 --> 00:01:01,280
+á de programação ou seja em outro outros
+
+20
+00:00:56,680 --> 00:01:03,400
+assuntos manda a bala Beleza já iniciou
+
+21
+00:01:01,280 --> 00:01:08,520
+aí sim Então
+
+22
+00:01:03,400 --> 00:01:09,720
+beleza cara carreira é um tema tema mais
+
+23
+00:01:08,520 --> 00:01:13,880
+complicado porque a gente tem que
+
+24
+00:01:09,720 --> 00:01:17,759
+recorrer a memória aí né Mas vamos lá
+
+25
+00:01:13,880 --> 00:01:22,479
+eh então eu tô tô na área aí há 14 anos
+
+26
+00:01:17,759 --> 00:01:24,240
+eh acho que saí de um de um emprego de
+
+27
+00:01:22,479 --> 00:01:26,240
+Manutenção de computadores com
+
+28
+00:01:24,240 --> 00:01:28,560
+salariozinho legal ali para ir estagiar
+
+29
+00:01:26,240 --> 00:01:30,880
+por uma merreca na área de programação
+
+30
+00:01:28,560 --> 00:01:35,119
+foi uma das melhores opções que eu tomei
+
+31
+00:01:30,880 --> 00:01:37,560
+aí para para entrar na área né e e assim
+
+32
+00:01:35,119 --> 00:01:39,200
+é muito bom né cara você ganando
+
+33
+00:01:37,560 --> 00:01:42,479
+experiência aquele choque de realidade
+
+34
+00:01:39,200 --> 00:01:44,520
+de eu cursava sistemas né tecnologia em
+
+35
+00:01:42,479 --> 00:01:46,240
+Sistemas então ter aquele choque de
+
+36
+00:01:44,520 --> 00:01:48,640
+realidade assim de chegar no mercado e
+
+37
+00:01:46,240 --> 00:01:50,640
+meu Deus do céu nunca vi isso daqui
+
+38
+00:01:48,640 --> 00:01:53,320
+então inclusive foi uma coisa que me
+
+39
+00:01:50,640 --> 00:01:57,320
+motivou bastante a sair caçando
+
+40
+00:01:53,320 --> 00:01:59,880
+eh conhecimento fora do curso né então
+
+41
+00:01:57,320 --> 00:02:01,200
+ah acho que foi foi uma oportunidade bem
+
+42
+00:01:59,880 --> 00:02:04,039
+legal assim pegar o estágio Logo no
+
+43
+00:02:01,200 --> 00:02:06,479
+início do curso eu fui aprendendo muita
+
+44
+00:02:04,039 --> 00:02:08,200
+coisa depois daquele choque Inicial e
+
+45
+00:02:06,479 --> 00:02:10,599
+isso me acompanha até hoje na carreira
+
+46
+00:02:08,200 --> 00:02:13,520
+assim de sempre tá querendo saber mais
+
+47
+00:02:10,599 --> 00:02:18,280
+correr atrás Então acho que é uma pegada
+
+48
+00:02:13,520 --> 00:02:20,920
+legal assim né E quando você começou a
+
+49
+00:02:18,280 --> 00:02:23,800
+estudar a programação né muitas pessoas
+
+50
+00:02:20,920 --> 00:02:26,080
+acham que que o fato de você trabalhar
+
+51
+00:02:23,800 --> 00:02:28,560
+como manutenção de computadores por
+
+52
+00:02:26,080 --> 00:02:30,360
+exemplo fica moleza na hora de você
+
+53
+00:02:28,560 --> 00:02:32,200
+aprender programação
+
+54
+00:02:30,360 --> 00:02:36,040
+as pessoas que não são programadores não
+
+55
+00:02:32,200 --> 00:02:38,640
+são técnicas elas acham que que é é
+
+56
+00:02:36,040 --> 00:02:40,680
+fácil porque tá tudo tem tudo a ver na
+
+57
+00:02:38,640 --> 00:02:43,080
+cabeça delas Ah o cara mexe com peça de
+
+58
+00:02:40,680 --> 00:02:45,360
+computador e agora tá me dizendo que foi
+
+59
+00:02:43,080 --> 00:02:48,040
+difícil na Hora de Aprender a programar
+
+60
+00:02:45,360 --> 00:02:50,239
+ele deve estar zoando com a minha cara
+
+61
+00:02:48,040 --> 00:02:54,120
+você teve essa sensação de que foi fácil
+
+62
+00:02:50,239 --> 00:02:56,480
+na hora de migrar na área de hardware
+
+63
+00:02:54,120 --> 00:03:00,000
+manutenção pra área de programação em si
+
+64
+00:02:56,480 --> 00:03:01,840
+ou que foi difícil mesmo e e acaba acou
+
+65
+00:03:00,000 --> 00:03:05,239
+que aquelas coisas que você aprendeu com
+
+66
+00:03:01,840 --> 00:03:07,879
+hardware e não tinha muita aderência na
+
+67
+00:03:05,239 --> 00:03:09,799
+hora de aprender o software era um eu
+
+68
+00:03:07,879 --> 00:03:11,480
+acho que tá transmitindo tua tela tá se
+
+69
+00:03:09,799 --> 00:03:13,480
+puder só interromper da gente ficar só
+
+70
+00:03:11,480 --> 00:03:15,840
+com os vídeos aqui acho fica melhor Ah
+
+71
+00:03:13,480 --> 00:03:20,080
+OK tá
+
+72
+00:03:15,840 --> 00:03:24,120
+bom vou tentar aqui
+
+73
+00:03:20,080 --> 00:03:27,360
+então nesse é dessa forma vai aparecer a
+
+74
+00:03:24,120 --> 00:03:28,799
+minha meu desktop né Isso tá aparecendo
+
+75
+00:03:27,360 --> 00:03:30,879
+teu desktop acho que se você clicar no
+
+76
+00:03:28,799 --> 00:03:33,040
+interromper ali
+
+77
+00:03:30,879 --> 00:03:35,439
+Stop sharing na na barrinha de baixo al
+
+78
+00:03:33,040 --> 00:03:37,560
+já vai parar Ah
+
+79
+00:03:35,439 --> 00:03:41,480
+OK clicar
+
+80
+00:03:37,560 --> 00:03:43,319
+aqui interromper Beleza então cara
+
+81
+00:03:41,480 --> 00:03:44,840
+pergunta pertinente tá porque assim
+
+82
+00:03:43,319 --> 00:03:46,400
+durante muito tempo na minha carreira eu
+
+83
+00:03:44,840 --> 00:03:49,040
+sempre conciliei isso como coisas
+
+84
+00:03:46,400 --> 00:03:51,680
+completamente distintas né
+
+85
+00:03:49,040 --> 00:03:53,879
+então o pensamento que eu tinha eu mexo
+
+86
+00:03:51,680 --> 00:03:55,480
+coman em computador como praticamente
+
+87
+00:03:53,879 --> 00:03:59,680
+Muita gente da minha idade que mexia com
+
+88
+00:03:55,480 --> 00:04:01,760
+computador daí sei lá 12 anos 13 anos
+
+89
+00:03:59,680 --> 00:04:04,120
+então e mexer com manutenção vulgo
+
+90
+00:04:01,760 --> 00:04:06,239
+formatar PC de vizinho e trocar memória
+
+91
+00:04:04,120 --> 00:04:08,480
+R quando precisa né cara então
+
+92
+00:04:06,239 --> 00:04:13,040
+borrachinha lá para tirar o que se dação
+
+93
+00:04:08,480 --> 00:04:15,200
+exatamente e fazer o pen 3 750 rodar Em
+
+94
+00:04:13,040 --> 00:04:18,519
+800 MHz porque era o requisito mínimo do
+
+95
+00:04:15,200 --> 00:04:22,240
+GTA vai City né ende bons tempos então
+
+96
+00:04:18,519 --> 00:04:24,000
+bons tempos eh e assim esse conhecimento
+
+97
+00:04:22,240 --> 00:04:25,639
+Ele me levou para esse primeiro emprego
+
+98
+00:04:24,000 --> 00:04:28,960
+que foi na área de manutenção de
+
+99
+00:04:25,639 --> 00:04:30,759
+computadores que na época eu entrei para
+
+100
+00:04:28,960 --> 00:04:32,320
+trabalhar com manutenção de calculadora
+
+101
+00:04:30,759 --> 00:04:34,720
+mecânica porque eu tenho curso de de
+
+102
+00:04:32,320 --> 00:04:37,080
+eletrônica também né então calculadora
+
+103
+00:04:34,720 --> 00:04:38,520
+mecânica eh mecânica eletrônica aquelas
+
+104
+00:04:37,080 --> 00:04:40,960
+que você vai digitando e vai imprimindo
+
+105
+00:04:38,520 --> 00:04:43,240
+sabe fazia lavagem com óleo assim então
+
+106
+00:04:40,960 --> 00:04:44,759
+uma coisa bem braçal no mesmo lugar eles
+
+107
+00:04:43,240 --> 00:04:47,880
+davam manutenção em computador então eu
+
+108
+00:04:44,759 --> 00:04:50,199
+queria muito trabalhar com manutenção e
+
+109
+00:04:47,880 --> 00:04:53,639
+e ali eu fui desenvolvendo a capacidade
+
+110
+00:04:50,199 --> 00:04:55,400
+de aprender com base no problema dos
+
+111
+00:04:53,639 --> 00:04:58,560
+outros então vi os técnicos tendo
+
+112
+00:04:55,400 --> 00:05:01,240
+problemas e eu me interessava por eles e
+
+113
+00:04:58,560 --> 00:05:02,680
+eu corri atrás e e assim não resolvi o
+
+114
+00:05:01,240 --> 00:05:05,400
+problema do cara mas eu aprendia com a
+
+115
+00:05:02,680 --> 00:05:06,759
+solução que ele gerava e depois de muito
+
+116
+00:05:05,400 --> 00:05:08,600
+tempo na minha carreira eu percebi que
+
+117
+00:05:06,759 --> 00:05:10,280
+esses conceitos de trouble shooting que
+
+118
+00:05:08,600 --> 00:05:12,919
+a gente usava em manutenção de hardware
+
+119
+00:05:10,280 --> 00:05:15,199
+Então esse soft Skill de você encarar o
+
+120
+00:05:12,919 --> 00:05:18,120
+problema de uma perspectiva fazer
+
+121
+00:05:15,199 --> 00:05:20,000
+aquelas aqueles microvida né então
+
+122
+00:05:18,120 --> 00:05:22,360
+executar por exemplo criar uma hipótese
+
+123
+00:05:20,000 --> 00:05:23,919
+do problema daí você criar uma uma
+
+124
+00:05:22,360 --> 00:05:27,000
+solução para essa hipótese e você
+
+125
+00:05:23,919 --> 00:05:29,000
+aplicar ou validar a hipótese e é e esse
+
+126
+00:05:27,000 --> 00:05:32,240
+esse raciocínio é um raciocínio que eu
+
+127
+00:05:29,000 --> 00:05:35,440
+uso até o hoje no dia a dia conhecimento
+
+128
+00:05:32,240 --> 00:05:37,840
+bruto hard Skill completamente distinta
+
+129
+00:05:35,440 --> 00:05:39,960
+Tirando o fato de você entender ali o
+
+130
+00:05:37,840 --> 00:05:42,600
+mínimo de configuração de computador ou
+
+131
+00:05:39,960 --> 00:05:44,680
+de entender como como alguém de
+
+132
+00:05:42,600 --> 00:05:46,360
+manutenção se mexe muito com com
+
+133
+00:05:44,680 --> 00:05:48,759
+software né então software que alguém
+
+134
+00:05:46,360 --> 00:05:50,160
+programou entender as experiências ruins
+
+135
+00:05:48,759 --> 00:05:52,199
+que você teve para Não replicar elas
+
+136
+00:05:50,160 --> 00:05:55,080
+dentro do teu software seja em bugs ou
+
+137
+00:05:52,199 --> 00:05:59,039
+seja em IX mesmo né
+
+138
+00:05:55,080 --> 00:06:01,240
+Eh fora isso assim o conhecimento mesmo
+
+139
+00:05:59,039 --> 00:06:02,919
+bruto não é utilizado mas essa
+
+140
+00:06:01,240 --> 00:06:06,599
+habilidade de trouble shooting é uma
+
+141
+00:06:02,919 --> 00:06:11,280
+coisa que até na minha empresa eu optei
+
+142
+00:06:06,599 --> 00:06:13,280
+por por usar como um dos critérios de de
+
+143
+00:06:11,280 --> 00:06:14,880
+desempate então se eu tinha dois perfis
+
+144
+00:06:13,280 --> 00:06:17,479
+muito bons e um deles tinha experiência
+
+145
+00:06:14,880 --> 00:06:20,120
+com Harder ou tinha essa perspectiva de
+
+146
+00:06:17,479 --> 00:06:21,759
+trab shooting que era notável eraa o
+
+147
+00:06:20,120 --> 00:06:25,960
+candidato que eu optava por contratar
+
+148
+00:06:21,759 --> 00:06:28,280
+sabe então é é uma coisa que para mim
+
+149
+00:06:25,960 --> 00:06:30,400
+Fez bastante sentido assim se mostrou
+
+150
+00:06:28,280 --> 00:06:32,240
+muito legal tive ess entes profissionais
+
+151
+00:06:30,400 --> 00:06:34,560
+trabalhando para mim que vieram da área
+
+152
+00:06:32,240 --> 00:06:37,120
+do hardware e eu acho que isso não era
+
+153
+00:06:34,560 --> 00:06:38,960
+meramente coincidência sabe então porque
+
+154
+00:06:37,120 --> 00:06:41,680
+é muito complicado você trabalhar com
+
+155
+00:06:38,960 --> 00:06:43,400
+algo que você não criou fazer troubles
+
+156
+00:06:41,680 --> 00:06:45,039
+shooting identificar problemas em algo
+
+157
+00:06:43,400 --> 00:06:47,400
+que você não tem o completo domínio do
+
+158
+00:06:45,039 --> 00:06:48,919
+funcionamento e muito do dia a dia de
+
+159
+00:06:47,400 --> 00:06:52,160
+alguém que trabalha com manutenção de
+
+160
+00:06:48,919 --> 00:06:54,840
+computadores ou suporte mesmo é parte
+
+161
+00:06:52,160 --> 00:06:57,599
+disso né então eu acho que é uma coisa
+
+162
+00:06:54,840 --> 00:06:59,919
+que naturalmente ajuda teu cérebro a se
+
+163
+00:06:57,599 --> 00:07:01,599
+condicionar nesse modelo de pensamento
+
+164
+00:06:59,919 --> 00:07:04,080
+mas em hard Skill são completamente
+
+165
+00:07:01,599 --> 00:07:05,560
+distintas né então eu entrei no no
+
+166
+00:07:04,080 --> 00:07:07,759
+emprego mais ou menos no primeiro ano de
+
+167
+00:07:05,560 --> 00:07:09,199
+Universidade nesse emprego de Manutenção
+
+168
+00:07:07,759 --> 00:07:12,720
+pouco tempo depois já acabei migrando
+
+169
+00:07:09,199 --> 00:07:15,440
+para pra área de pro estágio de
+
+170
+00:07:12,720 --> 00:07:17,080
+desenvolvimento efetivamente né então
+
+171
+00:07:15,440 --> 00:07:18,759
+não foi completamente novo não foi um
+
+172
+00:07:17,080 --> 00:07:20,400
+choque absoluto de realidade porque eu
+
+173
+00:07:18,759 --> 00:07:22,440
+já tinha a visão de programação através
+
+174
+00:07:20,400 --> 00:07:24,000
+da Universidade que foi um choque para
+
+175
+00:07:22,440 --> 00:07:25,160
+mim foi entrar no Universidade achando
+
+176
+00:07:24,000 --> 00:07:28,240
+que eu ia aprender a consertar
+
+177
+00:07:25,160 --> 00:07:30,039
+computador e ver primeira aula sobre C
+
+178
+00:07:28,240 --> 00:07:32,000
+sem ter ideia do que que era aquilo
+
+179
+00:07:30,039 --> 00:07:33,840
+então você tem ideia do que era
+
+180
+00:07:32,000 --> 00:07:37,160
+programação não era uma coisa do meu
+
+181
+00:07:33,840 --> 00:07:40,319
+universo né então foi o choque que eu
+
+182
+00:07:37,160 --> 00:07:42,039
+tive foi esse sabe da da entrar na
+
+183
+00:07:40,319 --> 00:07:44,400
+universidade olhar pra programação se
+
+184
+00:07:42,039 --> 00:07:46,720
+assustar e depois se apaixonar e a
+
+185
+00:07:44,400 --> 00:07:49,919
+partir dali foi foi Ladeira abaixo né
+
+186
+00:07:46,720 --> 00:07:53,120
+cara então é uma coisa que eu amo eu amo
+
+187
+00:07:49,919 --> 00:07:55,400
+fazer eu amo programar hoje eh eu tenho
+
+188
+00:07:53,120 --> 00:07:57,759
+a minha empresa até nem entrei muito no
+
+189
+00:07:55,400 --> 00:07:59,919
+mérito sobre carreira propriamente dita
+
+190
+00:07:57,759 --> 00:08:01,680
+minha né mas assim tirando todo o
+
+191
+00:07:59,919 --> 00:08:03,960
+histórico passado desde esse início que
+
+192
+00:08:01,680 --> 00:08:07,440
+eu falei até agora hoje minha posição eu
+
+193
+00:08:03,960 --> 00:08:09,919
+tô como coordenador de tecnologia no no
+
+194
+00:08:07,440 --> 00:08:12,520
+grupo LBS né e eu também tenho a minha
+
+195
+00:08:09,919 --> 00:08:14,120
+empresa de software eh que durante muito
+
+196
+00:08:12,520 --> 00:08:16,000
+tempo eu estive à frente hoje em dia
+
+197
+00:08:14,120 --> 00:08:19,360
+meus sócios Estão tocando
+
+198
+00:08:16,000 --> 00:08:22,280
+eh e assim Em ambos os casos eu lido com
+
+199
+00:08:19,360 --> 00:08:23,639
+muita gestão né Então aí uma uma
+
+200
+00:08:22,280 --> 00:08:25,680
+perspectiva de de gerenciar
+
+201
+00:08:23,639 --> 00:08:28,479
+desenvolvedores contratar identificar
+
+202
+00:08:25,680 --> 00:08:30,520
+Skills e e eu acho que muito da minha
+
+203
+00:08:28,479 --> 00:08:32,719
+experiência do eu trago para hoje em dia
+
+204
+00:08:30,520 --> 00:08:34,560
+para poder entender como agir né cara
+
+205
+00:08:32,719 --> 00:08:36,039
+mas mesmo estando nessas posições de
+
+206
+00:08:34,560 --> 00:08:38,800
+gestão eu não gosto de ficar longe do
+
+207
+00:08:36,039 --> 00:08:41,839
+código então tô por necessidade Em ambos
+
+208
+00:08:38,800 --> 00:08:42,880
+os casos porque por mim meu sonho é só
+
+209
+00:08:41,839 --> 00:08:46,959
+programar
+
+210
+00:08:42,880 --> 00:08:50,200
+sabe eu amo desenvolver é Muitas pessoas
+
+211
+00:08:46,959 --> 00:08:52,959
+acreditam que que é transferível né
+
+212
+00:08:50,200 --> 00:08:55,480
+Essas habilidades do de
+
+213
+00:08:52,959 --> 00:08:57,399
+manutenção para a programação Mas aí
+
+214
+00:08:55,480 --> 00:08:59,680
+você deixou claro que são mundinhos
+
+215
+00:08:57,399 --> 00:09:02,720
+separados né O que foi transferido mesmo
+
+216
+00:08:59,680 --> 00:09:06,120
+foi a soft Skill capacidade de de se
+
+217
+00:09:02,720 --> 00:09:08,760
+debruçar sobre um problema e e até o fim
+
+218
+00:09:06,120 --> 00:09:11,760
+para tentar resolver ele isso daí é uma
+
+219
+00:09:08,760 --> 00:09:14,240
+coisa transferível né que é uma já cai
+
+220
+00:09:11,760 --> 00:09:16,760
+na categoria de soft Skills para quem
+
+221
+00:09:14,240 --> 00:09:18,600
+não não entende esses termos né pra
+
+222
+00:09:16,760 --> 00:09:21,040
+gente pode ser Óbvio soft Skill hard
+
+223
+00:09:18,600 --> 00:09:23,680
+Skill mas só para resumir pro pessoal
+
+224
+00:09:21,040 --> 00:09:26,200
+que vai assistir no futuro soft Skills
+
+225
+00:09:23,680 --> 00:09:29,760
+são habilidades eh por exemplo
+
+226
+00:09:26,200 --> 00:09:32,200
+habilidades sociais habilidades eh
+
+227
+00:09:29,760 --> 00:09:34,839
+mentais no sentido de resolução de
+
+228
+00:09:32,200 --> 00:09:37,600
+problema problemas abstratos raciocínio
+
+229
+00:09:34,839 --> 00:09:40,279
+abstrato um raciocínio estratégico um
+
+230
+00:09:37,600 --> 00:09:42,760
+pensamento global e na hora de agir agir
+
+231
+00:09:40,279 --> 00:09:46,360
+localmente tudo isso entra na categoria
+
+232
+00:09:42,760 --> 00:09:49,920
+soft Skill hard Skill é pegar o martelo
+
+233
+00:09:46,360 --> 00:09:51,959
+e bater no prego é uma coisa mais é
+
+234
+00:09:49,920 --> 00:09:55,880
+manual uma coisa mais física é saber a
+
+235
+00:09:51,959 --> 00:09:57,560
+sintaxi do IF é saber a sintaxe do a é
+
+236
+00:09:55,880 --> 00:10:01,240
+entender como é que você usa tal
+
+237
+00:09:57,560 --> 00:10:03,320
+biblioteca então então é é mais isso o
+
+238
+00:10:01,240 --> 00:10:06,640
+conhecimento bruto ali né que era aquele
+
+239
+00:10:03,320 --> 00:10:09,160
+conhecimento direto e o soft Skill é
+
+240
+00:10:06,640 --> 00:10:11,160
+comportamento né comportamento
+
+241
+00:10:09,160 --> 00:10:12,760
+habilidades sociais incluem também a
+
+242
+00:10:11,160 --> 00:10:16,040
+gente que é deve a gente ter muito
+
+243
+00:10:12,760 --> 00:10:18,680
+deficiente nessa parte aí né a gente até
+
+244
+00:10:16,040 --> 00:10:20,720
+parece o nosso arquétipo Até aparece em
+
+245
+00:10:18,680 --> 00:10:23,360
+filmes como o cara nerdão que não pega
+
+246
+00:10:20,720 --> 00:10:25,360
+ninguém que não que é meio abobalhado
+
+247
+00:10:23,360 --> 00:10:29,320
+que não sabe conversar né Não sabe
+
+248
+00:10:25,360 --> 00:10:31,079
+conversar que ele fala sobre assuntos de
+
+249
+00:10:29,320 --> 00:10:35,399
+física do nada e ninguém entende o que
+
+250
+00:10:31,079 --> 00:10:38,440
+que tá falando sim por é é um sintoma de
+
+251
+00:10:35,399 --> 00:10:41,639
+falta de soft Skill não a gente não pode
+
+252
+00:10:38,440 --> 00:10:43,720
+negligenciar nem um nem outro os dois se
+
+253
+00:10:41,639 --> 00:10:44,480
+complementam eu costumo dizer que é como
+
+254
+00:10:43,720 --> 00:10:46,880
+uma
+
+255
+00:10:44,480 --> 00:10:50,240
+multiplicação vamos supor que é de 0 a
+
+256
+00:10:46,880 --> 00:10:53,920
+10 cada um deles soft Skill hard Skill e
+
+257
+00:10:50,240 --> 00:10:58,079
+se a pessoa tem o cinco na hard Skill e
+
+258
+00:10:53,920 --> 00:11:00,440
+o zero na soft Skill 5 x 0 é zer então
+
+259
+00:10:58,079 --> 00:11:02,360
+mesmo que fosse um 10 ainda seria Zero
+
+260
+00:11:00,440 --> 00:11:05,440
+Isso é só para mostrar que os dois
+
+261
+00:11:02,360 --> 00:11:07,600
+precisa ser evoluído né Não não e e são
+
+262
+00:11:05,440 --> 00:11:10,800
+trabalhos em conjunto né acho que isso é
+
+263
+00:11:07,600 --> 00:11:12,600
+muito importante você entender que na
+
+264
+00:11:10,800 --> 00:11:14,639
+carreira não é só sair aprendendo
+
+265
+00:11:12,600 --> 00:11:17,160
+Framework ou aprendendo linguagem isso é
+
+266
+00:11:14,639 --> 00:11:19,279
+muito secundário Depois de alguns anos
+
+267
+00:11:17,160 --> 00:11:21,279
+de experiência cara pegar um projeto
+
+268
+00:11:19,279 --> 00:11:23,000
+numa tecnologia completamente diferente
+
+269
+00:11:21,279 --> 00:11:25,320
+numa linguagem que você não domina não é
+
+270
+00:11:23,000 --> 00:11:27,720
+Um Desafio simplesmente é se adaptar com
+
+271
+00:11:25,320 --> 00:11:29,920
+a sintaxe entender os pormenores os
+
+272
+00:11:27,720 --> 00:11:31,519
+conceitos são os mesmos Qual que é o
+
+273
+00:11:29,920 --> 00:11:34,600
+diferencial é a tua capacidade de
+
+274
+00:11:31,519 --> 00:11:36,200
+raciocinar de estabelecer o modelo de
+
+275
+00:11:34,600 --> 00:11:38,160
+como que aquilo deve funcionar entender
+
+276
+00:11:36,200 --> 00:11:40,160
+o algoritmo base aquelas coisas que a
+
+277
+00:11:38,160 --> 00:11:41,839
+gente negligencia na na universidade né
+
+278
+00:11:40,160 --> 00:11:44,240
+algoritmo Bobagem eu quero meter a mão
+
+279
+00:11:41,839 --> 00:11:47,079
+no código então Eh invariavelmente
+
+280
+00:11:44,240 --> 00:11:49,200
+Talvez no início seja mas pro Futuro
+
+281
+00:11:47,079 --> 00:11:50,600
+esse conhecimento é mais relevante e
+
+282
+00:11:49,200 --> 00:11:53,279
+mais do que isso ainda quando a gente
+
+283
+00:11:50,600 --> 00:11:55,200
+fala de software corporativo né software
+
+284
+00:11:53,279 --> 00:11:57,079
+é uma construção social você não
+
+285
+00:11:55,200 --> 00:11:59,240
+constrói o software para você você
+
+286
+00:11:57,079 --> 00:12:01,320
+constrói o software para um usuário você
+
+287
+00:11:59,240 --> 00:12:03,519
+constrói o software com o time você
+
+288
+00:12:01,320 --> 00:12:06,079
+colabora com o time de produtos você
+
+289
+00:12:03,519 --> 00:12:08,120
+colabora com se você não forec colabora
+
+290
+00:12:06,079 --> 00:12:10,920
+com desenvolvedores de outro time de
+
+291
+00:12:08,120 --> 00:12:13,040
+frontend então toda a construção do
+
+292
+00:12:10,920 --> 00:12:16,519
+software Ela depende de uma estrutura
+
+293
+00:12:13,040 --> 00:12:19,800
+social de comunicação de entendimento de
+
+294
+00:12:16,519 --> 00:12:22,160
+empatia que muitas vezes é negligenciada
+
+295
+00:12:19,800 --> 00:12:24,800
+em prol do cara que sai codando que nem
+
+296
+00:12:22,160 --> 00:12:27,320
+louco e fazendo um código Maluco e até
+
+297
+00:12:24,800 --> 00:12:29,720
+aí entra uma perspectiva de de de soft
+
+298
+00:12:27,320 --> 00:12:31,519
+Skills e empatia né porque
+
+299
+00:12:29,720 --> 00:12:33,600
+você constrói um código que às vezes não
+
+300
+00:12:31,519 --> 00:12:35,760
+é legível por outro ser humano construir
+
+301
+00:12:33,600 --> 00:12:38,399
+um código legível por máquina qualquer
+
+302
+00:12:35,760 --> 00:12:40,240
+imbecil consegue né agora construir o
+
+303
+00:12:38,399 --> 00:12:41,600
+código legível por outro ser humano
+
+304
+00:12:40,240 --> 00:12:44,000
+entendendo que aquele código vai ser
+
+305
+00:12:41,600 --> 00:12:45,639
+mantido e talvez não seja você a dar
+
+306
+00:12:44,000 --> 00:12:47,199
+manutenção requer um nível de soft
+
+307
+00:12:45,639 --> 00:12:50,480
+Skills que alguns desenvolvedores ficam
+
+308
+00:12:47,199 --> 00:12:53,079
+devendo Então todo esse essa perspectiva
+
+309
+00:12:50,480 --> 00:12:55,320
+de construção social né saber conversar
+
+310
+00:12:53,079 --> 00:12:57,279
+com o usuário saber entender o requisito
+
+311
+00:12:55,320 --> 00:12:59,120
+saber se colocar no lugar da outra ponta
+
+312
+00:12:57,279 --> 00:13:02,040
+seja o cara da infra seja o cara cara do
+
+313
+00:12:59,120 --> 00:13:04,199
+Fronte eh tudo isso é essencial para
+
+314
+00:13:02,040 --> 00:13:06,800
+você ter um desenvolvedor que pode se
+
+315
+00:13:04,199 --> 00:13:09,160
+dizer Senior pode se dizer alguém que
+
+316
+00:13:06,800 --> 00:13:11,000
+tem autonomia e se torna produtivo
+
+317
+00:13:09,160 --> 00:13:15,240
+dentro daquela cadeia de produzir o
+
+318
+00:13:11,000 --> 00:13:17,360
+software ali né excelente é como é uma
+
+319
+00:13:15,240 --> 00:13:18,880
+frase bem famosa né Qualquer idiota pode
+
+320
+00:13:17,360 --> 00:13:21,600
+escrever código que um computador
+
+321
+00:13:18,880 --> 00:13:24,079
+Entenda os bons programadores escrevem
+
+322
+00:13:21,600 --> 00:13:27,160
+código que outras pessoas entendem
+
+323
+00:13:24,079 --> 00:13:31,160
+exatamente Martin Fer que disse isso bem
+
+324
+00:13:27,160 --> 00:13:33,160
+muito bem dito né Muito bem colocado e
+
+325
+00:13:31,160 --> 00:13:36,600
+teve um projeto até que eu fiz questão
+
+326
+00:13:33,160 --> 00:13:38,920
+de de colocar no ridm que eu comecei
+
+327
+00:13:36,600 --> 00:13:41,680
+esse projeto e uma das primeiras coisas
+
+328
+00:13:38,920 --> 00:13:43,959
+que eu faço é escrever o ridm básico ali
+
+329
+00:13:41,680 --> 00:13:47,000
+para quem for rodar o projeto primeira
+
+330
+00:13:43,959 --> 00:13:49,279
+frase que eu coloquei foi essa bons
+
+331
+00:13:47,000 --> 00:13:52,480
+programadores escrevem código que outras
+
+332
+00:13:49,279 --> 00:13:55,639
+pessoas entendem porque isso é
+
+333
+00:13:52,480 --> 00:13:57,480
+é especialmente importante Existem
+
+334
+00:13:55,639 --> 00:13:59,519
+muitos estudos que mostram que a maior
+
+335
+00:13:57,480 --> 00:14:03,000
+parte do tempo de desenvolvimento de um
+
+336
+00:13:59,519 --> 00:14:05,720
+software é gasto na manutenção dele
+
+337
+00:14:03,000 --> 00:14:08,839
+então a menor parte do tempo de vida do
+
+338
+00:14:05,720 --> 00:14:12,880
+software é a concepção sim a maior parte
+
+339
+00:14:08,839 --> 00:14:15,000
+vai ser manutenção e por n pessoas Então
+
+340
+00:14:12,880 --> 00:14:17,880
+não é n máquinas que vai dar manutenção
+
+341
+00:14:15,000 --> 00:14:20,040
+é R pessoas ex eu eu tenho uma
+
+342
+00:14:17,880 --> 00:14:22,880
+experiência bem prática com relação a
+
+343
+00:14:20,040 --> 00:14:25,440
+isso porque a minha empresa ela tem um
+
+344
+00:14:22,880 --> 00:14:27,839
+software voltado para gão micro Pequenas
+
+345
+00:14:25,440 --> 00:14:29,440
+Empresas emissão de nota fiscal e esse
+
+346
+00:14:27,839 --> 00:14:33,519
+software começou a ser desenvolvido por
+
+347
+00:14:29,440 --> 00:14:41,440
+idus 2011 com as tecnologias da época eh
+
+348
+00:14:33,519 --> 00:14:44,000
+JB s7 Java 7 utilizando eh JSF no front
+
+349
+00:14:41,440 --> 00:14:47,240
+então todo um um aparato tecnológico que
+
+350
+00:14:44,000 --> 00:14:50,160
+hoje a gente olha como legado né E esse
+
+351
+00:14:47,240 --> 00:14:55,079
+mesmo produto permanece no ar até hoje
+
+352
+00:14:50,160 --> 00:14:57,399
+mas eu migrei ele recentemente Ah para
+
+353
+00:14:55,079 --> 00:15:01,160
+tecnologias mais recentes aí utilizando
+
+354
+00:14:57,399 --> 00:15:04,480
+cotlin com com quos eh rodando sobre um
+
+355
+00:15:01,160 --> 00:15:05,920
+cnet interagindo com front angular então
+
+356
+00:15:04,480 --> 00:15:07,160
+ainda tem algumas features que estão no
+
+357
+00:15:05,920 --> 00:15:09,680
+legado mas a gente tá fazendo esse
+
+358
+00:15:07,160 --> 00:15:11,639
+processo de imigração tudo isso foi
+
+359
+00:15:09,680 --> 00:15:13,720
+factível uma codebase construída
+
+360
+00:15:11,639 --> 00:15:18,639
+inicialmente em do em
+
+361
+00:15:13,720 --> 00:15:21,639
+2011 agora 12 anos depois né 2023 aí a
+
+362
+00:15:18,639 --> 00:15:24,600
+gente ainda consegui dar manutenção nela
+
+363
+00:15:21,639 --> 00:15:25,920
+e é o mesmo código porque eu me pautei
+
+364
+00:15:24,600 --> 00:15:27,959
+muito na perspectiva de design de
+
+365
+00:15:25,920 --> 00:15:29,759
+orientado a domínio então toda a regra
+
+366
+00:15:27,959 --> 00:15:31,120
+de negócio fica dentro do domínio da
+
+367
+00:15:29,759 --> 00:15:32,720
+aplicação e esse Domínio Não estava
+
+368
+00:15:31,120 --> 00:15:34,920
+acoplado nenhum desses frameworks
+
+369
+00:15:32,720 --> 00:15:36,519
+legados então durante a migração foi
+
+370
+00:15:34,920 --> 00:15:38,319
+apenas reescrever as fronteiras né
+
+371
+00:15:36,519 --> 00:15:40,920
+Fronteira visual Fronteira de interação
+
+372
+00:15:38,319 --> 00:15:43,639
+com o banco de dados eh que tinha um
+
+373
+00:15:40,920 --> 00:15:45,199
+mínimo de regra de negócio acoplada e a
+
+374
+00:15:43,639 --> 00:15:46,959
+e com pouco esforço a gente conseguiu
+
+375
+00:15:45,199 --> 00:15:49,279
+trazer por uma tecnologia nova por esse
+
+376
+00:15:46,959 --> 00:15:50,759
+desacoplamento né então reescreveu nas
+
+377
+00:15:49,279 --> 00:15:52,360
+fronteiras em cotlin aquele antigo
+
+378
+00:15:50,759 --> 00:15:54,360
+Código em Java permaneceu ali
+
+379
+00:15:52,360 --> 00:15:56,120
+funcionando e até hoje quando a gente
+
+380
+00:15:54,360 --> 00:15:57,480
+vai dar manutenção é claro você olha e
+
+381
+00:15:56,120 --> 00:15:59,680
+vê algumas coisas que poderiam ter sido
+
+382
+00:15:57,480 --> 00:16:01,160
+feitas melhores né alguns forces que
+
+383
+00:15:59,680 --> 00:16:03,680
+poderiam ser streams porque o stream não
+
+384
+00:16:01,160 --> 00:16:05,120
+era uma coisa da época eh alguns
+
+385
+00:16:03,680 --> 00:16:06,839
+detalhes assim que acabaram sendo
+
+386
+00:16:05,120 --> 00:16:10,040
+limitações do Framework de persistência
+
+387
+00:16:06,839 --> 00:16:11,720
+da da época também mas invariavelmente
+
+388
+00:16:10,040 --> 00:16:13,720
+você Olha aquele código e ele ainda é
+
+389
+00:16:11,720 --> 00:16:17,600
+legível ele ainda é entendível até
+
+390
+00:16:13,720 --> 00:16:20,040
+regras complexas como cálculo de juro eh
+
+391
+00:16:17,600 --> 00:16:23,160
+Projeção de de valor de parcela
+
+392
+00:16:20,040 --> 00:16:24,920
+eh cálculo de Imposto de nota fiscal
+
+393
+00:16:23,160 --> 00:16:26,440
+então todas essas coisas ainda são
+
+394
+00:16:24,920 --> 00:16:28,000
+naturalmente legíveis não precisam
+
+395
+00:16:26,440 --> 00:16:29,079
+nenhum comentário no código para serem
+
+396
+00:16:28,000 --> 00:16:31,000
+mantido
+
+397
+00:16:29,079 --> 00:16:32,399
+precisam do conhecimento negocial então
+
+398
+00:16:31,000 --> 00:16:34,000
+não adianta colocar um Dev que não
+
+399
+00:16:32,399 --> 00:16:36,560
+entende o cálculo de juro para dar
+
+400
+00:16:34,000 --> 00:16:38,480
+manutenção no código de cálculo de juro
+
+401
+00:16:36,560 --> 00:16:40,639
+mas se você tem o entendimento mínimo da
+
+402
+00:16:38,480 --> 00:16:42,560
+terminologia utilizada olhar pro código
+
+403
+00:16:40,639 --> 00:16:43,800
+como ele segue a linguagem ubíqua então
+
+404
+00:16:42,560 --> 00:16:45,560
+a linguagem que eu uso para explicar o
+
+405
+00:16:43,800 --> 00:16:48,279
+negócio é linguagem que tá escrito no
+
+406
+00:16:45,560 --> 00:16:50,199
+código ele já é autod documentado né E
+
+407
+00:16:48,279 --> 00:16:53,839
+esse código passar pela mão de números
+
+408
+00:16:50,199 --> 00:16:56,120
+deves nesse meio tempo aí eh de de Dev
+
+409
+00:16:53,839 --> 00:16:57,639
+seniors a Dev pleno a Dev Juniors
+
+410
+00:16:56,120 --> 00:17:00,839
+principalmente Devid Juniors que foram
+
+411
+00:16:57,639 --> 00:17:02,319
+fazendo demandas pontuais e e assim
+
+412
+00:17:00,839 --> 00:17:04,520
+sempre foi um código muito fácil de
+
+413
+00:17:02,319 --> 00:17:06,880
+manter justamente pelas por essa
+
+414
+00:17:04,520 --> 00:17:10,640
+preocupação com a legibilidade né então
+
+415
+00:17:06,880 --> 00:17:12,199
+Eh é fácil a gente falar de Ah não
+
+416
+00:17:10,640 --> 00:17:15,039
+precisa se preocupar tanto com isso a
+
+417
+00:17:12,199 --> 00:17:16,959
+gente faz aqui bota para rodar agora sem
+
+418
+00:17:15,039 --> 00:17:18,679
+olhar pro futuro e sem ter nada do
+
+419
+00:17:16,959 --> 00:17:20,600
+passado incomodando mas quando você pega
+
+420
+00:17:18,679 --> 00:17:22,880
+algo que foi bem escrito no passado e é
+
+421
+00:17:20,600 --> 00:17:24,400
+manuten vivel no futuro e exemplos
+
+422
+00:17:22,880 --> 00:17:25,720
+contrários existem de Monte né acho que
+
+423
+00:17:24,400 --> 00:17:28,199
+todo mundo que tá alguns anos aí já
+
+424
+00:17:25,720 --> 00:17:30,960
+pegou um software em manuten né que ele
+
+425
+00:17:28,199 --> 00:17:33,559
+que a fiture de 15 minutos acaba virando
+
+426
+00:17:30,960 --> 00:17:35,240
+uma semana porque você troca um Label de
+
+427
+00:17:33,559 --> 00:17:37,720
+lugar e o sistema inteiro quebra e não
+
+428
+00:17:35,240 --> 00:17:41,200
+tem um teste unitário para garantir a
+
+429
+00:17:37,720 --> 00:17:42,360
+qualidade do código né Então tudo isso
+
+430
+00:17:41,200 --> 00:17:45,200
+são coisas
+
+431
+00:17:42,360 --> 00:17:46,720
+que uma vez que você se preocupa com
+
+432
+00:17:45,200 --> 00:17:48,240
+qualidade que você se preocupa com
+
+433
+00:17:46,720 --> 00:17:50,880
+código bem escrito
+
+434
+00:17:48,240 --> 00:17:52,679
+eh você vê o resultado disso no longo
+
+435
+00:17:50,880 --> 00:17:54,039
+prazo né Para mim é fácil porque eu
+
+436
+00:17:52,679 --> 00:17:56,080
+acompanho o ciclo de vida porque é a
+
+437
+00:17:54,039 --> 00:17:58,039
+minha empresa né então eu estou há 12
+
+438
+00:17:56,080 --> 00:18:00,679
+anos acompanhando à ve paraas pessoas é
+
+439
+00:17:58,039 --> 00:18:03,000
+difícil entender você Poucos Anos acaba
+
+440
+00:18:00,679 --> 00:18:05,760
+mudando de empresa trocando de emprego e
+
+441
+00:18:03,000 --> 00:18:07,240
+você não coleta os frutos disso mas é
+
+442
+00:18:05,760 --> 00:18:08,760
+muito importante ter essa empatia com
+
+443
+00:18:07,240 --> 00:18:10,080
+outro desenvolvedor porque você espera
+
+444
+00:18:08,760 --> 00:18:11,760
+que o código que você está assumindo
+
+445
+00:18:10,080 --> 00:18:13,320
+Quando troca de emprego o cara que
+
+446
+00:18:11,760 --> 00:18:15,120
+programou ele Originalmente tenha tido
+
+447
+00:18:13,320 --> 00:18:17,960
+essa empatia contigo
+
+448
+00:18:15,120 --> 00:18:22,760
+também é um ponto bem importante aí n
+
+449
+00:18:17,960 --> 00:18:27,320
+tem uma uma imagem famosa no livro code
+
+450
+00:18:22,760 --> 00:18:31,559
+que mostra duas portas uma porta tem
+
+451
+00:18:27,320 --> 00:18:35,440
+vári lá é o Code review n vários What
+
+452
+00:18:31,559 --> 00:18:38,039
+fucks What FS per Minute e tem outra que
+
+453
+00:18:35,440 --> 00:18:40,679
+tem um ou dois né Esse daí é o Clean
+
+454
+00:18:38,039 --> 00:18:44,360
+code Eu costumo dizer que também tem
+
+455
+00:18:40,679 --> 00:18:47,679
+esse Clean code né só que pro dev
+
+456
+00:18:44,360 --> 00:18:50,520
+nessa nessa perspectiva quantas pessoas
+
+457
+00:18:47,679 --> 00:18:52,720
+estão nos xingando né nas empresas que a
+
+458
+00:18:50,520 --> 00:18:55,480
+gente passou em códigos que a gente
+
+459
+00:18:52,720 --> 00:18:59,159
+escreveu né e todo o código que você
+
+460
+00:18:55,480 --> 00:19:01,679
+escreve crava um pouco da tua carreira
+
+461
+00:18:59,159 --> 00:19:03,280
+na história daquela empresa e assim se
+
+462
+00:19:01,679 --> 00:19:06,559
+for um código bem escrito se for um
+
+463
+00:19:03,280 --> 00:19:10,200
+código mal escrito vão falar de você né
+
+464
+00:19:06,559 --> 00:19:12,240
+bom se nossos ouvidos ficassem vermelhos
+
+465
+00:19:10,200 --> 00:19:14,679
+Será que ficaria muito vermelho ou pouco
+
+466
+00:19:12,240 --> 00:19:17,520
+né a gente tem que pensar nisso porque
+
+467
+00:19:14,679 --> 00:19:20,320
+hoje eh aí você pode você tem mais
+
+468
+00:19:17,520 --> 00:19:23,240
+experiência que eu de mercado e você
+
+469
+00:19:20,320 --> 00:19:26,480
+acredita que no no passado sei lá mais
+
+470
+00:19:23,240 --> 00:19:29,240
+de uma década atrás as os deres já
+
+471
+00:19:26,480 --> 00:19:32,240
+tinham Essa visão de migrar empresa com
+
+472
+00:19:29,240 --> 00:19:34,679
+com alta frequência ou isso é uma coisa
+
+473
+00:19:32,240 --> 00:19:37,200
+recente que devido aos movimentos do
+
+474
+00:19:34,679 --> 00:19:39,520
+mercado atual Acabou compelindo as
+
+475
+00:19:37,200 --> 00:19:41,360
+pessoas a ficar pulando de empresa em
+
+476
+00:19:39,520 --> 00:19:43,480
+empresa porque ela sabe que se ela ficar
+
+477
+00:19:41,360 --> 00:19:46,159
+lá naquela mesma empresa ela nunca vai
+
+478
+00:19:43,480 --> 00:19:48,760
+crescer porque politicagem e outros
+
+479
+00:19:46,159 --> 00:19:50,960
+motivos você acha que no passado era o
+
+480
+00:19:48,760 --> 00:19:54,640
+pessoal gostava de ficar mais tempo na
+
+481
+00:19:50,960 --> 00:19:56,559
+na carreira Dev num empresa só ou isso é
+
+482
+00:19:54,640 --> 00:19:58,600
+algo recente eu acho que tudo que a
+
+483
+00:19:56,559 --> 00:20:01,679
+gente for falar en [ __ ] pela nos Nossa
+
+484
+00:19:58,600 --> 00:20:03,799
+bolha primariamente né porque eu sou de
+
+485
+00:20:01,679 --> 00:20:05,679
+uma cidade pequena então eu eu sou de
+
+486
+00:20:03,799 --> 00:20:08,159
+Ponta Grossa Paraná é uma cidade fica
+
+487
+00:20:05,679 --> 00:20:11,080
+100 Km da capital apesar de gente ter
+
+488
+00:20:08,159 --> 00:20:12,760
+três eh universidades que formam a gente
+
+489
+00:20:11,080 --> 00:20:14,480
+tinha poucas empresas de tecnologia
+
+490
+00:20:12,760 --> 00:20:18,000
+contratando Então tinha uma inundação de
+
+491
+00:20:14,480 --> 00:20:19,360
+mão de obra barata que fez com que muita
+
+492
+00:20:18,000 --> 00:20:21,240
+gente que estudou comigo tivesse que
+
+493
+00:20:19,360 --> 00:20:23,760
+sair da cidade para poder buscar
+
+494
+00:20:21,240 --> 00:20:27,840
+empregos então há uma década atrás o
+
+495
+00:20:23,760 --> 00:20:29,320
+cenário de tecnologia era Eh Ou você sai
+
+496
+00:20:27,840 --> 00:20:32,520
+para caçar emprego em algum lugar que
+
+497
+00:20:29,320 --> 00:20:34,520
+pague melhor ou você submete a um
+
+498
+00:20:32,520 --> 00:20:36,039
+salário mais baixo ou eventualmente você
+
+499
+00:20:34,520 --> 00:20:37,559
+acha uma empresa legal sim existem
+
+500
+00:20:36,039 --> 00:20:40,559
+muitas empresas que eram legais naquela
+
+501
+00:20:37,559 --> 00:20:42,159
+época permanecem legais até hoje né mas
+
+502
+00:20:40,559 --> 00:20:44,039
+eu sinto que pelo menos aqui na minha
+
+503
+00:20:42,159 --> 00:20:48,200
+região a média era vou pagar o mais
+
+504
+00:20:44,039 --> 00:20:50,159
+barato possível e sei lá empresas com um
+
+505
+00:20:48,200 --> 00:20:52,320
+quadro de 100 funcionários sendo que 70
+
+506
+00:20:50,159 --> 00:20:53,679
+era Estagiários assim sabe tinha
+
+507
+00:20:52,320 --> 00:20:55,520
+estagiário que era gerente de um time
+
+508
+00:20:53,679 --> 00:20:59,720
+que só tinha ele assim era aquela coisa
+
+509
+00:20:55,520 --> 00:21:02,400
+mais absurda assim de de se ver né eh e
+
+510
+00:20:59,720 --> 00:21:04,840
+assim eh houve Eu acho que o mercado
+
+511
+00:21:02,400 --> 00:21:06,360
+tecnológico ele é cíclico então existe
+
+512
+00:21:04,840 --> 00:21:08,120
+aquele período Onde existe uma inundação
+
+513
+00:21:06,360 --> 00:21:10,600
+de mão de obra Júnior que faz com que o
+
+514
+00:21:08,120 --> 00:21:13,840
+pessoal Olhe o desenvolvedor como
+
+515
+00:21:10,600 --> 00:21:15,240
+commodity e isso faz com que os valores
+
+516
+00:21:13,840 --> 00:21:16,600
+de Salários caem isso falando de
+
+517
+00:21:15,240 --> 00:21:18,159
+profissionais entrantes tá quando a
+
+518
+00:21:16,600 --> 00:21:20,240
+gente fala de alguém com calidade mais
+
+519
+00:21:18,159 --> 00:21:22,679
+alta você meio que tem um somel de
+
+520
+00:21:20,240 --> 00:21:24,320
+oportunidades ali porque são raros os
+
+521
+00:21:22,679 --> 00:21:26,679
+profissionais que sobrevivem no mercado
+
+522
+00:21:24,320 --> 00:21:28,360
+a ponto de ganhar experiência se tornar
+
+523
+00:21:26,679 --> 00:21:30,360
+profissionais seniors e esses
+
+524
+00:21:28,360 --> 00:21:32,559
+profissionais são muito disputados isso
+
+525
+00:21:30,360 --> 00:21:34,240
+vai permanecer sendo assim sempre eu só
+
+526
+00:21:32,559 --> 00:21:36,240
+não tive contato com esses profissionais
+
+527
+00:21:34,240 --> 00:21:37,960
+porque as empresas da minha região não
+
+528
+00:21:36,240 --> 00:21:40,120
+tinham Budget não tinha interesse em
+
+529
+00:21:37,960 --> 00:21:42,880
+manter essas pessoas
+
+530
+00:21:40,120 --> 00:21:44,919
+então o cara de mais alto nível lá era
+
+531
+00:21:42,880 --> 00:21:47,600
+um um Júnior mais ou menos um pleno
+
+532
+00:21:44,919 --> 00:21:49,200
+entende então Eh no meu começo de
+
+533
+00:21:47,600 --> 00:21:52,679
+carreira a perspectiva que eu tinha é
+
+534
+00:21:49,200 --> 00:21:55,080
+que era isso e ponto e o cara que tá na
+
+535
+00:21:52,679 --> 00:21:57,520
+indústria lá fazendo carreira de 30 anos
+
+536
+00:21:55,080 --> 00:22:00,320
+aí é um dinossauro que travou no cobol
+
+537
+00:21:57,520 --> 00:22:04,080
+então então era essa visão que se tinha
+
+538
+00:22:00,320 --> 00:22:06,640
+muito na época Então esse modelo cíclico
+
+539
+00:22:04,080 --> 00:22:10,360
+de mercado né faz com que ess inundação
+
+540
+00:22:06,640 --> 00:22:13,200
+de profissionais Gere a comoditização da
+
+541
+00:22:10,360 --> 00:22:15,559
+mão de obra e aí você tem picos de
+
+542
+00:22:13,200 --> 00:22:17,080
+mercado como ocorreu durante a pandemia
+
+543
+00:22:15,559 --> 00:22:19,360
+que houve uma demanda muito grande de
+
+544
+00:22:17,080 --> 00:22:23,039
+digitalização que faz com que o mercado
+
+545
+00:22:19,360 --> 00:22:24,640
+pue muito esses profissionais então Eh
+
+546
+00:22:23,039 --> 00:22:26,360
+variação da taxa de juro fez com que
+
+547
+00:22:24,640 --> 00:22:28,760
+ventory capital tornasse interessante
+
+548
+00:22:26,360 --> 00:22:30,840
+muitas empresas recebendo fauna isso
+
+549
+00:22:28,760 --> 00:22:32,480
+aumentou as vagas E aí muitos
+
+550
+00:22:30,840 --> 00:22:34,080
+profissionais competentes conseguiram as
+
+551
+00:22:32,480 --> 00:22:36,360
+vagas que mereciam muitos profissionais
+
+552
+00:22:34,080 --> 00:22:39,120
+incompetentes também conseguiram vagas E
+
+553
+00:22:36,360 --> 00:22:42,960
+aí o mercado deu aquela inflada enorme
+
+554
+00:22:39,120 --> 00:22:45,600
+eh e Em contrapartida isso faz os
+
+555
+00:22:42,960 --> 00:22:47,400
+salários subirem faz as as empresas
+
+556
+00:22:45,600 --> 00:22:49,919
+pensarem em rete os profissionais
+
+557
+00:22:47,400 --> 00:22:51,480
+criarem políticas de valorização sem ser
+
+558
+00:22:49,919 --> 00:22:52,919
+aquele cara que só vai pedir demissão ou
+
+559
+00:22:51,480 --> 00:22:55,400
+que só sobe de salário Quando troca de
+
+560
+00:22:52,919 --> 00:22:58,720
+emprego Então isso acaba gerando essa
+
+561
+00:22:55,400 --> 00:23:00,320
+perspectiva mas aí como todo o processo
+
+562
+00:22:58,720 --> 00:23:01,880
+de mercado ele é cíclico então a
+
+563
+00:23:00,320 --> 00:23:03,880
+tendência é que isso Atraia muitos
+
+564
+00:23:01,880 --> 00:23:06,440
+profissionais para virarem Juniors ao
+
+565
+00:23:03,880 --> 00:23:09,080
+mesmo tempo em que o dinheiro às vezes
+
+566
+00:23:06,440 --> 00:23:11,240
+cessa e isso faz com que as vagas
+
+567
+00:23:09,080 --> 00:23:12,360
+diminuam E aí o mercado fica novamente
+
+568
+00:23:11,240 --> 00:23:14,880
+inundado e a gente vai para
+
+569
+00:23:12,360 --> 00:23:18,720
+comoditização de novo então eu acho que
+
+570
+00:23:14,880 --> 00:23:20,640
+a gente fica nesse vai e vem e e assim é
+
+571
+00:23:18,720 --> 00:23:23,679
+o mercado né então acho que não tem
+
+572
+00:23:20,640 --> 00:23:25,600
+muito para onde correr eh é natural
+
+573
+00:23:23,679 --> 00:23:28,480
+existir isso e daí uma vez que você
+
+574
+00:23:25,600 --> 00:23:30,120
+Comodi tize Tirando o fato de você um
+
+575
+00:23:28,480 --> 00:23:33,240
+ser um desenvolvedor mais experiente um
+
+576
+00:23:30,120 --> 00:23:34,760
+plan um Senior eh as empresas acabam não
+
+577
+00:23:33,240 --> 00:23:36,360
+tendo essa política de retenção ou de
+
+578
+00:23:34,760 --> 00:23:38,400
+valorização constante para manter o
+
+579
+00:23:36,360 --> 00:23:39,760
+profissional Porque pô tem arrodo no
+
+580
+00:23:38,400 --> 00:23:41,640
+mercado né então não vou ficar me
+
+581
+00:23:39,760 --> 00:23:43,039
+preocupando em reter E aí os salários
+
+582
+00:23:41,640 --> 00:23:44,720
+não sobem isso obriga as pessoas a
+
+583
+00:23:43,039 --> 00:23:47,000
+ficarem trocando de emprego
+
+584
+00:23:44,720 --> 00:23:49,760
+constantemente né de forma
+
+585
+00:23:47,000 --> 00:23:51,400
+eh optativa né tipo vou trocar de
+
+586
+00:23:49,760 --> 00:23:53,080
+emprego porque eu quero ou porque às
+
+587
+00:23:51,400 --> 00:23:55,760
+vezes o cara é demitido e tem que caçar
+
+588
+00:23:53,080 --> 00:23:58,559
+outro emprego e isso gera várias trocas
+
+589
+00:23:55,760 --> 00:24:00,720
+subsequentes né então existem esses dois
+
+590
+00:23:58,559 --> 00:24:02,760
+mercados né dos entrantes dos Juniors e
+
+591
+00:24:00,720 --> 00:24:05,039
+o mercado do pessoal que já tá na cidade
+
+592
+00:24:02,760 --> 00:24:07,240
+mais alta que é um mercado completamente
+
+593
+00:24:05,039 --> 00:24:09,120
+distinto né Então as empresas que
+
+594
+00:24:07,240 --> 00:24:11,400
+conseguem reter esses profissionais
+
+595
+00:24:09,120 --> 00:24:13,120
+buscam manter eles e assim se você não
+
+596
+00:24:11,400 --> 00:24:14,720
+tem uma política de manutenção
+
+597
+00:24:13,120 --> 00:24:16,360
+invariavelmente você vai ter
+
+598
+00:24:14,720 --> 00:24:17,960
+rotatividade rotatividade em a
+
+599
+00:24:16,360 --> 00:24:20,679
+senioridade é um problema porque
+
+600
+00:24:17,960 --> 00:24:23,039
+senioridade é conhecimento técnico mas
+
+601
+00:24:20,679 --> 00:24:24,960
+também é conhecimento negocial contratar
+
+602
+00:24:23,039 --> 00:24:26,600
+um Sênior não dá a mesma produtividade
+
+603
+00:24:24,960 --> 00:24:28,120
+de manter um Sênior porque o cara que já
+
+604
+00:24:26,600 --> 00:24:30,720
+tá no teu time que já conhece teu
+
+605
+00:24:28,120 --> 00:24:32,240
+negócio T ter uma capacidade produtiva
+
+606
+00:24:30,720 --> 00:24:34,360
+muito superior a qualquer outro que vai
+
+607
+00:24:32,240 --> 00:24:36,600
+entrar do mercado para ainda absorver
+
+608
+00:24:34,360 --> 00:24:39,720
+aquele conhecimento fora que
+
+609
+00:24:36,600 --> 00:24:42,720
+profissionais mais seniors tendem a ter
+
+610
+00:24:39,720 --> 00:24:45,120
+eh como é que se diz assim enrijecer sua
+
+611
+00:24:42,720 --> 00:24:46,360
+perspectiva né então é muito fácil de
+
+612
+00:24:45,120 --> 00:24:48,799
+você trazer alguém que não bate com a
+
+613
+00:24:46,360 --> 00:24:50,159
+cultura do time vai ter dois sor lá os
+
+614
+00:24:48,799 --> 00:24:53,080
+caras vão ficar se bicando por causa da
+
+615
+00:24:50,159 --> 00:24:54,880
+tecnologia então reter o time que já tá
+
+616
+00:24:53,080 --> 00:24:57,159
+funcionando faz sentido e isso exige
+
+617
+00:24:54,880 --> 00:24:58,840
+políticas de aumento de salário que faz
+
+618
+00:24:57,159 --> 00:25:01,000
+com que se você quiser você pode
+
+619
+00:24:58,840 --> 00:25:03,559
+permanecer por tempos numa empresa desde
+
+620
+00:25:01,000 --> 00:25:06,600
+que ela te valoriza Então acho que tem
+
+621
+00:25:03,559 --> 00:25:09,399
+tem perspectivas aí né perfeito Isso
+
+622
+00:25:06,600 --> 00:25:12,120
+aqui vai ficar bom hein Você tá tocando
+
+623
+00:25:09,399 --> 00:25:15,640
+num ponto muito bom aí uma coisa que eu
+
+624
+00:25:12,120 --> 00:25:18,039
+sempre tento eh reforçar com todos tanto
+
+625
+00:25:15,640 --> 00:25:20,200
+na área de tecnologia como outras áreas
+
+626
+00:25:18,039 --> 00:25:22,799
+é que o profissional ele tem que saber
+
+627
+00:25:20,200 --> 00:25:25,360
+ligar os pontos ele não pode ficar
+
+628
+00:25:22,799 --> 00:25:27,279
+esperando que alguém que o William boner
+
+629
+00:25:25,360 --> 00:25:29,720
+apareça no jornal nacional para explicar
+
+630
+00:25:27,279 --> 00:25:31,760
+para ele em qual ciclo de mercado ele
+
+631
+00:25:29,720 --> 00:25:33,559
+está Qual decisão que ele tem que tomar
+
+632
+00:25:31,760 --> 00:25:36,320
+com a carreira dele se ele for esperar
+
+633
+00:25:33,559 --> 00:25:39,039
+esse tipo de de comentário de instrução
+
+634
+00:25:36,320 --> 00:25:41,200
+de alguém Ele vai sempre chegar atrasado
+
+635
+00:25:39,039 --> 00:25:42,919
+então ele tem que ligar os pontos da
+
+636
+00:25:41,200 --> 00:25:44,799
+melhor forma possível como naquelas
+
+637
+00:25:42,919 --> 00:25:47,240
+brincadeiras antigas de criança né que
+
+638
+00:25:44,799 --> 00:25:50,559
+tinham os pontinhos e a gente ligava
+
+639
+00:25:47,240 --> 00:25:53,720
+eles e formava um desenho né então hoje
+
+640
+00:25:50,559 --> 00:25:56,880
+eu percebo que as pessoas perderam essa
+
+641
+00:25:53,720 --> 00:25:59,559
+essa essa talvez vontade de de ligar os
+
+642
+00:25:56,880 --> 00:26:01,240
+pontos porque elas ficam sempre à espera
+
+643
+00:25:59,559 --> 00:26:05,720
+de que alguém diga para elas no YouTube
+
+644
+00:26:01,240 --> 00:26:08,640
+num podcast né num num site aleatório
+
+645
+00:26:05,720 --> 00:26:10,679
+daí da internet o que que tá
+
+646
+00:26:08,640 --> 00:26:12,960
+acontecendo Eu acho que é muito o efeito
+
+647
+00:26:10,679 --> 00:26:15,640
+do cara que quer predizer alguma coisa
+
+648
+00:26:12,960 --> 00:26:17,360
+com base em uma opinião num terceiro
+
+649
+00:26:15,640 --> 00:26:20,200
+então dá para fazer um paralelo muito
+
+650
+00:26:17,360 --> 00:26:24,240
+legal aqui com o mercado de
+
+651
+00:26:20,200 --> 00:26:26,640
+eh de cripto por exemplo ou mercado de
+
+652
+00:26:24,240 --> 00:26:28,679
+de ações mercado especulativo no geral
+
+653
+00:26:26,640 --> 00:26:30,200
+né então pô eu vou ficar rico
+
+654
+00:26:28,679 --> 00:26:32,320
+especulando aqui e tal mas como é que
+
+655
+00:26:30,200 --> 00:26:34,919
+você obtém com informação obt pelo Canal
+
+656
+00:26:32,320 --> 00:26:37,080
+tal que outros 10 milhões de pessoas
+
+657
+00:26:34,919 --> 00:26:38,600
+também obtém pô aí você já não tá mais
+
+658
+00:26:37,080 --> 00:26:40,399
+trabalhando com ciclos onde você vai
+
+659
+00:26:38,600 --> 00:26:42,559
+predizer o mercado para ganhar dinheiro
+
+660
+00:26:40,399 --> 00:26:44,320
+você tá no efeito Man nada você é o
+
+661
+00:26:42,559 --> 00:26:46,000
+trouxa que alimenta as ondas que fazem
+
+662
+00:26:44,320 --> 00:26:48,240
+os caras que predizerem o mercado ganhar
+
+663
+00:26:46,000 --> 00:26:50,159
+dinheiro exato e aqui pra carreira é a
+
+664
+00:26:48,240 --> 00:26:52,399
+mesma perspectiva né se você não tem o
+
+665
+00:26:50,159 --> 00:26:54,200
+feeling de ler o mercado espera alguém
+
+666
+00:26:52,399 --> 00:26:55,919
+ler para você e te dizer você já tá
+
+667
+00:26:54,200 --> 00:26:59,799
+recebendo essa notícia tarde demais né
+
+668
+00:26:55,919 --> 00:27:01,799
+então Tarde Demais eh é como dizem os
+
+669
+00:26:59,799 --> 00:27:04,320
+últimos os penúltimos a saberem das
+
+670
+00:27:01,799 --> 00:27:06,640
+coisas são os jornalistas a grande mídia
+
+671
+00:27:04,320 --> 00:27:09,520
+até mídia pequena também e o os
+
+672
+00:27:06,640 --> 00:27:12,600
+penúltimos né os últimos são aqueles que
+
+673
+00:27:09,520 --> 00:27:14,640
+se informam através deles exato para
+
+674
+00:27:12,600 --> 00:27:16,399
+muita coisa isso Beleza acaba aplicando
+
+675
+00:27:14,640 --> 00:27:19,120
+vários filtros quando a gente fala de
+
+676
+00:27:16,399 --> 00:27:21,720
+fatos e é justificável mas para muitas
+
+677
+00:27:19,120 --> 00:27:24,159
+coisas como especulação e como carreira
+
+678
+00:27:21,720 --> 00:27:26,240
+que exige um entendimento eh contextual
+
+679
+00:27:24,159 --> 00:27:27,679
+do mercado e contemporâneo né então você
+
+680
+00:27:26,240 --> 00:27:29,919
+precisa ter a perspectiva do mercado
+
+681
+00:27:27,679 --> 00:27:32,200
+atual não do mercado que o cara ouviu
+
+682
+00:27:29,919 --> 00:27:35,880
+falar como estava há um tempo atrás né
+
+683
+00:27:32,200 --> 00:27:37,720
+então Eh acaba sendo inválido essa
+
+684
+00:27:35,880 --> 00:27:39,480
+perspectiva porque você precisa de
+
+685
+00:27:37,720 --> 00:27:41,200
+informação fresca E aí é a capacidade de
+
+686
+00:27:39,480 --> 00:27:42,840
+interpretação igual no mercado
+
+687
+00:27:41,200 --> 00:27:45,279
+especulativo né se você realmente quer
+
+688
+00:27:42,840 --> 00:27:47,480
+ganhar dinheiro especulando ações pô
+
+689
+00:27:45,279 --> 00:27:48,919
+aprenda a ler balancete aprenda a
+
+690
+00:27:47,480 --> 00:27:51,279
+entender a perspectiva das ações que
+
+691
+00:27:48,919 --> 00:27:52,480
+você tá vai estudar né não espera Alé
+
+692
+00:27:51,279 --> 00:27:53,559
+entregar mastigado porque esse cara
+
+693
+00:27:52,480 --> 00:27:57,080
+provavelmente já poderia estar ganhando
+
+694
+00:27:53,559 --> 00:27:59,480
+dinheiro com ações também né É se já vem
+
+695
+00:27:57,080 --> 00:28:02,679
+a a informação mastigada significa que
+
+696
+00:27:59,480 --> 00:28:05,559
+já passou por por a agenda de alguém
+
+697
+00:28:02,679 --> 00:28:08,360
+Uhum Então você já tá dentro da agenda
+
+698
+00:28:05,559 --> 00:28:11,120
+de de alguém que pode ser contra os seus
+
+699
+00:28:08,360 --> 00:28:14,159
+interesses então também já é arriscado
+
+700
+00:28:11,120 --> 00:28:16,440
+por isso também mas no nosso caso quando
+
+701
+00:28:14,159 --> 00:28:18,159
+a gente faz essa leitura do mercado até
+
+702
+00:28:16,440 --> 00:28:19,120
+mesmo leitura da empresa em que a gente
+
+703
+00:28:18,159 --> 00:28:21,960
+está
+
+704
+00:28:19,120 --> 00:28:23,919
+eh ainda que a gente erre pelo menos a
+
+705
+00:28:21,960 --> 00:28:27,600
+gente tá seguindo a nossa própria agenda
+
+706
+00:28:23,919 --> 00:28:30,760
+né então a até o erro vai ser bom porque
+
+707
+00:28:27,600 --> 00:28:33,640
+no final você que que tá com as rédias
+
+708
+00:28:30,760 --> 00:28:37,480
+na mão da situação e se você acertou ou
+
+709
+00:28:33,640 --> 00:28:38,960
+errou Beleza você cresceu com aquilo e a
+
+710
+00:28:37,480 --> 00:28:40,440
+vantagem é que quando a gente fala de
+
+711
+00:28:38,960 --> 00:28:43,480
+carreira ao contrário do modelo
+
+712
+00:28:40,440 --> 00:28:45,399
+especulativo onde você tem que vender
+
+713
+00:28:43,480 --> 00:28:47,039
+para alguém que muitas vezes vai pagar
+
+714
+00:28:45,399 --> 00:28:48,399
+mais caro do que aquele ativo vale
+
+715
+00:28:47,039 --> 00:28:50,399
+porque logo ele vai perder valor para
+
+716
+00:28:48,399 --> 00:28:51,760
+você poder ganhar em cima ou você tem
+
+717
+00:28:50,399 --> 00:28:53,200
+que comprar de alguém que não sabe que
+
+718
+00:28:51,760 --> 00:28:55,399
+aquele ativo vai valorizar para você
+
+719
+00:28:53,200 --> 00:28:57,519
+poder lucrar em cima então ele depende
+
+720
+00:28:55,399 --> 00:28:59,399
+de você penalizar alguém diretamente
+
+721
+00:28:57,519 --> 00:29:01,159
+para poder se beneficiar a nível de
+
+722
+00:28:59,399 --> 00:29:02,760
+mercado a maior parte das ações que você
+
+723
+00:29:01,159 --> 00:29:05,360
+pode tomar em PR da tua carreira são
+
+724
+00:29:02,760 --> 00:29:07,480
+exclusivamente afetando você desde
+
+725
+00:29:05,360 --> 00:29:09,480
+melhorar o conhecimento ganhar
+
+726
+00:29:07,480 --> 00:29:12,159
+visibilidade gerar trabalhar com
+
+727
+00:29:09,480 --> 00:29:14,440
+projetos opce buscar mentoria todos
+
+728
+00:29:12,159 --> 00:29:17,399
+esses fatores eles são válidos na alta e
+
+729
+00:29:14,440 --> 00:29:19,320
+na Baixa do mercado né eles têm pesos
+
+730
+00:29:17,399 --> 00:29:20,960
+distintos nesses momentos às vezes você
+
+731
+00:29:19,320 --> 00:29:23,279
+precisa de muito menos disso quando o
+
+732
+00:29:20,960 --> 00:29:26,399
+mercado tá em alta Mas isso não isola a
+
+733
+00:29:23,279 --> 00:29:28,799
+necessidade de você ter isso também eh
+
+734
+00:29:26,399 --> 00:29:30,360
+chegou ao ponto eh durante contratação
+
+735
+00:29:28,799 --> 00:29:32,720
+no pico da pandemia que se a gente abr
+
+736
+00:29:30,360 --> 00:29:35,039
+uma vaga de Júnior e chorava porque
+
+737
+00:29:32,720 --> 00:29:37,600
+chegavam 1000 2000 currículos para el os
+
+738
+00:29:35,039 --> 00:29:40,360
+meus sócios validarem sabe então você
+
+739
+00:29:37,600 --> 00:29:43,200
+acaba o quê buscando candidatos que que
+
+740
+00:29:40,360 --> 00:29:45,760
+se destaquem de alguma maneira seja por
+
+741
+00:29:43,200 --> 00:29:49,720
+indicação E aí entre o bom e velho q né
+
+742
+00:29:45,760 --> 00:29:51,519
+Eh Ou seja candidatos que dentro do
+
+743
+00:29:49,720 --> 00:29:55,360
+e-mail conseguiram se identificar como
+
+744
+00:29:51,519 --> 00:29:58,279
+tendo um canal como tendo um blog como
+
+745
+00:29:55,360 --> 00:30:00,440
+tendo um github mais ativo e Isso
+
+746
+00:29:58,279 --> 00:30:02,200
+facilita bastante porque às vezes você
+
+747
+00:30:00,440 --> 00:30:03,840
+um cara que era bom mas não deu a
+
+748
+00:30:02,200 --> 00:30:06,159
+visibilidade necessária não soube fazer
+
+749
+00:30:03,840 --> 00:30:08,000
+o marketing da própria carreira da forma
+
+750
+00:30:06,159 --> 00:30:09,679
+ideal acaba ficando para segundo plano
+
+751
+00:30:08,000 --> 00:30:11,760
+para um profissional que é mais ou menos
+
+752
+00:30:09,679 --> 00:30:14,159
+mas que conseguiu fazer um bom marketing
+
+753
+00:30:11,760 --> 00:30:17,080
+é a gente tem que lembrar sempre que o
+
+754
+00:30:14,159 --> 00:30:20,159
+mercado de trabalho é um mercado também
+
+755
+00:30:17,080 --> 00:30:23,159
+né E se aplica as leis do mercado oferta
+
+756
+00:30:20,159 --> 00:30:25,240
+e demanda tem um bom marketing Ninguém é
+
+757
+00:30:23,159 --> 00:30:27,279
+obrigado a saber que você é muito bom
+
+758
+00:30:25,240 --> 00:30:29,880
+porque se você não se comunicou com
+
+759
+00:30:27,279 --> 00:30:32,080
+coretamente as pessoas não vai saber não
+
+760
+00:30:29,880 --> 00:30:33,360
+vão saber então e aí entra inclusive as
+
+761
+00:30:32,080 --> 00:30:34,919
+soft Skills né que a gente tava
+
+762
+00:30:33,360 --> 00:30:36,600
+comentando muitas vezes você chega numa
+
+763
+00:30:34,919 --> 00:30:39,080
+entrevista com um candidato que tem um
+
+764
+00:30:36,600 --> 00:30:41,480
+potencial técnico excepcional mas o
+
+765
+00:30:39,080 --> 00:30:44,200
+candidato trava entende Tipo ele não não
+
+766
+00:30:41,480 --> 00:30:45,519
+tem habilidade de conversar com alguém
+
+767
+00:30:44,200 --> 00:30:47,600
+que às vezes está numa posição de
+
+768
+00:30:45,519 --> 00:30:49,159
+autoridade Não que seja essa ideia né na
+
+769
+00:30:47,600 --> 00:30:51,120
+entrevista a gente sempre tenta deixar a
+
+770
+00:30:49,159 --> 00:30:54,080
+pessoa mais à vontade possível mas
+
+771
+00:30:51,120 --> 00:30:55,880
+existe essa estrutura implícita né e e o
+
+772
+00:30:54,080 --> 00:30:57,600
+candidato trava ele não consegue
+
+773
+00:30:55,880 --> 00:31:01,120
+responder as perguntas de forma forma
+
+774
+00:30:57,600 --> 00:31:03,159
+ideal e isso acaba dizendo muito sobre
+
+775
+00:31:01,120 --> 00:31:04,720
+como que ele reagiria num cenário que
+
+776
+00:31:03,159 --> 00:31:07,480
+não é o ideal mas que acontece no mundo
+
+777
+00:31:04,720 --> 00:31:10,320
+de software que é a pressão né então pô
+
+778
+00:31:07,480 --> 00:31:12,279
+software de produção caiu o cara travou
+
+779
+00:31:10,320 --> 00:31:14,960
+pô não posso contar com ser profissional
+
+780
+00:31:12,279 --> 00:31:16,559
+né cara então ou preciso botar ele na
+
+781
+00:31:14,960 --> 00:31:19,360
+frente do cliente para conversar comigo
+
+782
+00:31:16,559 --> 00:31:21,200
+e entender o requisito e ou às vezes e
+
+783
+00:31:19,360 --> 00:31:23,559
+entender Por que um projeto atrasou
+
+784
+00:31:21,200 --> 00:31:25,919
+porque que algo tá travando e e a
+
+785
+00:31:23,559 --> 00:31:27,760
+ausência dessas soft Skills se manifesta
+
+786
+00:31:25,919 --> 00:31:29,519
+muito durante as entrevistas né então é
+
+787
+00:31:27,760 --> 00:31:32,120
+um momento que a gente acaba trabalhando
+
+788
+00:31:29,519 --> 00:31:34,200
+inclusive e dependendo do nível técnico
+
+789
+00:31:32,120 --> 00:31:36,480
+principalmente para Júnior Claro a gente
+
+790
+00:31:34,200 --> 00:31:38,880
+exige o mínimo ali de conhecimento de de
+
+791
+00:31:36,480 --> 00:31:41,720
+programação mas a gente contrata muito
+
+792
+00:31:38,880 --> 00:31:43,440
+mais soft do que hard né então você
+
+793
+00:31:41,720 --> 00:31:45,799
+contrata muito mais a pessoa que tem
+
+794
+00:31:43,440 --> 00:31:48,600
+capacidade de aprender tem a vontade
+
+795
+00:31:45,799 --> 00:31:50,279
+demonstra sabe conversar e tem o mínimo
+
+796
+00:31:48,600 --> 00:31:51,960
+de competência técnica do que o cara que
+
+797
+00:31:50,279 --> 00:31:54,080
+chega num nível acima do que ele se
+
+798
+00:31:51,960 --> 00:31:55,760
+propõe mas que você entenda que ele não
+
+799
+00:31:54,080 --> 00:31:57,600
+vai conseguir desempenhar da forma como
+
+800
+00:31:55,760 --> 00:32:00,799
+deveria pela ausência da Soft Skills
+
+801
+00:31:57,600 --> 00:32:02,679
+necessárias né entendo talvez se a gente
+
+802
+00:32:00,799 --> 00:32:04,880
+fosse atualizar aquela fórmula lá soft
+
+803
+00:32:02,679 --> 00:32:08,080
+Skill versus hard Skill a gente poderia
+
+804
+00:32:04,880 --> 00:32:11,240
+até colocar soft Skill ao quadrado vezes
+
+805
+00:32:08,080 --> 00:32:14,000
+soft vezes hard Skill né que elas T Ah
+
+806
+00:32:11,240 --> 00:32:16,360
+sim eh Nossa que drog parece que O OBS
+
+807
+00:32:14,000 --> 00:32:22,760
+não conseguiu conectar aqui acabou de de
+
+808
+00:32:16,360 --> 00:32:25,200
+cair ah voltou voltou boa então Eh um um
+
+809
+00:32:22,760 --> 00:32:26,600
+ponto polêmico agora né essas questões
+
+810
+00:32:25,200 --> 00:32:28,320
+de internet aí todo mundo gosta de
+
+811
+00:32:26,600 --> 00:32:31,840
+polêmica né
+
+812
+00:32:28,320 --> 00:32:35,519
+Eh mentir na entrevista Esse é um tema
+
+813
+00:32:31,840 --> 00:32:38,360
+que eu sempre tento abordar eu tento ser
+
+814
+00:32:35,519 --> 00:32:40,559
+o mais realista possível às vezes até no
+
+815
+00:32:38,360 --> 00:32:42,039
+grupo lá de javo já falei não sou padre
+
+816
+00:32:40,559 --> 00:32:43,720
+não tô preocupado com a vida espiritual
+
+817
+00:32:42,039 --> 00:32:46,840
+das pessoas se elas mentirem vão pro
+
+818
+00:32:43,720 --> 00:32:48,279
+inferno não tô preocupado com isso eu
+
+819
+00:32:46,840 --> 00:32:51,559
+penso mais no seguinte
+
+820
+00:32:48,279 --> 00:32:53,799
+eh hoje existem vários dados que depois
+
+821
+00:32:51,559 --> 00:32:55,919
+eu posso deixar na descrição do Vídeo
+
+822
+00:32:53,799 --> 00:32:58,639
+que mostram que quase não tem vagas de
+
+823
+00:32:55,919 --> 00:33:00,720
+Júnior né isso falando via de regra
+
+824
+00:32:58,639 --> 00:33:03,159
+Claro que tem uma aqui e outra ali mas
+
+825
+00:33:00,720 --> 00:33:06,240
+via de regra tem pouquíssimas vagas de
+
+826
+00:33:03,159 --> 00:33:09,000
+Júnior vamos supor mais ou menos uma
+
+827
+00:33:06,240 --> 00:33:11,919
+quantidade de vagas de pleno e muita
+
+828
+00:33:09,000 --> 00:33:14,399
+vaga de sor que entra naquela questão da
+
+829
+00:33:11,919 --> 00:33:16,480
+da escassez do de mercado que com
+
+830
+00:33:14,399 --> 00:33:19,200
+relação aos seniors né que os seniors
+
+831
+00:33:16,480 --> 00:33:20,679
+são até tem uma bolhinha dentro da bolha
+
+832
+00:33:19,200 --> 00:33:24,159
+né que eles são tratados de uma forma
+
+833
+00:33:20,679 --> 00:33:25,440
+diferente sim e por ter poucas vagas de
+
+834
+00:33:24,159 --> 00:33:28,440
+Júnior
+
+835
+00:33:25,440 --> 00:33:30,200
+eh eu já eu tento dar aulas de
+
+836
+00:33:28,440 --> 00:33:33,639
+informática né tô fazendo o meu melhor
+
+837
+00:33:30,200 --> 00:33:36,440
+já tem uns 3 anos de programação etc
+
+838
+00:33:33,639 --> 00:33:38,600
+quando chega na hora do do aluno mandar
+
+839
+00:33:36,440 --> 00:33:40,880
+currículo eu preparo eu ajudo a preparar
+
+840
+00:33:38,600 --> 00:33:43,440
+o currículo dele treino ele para
+
+841
+00:33:40,880 --> 00:33:45,399
+entrevista falo como ele deve falar como
+
+842
+00:33:43,440 --> 00:33:47,279
+ele não deve falar passa os algoritmos
+
+843
+00:33:45,399 --> 00:33:48,679
+mais pedidos os conceitos mais pedidos
+
+844
+00:33:47,279 --> 00:33:51,880
+Sid
+
+845
+00:33:48,679 --> 00:33:54,880
+etc só que na hora que eles falam ou a
+
+846
+00:33:51,880 --> 00:33:57,559
+idade são muito novinhos ou que é o
+
+847
+00:33:54,880 --> 00:34:01,000
+primeiro a primeira vai ser o primeiro
+
+848
+00:33:57,559 --> 00:34:03,320
+emprego como deve tudo que eles fizeram
+
+849
+00:34:01,000 --> 00:34:05,840
+e mostraram até então vai por água
+
+850
+00:34:03,320 --> 00:34:08,839
+abaixo as empresas simplesmente fala
+
+851
+00:34:05,840 --> 00:34:11,040
+beleza qualquer coisa a gente te chama e
+
+852
+00:34:08,839 --> 00:34:12,919
+aí o que que eu tive que fazer eu acabei
+
+853
+00:34:11,040 --> 00:34:17,200
+falando pros alunos Ó você vai ter que
+
+854
+00:34:12,919 --> 00:34:17,200
+vender seu peixe e ter que dar uma
+
+855
+00:34:23,399 --> 00:34:27,679
+exageradamente e eu sempre falo para
+
+856
+00:34:25,320 --> 00:34:30,679
+eles o mercado não gosta de antes
+
+857
+00:34:27,679 --> 00:34:34,040
+mercado não gosta de novatos mercado não
+
+858
+00:34:30,679 --> 00:34:36,119
+gosta de apostar isso E aí eu falo para
+
+859
+00:34:34,040 --> 00:34:37,960
+eles assim ó evite dizer que você é
+
+860
+00:34:36,119 --> 00:34:40,040
+estudante que você é
+
+861
+00:34:37,960 --> 00:34:43,159
+apaixonado você nunca trabalhou naquilo
+
+862
+00:34:40,040 --> 00:34:45,200
+Mas você acha legal por na cabeça do
+
+863
+00:34:43,159 --> 00:34:46,960
+contratante ele vai entendendo da
+
+864
+00:34:45,200 --> 00:34:48,679
+seguinte forma eu vou ter que treinar
+
+865
+00:34:46,960 --> 00:34:52,200
+esse cara vou ter que ensinar ele a
+
+866
+00:34:48,679 --> 00:34:54,560
+trabalhar eu vou ter que despender tempo
+
+867
+00:34:52,200 --> 00:34:57,640
+seja meu seja da minha equipe para
+
+868
+00:34:54,560 --> 00:35:00,800
+corrigir os erros que ele cometer então
+
+869
+00:34:57,640 --> 00:35:02,800
+então não tudo isso passa por esse
+
+870
+00:35:00,800 --> 00:35:04,760
+filtro né Na hora que entra no ouvido do
+
+871
+00:35:02,800 --> 00:35:06,560
+contratante porque a perspectiva do
+
+872
+00:35:04,760 --> 00:35:07,599
+contratante é diferente da perspectiva
+
+873
+00:35:06,560 --> 00:35:09,720
+do
+
+874
+00:35:07,599 --> 00:35:12,680
+contratado então eu acabo dizendo para
+
+875
+00:35:09,720 --> 00:35:15,800
+eles assim exagera um pouquinho evita
+
+876
+00:35:12,680 --> 00:35:18,079
+falar sua idade evita falar que você tá
+
+877
+00:35:15,800 --> 00:35:21,000
+aprendendo tenta se mostrar como se você
+
+878
+00:35:18,079 --> 00:35:23,240
+já fosse um profissional leva portfólio
+
+879
+00:35:21,000 --> 00:35:25,800
+leva github leva um projeto que você fez
+
+880
+00:35:23,240 --> 00:35:27,599
+por mais básico que seja por assim
+
+881
+00:35:25,800 --> 00:35:30,560
+aumenta suas Chan
+
+882
+00:35:27,599 --> 00:35:32,119
+Porque como você é iniciante e eu tô
+
+883
+00:35:30,560 --> 00:35:34,920
+dizendo para você o mercado não gosta de
+
+884
+00:35:32,119 --> 00:35:36,839
+você como iniciante então você não pode
+
+885
+00:35:34,920 --> 00:35:39,560
+se mostrar como iniciante você tem que
+
+886
+00:35:36,839 --> 00:35:41,839
+tentar se esconder um pouquinho passar
+
+887
+00:35:39,560 --> 00:35:45,280
+um verniz assim para tentar esconder que
+
+888
+00:35:41,839 --> 00:35:48,440
+é iniciante que que você acha disso
+
+889
+00:35:45,280 --> 00:35:50,440
+então eu acho bem legal até eu assim
+
+890
+00:35:48,440 --> 00:35:53,240
+falando do tema
+
+891
+00:35:50,440 --> 00:35:54,880
+mentir eu sou contrário quando eu
+
+892
+00:35:53,240 --> 00:35:57,720
+detecto isso numa entrevista para mim
+
+893
+00:35:54,880 --> 00:36:00,200
+isso é um ponto negativo mas isso eu tô
+
+894
+00:35:57,720 --> 00:36:03,040
+falando de mim como contratante
+
+895
+00:36:00,200 --> 00:36:05,119
+eh eu sei que hoje Existem muitos casos
+
+896
+00:36:03,040 --> 00:36:06,880
+onde o processo seletivo de tecnologia
+
+897
+00:36:05,119 --> 00:36:09,200
+não é executado por pessoas aptas para
+
+898
+00:36:06,880 --> 00:36:11,240
+tal seja porque ele é executado por
+
+899
+00:36:09,200 --> 00:36:13,440
+pessoas que não são técnicas que não t o
+
+900
+00:36:11,240 --> 00:36:14,960
+conhecimento de como conhecimento
+
+901
+00:36:13,440 --> 00:36:16,280
+técnico pode ser adquirido fora do
+
+902
+00:36:14,960 --> 00:36:18,839
+mercado do Trabalho através de
+
+903
+00:36:16,280 --> 00:36:21,560
+contribuições da penser ou projetos
+
+904
+00:36:18,839 --> 00:36:24,160
+Independentes ou porque às vezes é o
+
+905
+00:36:21,560 --> 00:36:26,079
+cara de conhecimento técnico Mas ele tem
+
+906
+00:36:24,160 --> 00:36:28,359
+aquela prepotência de entender que não
+
+907
+00:36:26,079 --> 00:36:30,160
+esse cara não não vale porque eu vou ter
+
+908
+00:36:28,359 --> 00:36:32,800
+que treinar esse esse cara aí então não
+
+909
+00:36:30,160 --> 00:36:35,760
+quero ele é muito raro você encontrar um
+
+910
+00:36:32,800 --> 00:36:38,160
+processo de de contratação que ele
+
+911
+00:36:35,760 --> 00:36:40,400
+consiga respeitar as perspectivas de
+
+912
+00:36:38,160 --> 00:36:43,200
+enxergar potencialidades avaliar soft
+
+913
+00:36:40,400 --> 00:36:44,760
+Skills e entender as hards como algo a
+
+914
+00:36:43,200 --> 00:36:47,560
+ser desenvolvido quando é uma vaga para
+
+915
+00:36:44,760 --> 00:36:49,680
+Júnior obviamente uma vaga para pleno
+
+916
+00:36:47,560 --> 00:36:51,400
+por exemplo o cara chegou sem o
+
+917
+00:36:49,680 --> 00:36:53,680
+conhecimento exato para pleno a gente
+
+918
+00:36:51,400 --> 00:36:55,720
+tem uma uma faixa de corte de de hard
+
+919
+00:36:53,680 --> 00:36:57,920
+Skills cara tem que ser muito bom em
+
+920
+00:36:55,720 --> 00:37:00,000
+soft Skills para conseguir justificar a
+
+921
+00:36:57,920 --> 00:37:03,640
+entrada dele na Perspectiva
+
+922
+00:37:00,000 --> 00:37:05,680
+né mas eu entendo que ess Esso é uma dor
+
+923
+00:37:03,640 --> 00:37:08,760
+do mercado e é um problema né porque aí
+
+924
+00:37:05,680 --> 00:37:11,640
+você fica entre entre a cruz e a espada
+
+925
+00:37:08,760 --> 00:37:14,440
+né então você fica entre escolher
+
+926
+00:37:11,640 --> 00:37:16,760
+e inflar o currículo com coisas que
+
+927
+00:37:14,440 --> 00:37:19,440
+talvez você não consiga comprovar e que
+
+928
+00:37:16,760 --> 00:37:21,520
+podem te pegar no flagra mas que podem
+
+929
+00:37:19,440 --> 00:37:23,200
+te auxiliar se destacar frente a toda
+
+930
+00:37:21,520 --> 00:37:24,839
+uma Seara de outros candidatos que
+
+931
+00:37:23,200 --> 00:37:28,440
+também estão tentando aquela vaga muitas
+
+932
+00:37:24,839 --> 00:37:30,200
+vezes mais capacitados eh em experiência
+
+933
+00:37:28,440 --> 00:37:32,960
+em hard Skills do que você não que a
+
+934
+00:37:30,200 --> 00:37:34,599
+potencialidade tua não seja algo e
+
+935
+00:37:32,960 --> 00:37:37,599
+superior a dessas pessoas Acho que isso
+
+936
+00:37:34,599 --> 00:37:39,839
+só a prática prova mesmo né então todo o
+
+937
+00:37:37,599 --> 00:37:42,040
+processo de contratação é uma aposta e
+
+938
+00:37:39,839 --> 00:37:45,240
+como todo o apostador
+
+939
+00:37:42,040 --> 00:37:47,440
+existem como é que posso dizer
+
+940
+00:37:45,240 --> 00:37:49,359
+algoritmos mentais que você cria para
+
+941
+00:37:47,440 --> 00:37:53,040
+poder validar por mais ilógico que eles
+
+942
+00:37:49,359 --> 00:37:54,839
+sejam né e um deles é o passado então
+
+943
+00:37:53,040 --> 00:37:56,240
+muitas vezes as pessoas olham para
+
+944
+00:37:54,839 --> 00:37:59,280
+contratações que foram efetuadas De
+
+945
+00:37:56,240 --> 00:38:03,040
+pesso pessoas com o perfil eh sem
+
+946
+00:37:59,280 --> 00:38:04,839
+experiência e e vem alguns insucessos
+
+947
+00:38:03,040 --> 00:38:06,400
+porque são pessoas que às vezes não tem
+
+948
+00:38:04,839 --> 00:38:08,960
+Total domínio da área
+
+949
+00:38:06,400 --> 00:38:11,119
+eh tipo não entendem o que a área é e
+
+950
+00:38:08,960 --> 00:38:14,480
+quando se deparam com o mercado como o
+
+951
+00:38:11,119 --> 00:38:17,079
+mercado funciona travam ou saem ou
+
+952
+00:38:14,480 --> 00:38:19,319
+abandonam então talvez aqui o ponto
+
+953
+00:38:17,079 --> 00:38:20,960
+chave seja novamente uma palavra que eu
+
+954
+00:38:19,319 --> 00:38:23,960
+gosto muito se eu já repeti que é a
+
+955
+00:38:20,960 --> 00:38:26,560
+empatia né então como contratante eu
+
+956
+00:38:23,960 --> 00:38:28,599
+busco buscar eu busco buscar busco
+
+957
+00:38:26,560 --> 00:38:30,520
+discuter essa essa empatia com quem eu
+
+958
+00:38:28,599 --> 00:38:34,079
+tô contratando entendendo onde a pessoa
+
+959
+00:38:30,520 --> 00:38:36,119
+vem e quais são as Skills dela Como ela
+
+960
+00:38:34,079 --> 00:38:38,839
+pode contribuir Mas isso também é válido
+
+961
+00:38:36,119 --> 00:38:41,560
+pro inverso Então você entender quem é o
+
+962
+00:38:38,839 --> 00:38:43,400
+teu contratante e reagir a isso então
+
+963
+00:38:41,560 --> 00:38:44,720
+você lê a pessoa que tá te contratando e
+
+964
+00:38:43,400 --> 00:38:47,240
+entender se ela é uma pessoa mais
+
+965
+00:38:44,720 --> 00:38:49,200
+técnica que vai buscar conhecimento mais
+
+966
+00:38:47,240 --> 00:38:51,720
+técnico e aí você demonstrar todo o
+
+967
+00:38:49,200 --> 00:38:53,400
+conhecimento que você tem isso não exige
+
+968
+00:38:51,720 --> 00:38:55,880
+experiência prévia porque conhecimento
+
+969
+00:38:53,400 --> 00:38:57,200
+pode ser adquirido hoje na internet de
+
+970
+00:38:55,880 --> 00:38:58,760
+forma muito mais mais fácil do que por
+
+971
+00:38:57,200 --> 00:38:59,880
+exemplo na época que eu entrei H uma
+
+972
+00:38:58,760 --> 00:39:03,079
+década atrás
+
+973
+00:38:59,880 --> 00:39:05,200
+Ah pô a gente não tinha canal do YouTube
+
+974
+00:39:03,079 --> 00:39:08,160
+para para buscar coisa na internet
+
+975
+00:39:05,200 --> 00:39:10,240
+stackoverflow não era difundido eh não
+
+976
+00:39:08,160 --> 00:39:12,599
+sei nem se existia a gente tinha alguns
+
+977
+00:39:10,240 --> 00:39:16,160
+fóruns no Orkut para discutir isso que
+
+978
+00:39:12,599 --> 00:39:17,800
+eram bem bem bem mais ralos assim a
+
+979
+00:39:16,160 --> 00:39:20,680
+nível de capacidade técnica tinha que
+
+980
+00:39:17,800 --> 00:39:22,160
+buscar conhecimento em livros então isso
+
+981
+00:39:20,680 --> 00:39:23,599
+não é nem mérito nem demérito pro
+
+982
+00:39:22,160 --> 00:39:25,200
+pessoal da época tá eu acho que isso é
+
+983
+00:39:23,599 --> 00:39:27,319
+muito bom a gente ter essa capacidade
+
+984
+00:39:25,200 --> 00:39:29,079
+das pessoas aí adquirirem conhecimento
+
+985
+00:39:27,319 --> 00:39:30,640
+de forma mais rápida isso é bom para
+
+986
+00:39:29,079 --> 00:39:33,760
+quem adquire e é bom para quem contrata
+
+987
+00:39:30,640 --> 00:39:35,440
+essas pessoas porque facilita né então é
+
+988
+00:39:33,760 --> 00:39:37,040
+sempre muito bemvindo tenho nenhuma
+
+989
+00:39:35,440 --> 00:39:38,960
+nostalgia com o processo de aprendizado
+
+990
+00:39:37,040 --> 00:39:41,560
+da da época que eu entrei no mercado não
+
+991
+00:39:38,960 --> 00:39:43,920
+é um saudosista não nem um pouco
+
+992
+00:39:41,560 --> 00:39:46,400
+eh mas olhando para para essa
+
+993
+00:39:43,920 --> 00:39:48,240
+perspectiva então ah as pessoas que
+
+994
+00:39:46,400 --> 00:39:51,280
+estão sendo contratadas Elas têm que
+
+995
+00:39:48,240 --> 00:39:53,560
+entender quem é o contratante delas e
+
+996
+00:39:51,280 --> 00:39:57,000
+reagir a isso demonstrar suas soft
+
+997
+00:39:53,560 --> 00:39:58,920
+Skills demonstrar eh suas hard Skills
+
+998
+00:39:57,000 --> 00:40:01,440
+que devem existir através desse processo
+
+999
+00:39:58,920 --> 00:40:02,960
+de aprendizado mesmo sem experiência e é
+
+1000
+00:40:01,440 --> 00:40:04,720
+claro você não vai passar entrevista
+
+1001
+00:40:02,960 --> 00:40:07,359
+inteira destacando teus pontos fracos
+
+1002
+00:40:04,720 --> 00:40:09,359
+Então acho que você não chegar falando
+
+1003
+00:40:07,359 --> 00:40:10,720
+teus pontos fracos é igual quando eu tô
+
+1004
+00:40:09,359 --> 00:40:13,079
+vendendo um produto Eu não chego falando
+
+1005
+00:40:10,720 --> 00:40:15,240
+dos defeitos dele mas se alguém me
+
+1006
+00:40:13,079 --> 00:40:17,119
+perguntar aí a idoneidade de eu dizer
+
+1007
+00:40:15,240 --> 00:40:21,160
+quais são os defeitos ou de eu apontar
+
+1008
+00:40:17,119 --> 00:40:23,079
+eles de forma Clara concisa e sincera é
+
+1009
+00:40:21,160 --> 00:40:25,599
+uma um uma qualidade que eu valorizo
+
+1010
+00:40:23,079 --> 00:40:27,599
+então por exemplo destacar idade dep
+
+1011
+00:40:25,599 --> 00:40:29,240
+você tu idar é um fator que você
+
+1012
+00:40:27,599 --> 00:40:31,560
+acredita que pode ser um demérito para
+
+1013
+00:40:29,240 --> 00:40:33,440
+aquele contratante não fala ela de
+
+1014
+00:40:31,560 --> 00:40:34,800
+antemão pode estar no currículo lá tua
+
+1015
+00:40:33,440 --> 00:40:36,680
+data de nascimento não idade
+
+1016
+00:40:34,800 --> 00:40:39,040
+explicitamente você não precisa chegar
+
+1017
+00:40:36,680 --> 00:40:40,599
+dizendo sou novo na área Então você já
+
+1018
+00:40:39,040 --> 00:40:42,319
+pode você tem que trabalhar com teus
+
+1019
+00:40:40,599 --> 00:40:45,680
+pontos fortes né Acho que esse é o ponto
+
+1020
+00:40:42,319 --> 00:40:47,560
+chave e aqueles que façam sentido e e
+
+1021
+00:40:45,680 --> 00:40:48,800
+ter material concreto né porque assim
+
+1022
+00:40:47,560 --> 00:40:51,520
+tem muita gente que sabe vender o
+
+1023
+00:40:48,800 --> 00:40:53,040
+próprio peixe mas que nem tem peixe para
+
+1024
+00:40:51,520 --> 00:40:56,359
+vender então tem tem muita gente
+
+1025
+00:40:53,040 --> 00:40:57,720
+vendendo coisa que não tem e código com
+
+1026
+00:40:56,359 --> 00:40:59,400
+concreto pelo menos uma coisa que eu
+
+1027
+00:40:57,720 --> 00:41:00,960
+sempre gostei muito de ver então pô que
+
+1028
+00:40:59,400 --> 00:41:04,760
+projeto que você fez no github
+
+1029
+00:41:00,960 --> 00:41:07,319
+contribuiu para opce e pô já fiz isso já
+
+1030
+00:41:04,760 --> 00:41:09,599
+fiz aquilo então eu já contratei muita
+
+1031
+00:41:07,319 --> 00:41:11,480
+gente com uma entrevista ruim por causa
+
+1032
+00:41:09,599 --> 00:41:14,119
+do Git Hub da pessoa entende então a
+
+1033
+00:41:11,480 --> 00:41:15,720
+pessoa me mostrou e soube explicar o
+
+1034
+00:41:14,119 --> 00:41:17,400
+código que tava ali para você não saber
+
+1035
+00:41:15,720 --> 00:41:19,880
+que o cara só saiu saindo criando fork
+
+1036
+00:41:17,400 --> 00:41:21,839
+dos projetos né cara então o cara soube
+
+1037
+00:41:19,880 --> 00:41:23,240
+explicar o código que tava ali sobre
+
+1038
+00:41:21,839 --> 00:41:25,280
+falar sobre as tecnologias que ele
+
+1039
+00:41:23,240 --> 00:41:27,640
+aplicou e isso foi mais do que o
+
+1040
+00:41:25,280 --> 00:41:29,160
+suficiente para você você poder chegar e
+
+1041
+00:41:27,640 --> 00:41:31,000
+e trabalhar com essa pessoa e entender
+
+1042
+00:41:29,160 --> 00:41:35,000
+que ela tinha aquelas Skills necessárias
+
+1043
+00:41:31,000 --> 00:41:36,839
+né então tem muito disso assim é eu sou
+
+1044
+00:41:35,000 --> 00:41:38,640
+contra o ato de mentir mas eu não sou
+
+1045
+00:41:36,839 --> 00:41:40,200
+contra o ato de vender então todo o
+
+1046
+00:41:38,640 --> 00:41:42,920
+processo de contratação é uma venda você
+
+1047
+00:41:40,200 --> 00:41:46,000
+tá se vendendo como profissional Ninguém
+
+1048
+00:41:42,920 --> 00:41:47,839
+chega vendendo pô veja aqui ó essa água
+
+1049
+00:41:46,000 --> 00:41:50,520
+que maravilha ol Ela estragou faz dois
+
+1050
+00:41:47,839 --> 00:41:53,280
+dias tá guardada aqui tá sem gás já quer
+
+1051
+00:41:50,520 --> 00:41:54,800
+comprar não você chega anunciando as
+
+1052
+00:41:53,280 --> 00:41:57,400
+qualidades do produto que você quer
+
+1053
+00:41:54,800 --> 00:41:59,560
+vender né então tem razão eh eu acho que
+
+1054
+00:41:57,400 --> 00:42:02,160
+pro profissional vale a mesma premissa
+
+1055
+00:41:59,560 --> 00:42:03,839
+eh saber trabalhar com bom currículo
+
+1056
+00:42:02,160 --> 00:42:06,800
+saber se destacar frente aos outros
+
+1057
+00:42:03,839 --> 00:42:08,280
+candidatos E assim se você conseguir ser
+
+1058
+00:42:06,800 --> 00:42:11,079
+chamado para entrevista que já é Um
+
+1059
+00:42:08,280 --> 00:42:14,520
+Desafio enorme na D do cenário de hoje
+
+1060
+00:42:11,079 --> 00:42:17,839
+Tenta ir preparado tranquilo
+
+1061
+00:42:14,520 --> 00:42:20,240
+eh tenta transparecer oo máximo possível
+
+1062
+00:42:17,839 --> 00:42:22,640
+a confiança que você tem e aqui entra um
+
+1063
+00:42:20,240 --> 00:42:24,839
+Outro fator talvez até como uma dica né
+
+1064
+00:42:22,640 --> 00:42:27,000
+não usar câmera durante a reunião não é
+
+1065
+00:42:24,839 --> 00:42:29,040
+nenhum demérito muitas vezes as pessoas
+
+1066
+00:42:27,000 --> 00:42:31,160
+não TM acesso a uma câmera de qualidade
+
+1067
+00:42:29,040 --> 00:42:32,720
+e não tem problema mas se você tem
+
+1068
+00:42:31,160 --> 00:42:35,800
+capacidade de usar uma câmera ela
+
+1069
+00:42:32,720 --> 00:42:38,559
+auxilia porque a comunicação não verbal
+
+1070
+00:42:35,800 --> 00:42:40,599
+também vale então a você fala com o teu
+
+1071
+00:42:38,559 --> 00:42:43,000
+corpo a confiança se passa pelo
+
+1072
+00:42:40,599 --> 00:42:44,880
+posicionamento então se você pode falar
+
+1073
+00:42:43,000 --> 00:42:47,440
+com mais aspectos do que só tua voz
+
+1074
+00:42:44,880 --> 00:42:50,440
+durante uma entrevista e esses aspectos
+
+1075
+00:42:47,440 --> 00:42:51,839
+vendem bem pô usa esse recurso também né
+
+1076
+00:42:50,440 --> 00:42:53,400
+então acho que tudo hoje em dia as
+
+1077
+00:42:51,839 --> 00:42:55,680
+entrevistas são quase todas online né
+
+1078
+00:42:53,400 --> 00:42:57,359
+então isso é uma perspectiva que é é bem
+
+1079
+00:42:55,680 --> 00:43:00,960
+válida assim separ um lugarzinho
+
+1080
+00:42:57,359 --> 00:43:02,520
+silencioso pô vai num shopping num canto
+
+1081
+00:43:00,960 --> 00:43:05,640
+lá do shopping se você não tem lugar
+
+1082
+00:43:02,520 --> 00:43:07,800
+silencioso em casa mas se prepara para
+
+1083
+00:43:05,640 --> 00:43:10,720
+essa entrevista Se prepara para vender o
+
+1084
+00:43:07,800 --> 00:43:14,240
+teu produto né então que que é você como
+
+1085
+00:43:10,720 --> 00:43:16,920
+profissional né é como a gente comentou
+
+1086
+00:43:14,240 --> 00:43:18,599
+é uma é um processo de venda também eu
+
+1087
+00:43:16,920 --> 00:43:21,559
+sei que muitas pessoas não gostam da
+
+1088
+00:43:18,599 --> 00:43:25,400
+palavra venda né não gosta de vendedor
+
+1089
+00:43:21,559 --> 00:43:27,760
+por exemplo porque por situações ruins
+
+1090
+00:43:25,400 --> 00:43:31,000
+que alguns V vedores criaram né com
+
+1091
+00:43:27,760 --> 00:43:33,760
+muita apelação Mas isso não não não quer
+
+1092
+00:43:31,000 --> 00:43:36,680
+dizer que a venda em si é ruim existem
+
+1093
+00:43:33,760 --> 00:43:39,280
+vendedores ruins mas a venda em si ela é
+
+1094
+00:43:36,680 --> 00:43:42,599
+uma coisa neutra então é uma ferramenta
+
+1095
+00:43:39,280 --> 00:43:45,599
+que você tem que usar para gerar algo né
+
+1096
+00:43:42,599 --> 00:43:48,280
+gerar a venda e é um conhecimento que
+
+1097
+00:43:45,599 --> 00:43:50,359
+ele é ele é essencial até durante o teu
+
+1098
+00:43:48,280 --> 00:43:53,960
+vamos supor que você já está empregado
+
+1099
+00:43:50,359 --> 00:43:56,920
+eh Você já conseguiu a tua posição e
+
+1100
+00:43:53,960 --> 00:43:58,960
+você quer por exemplo sugerir Ah uma
+
+1101
+00:43:56,920 --> 00:44:00,520
+melhoria ou uma mudança tecnológica ou
+
+1102
+00:43:58,960 --> 00:44:01,960
+alguma coisa você precisa vender essa
+
+1103
+00:44:00,520 --> 00:44:04,480
+ideia para as pessoas que estão à tua
+
+1104
+00:44:01,960 --> 00:44:06,040
+volta você precisa vender o teu trabalho
+
+1105
+00:44:04,480 --> 00:44:07,839
+para as pessoas que estão te monitorando
+
+1106
+00:44:06,040 --> 00:44:08,920
+para elas entenderem como você progride
+
+1107
+00:44:07,839 --> 00:44:10,760
+não adianta nada você ser um
+
+1108
+00:44:08,920 --> 00:44:12,680
+profissional excepcional que não
+
+1109
+00:44:10,760 --> 00:44:15,119
+consegue dar a devida publicidade para
+
+1110
+00:44:12,680 --> 00:44:16,960
+aquilo que você faz não é sair usando o
+
+1111
+00:44:15,119 --> 00:44:19,640
+Slack geral da empresa e postando os
+
+1112
+00:44:16,960 --> 00:44:21,640
+códigos que você criou né mas essa
+
+1113
+00:44:19,640 --> 00:44:23,960
+entender o impacto daquilo que você fez
+
+1114
+00:44:21,640 --> 00:44:25,559
+no negócio e saber conversar com as
+
+1115
+00:44:23,960 --> 00:44:27,800
+pessoas do negócio sobre esse impacto
+
+1116
+00:44:25,559 --> 00:44:31,559
+com preender as demandas e as
+
+1117
+00:44:27,800 --> 00:44:34,000
+dificuldades proatividade né então a a a
+
+1118
+00:44:31,559 --> 00:44:36,880
+venda e a proatividade profissional elas
+
+1119
+00:44:34,000 --> 00:44:38,440
+andam muito lado a lado então você ser
+
+1120
+00:44:36,880 --> 00:44:41,040
+proativo a ponto de est ali
+
+1121
+00:44:38,440 --> 00:44:43,160
+compreendendo aplicando e e ajustando a
+
+1122
+00:44:41,040 --> 00:44:44,800
+empresa e vendendo a tua ideia de
+
+1123
+00:44:43,160 --> 00:44:46,680
+melhoria Porque pô se você chega e
+
+1124
+00:44:44,800 --> 00:44:49,160
+sugere uma coisa que é legal Sabe vender
+
+1125
+00:44:46,680 --> 00:44:50,720
+isso muito bem isso te destaca frente
+
+1126
+00:44:49,160 --> 00:44:52,839
+inclusive as pessoas do outro time não
+
+1127
+00:44:50,720 --> 00:44:55,359
+que seja uma competição né software é
+
+1128
+00:44:52,839 --> 00:44:57,520
+colaborativo e isso é essencial as
+
+1129
+00:44:55,359 --> 00:44:58,839
+entregas são do time Então esse
+
+1130
+00:44:57,520 --> 00:45:01,480
+individualismo do tipo eu sou melhor do
+
+1131
+00:44:58,839 --> 00:45:04,640
+que Fulano tal não não é legal mas sim
+
+1132
+00:45:01,480 --> 00:45:06,680
+te destaca Então como profissional teus
+
+1133
+00:45:04,640 --> 00:45:08,599
+você salta aos olhos de outras pessoas
+
+1134
+00:45:06,680 --> 00:45:12,160
+que muitas vezes não são técnicas né
+
+1135
+00:45:08,599 --> 00:45:14,800
+quando você consegue vender uma ideia
+
+1136
+00:45:12,160 --> 00:45:18,480
+vender um produto vender um modelo
+
+1137
+00:45:14,800 --> 00:45:20,079
+vender a tua carreira que seja né então
+
+1138
+00:45:18,480 --> 00:45:21,640
+e aí eu recomendo muito pros
+
+1139
+00:45:20,079 --> 00:45:23,160
+profissionais eu sei que é uma Seara
+
+1140
+00:45:21,640 --> 00:45:25,079
+enorme de tecnologias para pessoa
+
+1141
+00:45:23,160 --> 00:45:26,760
+aprender separa um pouquinho do tempo
+
+1142
+00:45:25,079 --> 00:45:28,720
+para entender um pouco de marketing
+
+1143
+00:45:26,760 --> 00:45:30,559
+entender um pouco de storytelling
+
+1144
+00:45:28,720 --> 00:45:32,599
+entender um pouco do processo comercial
+
+1145
+00:45:30,559 --> 00:45:35,280
+em si tem muito curso na internet hoje
+
+1146
+00:45:32,599 --> 00:45:37,240
+em dia sobre isso oratória e assim
+
+1147
+00:45:35,280 --> 00:45:39,200
+pouquinho que você avança Você já se
+
+1148
+00:45:37,240 --> 00:45:42,040
+destaca frente a inúmeros outros
+
+1149
+00:45:39,200 --> 00:45:43,839
+profissionais na capacidade de vender né
+
+1150
+00:45:42,040 --> 00:45:45,400
+seja não é só fazer o currículo
+
+1151
+00:45:43,839 --> 00:45:47,720
+bonitinho mas é colocar as informações
+
+1152
+00:45:45,400 --> 00:45:49,599
+certas nos lugares certos entendendo o
+
+1153
+00:45:47,720 --> 00:45:51,200
+teu consumidor ou seja o teu contratante
+
+1154
+00:45:49,599 --> 00:45:54,760
+para entregar para ele aquilo que ele
+
+1155
+00:45:51,200 --> 00:45:56,440
+espera receber para para você já deixar
+
+1156
+00:45:54,760 --> 00:45:58,319
+na mão dele da maneira mais mais fácil
+
+1157
+00:45:56,440 --> 00:46:01,640
+né então acho que são conhecimentos
+
+1158
+00:45:58,319 --> 00:46:05,000
+muito válidos eu desenvolvi isso eh na
+
+1159
+00:46:01,640 --> 00:46:09,440
+minha carreira gradativamente um pouco
+
+1160
+00:46:05,000 --> 00:46:12,359
+de forma empírica né e depois de forma
+
+1161
+00:46:09,440 --> 00:46:14,640
+estudando a respeito desses temas eh
+
+1162
+00:46:12,359 --> 00:46:16,480
+porque como eu tinha minha empresa e era
+
+1163
+00:46:14,640 --> 00:46:19,240
+eu e os meus sócios a gente não tinha
+
+1164
+00:46:16,480 --> 00:46:21,839
+funcionários no começo né então pô eu
+
+1165
+00:46:19,240 --> 00:46:23,520
+tinha que vender eu tinha que entender
+
+1166
+00:46:21,839 --> 00:46:26,480
+inúmeros outros conceitos ali que não
+
+1167
+00:46:23,520 --> 00:46:27,839
+eram exclusivamente técnicos então a
+
+1168
+00:46:26,480 --> 00:46:30,400
+gente acaba desenvolvendo de forma
+
+1169
+00:46:27,839 --> 00:46:32,599
+empírica isso e vai vai aprendendo e vai
+
+1170
+00:46:30,400 --> 00:46:34,839
+sabendo como trabalhar né Depois eu
+
+1171
+00:46:32,599 --> 00:46:37,440
+acabei me especializando no sentido de
+
+1172
+00:46:34,839 --> 00:46:39,920
+fazer curso de marketing fazer curso de
+
+1173
+00:46:37,440 --> 00:46:41,839
+de venda para ir aprendendo a falar
+
+1174
+00:46:39,920 --> 00:46:43,800
+melhor aprendendo a vender melhor a
+
+1175
+00:46:41,839 --> 00:46:45,400
+ideia e eu acho que isso é
+
+1176
+00:46:43,800 --> 00:46:47,160
+imprescindível para quem tá no começo de
+
+1177
+00:46:45,400 --> 00:46:50,040
+carreira numa fase em que o mercado tá
+
+1178
+00:46:47,160 --> 00:46:52,400
+muito concorrido né Car é costumo falar
+
+1179
+00:46:50,040 --> 00:46:54,800
+que nem só de código vive o deve eu
+
+1180
+00:46:52,400 --> 00:46:56,680
+tento resumir dessa forma inclusive
+
+1181
+00:46:54,800 --> 00:46:59,440
+quero até lançar um produto no futuro
+
+1182
+00:46:56,680 --> 00:47:02,119
+sobre isso em que eu vou ensinar soft
+
+1183
+00:46:59,440 --> 00:47:03,559
+Skill pros devis eu eu não sou
+
+1184
+00:47:02,119 --> 00:47:06,280
+especialista no assunto mas algumas
+
+1185
+00:47:03,559 --> 00:47:08,720
+coisas eu sei eu acredito que que eu
+
+1186
+00:47:06,280 --> 00:47:11,160
+consigo ensinar e é como você falou não
+
+1187
+00:47:08,720 --> 00:47:14,000
+precisa se tornar um Shakespeare né na
+
+1188
+00:47:11,160 --> 00:47:16,880
+comunicação para poder ter resultado a
+
+1189
+00:47:14,000 --> 00:47:19,440
+partir disso não se você melhorar um
+
+1190
+00:47:16,880 --> 00:47:21,960
+ponto né Digamos que de zero a c você tá
+
+1191
+00:47:19,440 --> 00:47:24,960
+num Você foi pro dois já é um outro
+
+1192
+00:47:21,960 --> 00:47:27,760
+mundo já é um outro patamar é uma uma
+
+1193
+00:47:24,960 --> 00:47:30,200
+melhora muito boa né não precisa chegar
+
+1194
+00:47:27,760 --> 00:47:33,280
+num nível máximo de de oratória para
+
+1195
+00:47:30,200 --> 00:47:36,640
+poder colher benefícios da oratória
+
+1196
+00:47:33,280 --> 00:47:39,680
+basta e por exemplo não cometer erros
+
+1197
+00:47:36,640 --> 00:47:44,520
+muito banais né Por exemplo algumas
+
+1198
+00:47:39,680 --> 00:47:49,000
+pessoas usam muito f Words né que é é
+
+1199
+00:47:44,520 --> 00:47:52,680
+tipo é tipo assim né né entendeu Aí
+
+1200
+00:47:49,000 --> 00:47:55,000
+vícios de linguagem ruídos né só de você
+
+1201
+00:47:52,680 --> 00:47:56,640
+eliminar essas coisas você já ganhou um
+
+1202
+00:47:55,000 --> 00:47:58,599
+ponto na com
+
+1203
+00:47:56,640 --> 00:48:00,839
+já ficou muito melhor do que a maioria
+
+1204
+00:47:58,599 --> 00:48:03,319
+das pessoas porque a maioria das pessoas
+
+1205
+00:48:00,839 --> 00:48:06,800
+Especialmente na área Dev elas estão
+
+1206
+00:48:03,319 --> 00:48:09,240
+preocupada se é melhor usar o react ou
+
+1207
+00:48:06,800 --> 00:48:11,680
+angular sabe é uma preocupação assim
+
+1208
+00:48:09,240 --> 00:48:13,920
+nesse nível sim elas não estão
+
+1209
+00:48:11,680 --> 00:48:16,040
+preocupadas Será que eu tô comunicando
+
+1210
+00:48:13,920 --> 00:48:18,160
+bem será que eu tô vendendo bem o meu
+
+1211
+00:48:16,040 --> 00:48:20,160
+meu serviço será que qual será a imagem
+
+1212
+00:48:18,160 --> 00:48:22,559
+que eu tô passando pro meu
+
+1213
+00:48:20,160 --> 00:48:25,880
+contratante isso é essencial né você
+
+1214
+00:48:22,559 --> 00:48:27,440
+compreender a imagem que você causa n o
+
+1215
+00:48:25,880 --> 00:48:31,559
+impacto que você causa nas outras
+
+1216
+00:48:27,440 --> 00:48:34,079
+pessoas né sim ah uma coisa que até
+
+1217
+00:48:31,559 --> 00:48:36,520
+comentei outro dia com com outra pessoa
+
+1218
+00:48:34,079 --> 00:48:40,800
+que tava conversando
+
+1219
+00:48:36,520 --> 00:48:42,920
+que tudo é comunicação no sentido assim
+
+1220
+00:48:40,800 --> 00:48:46,000
+por exemplo eu dei o exemplo dessa dessa
+
+1221
+00:48:42,920 --> 00:48:48,160
+imagem aqui de trás a minha instante por
+
+1222
+00:48:46,000 --> 00:48:50,799
+que que eu coloquei essa imagem aqui da
+
+1223
+00:48:48,160 --> 00:48:52,400
+instante porque eu quero fal mostrar que
+
+1224
+00:48:50,799 --> 00:48:54,599
+eu sou muito
+
+1225
+00:48:52,400 --> 00:48:57,480
+inteligente não necessariamente eu só
+
+1226
+00:48:54,599 --> 00:48:59,319
+quero passar uma a impressão de que eu
+
+1227
+00:48:57,480 --> 00:49:01,079
+tenho alguma base do que eu tô falando
+
+1228
+00:48:59,319 --> 00:49:03,760
+do que eu penso as coisas que eu gosto
+
+1229
+00:49:01,079 --> 00:49:06,480
+eu gosto muito de ler livros né E isso
+
+1230
+00:49:03,760 --> 00:49:09,640
+também tá sendo comunicado né através do
+
+1231
+00:49:06,480 --> 00:49:12,440
+vídeo mesmo que eu não queira eh por
+
+1232
+00:49:09,640 --> 00:49:15,640
+exemplo se eu tivesse uma imagem aqui
+
+1233
+00:49:12,440 --> 00:49:19,720
+totalmente estranha uma parede suja né
+
+1234
+00:49:15,640 --> 00:49:22,680
+uma parede toda esburacada Eu já morei
+
+1235
+00:49:19,720 --> 00:49:25,799
+em casas assim a parede era tiolo baiana
+
+1236
+00:49:22,680 --> 00:49:27,880
+n se eu puder colocar um paninho para
+
+1237
+00:49:25,799 --> 00:49:31,079
+esconder deixar uma coisa mais neutra
+
+1238
+00:49:27,880 --> 00:49:32,599
+isso é comunicação também vai falar Eh
+
+1239
+00:49:31,079 --> 00:49:35,160
+vai ser um dos pontinhos a mais de
+
+1240
+00:49:32,599 --> 00:49:39,839
+comunicação a nosso favor então
+
+1241
+00:49:35,160 --> 00:49:42,559
+eh tem a a comunicação verbal como clos
+
+1242
+00:49:39,839 --> 00:49:44,599
+comentou também a não verbal que passa
+
+1243
+00:49:42,559 --> 00:49:47,160
+através do vídeo vocês têm que pensar
+
+1244
+00:49:44,599 --> 00:49:48,640
+nisso também s e até postura mesmo né
+
+1245
+00:49:47,160 --> 00:49:51,359
+então
+
+1246
+00:49:48,640 --> 00:49:53,640
+você interpretar como a outra pessoa tá
+
+1247
+00:49:51,359 --> 00:49:56,040
+agindo Isso é meio que um pouco natural
+
+1248
+00:49:53,640 --> 00:49:58,520
+do ser humano né você busca a aproximar
+
+1249
+00:49:56,040 --> 00:50:01,920
+o vocabulário você busca aproximar três
+
+1250
+00:49:58,520 --> 00:50:04,520
+jeitos eh manuais Então você tá numa
+
+1251
+00:50:01,920 --> 00:50:06,040
+entrevista presencial né você replicar
+
+1252
+00:50:04,520 --> 00:50:08,880
+um pouco do comportamento isso Isso é
+
+1253
+00:50:06,040 --> 00:50:12,040
+uma técnica psicológica mesmo de de
+
+1254
+00:50:08,880 --> 00:50:14,480
+gerar uma relação de confiança eh não é
+
+1255
+00:50:12,040 --> 00:50:17,280
+algo forçado Mas é uma coisa que você
+
+1256
+00:50:14,480 --> 00:50:20,000
+pode ir aplicando gradativamente para
+
+1257
+00:50:17,280 --> 00:50:22,040
+para quebrar aquele gelo Inicial né
+
+1258
+00:50:20,000 --> 00:50:23,640
+deixar outra pessoa por mais confiante
+
+1259
+00:50:22,040 --> 00:50:25,040
+que ela esteja essa outra pessoa mais
+
+1260
+00:50:23,640 --> 00:50:27,480
+confortável em te compreender como
+
+1261
+00:50:25,040 --> 00:50:29,640
+profiss ional então e no vídeo também é
+
+1262
+00:50:27,480 --> 00:50:31,440
+passível de fazer isso agora imagina um
+
+1263
+00:50:29,640 --> 00:50:34,000
+entrevistado que tá sem câmera por
+
+1264
+00:50:31,440 --> 00:50:35,920
+exemplo tá exclusivamente com áudio aí
+
+1265
+00:50:34,000 --> 00:50:38,200
+determinadas ações ou determinadas falas
+
+1266
+00:50:35,920 --> 00:50:40,000
+às vezes são mal interpretadas por você
+
+1267
+00:50:38,200 --> 00:50:42,079
+não ter a perspectiva visual de como a
+
+1268
+00:50:40,000 --> 00:50:44,440
+pessoa estava quando ela falou aquilo
+
+1269
+00:50:42,079 --> 00:50:47,520
+exato então da mesma forma como o texto
+
+1270
+00:50:44,440 --> 00:50:50,839
+é um canal pobre o áudio é um canal mais
+
+1271
+00:50:47,520 --> 00:50:53,280
+rico que o texto mas ainda é pobre e o
+
+1272
+00:50:50,839 --> 00:50:55,000
+áudio e vídeo é um canal mais rico do
+
+1273
+00:50:53,280 --> 00:50:57,599
+que o áudio e o pessoal é o canal mais
+
+1274
+00:50:55,000 --> 00:50:59,520
+rico possível né então você tá ali no no
+
+1275
+00:50:57,599 --> 00:51:01,760
+ao vivo com a pessoa é a melhor
+
+1276
+00:50:59,520 --> 00:51:04,200
+experiência possível da comunicação por
+
+1277
+00:51:01,760 --> 00:51:06,720
+todos os fatores no mundo que a gente
+
+1278
+00:51:04,200 --> 00:51:09,839
+vive hoje graças a Deus muito focado em
+
+1279
+00:51:06,720 --> 00:51:13,599
+Home Office eas a Deus e e e bem
+
+1280
+00:51:09,839 --> 00:51:15,440
+informatizado aí eh o o vídeo o vídeo e
+
+1281
+00:51:13,599 --> 00:51:16,799
+o áudio elhe entregam uma experiência
+
+1282
+00:51:15,440 --> 00:51:19,440
+que eu considero ótima ela não é
+
+1283
+00:51:16,799 --> 00:51:21,480
+perfeita mas ela é muito melhor do que
+
+1284
+00:51:19,440 --> 00:51:23,640
+uma modelo exclusivamente textual por
+
+1285
+00:51:21,480 --> 00:51:26,960
+exemplo e é muito mais maleável do que o
+
+1286
+00:51:23,640 --> 00:51:28,799
+modelo presencial sim e as gerações e
+
+1287
+00:51:26,960 --> 00:51:32,319
+depois eu posso colocar os links também
+
+1288
+00:51:28,799 --> 00:51:35,000
+na descrição a geração millenial e
+
+1289
+00:51:32,319 --> 00:51:38,520
+geração z basicamente a partir dos anos
+
+1290
+00:51:35,000 --> 00:51:42,760
+90 que nasceu a partir desse desse ano
+
+1291
+00:51:38,520 --> 00:51:46,640
+aí majoritariamente o consumo é vídeo
+
+1292
+00:51:42,760 --> 00:51:50,119
+vídeo vídeo vídeo vídeo então e pros
+
+1293
+00:51:46,640 --> 00:51:52,640
+nossos pais né pessoal boomers B boomers
+
+1294
+00:51:50,119 --> 00:51:55,480
+eles gostam muito de TV no sentido
+
+1295
+00:51:52,640 --> 00:51:58,400
+tradicional colocar lá no Faustão no
+
+1296
+00:51:55,480 --> 00:52:00,880
+Domingão do Faustão no no Google esses
+
+1297
+00:51:58,400 --> 00:52:03,559
+programas assim eles gostam disso eles
+
+1298
+00:52:00,880 --> 00:52:05,000
+não gostam de ver vídeo claro que a
+
+1299
+00:52:03,559 --> 00:52:07,160
+gente fala sempre via de regra aqui
+
+1300
+00:52:05,000 --> 00:52:10,040
+nesse canal tá não vem me dar exemplo de
+
+1301
+00:52:07,160 --> 00:52:11,960
+exceção não eu sei que tem pessoas mais
+
+1302
+00:52:10,040 --> 00:52:14,119
+velhas que a gente que estão Tem que
+
+1303
+00:52:11,960 --> 00:52:17,680
+criar canais no YouTube que gostam de
+
+1304
+00:52:14,119 --> 00:52:19,480
+vídeos etc mas é via de regra é vídeo
+
+1305
+00:52:17,680 --> 00:52:21,599
+hoje é a principal mídia né de
+
+1306
+00:52:19,480 --> 00:52:23,440
+comunicação tanto é que eu tô criando
+
+1307
+00:52:21,599 --> 00:52:27,480
+esse canal aqui porque eu quero explorar
+
+1308
+00:52:23,440 --> 00:52:30,319
+isso eu não quero ficar só só oculto nos
+
+1309
+00:52:27,480 --> 00:52:32,280
+nos Bastidores das empresas eu quero
+
+1310
+00:52:30,319 --> 00:52:34,520
+mostrar minha cara registrar meu
+
+1311
+00:52:32,280 --> 00:52:36,680
+conhecimento quero vender mesmo quero
+
+1312
+00:52:34,520 --> 00:52:39,359
+ganhar dinheiro quero ajudar as pessoas
+
+1313
+00:52:36,680 --> 00:52:42,520
+Quero fazer tudo isso porque senão se eu
+
+1314
+00:52:39,359 --> 00:52:44,359
+não fizer isso outros vão fazer né e e
+
+1315
+00:52:42,520 --> 00:52:47,079
+eu acho que eu tenho algo a contribuir
+
+1316
+00:52:44,359 --> 00:52:49,599
+algo a falar então por que não né esse
+
+1317
+00:52:47,079 --> 00:52:51,559
+exato e se nesse nesse nesse interim
+
+1318
+00:52:49,599 --> 00:52:53,040
+você ainda consegue contribuir pra
+
+1319
+00:52:51,559 --> 00:52:54,720
+melhoria de outros profissionais você
+
+1320
+00:52:53,040 --> 00:52:55,799
+ainda consegue compartilhar o que você
+
+1321
+00:52:54,720 --> 00:52:57,520
+sabe
+
+1322
+00:52:55,799 --> 00:53:00,520
+estimular outras pessoas a fazerem o
+
+1323
+00:52:57,520 --> 00:53:03,680
+mesmo por que não né então todo mundo
+
+1324
+00:53:00,520 --> 00:53:05,960
+ganha nessa jogada eu como alguém que
+
+1325
+00:53:03,680 --> 00:53:07,720
+vem numa cidade do interior numa época
+
+1326
+00:53:05,960 --> 00:53:09,599
+em que o trabalho remoto não era viável
+
+1327
+00:53:07,720 --> 00:53:10,480
+e que a perspectiva de sair da sua
+
+1328
+00:53:09,599 --> 00:53:13,160
+cidade
+
+1329
+00:53:10,480 --> 00:53:16,000
+eh era a única eminência de se tornar
+
+1330
+00:53:13,160 --> 00:53:18,880
+alguém eh com com perfil melhor ou de
+
+1331
+00:53:16,000 --> 00:53:21,000
+evoluir profissionalmente eu dou muito
+
+1332
+00:53:18,880 --> 00:53:24,079
+valor hoje pro conhecimento divulgado de
+
+1333
+00:53:21,000 --> 00:53:27,319
+forma Ampla pela internet né então o que
+
+1334
+00:53:24,079 --> 00:53:28,920
+era um um itap por exemplo ou um evento
+
+1335
+00:53:27,319 --> 00:53:31,480
+com palestrantes eram coisas
+
+1336
+00:53:28,920 --> 00:53:34,079
+inacessíveis para mim e para os meus
+
+1337
+00:53:31,480 --> 00:53:36,040
+amigos no início de carreira Porque pô é
+
+1338
+00:53:34,079 --> 00:53:39,359
+caro se deslocar até um lugar onde tem
+
+1339
+00:53:36,040 --> 00:53:41,680
+na nossa cidade não tem então esse tipo
+
+1340
+00:53:39,359 --> 00:53:43,160
+de de experiência conseguir entregar
+
+1341
+00:53:41,680 --> 00:53:45,559
+para outras pessoas que também estão
+
+1342
+00:53:43,160 --> 00:53:45,559
+cidades
+
+1343
+00:53:55,200 --> 00:53:59,720
+gratuita e sim ganhando publicidade
+
+1344
+00:53:57,559 --> 00:54:00,880
+frente a isso dando a nossa cara
+
+1345
+00:53:59,720 --> 00:54:03,119
+mostrando a nossa imagem e o
+
+1346
+00:54:00,880 --> 00:54:05,559
+conhecimento que a gente tem por que não
+
+1347
+00:54:03,119 --> 00:54:07,480
+é válido todo mundo ganha né cara então
+
+1348
+00:54:05,559 --> 00:54:09,280
+eu acho muito legal sempre fui muito
+
+1349
+00:54:07,480 --> 00:54:11,319
+favorável sempre gostei de incentivar
+
+1350
+00:54:09,280 --> 00:54:13,079
+muito esse tipo de iniciativa que na
+
+1351
+00:54:11,319 --> 00:54:15,920
+minha cidade tem um pessoal que começou
+
+1352
+00:54:13,079 --> 00:54:17,440
+a criar um estruturas de meetup eh até
+
+1353
+00:54:15,920 --> 00:54:19,880
+minha filha nasceu tava participando de
+
+1354
+00:54:17,440 --> 00:54:22,079
+praticamente todos aí pandemia só que o
+
+1355
+00:54:19,880 --> 00:54:23,920
+pessoal deu uma pausa né agora assim que
+
+1356
+00:54:22,079 --> 00:54:26,040
+ela tiver um pouquinho maior aí eu quero
+
+1357
+00:54:23,920 --> 00:54:28,359
+voltar a participar também que acho
+
+1358
+00:54:26,040 --> 00:54:29,920
+extremamente importante para dar essa
+
+1359
+00:54:28,359 --> 00:54:31,960
+perspectiva paraas pessoas que estão
+
+1360
+00:54:29,920 --> 00:54:33,720
+entrando e de quebra você ganha
+
+1361
+00:54:31,960 --> 00:54:36,359
+publicidade em cima né então todo mundo
+
+1362
+00:54:33,720 --> 00:54:38,079
+que conhece hoje das empresas de
+
+1363
+00:54:36,359 --> 00:54:41,160
+Tecnologia da minha cidade eu conheço
+
+1364
+00:54:38,079 --> 00:54:43,000
+praticamente todos os gestores Então e e
+
+1365
+00:54:41,160 --> 00:54:44,559
+isso é uma coisa muito importante mais
+
+1366
+00:54:43,000 --> 00:54:47,680
+uma dica para quem tá entrando né
+
+1367
+00:54:44,559 --> 00:54:49,599
+networking então aprenda a cultivar uma
+
+1368
+00:54:47,680 --> 00:54:52,520
+boa rede de contatos acho que isso é
+
+1369
+00:54:49,599 --> 00:54:54,720
+essencial quando a gente fala do do QI
+
+1370
+00:54:52,520 --> 00:54:57,040
+né do do que indica ali para para te
+
+1371
+00:54:54,720 --> 00:54:59,559
+colocar numa empresa não é não é no
+
+1372
+00:54:57,040 --> 00:55:01,599
+sentido pejorativo é que hoje em dia
+
+1373
+00:54:59,559 --> 00:55:03,559
+contratar em ti é tão complexo e é tão
+
+1374
+00:55:01,599 --> 00:55:06,680
+caro é tão trabalhoso que as pessoas
+
+1375
+00:55:03,559 --> 00:55:09,119
+preferem seguindo as indicações né é uma
+
+1376
+00:55:06,680 --> 00:55:11,720
+uma heurística né Para a gente não
+
+1377
+00:55:09,119 --> 00:55:13,880
+precisa experimentar todos os sapatos
+
+1378
+00:55:11,720 --> 00:55:16,720
+que já foram criados no mundo para poder
+
+1379
+00:55:13,880 --> 00:55:19,440
+comprar um sapato a gente olha um review
+
+1380
+00:55:16,720 --> 00:55:20,920
+por exemplo na internet e de acordo com
+
+1381
+00:55:19,440 --> 00:55:23,200
+aquele que mais nos agradou a gente
+
+1382
+00:55:20,920 --> 00:55:25,559
+compra a gente sabe que existem bilhões
+
+1383
+00:55:23,200 --> 00:55:28,319
+de outros tipos de sapato que
+
+1384
+00:55:25,559 --> 00:55:32,400
+que existem Mas isso não é relevante na
+
+1385
+00:55:28,319 --> 00:55:35,200
+hora de de tomar a decisão se você puder
+
+1386
+00:55:32,400 --> 00:55:38,200
+uma criar um atalho
+
+1387
+00:55:35,200 --> 00:55:38,200
+ai
+
+1388
+00:55:54,000 --> 00:55:57,000
+caiu
+
