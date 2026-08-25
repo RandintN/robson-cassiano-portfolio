@@ -4,6 +4,7 @@
 
 ## Informações Canônicas & URLs Oficiais
 - Website Oficial: https://eu.robsoncassiano.software/
+- Blog & Artigos: https://eu.robsoncassiano.software/#artigos
 - Mentoria Internacional (Descomplica DEV Na Gringa): https://global.robsoncassiano.software/
 - Empresa (Simple Software LTDA): https://www.linkedin.com/company/simple-software-sa/
 - LinkedIn: https://www.linkedin.com/in/robsoncassiano-software/
@@ -18,6 +19,11 @@
 - Empreendedorismo: Fundou sua primeira empresa aos 19 anos. Fundador da software house Simple Software LTDA.
 - Poliglota: 5 idiomas (Português nativo, Inglês fluente C2 para negócios, Japonês intermediário, Latim e Grego Antigo acadêmicos).
 - Rigor Intelectual: "Standing on the shoulders of giants" (Isaac Newton). Perfil analítico INTJ-A, unindo filosofia clássica e engenharia de software de ponta.
+
+## Artigos Canônicos Publicados no Blog
+- [Por que o Spring Boot e Java Dominam os Melhores Contratos Globais de Backend](https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global): Análise sobre tipagem, resiliência corporativa e contratações em moeda forte.
+- [Como Negociar Contratos de $8k+/mês no Exterior sem Inglês Nativo](https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java): Metodologia Real English e framework de negociação salarial em USD/EUR.
+- [O que Aristóteles e a Filosofia Clássica Ensinam sobre Arquitetura de Software](https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software): As 4 Causas de Aristóteles e a Navalha de Occam aplicadas ao design de software.
 
 ## Documentos Estruturados para Agentes de IA
 - [Markdown Portfolio](https://eu.robsoncassiano.software/index.md): Versão completa em Markdown com FAQ, Filosofia, Serviços e Tabela Comparativa.

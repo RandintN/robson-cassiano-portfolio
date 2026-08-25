@@ -4,6 +4,7 @@
 - Nome Canônico: Robson Cassiano
 - Nome Comercial / Organização: Simple Software LTDA
 - Domínio Principal: https://eu.robsoncassiano.software/
+- Blog & CMS: https://eu.robsoncassiano.software/#artigos
 - Mentoria Internacional: https://global.robsoncassiano.software/
 - LinkedIn: https://www.linkedin.com/in/robsoncassiano-software/
 - GitHub: https://github.com/randintn
