@@ -10,6 +10,8 @@ export interface Env {
   AI?: any;
 }
 
+export type PublishMode = 'LATEST_LIVE' | 'RANDOM_ARCHIVE' | 'AUTO';
+
 interface YouTubeVideoItem {
   id: string;
   title: string;
@@ -70,7 +72,7 @@ async function getGoogleAccessToken(env: Env): Promise<string> {
   return tokenData.access_token;
 }
 
-async function fetchChannelVideos(accessToken: string): Promise<YouTubeVideoItem[]> {
+async function fetchChannelVideos(accessToken: string, mode: PublishMode): Promise<YouTubeVideoItem[]> {
   const channelRes = await fetch('https://www.googleapis.com/youtube/v3/channels?mine=true&part=contentDetails,snippet', {
     headers: { Authorization: `Bearer ${accessToken}` }
   });
@@ -82,7 +84,27 @@ async function fetchChannelVideos(accessToken: string): Promise<YouTubeVideoItem
     throw new Error('Playlist de uploads não encontrada no canal.');
   }
 
-  const playlistRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${uploadsId}&part=snippet&maxResults=25`, {
+  // Se for busca no acervo aleatório, podemos paginar para pegar vídeos históricos
+  const maxResults = mode === 'RANDOM_ARCHIVE' ? 50 : 30;
+  let pageToken = '';
+
+  // No modo aleatório, sorteia se busca na página 1, 2, 3 ou 4 do acervo
+  if (mode === 'RANDOM_ARCHIVE') {
+    const randomPage = Math.floor(Math.random() * 3);
+    for (let p = 0; p < randomPage; p++) {
+      const pageRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${uploadsId}&part=snippet&maxResults=50${pageToken ? `&pageToken=${pageToken}` : ''}`, {
+        headers: { Authorization: `Bearer ${accessToken}` }
+      });
+      const pageData = await pageRes.json<{ nextPageToken?: string }>();
+      if (pageData.nextPageToken) {
+        pageToken = pageData.nextPageToken;
+      } else {
+        break;
+      }
+    }
+  }
+
+  const playlistRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${uploadsId}&part=snippet&maxResults=${maxResults}${pageToken ? `&pageToken=${pageToken}` : ''}`, {
     headers: { Authorization: `Bearer ${accessToken}` }
   });
 
@@ -166,13 +188,13 @@ INFORMAÇÕES DO VÍDEO:
 - URL do Vídeo: https://www.youtube.com/watch?v=${video.id}
 
 TRANSCRIÇÃO BRUTA:
-${transcript.slice(0, 30000)}
+${transcript.slice(0, 32000)}
 
 REGRAS DE LINGUAGEM OBRIGATÓRIAS (RIGOR MÁXIMO):
 1. PROIBIDO ESTRUTURAS CONTRASTIVAS RETÓRICAS ("não é X, é Y", "not merely X but Y", "não apenas X—Y", "longe de ser X, trata-se de Y"). Se algo tem duas dimensões, nomeie ambas diretamente sem andaimes de negação.
 2. PROIBIDO TRAVESSÕES (— ou –). Substitua qualquer pontuação de travessão por vírgulas, dois-pontos ou parênteses.
-3. USO MANDATÓRIO DE ETIMOLOGIA GRECO-LATINA: Trace conexões com as raízes linguísticas greco-latinas dos conceitos tratados (ex: problema do grego pro + ballein; trabalho do latim tripalium; escala do latim scala; salário do latim salarium; subordinação do latim sub + ordinare; contrato do latim contractus; monopólio do grego monos + polein; valor do latim valere).
-4. PROIBIDO TOM MOTIVACIONAL, COACH, CORPORATIVO OU SYCOPHANTIC: Sem "Great question", "I'd be happy to help", "Prepare-se para o futuro". Responda direto com solidez analítica.
+3. USO MANDATÓRIO DE ETIMOLOGIA GRECO-LATINA: Trace conexões com as raízes linguísticas greco-latinas dos conceitos tratados (ex: carreira do latim carraria; experiência do latim experientia, ex + periri; técnica do grego techne; disciplina do latim disciplina; problema do grego pro + ballein; escola do grego schole; mercado do latim mercatus; trabalho do latim tripalium; contrato do latim contractus; valor do latim valere).
+4. PROIBIDO TOM MOTIVACIONAL, COACH, CORPORATIVO OU SYCOPHANTIC: Responda direto com densidade analítica e profundidade histórica.
 5. CITAÇÕES E RELATOS REAIS: Inclua citações fiéis às falas de Robson Cassiano e preserve os casos reais mencionados na transmissão.
 
 ESTRUTURA DE RESPOSTA OBRIGATÓRIA:
@@ -194,13 +216,40 @@ preSoldTarget: "mentoria"
 
 # Título Principal do Ensaio
 
-[Desenvolvimento textual com subtítulos h2, tópicos analíticos, diagramas textuais em caixas e conclusão sólida.]`;
+[Desenvolvimento textual com subtítulos h2, tópicos analíticos, diagramas textuais em caixas ASCII e conclusão sólida.]`;
 
   let markdown = '';
   let lastAiError = '';
 
-  // 1. Tenta Cloudflare Workers AI (Nativo e Gratuito no Edge)
-  if (env.AI) {
+  // 1. Motor Primário: Google Gemini 3.6 Flash (AI Studio)
+  if (env.GEMINI_API_KEY) {
+    try {
+      const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${env.GEMINI_API_KEY}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: {
+            temperature: 0.3,
+            maxOutputTokens: 8192
+          }
+        })
+      });
+
+      if (aiRes.ok) {
+        const aiData = await aiRes.json<{ candidates?: Array<{ content: { parts: Array<{ text: string }> } }> }>();
+        markdown = aiData.candidates?.[0]?.content?.parts?.[0]?.text || '';
+      } else {
+        const errText = await aiRes.text();
+        lastAiError = `Gemini 3.6 Flash Error: ${errText}`;
+      }
+    } catch (e: any) {
+      lastAiError = `Gemini Fetch Error: ${e.message}`;
+    }
+  }
+
+  // 2. Fallback de contingência: Cloudflare Workers AI no Edge
+  if (!markdown && env.AI) {
     try {
       const aiRes: any = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', {
         messages: [
@@ -212,31 +261,7 @@ preSoldTarget: "mentoria"
       });
       markdown = aiRes.response || '';
     } catch (err: any) {
-      lastAiError = `Llama 3.2 3B Error: ${err?.message || err}`;
-    }
-  }
-
-  // 2. Fallback para Gemini se Workers AI não retornou
-  if (!markdown && env.GEMINI_API_KEY) {
-    try {
-      const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${env.GEMINI_API_KEY}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.3, maxOutputTokens: 8192 }
-        })
-      });
-
-      if (aiRes.ok) {
-        const aiData = await aiRes.json<{ candidates?: Array<{ content: { parts: Array<{ text: string }> } }> }>();
-        markdown = aiData.candidates?.[0]?.content?.parts?.[0]?.text || '';
-      } else {
-        const errText = await aiRes.text();
-        lastAiError += ` | Gemini Error: ${errText}`;
-      }
-    } catch (e: any) {
-      lastAiError += ` | Gemini Fetch Error: ${e.message}`;
+      lastAiError += ` | Workers AI Error: ${err?.message || err}`;
     }
   }
 
@@ -287,9 +312,9 @@ async function commitArticleToGitHub(env: Env, slug: string, markdown: string, v
   return commitData.commit?.sha || 'commit-concluido';
 }
 
-export async function processAutomatedPublishing(env: Env): Promise<{ success: boolean; message: string; slug?: string; commitSha?: string }> {
+export async function processAutomatedPublishing(env: Env, mode: PublishMode = 'AUTO'): Promise<{ success: boolean; message: string; slug?: string; commitSha?: string; selectedType?: string }> {
   const accessToken = await getGoogleAccessToken(env);
-  const videos = await fetchChannelVideos(accessToken);
+  const videos = await fetchChannelVideos(accessToken, mode);
 
   if (videos.length === 0) {
     return { success: false, message: 'Nenhum vídeo encontrado no canal.' };
@@ -297,20 +322,30 @@ export async function processAutomatedPublishing(env: Env): Promise<{ success: b
 
   const existingSlugs = await fetchExistingArticleSlugs(env);
 
-  // 1. Tentar encontrar Live recente não publicada
-  let selectedVideo = videos.find(v => v.isLive && !existingSlugs.some(s => s.includes(v.id) || s.includes(v.title.slice(0, 15))));
+  let selectedVideo: YouTubeVideoItem | undefined;
 
-  // 2. Se não houver Live nova, buscar vídeo longo ou live do acervo não publicada
-  if (!selectedVideo) {
+  if (mode === 'LATEST_LIVE') {
+    // Modo Segunda-feira: Prioridade estrita para a Live mais recente não publicada
+    selectedVideo = videos.find(v => v.isLive && !existingSlugs.some(s => s.includes(v.id) || s.includes(v.title.slice(0, 15))));
+  } else if (mode === 'RANDOM_ARCHIVE') {
+    // Modo Sexta-feira: Sorteio aleatório de qualquer live ou vídeo longo não publicado do acervo
     const unindexed = videos.filter(v => !v.isShort && !existingSlugs.some(s => s.includes(v.id) || s.includes(v.title.slice(0, 15))));
     if (unindexed.length > 0) {
-      const randomIndex = Math.floor(Math.random() * unindexed.length);
-      selectedVideo = unindexed[randomIndex];
+      selectedVideo = unindexed[Math.floor(Math.random() * unindexed.length)];
+    }
+  } else {
+    // Modo Automático padrão
+    selectedVideo = videos.find(v => v.isLive && !existingSlugs.some(s => s.includes(v.id) || s.includes(v.title.slice(0, 15))));
+    if (!selectedVideo) {
+      const unindexed = videos.filter(v => !v.isShort && !existingSlugs.some(s => s.includes(v.id) || s.includes(v.title.slice(0, 15))));
+      if (unindexed.length > 0) {
+        selectedVideo = unindexed[Math.floor(Math.random() * unindexed.length)];
+      }
     }
   }
 
   if (!selectedVideo) {
-    return { success: true, message: 'Todos os conteúdos recentes já foram publicados como artigos.' };
+    return { success: true, message: `Nenhum conteúdo pendente encontrado para o modo [${mode}]. Todos os itens recentes já possuem artigos.` };
   }
 
   const transcript = await downloadCaption(accessToken, selectedVideo.id);
@@ -323,16 +358,28 @@ export async function processAutomatedPublishing(env: Env): Promise<{ success: b
 
   return {
     success: true,
-    message: `Ensaio '${essay.title}' publicado com sucesso! Commit acionado no repositório.`,
+    message: `Ensaio '${essay.title}' publicado com sucesso! [Modo: ${mode}] Commit acionado no repositório.`,
     slug: essay.slug,
-    commitSha
+    commitSha,
+    selectedType: selectedVideo.typeLabel
   };
 }
 
 export default {
-  // Disparo agendado 100% autônomo na Cloudflare
+  // Disparos agendados 100% autônomos na Cloudflare
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
-    ctx.waitUntil(processAutomatedPublishing(env));
+    let mode: PublishMode = 'AUTO';
+
+    // 1. Segunda-feira às 15:00 UTC (12:00 BRT): Live mais recente
+    if (event.cron === '0 15 * * 1') {
+      mode = 'LATEST_LIVE';
+    } 
+    // 2. Sexta-feira às 15:00 UTC (12:00 BRT): Conteúdo aleatório do acervo
+    else if (event.cron === '0 15 * * 5') {
+      mode = 'RANDOM_ARCHIVE';
+    }
+
+    ctx.waitUntil(processAutomatedPublishing(env, mode));
   },
 
   // Disparo manual via HTTP seguro
@@ -344,8 +391,47 @@ export default {
       return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401, headers: { 'Content-Type': 'application/json' } });
     }
 
+    if (url.pathname === '/generate-custom' && request.method === 'POST') {
+      try {
+        const body = await request.json<{ prompt: string }>();
+        const endpoint = 'gemini-3.6-flash';
+        const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${endpoint}:generateContent?key=${env.GEMINI_API_KEY}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: body.prompt }] }],
+            generationConfig: {
+              temperature: 0.3,
+              maxOutputTokens: 8192
+            }
+          })
+        });
+
+        if (!aiRes.ok) {
+          const errText = await aiRes.text();
+          return new Response(JSON.stringify({ error: errText }), { status: aiRes.status, headers: { 'Content-Type': 'application/json' } });
+        }
+
+        const aiData = await aiRes.json<{ candidates?: Array<{ content: { parts: Array<{ text: string }> } }> }>();
+        const markdown = aiData.candidates?.[0]?.content?.parts?.[0]?.text || '';
+
+        return new Response(JSON.stringify({ success: true, markdown }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      } catch (err: any) {
+        return new Response(JSON.stringify({ error: err.message || err }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+      }
+    }
+
+    // Suporta forçar modos via query param: ?mode=latest-live ou ?mode=random-archive
+    const modeParam = url.searchParams.get('mode');
+    let mode: PublishMode = 'AUTO';
+    if (modeParam === 'latest-live') mode = 'LATEST_LIVE';
+    if (modeParam === 'random-archive') mode = 'RANDOM_ARCHIVE';
+
     try {
-      const result = await processAutomatedPublishing(env);
+      const result = await processAutomatedPublishing(env, mode);
       return new Response(JSON.stringify(result, null, 2), {
         status: result.success ? 200 : 400,
         headers: { 'Content-Type': 'application/json' }

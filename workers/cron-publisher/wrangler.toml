@@ -5,7 +5,12 @@ compatibility_flags = ["nodejs_compat"]
 workers_dev = true
 
 [triggers]
-crons = ["0 12 * * 1"] # Toda segunda-feira às 12:00 UTC (09:00 Horário de Brasília)
+# 1. Toda Segunda-feira às 15:00 UTC (12:00 BRT): Artigo da Live mais recente
+# 2. Toda Sexta-feira às 15:00 UTC (12:00 BRT): Artigo de Conteúdo Aleatório do acervo
+crons = [
+  "0 15 * * 1",
+  "0 15 * * 5"
+]
 
 [ai]
 binding = "AI"
