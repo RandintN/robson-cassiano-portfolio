@@ -11,6 +11,7 @@
     "pages:deploy": "bun run build && bunx wrangler pages deploy dist --project-name=robson-cassiano-portfolio --branch=master",
     "pages:dev": "bunx wrangler pages dev dist",
     "yt:transcript": "bun run scripts/fetch-youtube-transcript.ts",
+    "auto:publish": "bun run scripts/auto-publish.ts",
     "preview": "ng serve --configuration=production"
   },
   "dependencies": {
