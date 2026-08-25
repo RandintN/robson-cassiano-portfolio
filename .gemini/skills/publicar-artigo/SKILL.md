@@ -1,14 +1,29 @@
 ---
 name: publicar-artigo
 description: >-
-  Obtém a live ou vídeo mais recente do canal @RobsonCassianoSoftware no YouTube via API oficial (Bun/TypeScript),
-  extrai a transcrição completa e converte o conteúdo em um ensaio/artigo técnico aprofundado para o blog soberano,
-  gerando páginas estáticas SSG e atualizando o sitemap com Schema.org.
+  Obtém a live ou vídeo mais recente do canal @RobsonCassianoSoftware no YouTube via API oficial v3 (Bun/TypeScript),
+  distinguindo com precisão entre Lives (via liveStreamingDetails), Vídeos Longos e Shorts, extrai a transcrição completa
+  e converte o conteúdo em um ensaio/artigo técnico aprofundado para o blog soberano, gerando páginas estáticas SSG e
+  atualizando o sitemap com Schema.org.
 ---
 
 # Skill: Publicar Artigo a Partir de Live do YouTube
 
-Esta skill automatiza o fluxo completo de ingestão da última transmissão do canal de Robson Cassiano, redação de ensaio técnico estruturado sob regras linguísticas estritas, sincronização com o CMS Markdown e pré-renderização estática (SSG) no Cloudflare Pages.
+Esta skill automatiza o fluxo completo de identificação e ingestão de transmissões ao vivo do canal de Robson Cassiano, redação de ensaio técnico estruturado sob regras linguísticas estritas, sincronização com o CMS Markdown e pré-renderização estática (SSG) no Cloudflare Pages.
+
+---
+
+## 🎯 DISTINÇÃO DE TIPOS DE CONTEÚDO NA API OFICIAL (YouTube Data API v3)
+
+O script [`scripts/fetch-youtube-transcript.ts`](file:///c:/Coding/simple-software/portfolio/scripts/fetch-youtube-transcript.ts) inspeciona o endpoint `youtube.videos.list` com as partes `snippet`, `contentDetails` e `liveStreamingDetails` para diferenciar os formatos:
+
+1. **🔴 LIVE STREAM (`isLive = true`):**
+   - Detectado pela presença do objeto **`liveStreamingDetails`** (contém `actualStartTime`, `actualEndTime`).
+   - Por padrão, a skill busca e seleciona a **🔴 Live real mais recente** da lista, ignorando vídeos gravados.
+2. **⚡ SHORT (`isShort = true`):**
+   - Detectado por `contentDetails.duration <= 60s` e ausência de `liveStreamingDetails`.
+3. **🎬 VÍDEO LONGO:**
+   - Detectado por `contentDetails.duration > 60s` e ausência de `liveStreamingDetails`.
 
 ---
 
@@ -35,9 +50,9 @@ Execute o comando TypeScript com Bun:
 ```bash
 bun run yt:transcript
 ```
-*O script utiliza o token OAuth oficial em `scripts/token.json`, conecta à YouTube Data API v3, identifica a transmissão mais recente e salva a transcrição limpa em `content/transcripts/{videoId}_{slug}.txt`.*
+*O script consulta as 15 publicações mais recentes, filtra automaticamente pela última **🔴 Live** (via `liveStreamingDetails`), baixa as legendas oficiais em português e salva a transcrição limpa em `content/transcripts/{videoId}_{slug}.txt`.*
 
-Caso queira especificar um vídeo por ID:
+Caso queira forçar um vídeo/live específico pelo ID:
 ```bash
 bun run yt:transcript <VIDEO_ID>
 ```
