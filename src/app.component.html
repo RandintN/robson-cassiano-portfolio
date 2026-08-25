@@ -27,7 +27,6 @@
       <a href="#atuacao" class="hover:text-lime-400 transition-colors">{{ 'NAV_ROLES' | translate }}</a>
       <a href="#artigos" class="hover:text-lime-400 transition-colors">{{ 'NAV_ARTICLES' | translate }}</a>
       <a href="#comparativo" class="hover:text-lime-400 transition-colors">{{ 'NAV_COMPARISON' | translate }}</a>
-      <a href="#feed" class="hover:text-lime-400 transition-colors">{{ 'NAV_FEED' | translate }}</a>
       <a href="#faq" class="hover:text-lime-400 transition-colors">{{ 'NAV_FAQ' | translate }}</a>
       <a href="#contato"
         class="px-4 py-2 bg-lime-500 text-slate-900 rounded-full hover:bg-lime-400 transition-colors font-bold">{{ 'NAV_CONTACT' | translate }}</a>
@@ -279,25 +278,6 @@
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           @for (art of contentService.articles(); track art.slug) {
             <app-article-card [article]="art" (onRead)="contentService.selectArticle($event)" />
-          }
-        </div>
-      </section>
-    </article>
-
-    <!-- Feed Section -->
-    <article>
-      <section id="feed" class="max-w-3xl mx-auto mb-24">
-        <div class="flex items-center justify-between mb-8">
-          <h2 class="text-3xl font-bold text-white">{{ 'FEED_TITLE' | translate }}</h2>
-          <a href="https://www.linkedin.com/in/robsoncassiano-software/recent-activity/all/" target="_blank" rel="noopener noreferrer"
-            aria-label="Ver todas as publicações de Robson Cassiano no LinkedIn"
-            class="text-lime-400 hover:text-lime-300 text-sm font-semibold">{{ 'FEED_VIEW_ALL' | translate }} &rarr;</a>
-        </div>
-
-        <div class="space-y-6">
-          @for (post of posts(); track post.id) {
-          <app-post-item [authorImage]="profileImage()" [date]="post.date" [content]="post.content"
-            [likes]="post.likes" />
           }
         </div>
       </section>

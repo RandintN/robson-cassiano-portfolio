@@ -3,7 +3,6 @@
   "NAV_ROLES": "Expertise",
   "NAV_ARTICLES": "Blog",
   "NAV_COMPARISON": "Comparison",
-  "NAV_FEED": "Feed",
   "NAV_FAQ": "FAQ",
   "NAV_CONTACT": "Contact",
   "ARTICLES_BADGE": "Engineering & Insights",
@@ -61,8 +60,6 @@
   "COMP_ROW5_ROBSON": "Classical philosophy, analytical rigor, and INTJ-A leadership",
   "COMP_ROW5_BOOTCAMPS": "None",
   "COMP_ROW5_COURSES": "None",
-  "FEED_TITLE": "Latest from LinkedIn",
-  "FEED_VIEW_ALL": "View all",
   "FAQ_BADGE": "People Also Ask",
   "FAQ_TITLE": "Frequently Asked Questions & Objections",
   "FAQ_Q1": "Who is Robson Cassiano?",
@@ -99,7 +96,6 @@
   "ROLE_ENTREPRENEUR_LINK_TEXT": "Explore Simple Software",
   "ROLE_TEACHER_LINK_TEXT": "Access Real English Course",
   "ROLE_PHILOSOPHER_LINK_TEXT": "Explore Academia Atlântico",
-  "COMMENT": "Comment",
   "SEO_TITLE": "Robson Cassiano: Senior Java Dev & Global Career Mentor | 2026",
   "SEO_DESCRIPTION": "Looking for proven expertise? Meet Robson Cassiano: Senior Java Backend Engineer, Global Mentor 30k+, Polyglot, and Founder. View cases, stack, and results!"
 }

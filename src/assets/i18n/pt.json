@@ -3,7 +3,6 @@
   "NAV_ROLES": "Áreas de Atuação",
   "NAV_ARTICLES": "Blog",
   "NAV_COMPARISON": "Comparativo",
-  "NAV_FEED": "Feed",
   "NAV_FAQ": "FAQ",
   "NAV_CONTACT": "Contato",
   "ARTICLES_BADGE": "Conhecimento & Alta Engenharia",
@@ -61,8 +60,6 @@
   "COMP_ROW5_ROBSON": "Filosofia clássica, rigor analítico e liderança INTJ-A",
   "COMP_ROW5_BOOTCAMPS": "Inexistente",
   "COMP_ROW5_COURSES": "Inexistente",
-  "FEED_TITLE": "Últimas do LinkedIn",
-  "FEED_VIEW_ALL": "Ver tudo",
   "FAQ_BADGE": "People Also Ask",
   "FAQ_TITLE": "Perguntas Frequentes & Quebra de Objeções",
   "FAQ_Q1": "Quem é Robson Cassiano?",
@@ -99,7 +96,6 @@
   "ROLE_ENTREPRENEUR_LINK_TEXT": "Conhecer a Simple Software",
   "ROLE_TEACHER_LINK_TEXT": "Acessar Curso Real English",
   "ROLE_PHILOSOPHER_LINK_TEXT": "Conhecer a Academia Atlântico",
-  "COMMENT": "Comentar",
   "SEO_TITLE": "Robson Cassiano: Dev Java Sênior & Mentor 30k+ | 2026",
   "SEO_DESCRIPTION": "Duvida das qualificações? Conheça Robson Cassiano: Dev Java Sênior, Mentor Global 30k+, Poliglota e Fundador. Veja cases, stack e resultados comprovados!"
 }
