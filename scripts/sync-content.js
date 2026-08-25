@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const contentDir = path.resolve('content/articles');
-const targetFile = path.resolve('src/assets/content/articles.json');
+const targetJson = path.resolve('src/assets/content/articles.json');
+const targetSitemap = path.resolve('sitemap.xml');
 
 if (!fs.existsSync(contentDir)) {
   console.log('Nenhum diretório content/articles encontrado.');
@@ -45,17 +46,19 @@ for (const file of files) {
     }
   }
 
+  const slug = meta.slug || file.replace(/\.md$/, '');
+
   articles.push({
-    slug: meta.slug || file.replace(/\.md$/, ''),
+    slug,
     title: meta.title || 'Sem título',
-    date: meta.date || '2026',
+    date: meta.date || '2026-08-25',
     author: meta.author || 'Robson Cassiano',
     category: meta.category || 'Geral',
     readTime: meta.readTime || '5 min de leitura',
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     summary: meta.summary || '',
     coverImage: meta.coverImage || 'assets/images/robson-cassiano-mentor.jpg',
-    canonicalUrl: meta.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${meta.slug}`,
+    canonicalUrl: meta.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${slug}`,
     content: markdownBody
   });
 }
@@ -63,6 +66,48 @@ for (const file of files) {
 // Ordenar por data decrescente
 articles.sort((a, b) => b.date.localeCompare(a.date));
 
-fs.mkdirSync(path.dirname(targetFile), { recursive: true });
-fs.writeFileSync(targetFile, JSON.stringify(articles, null, 2), 'utf-8');
-console.log(`✓ Sincronizados ${articles.length} artigos em ${targetFile}`);
+// 1. Salvar JSON para a SPA do Angular
+fs.mkdirSync(path.dirname(targetJson), { recursive: true });
+fs.writeFileSync(targetJson, JSON.stringify(articles, null, 2), 'utf-8');
+console.log(`✓ Sincronizados ${articles.length} artigos em ${targetJson}`);
+
+// 2. Gerar sitemap.xml dinâmico e otimizado para Googlebot
+const sitemapEntries = [
+  `  <!-- Página Principal / Portfólio Canônico -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Robson Cassiano - Senior Software Engineer &amp; Mentor Internacional</image:title>
+      <image:caption>Robson Cassiano - Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais e filósofo clássico</image:caption>
+    </image:image>
+  </url>`
+];
+
+for (const art of articles) {
+  sitemapEntries.push(`  <!-- Artigo: ${art.title} -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/${art.slug}</loc>
+    <lastmod>${art.date}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/${art.coverImage}</image:loc>
+      <image:title>${art.title.replace(/&/g, '&amp;')}</image:title>
+      <image:caption>${art.summary.replace(/&/g, '&amp;')}</image:caption>
+    </image:image>
+  </url>`);
+}
+
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${sitemapEntries.join('\n\n')}
+</urlset>
+`;
+
+fs.writeFileSync(targetSitemap, sitemapXml, 'utf-8');
+console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 1} URLs indexáveis.`);

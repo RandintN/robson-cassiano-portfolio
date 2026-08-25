@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ng serve",
     "sync": "node scripts/sync-content.js",
-    "build": "node scripts/sync-content.js && ng build",
+    "build": "node scripts/sync-content.js && ng build && node scripts/generate-static-articles.js",
     "deploy": "ng build --base-href /robson-cassiano-portfolio/",
     "pages:deploy": "bun run build && bunx wrangler pages deploy dist --project-name=robson-cassiano-portfolio --branch=master",
     "pages:dev": "bunx wrangler pages dev dist",

@@ -1,18 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Main Canonical URL -->
+  <!-- Página Principal / Portfólio Canônico -->
   <url>
     <loc>https://eu.robsoncassiano.software/</loc>
-    <lastmod>2026-08-19</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Robson Cassiano - Senior Software Engineer &amp; Mentor</image:title>
-      <image:caption>Robson Cassiano - Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais e filósofo</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Robson Cassiano - Senior Software Engineer &amp; Mentor Internacional</image:title>
+      <image:caption>Robson Cassiano - Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais e filósofo clássico</image:caption>
     </image:image>
   </url>
 
+  <!-- Artigo: Polyworking na Engenharia de Software: Fundamentos Jurídicos, Isolamento Operacional e Limites de Escala -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/polyworking-estrategia-multiplos-contratos-remotos</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Polyworking na Engenharia de Software: Fundamentos Jurídicos, Isolamento Operacional e Limites de Escala</image:title>
+      <image:caption>Uma análise técnica e jurídica sobre a sobreposição de contratos remotos na engenharia de software, abordando dirigismo contratual, telemetria corporativa, arquitetura de hardware e preservação de saúde.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: O que Aristóteles e a Filosofia Clássica Ensinam sobre Arquitetura de Software -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>O que Aristóteles e a Filosofia Clássica Ensinam sobre Arquitetura de Software</image:title>
+      <image:caption>Como a busca pelas causas primeiras, a virtude do equilíbrio e o princípio da simplicidade da filosofia clássica transformam desenvolvedores juniores e plenos em líderes técnicos de referência.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: Como Negociar Contratos de $8k+/mês no Exterior sem Inglês Nativo -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Como Negociar Contratos de $8k+/mês no Exterior sem Inglês Nativo</image:title>
+      <image:caption>O maior obstáculo para desenvolvedores sênior ganharem em dólar não é a técnica, mas o medo do inglês acadêmico. Descubra o método 'Real English' e o framework de negociação para fechar contratos de R$ 30k+/mês.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: Por que o Spring Boot e Java Dominam os Melhores Contratos Globais de Backend -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Por que o Spring Boot e Java Dominam os Melhores Contratos Globais de Backend</image:title>
+      <image:caption>Enquanto novos frameworks surgem a cada semana, o ecossistema Java/Spring continua sustentando as aplicações mais críticas e lucrativas do mundo. Entenda por que empresas no exterior pagam mais de $8k/mês por quem domina essa stack.</image:caption>
+    </image:image>
+  </url>
 </urlset>
