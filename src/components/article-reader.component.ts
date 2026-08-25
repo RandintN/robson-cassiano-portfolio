@@ -1,6 +1,8 @@
-import { Component, input, output, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, input, output, ChangeDetectionStrategy, signal, computed, inject } from '@angular/core';
 import { Article } from '../app/services/content.service';
 import { NgOptimizedImage } from '@angular/common';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-article-reader',
@@ -65,9 +67,8 @@ import { NgOptimizedImage } from '@angular/common';
           </div>
         </div>
 
-        <!-- Article Content -->
-        <div class="prose prose-invert max-w-none text-slate-300 text-base leading-relaxed space-y-6 whitespace-pre-line border-b border-slate-800 pb-10 mb-10">
-          {{ article().content }}
+        <!-- Article Parsed Markdown Content -->
+        <div class="article-markdown text-slate-300 text-base leading-relaxed border-b border-slate-800 pb-10 mb-10" [innerHTML]="parsedContent()">
         </div>
 
         <!-- Pre-Sold Authority / Mentorship Box -->
@@ -104,13 +105,122 @@ import { NgOptimizedImage } from '@angular/common';
       </div>
     </div>
   `,
+  styles: [`
+    :host ::ng-deep .article-markdown {
+      h1 {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: #ffffff;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+      h2 {
+        font-size: 1.375rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+        border-left: 3px solid #a3e635;
+        padding-left: 0.75rem;
+      }
+      h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #a3e635;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        margin-bottom: 1.25rem;
+        line-height: 1.8;
+        color: #cbd5e1;
+      }
+      ul, ol {
+        margin-left: 1.5rem;
+        margin-bottom: 1.25rem;
+        color: #cbd5e1;
+        list-style-type: disc;
+      }
+      ol {
+        list-style-type: decimal;
+      }
+      li {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+      }
+      strong {
+        color: #ffffff;
+        font-weight: 700;
+      }
+      em {
+        color: #e2e8f0;
+        font-style: italic;
+      }
+      blockquote {
+        border-left: 4px solid #a3e635;
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+        background: rgba(30, 41, 59, 0.6);
+        border-radius: 0 0.75rem 0.75rem 0;
+        color: #e2e8f0;
+        font-style: italic;
+      }
+      blockquote p {
+        margin-bottom: 0;
+      }
+      pre {
+        background: #020617;
+        border: 1px solid #1e293b;
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.85rem;
+        color: #a3e635;
+        background: rgba(15, 23, 42, 0.9);
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+      }
+      pre code {
+        color: #f1f5f9;
+        background: transparent;
+        padding: 0;
+        font-size: 0.875rem;
+        line-height: 1.6;
+      }
+      hr {
+        border-color: #1e293b;
+        margin: 2rem 0;
+      }
+      a {
+        color: #a3e635;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      a:hover {
+        color: #bef264;
+      }
+    }
+  `],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ArticleReaderComponent {
+  private sanitizer = inject(DomSanitizer);
+
   article = input.required<Article>();
   onClose = output<void>();
 
   readonly copied = signal(false);
+
+  readonly parsedContent = computed<SafeHtml>(() => {
+    const raw = this.article().content || '';
+    const parsed = marked.parse(raw) as string;
+    return this.sanitizer.bypassSecurityTrustHtml(parsed);
+  });
 
   copyLink() {
     const url = this.article().canonicalUrl || window.location.href;
