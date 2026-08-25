@@ -27,6 +27,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: A Arquitetura do Polyworking: Estratégia, Riscos e os Limites da Venda de Horas -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/arquitetura-do-polyworking-estrategia-riscos-limites</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>A Arquitetura do Polyworking: Estratégia, Riscos e os Limites da Venda de Horas</image:title>
+      <image:caption>Uma análise analítica e jurídica do polyworking para engenheiros de software, cobrindo riscos de demissão, gestão de LinkedIn e táticas de escalabilidade.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Polyworking na Engenharia de Software: A Realidade Operacional, Riscos Jurídicos e a Ilusão da Escala -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa</loc>
