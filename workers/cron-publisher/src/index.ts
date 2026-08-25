@@ -208,6 +208,7 @@ author: "Robson Cassiano"
 category: "Carreira & Engenharia"
 readTime: "8 min de leitura"
 tags: ["Tag1", "Tag2", "Tag3"]
+youtubeVideoId: "${video.id}"
 summary: "Resumo objetivo e persuasivo de até 160 caracteres para SEO."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
 canonicalUrl: "https://eu.robsoncassiano.software/artigos/slug-otimizado-em-kebab-case"

@@ -59,6 +59,7 @@ for (const file of files) {
     summary: meta.summary || '',
     coverImage: meta.coverImage || 'assets/images/robson-cassiano-mentor.jpg',
     canonicalUrl: meta.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${slug}`,
+    youtubeVideoId: meta.youtubeVideoId || undefined,
     content: markdownBody
   });
 }

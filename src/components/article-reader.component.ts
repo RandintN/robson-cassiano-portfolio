@@ -204,6 +204,22 @@ import { marked } from 'marked';
       a:hover {
         color: #bef264;
       }
+      .article-video-callout {
+        margin: 2.5rem 0;
+        padding: 1.5rem;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.95));
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+
+        lite-youtube {
+          border-radius: 0.75rem;
+          overflow: hidden;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+          margin-top: 1rem;
+          max-width: 100%;
+        }
+      }
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -218,7 +234,40 @@ export class ArticleReaderComponent {
 
   readonly parsedContent = computed<SafeHtml>(() => {
     const raw = this.article().content || '';
-    const parsed = marked.parse(raw) as string;
+    let parsed = marked.parse(raw) as string;
+
+    const videoId = this.article().youtubeVideoId;
+    if (videoId) {
+      const videoBox = `
+        <div class="article-video-callout">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 uppercase tracking-wider">Gravação Original</span>
+            <span class="text-xs text-slate-300 font-semibold">🎥 Quer se aprofundar? Assista à transmissão que deu origem a este ensaio:</span>
+          </div>
+          <lite-youtube videoid="${videoId}" playlabel="Assistir transmissão original de Robson Cassiano"></lite-youtube>
+        </div>
+      `;
+
+      let count = 0;
+      let injected = false;
+      parsed = parsed.replace(/<\/h2>/g, (match) => {
+        count++;
+        if (count === 2) {
+          injected = true;
+          return match + videoBox;
+        }
+        return match;
+      });
+
+      if (!injected) {
+        if (count === 1) {
+          parsed = parsed.replace(/<\/h2>/, (match) => match + videoBox);
+        } else {
+          parsed += videoBox;
+        }
+      }
+    }
+
     return this.sanitizer.bypassSecurityTrustHtml(parsed);
   });
 

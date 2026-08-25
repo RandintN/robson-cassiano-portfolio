@@ -11,6 +11,7 @@ export interface Article {
   summary: string;
   coverImage: string;
   canonicalUrl: string;
+  youtubeVideoId?: string;
   content: string;
 }
 

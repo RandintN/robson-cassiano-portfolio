@@ -8,6 +8,7 @@ readTime: "9 min de leitura"
 tags: ["Engenharia de Software", "Fundamentos", "Carreira Tech", "Clécius Martinkoski"]
 summary: "Ensaio analítico sobre a primeira live técnica do canal: o abismo entre o ensino acadêmico e a produção real, e os princípios que sustentam mais de uma década na engenharia de software."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
+youtubeVideoId: "PAERGtw-0mk"
 canonicalUrl: "https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski"
 preSoldTarget: "mentoria"
 ---

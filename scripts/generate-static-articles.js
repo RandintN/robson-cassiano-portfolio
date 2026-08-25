@@ -25,7 +25,42 @@ if (fs.existsSync(rootSitemap)) {
 const articles = JSON.parse(fs.readFileSync(articlesFile, 'utf-8'));
 
 for (const art of articles) {
-  const articleHtml = marked.parse(art.content);
+  let articleHtml = marked.parse(art.content);
+
+  if (art.youtubeVideoId) {
+    const videoCallout = `
+      <div class="article-video-callout">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 uppercase tracking-wider">Gravação Original</span>
+          <span class="text-xs text-slate-300 font-semibold">🎥 Quer se aprofundar? Assista à transmissão que deu origem a este ensaio:</span>
+        </div>
+        <lite-youtube videoid="${art.youtubeVideoId}" playlabel="Assistir transmissão original de Robson Cassiano">
+          <a href="https://www.youtube.com/watch?v=${art.youtubeVideoId}" class="lty-playbtn" title="Assistir no YouTube">
+            <span class="lyt-visually-hidden">Assistir transmissão original no YouTube</span>
+          </a>
+        </lite-youtube>
+      </div>
+    `;
+
+    let count = 0;
+    let injected = false;
+    articleHtml = articleHtml.replace(/<\/h2>/g, (match) => {
+      count++;
+      if (count === 2) {
+        injected = true;
+        return match + videoCallout;
+      }
+      return match;
+    });
+
+    if (!injected) {
+      if (count === 1) {
+        articleHtml = articleHtml.replace(/<\/h2>/, (match) => match + videoCallout);
+      } else {
+        articleHtml += videoCallout;
+      }
+    }
+  }
   const targetDir = path.join(distDir, 'artigos', art.slug);
   fs.mkdirSync(targetDir, { recursive: true });
 
@@ -98,6 +133,8 @@ ${JSON.stringify(jsonLd, null, 2)}
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.css" />
+  <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.3.3/src/lite-yt-embed.js" defer></script>
   <style>
     body { background-color: #020617; color: #cbd5e1; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
     .article-body h1 { font-size: 1.875rem; font-weight: 800; color: #ffffff; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3; }
@@ -116,6 +153,8 @@ ${JSON.stringify(jsonLd, null, 2)}
     .article-body pre code { color: #f8fafc; background: transparent; padding: 0; }
     .article-body hr { border-color: #1e293b; margin: 2.5rem 0; }
     .article-body a { color: #a3e635; text-decoration: underline; text-underline-offset: 3px; }
+    .article-video-callout { margin: 2.5rem 0; padding: 1.5rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.95)); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
+    .article-video-callout lite-youtube { border-radius: 0.75rem; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); margin-top: 1rem; max-width: 100%; }
   </style>
 </head>
 <body class="min-h-screen antialiased selection:bg-lime-500 selection:text-slate-900">
