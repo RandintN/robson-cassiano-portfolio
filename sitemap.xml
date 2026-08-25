@@ -105,6 +105,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Resiliência Arquitetural e Circuit Breaker: Mitigação Sistemática de Falhas em Cascata -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Resiliência Arquitetural e Circuit Breaker: Mitigação Sistemática de Falhas em Cascata</image:title>
+      <image:caption>Análise técnica sobre resiliência em microsserviços, o padrão Circuit Breaker e desacoplamento via filas para evitar o colapso por falhas em cascata.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: O Mercado Real de Engenharia de Software: Fundamentos, Choque Prático e a Longevidade da Carreira -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski</loc>
