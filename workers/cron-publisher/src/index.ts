@@ -3,10 +3,11 @@ export interface Env {
   YOUTUBE_CLIENT_SECRET: string;
   YOUTUBE_REFRESH_TOKEN: string;
   GITHUB_TOKEN: string;
-  GEMINI_API_KEY: string;
+  GEMINI_API_KEY?: string;
   GITHUB_REPO_OWNER?: string;
   GITHUB_REPO_NAME?: string;
   CRON_SECRET?: string;
+  AI?: any;
 }
 
 interface YouTubeVideoItem {
@@ -121,7 +122,7 @@ async function fetchExistingArticleSlugs(env: Env): Promise<string[]> {
   const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/content/articles`, {
     headers: {
       'User-Agent': 'Cloudflare-Worker-Cron-Publisher',
-      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      Authorization: `token ${env.GITHUB_TOKEN}`,
       Accept: 'application/vnd.github.v3+json'
     }
   });
@@ -195,32 +196,59 @@ preSoldTarget: "mentoria"
 
 [Desenvolvimento textual com subtítulos h2, tópicos analíticos, diagramas textuais em caixas e conclusão sólida.]`;
 
-  const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${env.GEMINI_API_KEY}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: 0.3,
-        maxOutputTokens: 8192
-      }
-    })
-  });
+  let markdown = '';
+  let lastAiError = '';
 
-  if (!aiRes.ok) {
-    const errText = await aiRes.text();
-    throw new Error(`Falha na API do Gemini: ${errText}`);
+  // 1. Tenta Cloudflare Workers AI (Nativo e Gratuito no Edge)
+  if (env.AI) {
+    try {
+      const aiRes: any = await env.AI.run('@cf/meta/llama-3.2-3b-instruct', {
+        messages: [
+          { role: 'system', content: 'Você é um escritor técnico e filósofo rigoroso.' },
+          { role: 'user', content: prompt }
+        ],
+        max_tokens: 4096,
+        temperature: 0.3
+      });
+      markdown = aiRes.response || '';
+    } catch (err: any) {
+      lastAiError = `Llama 3.2 3B Error: ${err?.message || err}`;
+    }
   }
 
-  const aiData = await aiRes.json<{ candidates?: Array<{ content: { parts: Array<{ text: string }> } }> }>();
-  let markdown = aiData.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  // 2. Fallback para Gemini se Workers AI não retornou
+  if (!markdown && env.GEMINI_API_KEY) {
+    try {
+      const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${env.GEMINI_API_KEY}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: prompt }] }],
+          generationConfig: { temperature: 0.3, maxOutputTokens: 8192 }
+        })
+      });
 
-  // Remove eventuais blocos de código envolventes ```markdown ... ```
+      if (aiRes.ok) {
+        const aiData = await aiRes.json<{ candidates?: Array<{ content: { parts: Array<{ text: string }> } }> }>();
+        markdown = aiData.candidates?.[0]?.content?.parts?.[0]?.text || '';
+      } else {
+        const errText = await aiRes.text();
+        lastAiError += ` | Gemini Error: ${errText}`;
+      }
+    } catch (e: any) {
+      lastAiError += ` | Gemini Fetch Error: ${e.message}`;
+    }
+  }
+
+  if (!markdown) {
+    throw new Error(`Falha ao gerar o ensaio. Detalhes: ${lastAiError}`);
+  }
+
   markdown = markdown.replace(/^```(?:markdown)?\r?\n/, '').replace(/\r?\n```$/, '').trim();
 
-  // Extrai slug do frontmatter
-  const slugMatch = markdown.match(/slug:\s*["']?([a-z0-9-]+)["']?/i);
-  const slug = slugMatch ? slugMatch[1] : `artigo-${video.id}`;
+  const slugMatch = markdown.match(/slug:\s*["']?([^\r\n"']+)["']?/i);
+  const rawSlug = slugMatch ? slugMatch[1] : video.title;
+  const slug = rawSlug.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9_-]/g, '-').replace(/-+/g, '-').slice(0, 60).replace(/^-|-$/g, '');
 
   const titleMatch = markdown.match(/title:\s*["']([^"']+)["']/i);
   const title = titleMatch ? titleMatch[1] : video.title;
@@ -228,7 +256,7 @@ preSoldTarget: "mentoria"
   return { title, slug, markdown };
 }
 
-async function commitArticleToGitHub(env: Env, slug: string, markdown: string, videoTitle: string): Promise<void> {
+async function commitArticleToGitHub(env: Env, slug: string, markdown: string, videoTitle: string): Promise<string> {
   const owner = env.GITHUB_REPO_OWNER || 'RandintN';
   const repo = env.GITHUB_REPO_NAME || 'robson-cassiano-portfolio';
   const filePath = `content/articles/${slug}.md`;
@@ -239,7 +267,7 @@ async function commitArticleToGitHub(env: Env, slug: string, markdown: string, v
     method: 'PUT',
     headers: {
       'User-Agent': 'Cloudflare-Worker-Cron-Publisher',
-      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      Authorization: `token ${env.GITHUB_TOKEN}`,
       Accept: 'application/vnd.github.v3+json',
       'Content-Type': 'application/json'
     },
@@ -252,11 +280,14 @@ async function commitArticleToGitHub(env: Env, slug: string, markdown: string, v
 
   if (!commitRes.ok) {
     const err = await commitRes.text();
-    throw new Error(`Falha ao realizar commit no GitHub: ${err}`);
+    throw new Error(`Falha ao realizar commit no GitHub (Status ${commitRes.status}): ${err}`);
   }
+
+  const commitData = await commitRes.json<{ commit?: { sha?: string } }>();
+  return commitData.commit?.sha || 'commit-concluido';
 }
 
-export async function processAutomatedPublishing(env: Env): Promise<{ success: boolean; message: string; slug?: string }> {
+export async function processAutomatedPublishing(env: Env): Promise<{ success: boolean; message: string; slug?: string; commitSha?: string }> {
   const accessToken = await getGoogleAccessToken(env);
   const videos = await fetchChannelVideos(accessToken);
 
@@ -267,11 +298,11 @@ export async function processAutomatedPublishing(env: Env): Promise<{ success: b
   const existingSlugs = await fetchExistingArticleSlugs(env);
 
   // 1. Tentar encontrar Live recente não publicada
-  let selectedVideo = videos.find(v => v.isLive && !existingSlugs.some(s => s.includes(v.id)));
+  let selectedVideo = videos.find(v => v.isLive && !existingSlugs.some(s => s.includes(v.id) || s.includes(v.title.slice(0, 15))));
 
   // 2. Se não houver Live nova, buscar vídeo longo ou live do acervo não publicada
   if (!selectedVideo) {
-    const unindexed = videos.filter(v => !v.isShort && !existingSlugs.some(s => s.includes(v.id)));
+    const unindexed = videos.filter(v => !v.isShort && !existingSlugs.some(s => s.includes(v.id) || s.includes(v.title.slice(0, 15))));
     if (unindexed.length > 0) {
       const randomIndex = Math.floor(Math.random() * unindexed.length);
       selectedVideo = unindexed[randomIndex];
@@ -288,12 +319,13 @@ export async function processAutomatedPublishing(env: Env): Promise<{ success: b
   }
 
   const essay = await generateEssayWithAI(env, selectedVideo, transcript);
-  await commitArticleToGitHub(env, essay.slug, essay.markdown, selectedVideo.title);
+  const commitSha = await commitArticleToGitHub(env, essay.slug, essay.markdown, selectedVideo.title);
 
   return {
     success: true,
     message: `Ensaio '${essay.title}' publicado com sucesso! Commit acionado no repositório.`,
-    slug: essay.slug
+    slug: essay.slug,
+    commitSha
   };
 }
 

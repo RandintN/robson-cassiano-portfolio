@@ -27,6 +27,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Polyworking: Uma Prática que Não é Tão Vantajosa quanto Pensa -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/polyworking-nao-é-tão-vantajoso-quanto-pensa</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Polyworking: Uma Prática que Não é Tão Vantajosa quanto Pensa</image:title>
+      <image:caption>A prática de polyworking pode parecer uma maneira de ganhar mais dinheiro, mas ela tem consequências legais e psicológicas que devem ser consideradas.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Como Criar um Monopólio Pessoal e Vencer o Conteúdo Genérico da IA -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/como-criar-diferencial-era-inteligencia-artificial</loc>
