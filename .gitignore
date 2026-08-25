@@ -28,3 +28,10 @@ scripts/client_secrets.json
 scripts/token.json
 client_secrets.json
 token.json
+
+# Environment variables & secrets
+.dev.vars
+.dev.vars.*
+.env
+.env.*
+

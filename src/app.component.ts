@@ -1,9 +1,10 @@
-import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, OnInit, afterNextRender } from '@angular/core';
+import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, OnInit } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RoleCardComponent } from './components/role-card.component';
 import { ArticleCardComponent } from './components/article-card.component';
 import { ArticleReaderComponent } from './components/article-reader.component';
 import { NewsletterFormComponent } from './components/newsletter-form.component';
+import { NewsletterModalComponent } from './components/newsletter-modal.component';
 import { LanguageService, Language } from './app/services/language.service';
 import { ContentService } from './app/services/content.service';
 import { TranslatePipe } from './app/pipes/translate.pipe';
@@ -25,6 +26,7 @@ interface SocialLink {
     ArticleCardComponent,
     ArticleReaderComponent,
     NewsletterFormComponent,
+    NewsletterModalComponent,
     TranslatePipe
   ],
   templateUrl: './app.component.html',
@@ -79,26 +81,6 @@ export class AppComponent implements OnInit {
       this.metaService.updateTag({ name: 'language', content: languageTag });
 
       this.updateStructuredData();
-    });
-
-    // Carregamento diferido e altamente performático do script do Beehiiv no tempo ocioso (requestIdleCallback)
-    afterNextRender(() => {
-      if (typeof window === 'undefined') return;
-
-      const loadBeehiiv = () => {
-        if (document.querySelector('script[data-beehiiv-form="29cf3bde-b819-4c63-a234-623cd7b5b703"]')) return;
-        const script = document.createElement('script');
-        script.src = 'https://subscribe-forms.beehiiv.com/v3/loader.js';
-        script.setAttribute('data-beehiiv-form', '29cf3bde-b819-4c63-a234-623cd7b5b703');
-        script.async = true;
-        document.body.appendChild(script);
-      };
-
-      if ('requestIdleCallback' in window) {
-        (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => void }).requestIdleCallback(loadBeehiiv, { timeout: 3000 });
-      } else {
-        setTimeout(loadBeehiiv, 2000);
-      }
     });
   }
 

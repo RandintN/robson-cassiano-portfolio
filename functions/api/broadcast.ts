@@ -1,14 +1,6 @@
-import { createMimeMessage } from 'mimetext';
+import { EmailEnv, sendEmail } from './_email';
 
-interface Env {
-  DB?: D1Database;
-  EMAIL?: {
-    send: (message: { from: string; to: string; raw: string }) => Promise<void>;
-  };
-  ADMIN_SECRET?: string;
-}
-
-export const onRequestPost: PagesFunction<Env> = async (context) => {
+export const onRequestPost: PagesFunction<EmailEnv> = async (context) => {
   const { request, env } = context;
 
   // Autenticação simples por Bearer Token
@@ -49,16 +41,11 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
 
     let sentCount = 0;
 
-    if (results && results.length > 0 && env.EMAIL) {
+    if (results && results.length > 0) {
       for (const subscriber of results) {
         try {
           const unsubLink = `https://eu.robsoncassiano.software/api/unsubscribe?email=${encodeURIComponent(subscriber.email)}`;
           const firstName = subscriber.name ? subscriber.name.split(' ')[0] : 'dev';
-
-          const msg = createMimeMessage();
-          msg.setSender({ name: 'Robson Cassiano', addr: 'contato@robsoncassiano.software' });
-          msg.setRecipient(subscriber.email);
-          msg.setSubject(body.subject);
 
           const html = `
             <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 30px; border-radius: 12px; border: 1px solid #1e293b;">
@@ -86,15 +73,16 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
             </div>
           `;
 
-          msg.addMessage({ contentType: 'text/html', data: html });
+          const textContent = `Olá, ${firstName}!\n\nAcabei de publicar uma nova análise técnica no meu portal: "${body.title}"\n\n${body.previewText}\n\nLer artigo completo: ${body.articleUrl}\n\nPara cancelar sua inscrição: ${unsubLink}`;
 
-          await env.EMAIL.send({
-            from: 'contato@robsoncassiano.software',
+          const ok = await sendEmail({
             to: subscriber.email,
-            raw: msg.asRaw()
-          });
+            subject: body.subject,
+            html: html,
+            text: textContent,
+          }, env);
 
-          sentCount++;
+          if (ok) sentCount++;
         } catch (e) {
           console.error(`Falha no envio para ${subscriber.email}:`, e);
         }

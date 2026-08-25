@@ -5,12 +5,15 @@ compatibility_flags = ["nodejs_compat"]
 workers_dev = true
 
 [triggers]
-# 1. Toda Segunda-feira às 15:00 UTC (12:00 BRT): Artigo da Live mais recente
-# 2. Toda Sexta-feira às 15:00 UTC (12:00 BRT): Artigo de Conteúdo Aleatório do acervo
+# 1. Diariamente às 15:00 UTC (12:00 BRT): Disparo da Sequência de E-mails de 7 Dias
+# 2. Segunda-feira às 15:00 UTC: Artigo da Live mais recente
+# 3. Sexta-feira às 15:00 UTC: Artigo de Conteúdo Aleatório do acervo
 crons = [
+  "0 15 * * *",
   "0 15 * * 1",
   "0 15 * * 5"
 ]
+
 
 [ai]
 binding = "AI"

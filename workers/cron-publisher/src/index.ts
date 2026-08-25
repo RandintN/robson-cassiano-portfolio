@@ -369,18 +369,31 @@ export async function processAutomatedPublishing(env: Env, mode: PublishMode = '
 export default {
   // Disparos agendados 100% autônomos na Cloudflare
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
-    let mode: PublishMode = 'AUTO';
+    // 1. Disparo diário da Sequência de 7 Dias às 15:00 UTC (12:00 BRT)
+    ctx.waitUntil(
+      fetch('https://eu.robsoncassiano.software/api/sequence/dispatch', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${env.CRON_SECRET || 'robson_secret_2026'}`,
+          'Content-Type': 'application/json',
+        },
+      }).then(async res => {
+        const data = await res.json();
+        console.log('[Cron 12:00 BRT Sequence Result]:', JSON.stringify(data));
+      }).catch(e => console.error('[Cron Sequence Dispatch Error]:', e))
+    );
 
-    // 1. Segunda-feira às 15:00 UTC (12:00 BRT): Live mais recente
+    // 2. Publicação automatizada de artigos (Segundas e Sextas)
+    let mode: PublishMode | null = null;
     if (event.cron === '0 15 * * 1') {
       mode = 'LATEST_LIVE';
-    } 
-    // 2. Sexta-feira às 15:00 UTC (12:00 BRT): Conteúdo aleatório do acervo
-    else if (event.cron === '0 15 * * 5') {
+    } else if (event.cron === '0 15 * * 5') {
       mode = 'RANDOM_ARCHIVE';
     }
 
-    ctx.waitUntil(processAutomatedPublishing(env, mode));
+    if (mode) {
+      ctx.waitUntil(processAutomatedPublishing(env, mode));
+    }
   },
 
   // Disparo manual via HTTP seguro

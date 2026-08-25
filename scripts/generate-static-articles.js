@@ -25,7 +25,9 @@ if (fs.existsSync(rootSitemap)) {
 const articles = JSON.parse(fs.readFileSync(articlesFile, 'utf-8'));
 
 for (const art of articles) {
-  let articleHtml = marked.parse(art.content);
+  let rawContent = art.content || '';
+  rawContent = rawContent.replace(/^#\s+[^\n]+\n+/, '');
+  let articleHtml = marked.parse(rawContent);
 
   if (art.youtubeVideoId) {
     const videoCallout = `
@@ -34,7 +36,16 @@ for (const art of articles) {
           <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 uppercase tracking-wider">Gravação Original</span>
           <span class="text-xs text-slate-300 font-semibold">🎥 Quer se aprofundar? Assista à transmissão que deu origem a este ensaio:</span>
         </div>
-        <lite-youtube videoid="${art.youtubeVideoId}" playlabel="Assistir transmissão original de Robson Cassiano"></lite-youtube>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/${art.youtubeVideoId}?rel=0" 
+            title="Transmissão Original - Robson Cassiano" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
     `;
 
@@ -190,10 +201,15 @@ ${JSON.stringify(jsonLd, null, 2)}
     .article-body pre { background: #0b0f19; border: 1px solid #1e293b; border-radius: 0.75rem; padding: 1.25rem; overflow-x: auto; margin: 1.5rem 0; font-family: ui-monospace, monospace; font-size: 0.9rem; color: #f8fafc; }
     .article-body code { font-family: ui-monospace, monospace; font-size: 0.875rem; color: #a3e635; background: rgba(15, 23, 42, 0.9); padding: 0.2rem 0.4rem; border-radius: 0.25rem; }
     .article-body pre code { color: #f8fafc; background: transparent; padding: 0; }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border: 1px solid #334155; border-radius: 0.75rem; overflow: hidden; }
+    .article-body th { background-color: #1e293b; color: #ffffff; font-weight: 700; text-align: left; padding: 0.75rem 1rem; border: 1px solid #334155; font-size: 0.9rem; }
+    .article-body td { padding: 0.75rem 1rem; border: 1px solid #334155; color: #cbd5e1; font-size: 0.95rem; }
+    .article-body tr:nth-child(even) { background-color: rgba(30, 41, 59, 0.4); }
     .article-body hr { border-color: #1e293b; margin: 2.5rem 0; }
     .article-body a { color: #a3e635; text-decoration: underline; text-underline-offset: 3px; }
-    .article-video-callout { margin: 2.5rem 0; padding: 1.5rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.95)); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
-    .article-video-callout lite-youtube { border-radius: 0.75rem; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); margin-top: 1rem; max-width: 100%; }
+    .article-video-callout { margin: 2.5rem 0; padding: 1.5rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.95)); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
+    .article-video-callout .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 0.75rem; overflow: hidden; border: 1px solid #334155; background-color: #020617; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); margin-top: 0.75rem; }
+    .article-video-callout .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
   </style>
 </head>
 <body class="min-h-screen antialiased selection:bg-lime-500 selection:text-slate-900">
