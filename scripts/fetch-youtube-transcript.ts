@@ -55,7 +55,6 @@ async function authenticate(): Promise<InstanceType<typeof google.auth.OAuth2>> 
     const oauth2Client = new google.auth.OAuth2(client_id, client_secret);
     oauth2Client.setCredentials(token);
 
-    // Salva automaticamente o novo access_token quando for renovado nos bastidores
     oauth2Client.on('tokens', (updatedTokens) => {
       const merged = { ...token, ...updatedTokens };
       fs.writeFileSync(TOKEN_PATH, JSON.stringify(merged, null, 2), 'utf-8');
@@ -140,6 +139,16 @@ async function authenticate(): Promise<InstanceType<typeof google.auth.OAuth2>> 
   });
 }
 
+function parseDurationInSeconds(isoDuration?: string): number {
+  if (!isoDuration) return 0;
+  const match = isoDuration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+  if (!match) return 0;
+  const hours = parseInt(match[1] || '0', 10);
+  const minutes = parseInt(match[2] || '0', 10);
+  const seconds = parseInt(match[3] || '0', 10);
+  return hours * 3600 + minutes * 60 + seconds;
+}
+
 function cleanSrtToText(srtContent: string): string {
   const lines = srtContent.split(/\r?\n/);
   const textLines: string[] = [];
@@ -183,42 +192,68 @@ async function main() {
     return;
   }
 
-  console.log('[+] Listando os 10 vídeos mais recentes...');
+  console.log('[+] Listando os 15 vídeos mais recentes...');
   const playlistRes = await youtube.playlistItems.list({
     playlistId: uploadsPlaylistId,
     part: ['snippet'],
-    maxResults: 10
+    maxResults: 15
   });
 
-  const items = playlistRes.data.items || [];
-  if (items.length === 0) {
+  const playlistItems = playlistRes.data.items || [];
+  if (playlistItems.length === 0) {
     console.log('[!] Nenhum vídeo encontrado na playlist de uploads.');
     return;
   }
 
-  console.log('\n--- VÍDEOS ENCONTRADOS NO SEU CANAL ---');
-  items.forEach((item, idx) => {
-    const title = item.snippet?.title;
-    const videoId = item.snippet?.resourceId?.videoId;
-    const date = item.snippet?.publishedAt?.slice(0, 10);
-    console.log(`[${idx + 1}] ID: ${videoId} | Data: ${date} | Título: ${title}`);
+  const videoIds = playlistItems.map(item => item.snippet?.resourceId?.videoId!).filter(Boolean);
+
+  // Consulta detalhada para distinguir Live vs Vídeo Normal vs Short
+  const videoDetailsRes = await youtube.videos.list({
+    id: videoIds,
+    part: ['snippet', 'contentDetails', 'liveStreamingDetails']
   });
 
-  const targetVideoId = process.argv[2] || items[1]?.snippet?.resourceId?.videoId || items[0]?.snippet?.resourceId?.videoId;
-  const targetItem = items.find(i => i.snippet?.resourceId?.videoId === targetVideoId) || items[0];
-  const videoId = targetItem.snippet?.resourceId?.videoId!;
-  const videoTitle = targetItem.snippet?.title || 'Vídeo';
+  const detailedVideos = (videoDetailsRes.data.items || []).map(v => {
+    const durationSeconds = parseDurationInSeconds(v.contentDetails?.duration || '');
+    const isLive = !!v.liveStreamingDetails;
+    const isShort = !isLive && durationSeconds > 0 && durationSeconds <= 60;
+    const typeLabel = isLive ? '🔴 LIVE' : isShort ? '⚡ SHORT' : '🎬 VÍDEO LONGO';
 
-  console.log(`\n[*] Buscando legendas oficiais do vídeo: [${videoId}] ${videoTitle}...`);
+    return {
+      id: v.id!,
+      title: v.snippet?.title || 'Sem Título',
+      date: v.snippet?.publishedAt?.slice(0, 10) || '',
+      isLive,
+      isShort,
+      typeLabel,
+      durationSeconds
+    };
+  });
+
+  console.log('\n--- CONTEÚDOS ENCONTRADOS NO SEU CANAL ---');
+  detailedVideos.forEach((v, idx) => {
+    console.log(`[${idx + 1}] [${v.typeLabel}] ID: ${v.id} | Data: ${v.date} | ${v.title}`);
+  });
+
+  // Determina o vídeo alvo:
+  // Se o usuário passou um ID, usa ele.
+  // Caso contrário, busca especificamente a LIVE mais recente.
+  let target = detailedVideos.find(v => v.id === process.argv[2]);
+  if (!target) {
+    target = detailedVideos.find(v => v.isLive) || detailedVideos[0];
+  }
+
+  console.log(`\n[*] Conteúdo Selecionado: [${target.typeLabel}] [${target.id}] ${target.title}...`);
+  console.log(`[*] Buscando legendas oficiais do vídeo...`);
 
   const captionsRes = await youtube.captions.list({
-    videoId: videoId,
+    videoId: target.id,
     part: ['snippet']
   });
 
   const captionList = captionsRes.data.items || [];
   if (captionList.length === 0) {
-    console.log(`[!] Nenhuma faixa de legenda encontrada para o vídeo ${videoId}.`);
+    console.log(`[!] Nenhuma faixa de legenda encontrada para o vídeo ${target.id}.`);
     return;
   }
 
@@ -228,7 +263,6 @@ async function main() {
 
   console.log(`[+] Baixando faixa de legenda ID: ${captionId} (Idioma: ${lang})...`);
 
-  // Download somente-leitura
   const downloadRes = await youtube.captions.download({
     id: captionId,
     tfmt: 'srt'
@@ -240,7 +274,7 @@ async function main() {
   const cleanTranscript = cleanSrtToText(rawSrt);
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  const cleanSlug = videoTitle
+  const cleanSlug = target.title
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -249,14 +283,15 @@ async function main() {
     .slice(0, 50)
     .replace(/^-|-$/g, '');
 
-  const outputPath = path.join(OUTPUT_DIR, `${videoId}_${cleanSlug}.txt`);
+  const outputPath = path.join(OUTPUT_DIR, `${target.id}_${cleanSlug}.txt`);
 
-  const filePayload = `Título: ${videoTitle}\nVídeo ID: ${videoId}\nURL: https://www.youtube.com/watch?v=${videoId}\nIdioma: ${lang}\nData de Extração: ${new Date().toISOString()}\n\n${cleanTranscript}`;
+  const filePayload = `Título: ${target.title}\nTipo: ${target.typeLabel}\nVídeo ID: ${target.id}\nURL: https://www.youtube.com/watch?v=${target.id}\nIdioma: ${lang}\nData de Publicação: ${target.date}\nData de Extração: ${new Date().toISOString()}\n\n${cleanTranscript}`;
 
   fs.writeFileSync(outputPath, filePayload, 'utf-8');
 
   console.log(`\n============================================================`);
   console.log(`✓ TRANSCRIÇÃO EXTRAÍDA E SALVA COM SUCESSO!`);
+  console.log(`Tipo: ${target.typeLabel}`);
   console.log(`Arquivo: ${outputPath}`);
   console.log(`Total de Caracteres: ${cleanTranscript.length}`);
   console.log(`============================================================\n`);
