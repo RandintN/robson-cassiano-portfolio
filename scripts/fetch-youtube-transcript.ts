@@ -54,6 +54,13 @@ async function authenticate(): Promise<InstanceType<typeof google.auth.OAuth2>> 
     const token = JSON.parse(fs.readFileSync(TOKEN_PATH, 'utf-8'));
     const oauth2Client = new google.auth.OAuth2(client_id, client_secret);
     oauth2Client.setCredentials(token);
+
+    // Salva automaticamente o novo access_token quando for renovado nos bastidores
+    oauth2Client.on('tokens', (updatedTokens) => {
+      const merged = { ...token, ...updatedTokens };
+      fs.writeFileSync(TOKEN_PATH, JSON.stringify(merged, null, 2), 'utf-8');
+    });
+
     return oauth2Client;
   }
 
