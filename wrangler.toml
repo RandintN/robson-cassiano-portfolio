@@ -1,14 +1,4 @@
 name = "robson-cassiano-portfolio"
 compatibility_date = "2026-03-01"
+compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"
-
-# Banco de dados relacional na borda (Cloudflare D1)
-[[d1_databases]]
-binding = "DB"
-database_name = "robson_portfolio_db"
-database_id = "robson_portfolio_db" # Pode ser substituído pelo ID real gerado via wrangler d1 create
-
-# Envio nativo de e-mails via Cloudflare Worker (send_email)
-[[send_email]]
-name = "EMAIL"
-allowed_destination_addresses = ["*@*"]
