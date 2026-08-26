@@ -140,6 +140,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Desenvolvimento de Aplicações com OpenTelemetry e Grafana: Uma Abordagem Profunda -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Desenvolvimento de Aplicações com OpenTelemetry e Grafana: Uma Abordagem Profunda</image:title>
+      <image:caption>Desenvolvimento de aplicações com OpenTelemetry e Grafana: uma abordagem profunda para otimização de desempenho e análise de dados.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: O Mercado Real de Engenharia de Software: Fundamentos, Choque Prático e a Longevidade da Carreira -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski</loc>

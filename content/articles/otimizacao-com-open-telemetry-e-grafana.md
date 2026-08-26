@@ -12,6 +12,7 @@ summary: "Desenvolvimento de aplicações com OpenTelemetry e Grafana: uma abord
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
 canonicalUrl: "https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana"
 preSoldTarget: "mentoria"
+---
 
 # Introdução
 
