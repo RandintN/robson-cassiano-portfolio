@@ -1,7 +1,9 @@
 import { Component, signal, ChangeDetectionStrategy, input } from '@angular/core';
+import { TranslatePipe } from '../app/pipes/translate.pipe';
 
 @Component({
   selector: 'app-newsletter-form',
+  imports: [TranslatePipe],
   template: `
     <div class="relative overflow-hidden p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-800 shadow-2xl">
       <!-- Glow effect -->
@@ -9,15 +11,15 @@ import { Component, signal, ChangeDetectionStrategy, input } from '@angular/core
 
       <div class="relative z-10 max-w-2xl">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-500/10 border border-lime-500/30 text-lime-400 text-xs font-bold mb-4 uppercase tracking-wider">
-          <span>📬 {{ badge() }}</span>
+          <span>📬 {{ (badge() ? badge() : 'NEWSLETTER_BADGE') | translate }}</span>
         </div>
 
         <h3 class="text-2xl lg:text-3xl font-extrabold text-white mb-3">
-          {{ title() }}
+          {{ (title() ? title() : 'NEWSLETTER_TITLE') | translate }}
         </h3>
 
         <p class="text-slate-400 text-sm lg:text-base leading-relaxed mb-6">
-          {{ description() }}
+          {{ (description() ? description() : 'NEWSLETTER_DESC') | translate }}
         </p>
 
         @if (state() === 'success') {
@@ -26,8 +28,8 @@ import { Component, signal, ChangeDetectionStrategy, input } from '@angular/core
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
             <div>
-              <p class="font-bold">Inscrição confirmada com sucesso!</p>
-              <p class="text-xs text-slate-400 mt-0.5">Enviamos uma mensagem de boas-vindas para o seu e-mail.</p>
+              <p class="font-bold">{{ 'NEWSLETTER_SUCCESS_TITLE' | translate }}</p>
+              <p class="text-xs text-slate-400 mt-0.5">{{ 'NEWSLETTER_SUCCESS_DESC' | translate }}</p>
             </div>
           </div>
         } @else {
@@ -37,7 +39,7 @@ import { Component, signal, ChangeDetectionStrategy, input } from '@angular/core
                 type="text"
                 [value]="name()"
                 (input)="name.set($any($event.target).value)"
-                placeholder="Seu primeiro nome"
+                [placeholder]="'NEWSLETTER_NAME_PLACEHOLDER' | translate"
                 class="w-full sm:w-1/3 px-4 py-3.5 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400 transition-all"
                 [disabled]="state() === 'loading'"
               />
@@ -47,7 +49,7 @@ import { Component, signal, ChangeDetectionStrategy, input } from '@angular/core
                 required
                 [value]="email()"
                 (input)="email.set($any($event.target).value)"
-                placeholder="Seu melhor e-mail corporativo"
+                [placeholder]="'NEWSLETTER_EMAIL_PLACEHOLDER' | translate"
                 class="w-full sm:w-2/3 px-4 py-3.5 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400 transition-all"
                 [disabled]="state() === 'loading'"
               />
@@ -55,7 +57,7 @@ import { Component, signal, ChangeDetectionStrategy, input } from '@angular/core
 
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
               <p class="text-xs text-slate-500 flex items-center gap-1.5">
-                <span>🔒</span> Zero spam. Seus dados nunca serão compartilhados.
+                <span>🔒</span> {{ 'NEWSLETTER_ZERO_SPAM' | translate }}
               </p>
 
               <button
@@ -68,9 +70,9 @@ import { Component, signal, ChangeDetectionStrategy, input } from '@angular/core
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                   </svg>
-                  <span>Inscrevendo...</span>
+                  <span>{{ 'NEWSLETTER_LOADING' | translate }}</span>
                 } @else {
-                  <span>{{ buttonLabel() }}</span>
+                  <span>{{ (buttonLabel() ? buttonLabel() : 'NEWSLETTER_BUTTON') | translate }}</span>
                   <span>&rarr;</span>
                 }
               </button>
@@ -87,10 +89,10 @@ import { Component, signal, ChangeDetectionStrategy, input } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsletterFormComponent {
-  badge = input<string>('Lista Exclusiva & Newsletter');
-  title = input<string>('Receba insights estratégicos de Engenharia e Carreira Global');
-  description = input<string>('Artigos aprofundados sobre Java Backend, Spring Boot, negociação de contratos de R$ 30k+ no exterior e modelos mentais de filosofia clássica direto no seu e-mail.');
-  buttonLabel = input<string>('Entrar na Lista VIP');
+  badge = input<string>('');
+  title = input<string>('');
+  description = input<string>('');
+  buttonLabel = input<string>('');
   source = input<string>('portfolio_home');
 
   readonly email = signal('');

@@ -66,14 +66,14 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
               </svg>
               <div>
-                <p class="font-bold text-base text-white">Inscrição confirmada com sucesso!</p>
-                <p class="text-xs text-slate-300 mt-1">Enviamos as primeiras análises estratégicas para a sua caixa de entrada.</p>
+                <p class="font-bold text-base text-white">{{ 'EXIT_MODAL_SUCCESS_TITLE' | translate }}</p>
+                <p class="text-xs text-slate-300 mt-1">{{ 'EXIT_MODAL_SUCCESS_DESC' | translate }}</p>
                 <button
                   type="button"
                   (click)="closeModal()"
                   class="mt-4 px-4 py-2 bg-lime-500 text-slate-950 font-bold rounded-lg text-xs hover:bg-lime-400 transition-colors"
                 >
-                  Continuar navegando
+                  {{ 'EXIT_MODAL_SUCCESS_BUTTON' | translate }}
                 </button>
               </div>
             </div>
@@ -84,7 +84,7 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                   type="text"
                   [value]="name()"
                   (input)="name.set($any($event.target).value)"
-                  placeholder="Seu primeiro nome"
+                  [placeholder]="'EXIT_MODAL_NAME_PLACEHOLDER' | translate"
                   class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400 transition-all"
                   [disabled]="state() === 'loading'"
                 />
@@ -96,7 +96,7 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                   required
                   [value]="email()"
                   (input)="email.set($any($event.target).value)"
-                  placeholder="Seu melhor e-mail corporativo"
+                  [placeholder]="'EXIT_MODAL_EMAIL_PLACEHOLDER' | translate"
                   class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400 transition-all"
                   [disabled]="state() === 'loading'"
                 />
@@ -116,9 +116,9 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                   </svg>
-                  <span>Garantindo acesso...</span>
+                  <span>{{ 'EXIT_MODAL_LOADING' | translate }}</span>
                 } @else {
-                  <span>Receber Acesso Gratuito</span>
+                  <span>{{ 'EXIT_MODAL_BUTTON' | translate }}</span>
                   <span>&rarr;</span>
                 }
               </button>
