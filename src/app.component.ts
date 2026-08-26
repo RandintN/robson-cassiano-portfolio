@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
 
   currentYear = signal(new Date().getFullYear());
   currentLanguage = this.languageService.language;
+  readonly navPrefix = computed(() => this.currentLanguage() === 'en' ? '/en' : '');
 
   // Local optimized image served on the same edge origin (Cloudflare Pages)
   profileImage = signal('assets/images/robson-cassiano-mentor.jpg');

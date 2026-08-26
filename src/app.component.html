@@ -9,12 +9,12 @@
 
   <!-- Header -->
   <header class="container mx-auto px-6 py-6 flex justify-between items-center z-10">
-    <div class="flex items-center gap-2">
+    <a [href]="navPrefix() || '/'" class="flex items-center gap-2">
       <div
         class="w-8 h-8 bg-gradient-to-br from-lime-400 to-green-600 rounded-lg flex items-center justify-center text-slate-900 font-bold">
         R</div>
       <span class="font-bold text-xl tracking-tight text-white">Robson<span class="text-lime-400">Cassiano</span></span>
-    </div>
+    </a>
 
     <div class="flex md:hidden items-center gap-2 text-slate-400">
       <button (click)="changeLanguage('pt')" [class.text-lime-400]="currentLanguage() === 'pt'" aria-label="Mudar idioma para Português" class="hover:text-lime-400 transition-colors font-bold">PT</button>
@@ -23,12 +23,12 @@
     </div>
 
     <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-      <a href="#sobre" class="hover:text-lime-400 transition-colors">{{ 'NAV_ABOUT' | translate }}</a>
-      <a href="#atuacao" class="hover:text-lime-400 transition-colors">{{ 'NAV_ROLES' | translate }}</a>
-      <a href="#artigos" class="hover:text-lime-400 transition-colors">{{ 'NAV_ARTICLES' | translate }}</a>
-      <a href="#comparativo" class="hover:text-lime-400 transition-colors">{{ 'NAV_COMPARISON' | translate }}</a>
-      <a href="#faq" class="hover:text-lime-400 transition-colors">{{ 'NAV_FAQ' | translate }}</a>
-      <a href="#contato"
+      <a [href]="navPrefix() + '#sobre'" class="hover:text-lime-400 transition-colors">{{ 'NAV_ABOUT' | translate }}</a>
+      <a [href]="navPrefix() + '#atuacao'" class="hover:text-lime-400 transition-colors">{{ 'NAV_ROLES' | translate }}</a>
+      <a [href]="navPrefix() + '#artigos'" class="hover:text-lime-400 transition-colors">{{ 'NAV_ARTICLES' | translate }}</a>
+      <a [href]="navPrefix() + '#comparativo'" class="hover:text-lime-400 transition-colors">{{ 'NAV_COMPARISON' | translate }}</a>
+      <a [href]="navPrefix() + '#faq'" class="hover:text-lime-400 transition-colors">{{ 'NAV_FAQ' | translate }}</a>
+      <a [href]="navPrefix() + '#contato'"
         class="px-4 py-2 bg-lime-500 text-slate-900 rounded-full hover:bg-lime-400 transition-colors font-bold">{{ 'NAV_CONTACT' | translate }}</a>
       
       <div class="flex items-center gap-2 ml-4 border-l border-slate-800 pl-4">
@@ -43,7 +43,7 @@
   <nav aria-label="Breadcrumb" class="container mx-auto px-6 py-2">
     <ol class="flex items-center gap-2 text-sm text-slate-500">
       <li>
-        <a href="https://eu.robsoncassiano.software/" aria-label="Página Inicial Robson Cassiano" class="hover:text-lime-400 transition-colors">
+        <a [href]="navPrefix() || '/'" aria-label="Página Inicial Robson Cassiano" class="hover:text-lime-400 transition-colors">
           <span>Home</span>
         </a>
       </li>
