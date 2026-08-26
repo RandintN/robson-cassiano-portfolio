@@ -316,3 +316,64 @@ ${JSON.stringify(jsonLd, null, 2)}
 }
 
 console.log(`✓ Geração estática de ${articles.length} artigos finalizada com sucesso.`);
+
+// 3. Gerar a versão estática pré-renderizada em Inglês para /en/index.html
+const rootDistIndex = path.join(distDir, 'index.html');
+const enDir = path.join(distDir, 'en');
+fs.mkdirSync(enDir, { recursive: true });
+
+if (fs.existsSync(rootDistIndex)) {
+  let enIndexHtml = fs.readFileSync(rootDistIndex, 'utf-8');
+
+  enIndexHtml = enIndexHtml
+    .replace(/<html\s+lang=["']pt-BR["']/i, '<html lang="en"')
+    .replace(/<title>.*?<\/title>/i, '<title>Robson Cassiano | Senior Java Backend Engineer &amp; Enterprise Architect</title>')
+    .replace(
+      /<meta\s+name=["']description["']\s+content=["'].*?["']\s*\/?>/i,
+      '<meta name="description" content="Looking for proven engineering leadership? Meet Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder. View stack, architecture cases, and insights!">'
+    )
+    .replace(
+      /<link\s+rel=["']canonical["']\s+href=["']https:\/\/eu\.robsoncassiano\.software\/?["']\s*\/?>/i,
+      '<link rel="canonical" href="https://eu.robsoncassiano.software/en">'
+    )
+    .replace(
+      /<meta\s+property=["']og:url["']\s+content=["']https:\/\/eu\.robsoncassiano\.software\/?["']\s*\/?>/i,
+      '<meta property="og:url" content="https://eu.robsoncassiano.software/en">'
+    )
+    .replace(
+      /<meta\s+property=["']og:title["']\s+content=["'].*?["']\s*\/?>/i,
+      '<meta property="og:title" content="Robson Cassiano | Senior Java Backend Engineer &amp; Enterprise Architect">'
+    )
+    .replace(
+      /<meta\s+property=["']og:description["']\s+content=["'].*?["']\s*\/?>/i,
+      '<meta property="og:description" content="Looking for proven engineering leadership? Meet Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder. View stack, architecture cases, and insights!">'
+    )
+    .replace(
+      /<meta\s+property=["']og:locale["']\s+content=["']pt_BR["']\s*\/?>/i,
+      '<meta property="og:locale" content="en_US">'
+    )
+    .replace(
+      /<meta\s+name=["']twitter:title["']\s+content=["'].*?["']\s*\/?>/i,
+      '<meta name="twitter:title" content="Robson Cassiano | Senior Java Backend Engineer &amp; Enterprise Architect">'
+    )
+    .replace(
+      /<meta\s+name=["']twitter:description["']\s+content=["'].*?["']\s*\/?>/i,
+      '<meta name="twitter:description" content="Looking for proven engineering leadership? Meet Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder. View stack, architecture cases, and insights!">'
+    )
+    .replace(
+      'Engenheiro de Software Sênior &amp; Mentor Global',
+      'Senior Java Backend Engineer &amp; Enterprise Architect'
+    )
+    .replace(
+      'Nem só de <span style="color: #a3e635;">código</span> vive o DEV.',
+      'Engineering <span style="color: #a3e635;">high-throughput</span> resilient systems.'
+    )
+    .replace(
+      'Especialista em Java Backend, filósofo clássico e mentor de carreiras internacionais. Construindo o futuro sobre os ombros de gigantes para levar devs sênior a faturar +R$ 30k/mês no exterior.',
+      'Specialized in Enterprise Java, high-performance Spring Boot microservices, scalable PostgreSQL databases, and clean distributed architectures. +10 years delivering robust software for global operations.'
+    );
+
+  fs.writeFileSync(path.join(enDir, 'index.html'), enIndexHtml, 'utf-8');
+  console.log('✓ Pré-renderizado portal em Inglês em dist/en/index.html (SEO Internacional /en)');
+}
+

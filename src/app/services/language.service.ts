@@ -1,5 +1,4 @@
-
-import { Injectable, signal, computed, effect } from '@angular/core';
+import { Injectable, signal, effect } from '@angular/core';
 
 export type Language = 'pt' | 'en';
 
@@ -18,19 +17,43 @@ export class LanguageService {
   language = this.currentLanguage.asReadonly();
 
   constructor() {
-    // Persist language choice
+    // Persist language choice and sync HTML lang attribute
     effect(() => {
-      localStorage.setItem('preferred-language', this.currentLanguage());
-      document.documentElement.lang = this.currentLanguage();
+      const lang = this.currentLanguage();
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.setItem('preferred-language', lang);
+        } catch (e) {}
+        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      }
     });
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('popstate', () => {
+        const isEn = window.location.pathname.startsWith('/en');
+        this.currentLanguage.set(isEn ? 'en' : 'pt');
+      });
+    }
   }
 
   private getInitialLanguage(): Language {
-    const saved = localStorage.getItem('preferred-language') as Language;
-    if (saved === 'pt' || saved === 'en') return saved;
-    
-    const browserLang = typeof navigator !== 'undefined' ? navigator.language.split('-')[0] : 'en';
-    return browserLang === 'pt' ? 'pt' : 'en';
+    if (typeof window !== 'undefined') {
+      // 1. Prioridade máxima: URL direta (/en -> 'en')
+      if (window.location.pathname.startsWith('/en')) {
+        return 'en';
+      }
+
+      // 2. Preferência salva anteriormente
+      try {
+        const saved = localStorage.getItem('preferred-language') as Language;
+        if (saved === 'pt' || saved === 'en') return saved;
+      } catch (e) {}
+
+      // 3. Detecção do navegador
+      const browserLang = (navigator.language || 'en').toLowerCase();
+      return browserLang.startsWith('pt') ? 'pt' : 'en';
+    }
+    return 'pt';
   }
 
   public async loadTranslations(): Promise<void> {
@@ -52,13 +75,23 @@ export class LanguageService {
       this.translations.set({ pt, en });
     } catch (e) {
       console.error('Failed to load translations', e);
-      // Fallback: provide at least empty objects so the app doesn't crash
       this.translations.set({ pt: {}, en: {} });
     }
   }
 
   setLanguage(lang: Language) {
     this.currentLanguage.set(lang);
+
+    if (typeof window !== 'undefined') {
+      const currentPath = window.location.pathname;
+      const hash = window.location.hash || '';
+
+      if (lang === 'en' && !currentPath.startsWith('/en')) {
+        window.history.pushState(null, '', '/en' + hash);
+      } else if (lang === 'pt' && currentPath.startsWith('/en')) {
+        window.history.pushState(null, '', '/' + hash);
+      }
+    }
   }
 
   translate(key: string): string {

@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  <!-- Página Principal / Portfólio Canônico -->
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Página Principal (Português / Canônico x-default) -->
   <url>
     <loc>https://eu.robsoncassiano.software/</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://eu.robsoncassiano.software/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
       <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
       <image:title>Robson Cassiano - Senior Software Engineer &amp; Mentor Internacional</image:title>
       <image:caption>Robson Cassiano - Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais e filósofo clássico</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Dedicated English Portal (International SEO / English Speakers) -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/en</loc>
+    <lastmod>2026-08-26</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://eu.robsoncassiano.software/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Robson Cassiano - Senior Java Backend Engineer &amp; Enterprise Architect</image:title>
+      <image:caption>Robson Cassiano - Senior Java Backend Engineer and Enterprise Software Architect</image:caption>
     </image:image>
   </url>
 

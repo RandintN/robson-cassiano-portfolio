@@ -29,6 +29,7 @@
               "metadata.json",
               "CNAME",
               "index.md",
+              "index-en.md",
               "llms.txt",
               "llms-full.txt",
               "_redirects",

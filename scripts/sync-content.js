@@ -72,18 +72,41 @@ fs.mkdirSync(path.dirname(targetJson), { recursive: true });
 fs.writeFileSync(targetJson, JSON.stringify(articles, null, 2), 'utf-8');
 console.log(`✓ Sincronizados ${articles.length} artigos em ${targetJson}`);
 
-// 2. Gerar sitemap.xml dinâmico e otimizado para Googlebot
+// 2. Gerar sitemap.xml dinâmico e internacionalizado (W3C / Google Search Central Standard)
+const today = new Date().toISOString().split('T')[0];
+
 const sitemapEntries = [
-  `  <!-- Página Principal / Portfólio Canônico -->
+  `  <!-- Página Principal (Português / Canônico x-default) -->
   <url>
     <loc>https://eu.robsoncassiano.software/</loc>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://eu.robsoncassiano.software/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
       <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
       <image:title>Robson Cassiano - Senior Software Engineer &amp; Mentor Internacional</image:title>
       <image:caption>Robson Cassiano - Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais e filósofo clássico</image:caption>
+    </image:image>
+  </url>`,
+
+  `  <!-- Dedicated English Portal (International SEO / English Speakers) -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/en</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://eu.robsoncassiano.software/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Robson Cassiano - Senior Java Backend Engineer &amp; Enterprise Architect</image:title>
+      <image:caption>Robson Cassiano - Senior Java Backend Engineer and Enterprise Software Architect</image:caption>
     </image:image>
   </url>`
 ];
@@ -105,10 +128,12 @@ for (const art of articles) {
 
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${sitemapEntries.join('\n\n')}
 </urlset>
 `;
 
 fs.writeFileSync(targetSitemap, sitemapXml, 'utf-8');
-console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 1} URLs indexáveis.`);
+console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 2} URLs indexáveis.`);
+

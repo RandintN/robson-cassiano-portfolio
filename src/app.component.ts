@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
       this.metaService.updateTag({ property: 'og:site_name', content: 'Robson Cassiano' });
       this.metaService.updateTag({ property: 'og:title', content: title });
       this.metaService.updateTag({ property: 'og:description', content: description });
-      this.metaService.updateTag({ property: 'og:url', content: 'https://eu.robsoncassiano.software/' });
+      this.metaService.updateTag({ property: 'og:url', content: isPt ? 'https://eu.robsoncassiano.software/' : 'https://eu.robsoncassiano.software/en' });
       this.metaService.updateTag({ property: 'og:image', content: this.fullCanonicalImageUrl });
       this.metaService.updateTag({ property: 'og:locale', content: locale });
 
@@ -77,6 +77,13 @@ export class AppComponent implements OnInit {
       this.metaService.updateTag({ name: 'twitter:image', content: this.fullCanonicalImageUrl });
 
       this.metaService.updateTag({ name: 'language', content: languageTag });
+
+      if (typeof document !== 'undefined') {
+        const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+        if (canonical) {
+          canonical.href = isPt ? 'https://eu.robsoncassiano.software/' : 'https://eu.robsoncassiano.software/en';
+        }
+      }
 
       this.updateStructuredData();
     });
