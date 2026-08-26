@@ -1,4 +1,4 @@
-import { Component, input, output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { Article } from '../app/services/content.service';
 
 @Component({
@@ -14,7 +14,9 @@ import { Article } from '../app/services/content.service';
         </div>
 
         <h3 class="text-xl font-bold text-white group-hover:text-lime-400 transition-colors leading-snug mb-3">
-          {{ article().title }}
+          <a [href]="'/artigos/' + article().slug" class="hover:text-lime-400 focus:outline-none focus:underline">
+            {{ article().title }}
+          </a>
         </h3>
 
         <p class="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-3">
@@ -30,15 +32,14 @@ import { Article } from '../app/services/content.service';
 
       <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between">
         <span class="text-xs text-slate-500">{{ article().date }}</span>
-        <button
-          type="button"
-          (click)="onRead.emit(article().slug)"
-          [attr.aria-label]="'Ler artigo: ' + article().title"
+        <a
+          [href]="'/artigos/' + article().slug"
+          [attr.aria-label]="'Ler artigo completo: ' + article().title"
           class="inline-flex items-center text-sm font-bold text-lime-400 hover:text-lime-300 transition-colors gap-1"
         >
           <span>Ler artigo</span>
           <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
-        </button>
+        </a>
       </div>
     </article>
   `,
@@ -46,5 +47,4 @@ import { Article } from '../app/services/content.service';
 })
 export class ArticleCardComponent {
   article = input.required<Article>();
-  onRead = output<string>();
 }

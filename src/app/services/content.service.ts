@@ -20,7 +20,6 @@ export interface Article {
 })
 export class ContentService {
   private readonly articlesData = signal<Article[]>([]);
-  readonly selectedArticle = signal<Article | null>(null);
   readonly selectedCategory = signal<string>('all');
 
   readonly articles = computed(() => {
@@ -50,15 +49,6 @@ export class ContentService {
     } catch (e) {
       console.error('Falha ao carregar artigos:', e);
     }
-  }
-
-  selectArticle(slug: string) {
-    const found = this.articlesData().find(a => a.slug === slug);
-    this.selectedArticle.set(found || null);
-  }
-
-  closeArticle() {
-    this.selectedArticle.set(null);
   }
 
   setCategory(cat: string) {

@@ -277,7 +277,7 @@
         <!-- Articles Grid -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           @for (art of contentService.articles(); track art.slug) {
-            <app-article-card [article]="art" (onRead)="contentService.selectArticle($event)" />
+            <app-article-card [article]="art" />
           }
         </div>
       </section>
@@ -467,11 +467,6 @@
       {{ 'STICKY_MOBILE_CTA' | translate }}
     </a>
   </aside>
-
-  <!-- ================= ARTICLE READER MODAL ================= -->
-  @if (contentService.selectedArticle(); as selectedArt) {
-    <app-article-reader [article]="selectedArt" (onClose)="contentService.closeArticle()" />
-  }
 
   <!-- ================= SOVEREIGN LEAD CAPTURE MODAL ================= -->
   <app-newsletter-modal />

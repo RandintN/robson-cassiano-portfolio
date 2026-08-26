@@ -2,7 +2,6 @@ import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, O
 import { NgOptimizedImage } from '@angular/common';
 import { RoleCardComponent } from './components/role-card.component';
 import { ArticleCardComponent } from './components/article-card.component';
-import { ArticleReaderComponent } from './components/article-reader.component';
 import { NewsletterFormComponent } from './components/newsletter-form.component';
 import { NewsletterModalComponent } from './components/newsletter-modal.component';
 import { LanguageService, Language } from './app/services/language.service';
@@ -24,7 +23,6 @@ interface SocialLink {
     NgOptimizedImage,
     RoleCardComponent,
     ArticleCardComponent,
-    ArticleReaderComponent,
     NewsletterFormComponent,
     NewsletterModalComponent,
     TranslatePipe
