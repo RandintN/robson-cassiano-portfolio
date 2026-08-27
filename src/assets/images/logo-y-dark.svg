@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <title>Robson Cassiano Official Logo</title>
   <rect width="1024" height="1024" fill="#000000"/>
   <path d="M 242.23 275.75 L 512.00 431.50 L 781.77 275.75 M 512.00 431.50 L 512.00 743.00"
         stroke="#ffffff"
