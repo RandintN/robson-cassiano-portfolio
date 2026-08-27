@@ -140,6 +140,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: A Mecânica Oculta dos ATS: Uma Análise da Visão do Recrutador no Workable e Greenhouse -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/a-mecanica-oculta-dos-ats-workable-vs-greenhouse</loc>
+    <lastmod>2025-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>A Mecânica Oculta dos ATS: Uma Análise da Visão do Recrutador no Workable e Greenhouse</image:title>
+      <image:caption>Desmontamos a arquitetura dos sistemas de rastreamento de candidatos (ATS) analisando Workable e Greenhouse sob a ótica do recrutador e do engenheiro.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Desenvolvimento de Aplicações com OpenTelemetry e Grafana: Uma Abordagem Profunda -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana</loc>
