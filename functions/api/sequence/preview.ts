@@ -5,9 +5,9 @@ export const onRequestPost: PagesFunction<EmailEnv> = async (context) => {
   const { request, env } = context;
 
   const authHeader = request.headers.get('Authorization');
-  const secret = env.ADMIN_SECRET || 'robson_secret_2026';
+  const secret = env.ADMIN_SECRET;
 
-  if (!authHeader || authHeader !== `Bearer ${secret}`) {
+  if (!secret || !authHeader || authHeader !== `Bearer ${secret}`) {
     return new Response(JSON.stringify({ error: 'Não autorizado.' }), {
       status: 401,
       headers: { 'Content-Type': 'application/json' },

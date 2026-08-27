@@ -370,18 +370,23 @@ export default {
   // Disparos agendados 100% autônomos na Cloudflare
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
     // 1. Disparo diário da Sequência de 7 Dias às 15:00 UTC (12:00 BRT)
-    ctx.waitUntil(
-      fetch('https://eu.robsoncassiano.software/api/sequence/dispatch', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${env.CRON_SECRET || 'robson_secret_2026'}`,
-          'Content-Type': 'application/json',
-        },
-      }).then(async res => {
-        const data = await res.json();
-        console.log('[Cron 12:00 BRT Sequence Result]:', JSON.stringify(data));
-      }).catch(e => console.error('[Cron Sequence Dispatch Error]:', e))
-    );
+    const secret = env.ADMIN_SECRET || env.CRON_SECRET;
+    if (secret) {
+      ctx.waitUntil(
+        fetch('https://eu.robsoncassiano.software/api/sequence/dispatch', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${secret}`,
+            'Content-Type': 'application/json',
+          },
+        }).then(async res => {
+          const data = await res.json();
+          console.log('[Cron 12:00 BRT Sequence Result]:', JSON.stringify(data));
+        }).catch(e => console.error('[Cron Sequence Dispatch Error]:', e))
+      );
+    } else {
+      console.error('[Cron Sequence Error]: ADMIN_SECRET / CRON_SECRET não configurado.');
+    }
 
     // 2. Publicação automatizada de artigos (Segundas e Sextas)
     let mode: PublishMode | null = null;

@@ -13,9 +13,3 @@ database_id = "0bfffdf2-cba9-4abb-90e4-72325fb1b640"
 [[services]]
 binding = "EMAIL_ROUTER"
 service = "robson-cassiano-email-router"
-
-[vars]
-ADMIN_SECRET = "robson_secret_2026"
-
-
-
