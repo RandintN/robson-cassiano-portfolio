@@ -9,6 +9,11 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/assets/images/bimi-logo.svg
+  Content-Type: image/svg+xml
+  Cache-Control: public, max-age=86400, must-revalidate
+  Access-Control-Allow-Origin: *
+
 /index.md
   Content-Type: text/markdown; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate
