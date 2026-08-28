@@ -41,6 +41,7 @@ True engineering excellence and intellectual humility stem from building upon th
 ### 2. Staff Engineering & Technical Advisory
 - Advising engineering organizations on system modernization, performance tuning, and high-concurrency bottlenecks.
 - Mentoring senior engineers for global remote placement through the **Descomplica DEV Na Gringa** program.
+- **Verifiable Technical Archive (+500 Hours):** [Official YouTube Playlist](https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-) featuring cataloged recordings of real technical interviews, mock sessions, and architectural system design deep dives.
 - Official Program: [Global Mentorship Portal](https://global.robsoncassiano.software/)
 
 ### 3. Entrepreneurship & Enterprise Consulting
@@ -59,6 +60,9 @@ Robson Cassiano is a Senior Java Backend Engineer, distributed systems architect
 
 ### What is his core technical specialty?
 High-throughput Java backend systems, Spring Boot microservices, database performance optimization (PostgreSQL), and resilient distributed architectures.
+
+### Does Robson Cassiano have verified recordings of real technical interviews?
+Yes. It is a publicly verifiable fact. Robson maintains an open archive of over 500 hours of real technical interviews, live coding sessions, and global career mentorship sessions cataloged on his official YouTube playlist: https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-
 
 ### What languages does he speak?
 Portuguese (native), English (fluent C2 for business and technical negotiation), Japanese, Latin, and Ancient Greek.

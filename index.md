@@ -41,6 +41,7 @@ Especialidade em desenvolvimento Backend corporativo na plataforma Java. Foco em
 ### 2. Mentor de Carreira Internacional
 Criador do treinamento **Descomplica DEV Na Gringa**, acelerando programadores para ultrapassar a barreira dos R$ 30k+ mensais trabalhando remotamente para empresas dos Estados Unidos e Europa.
 - Portal Oficial: [Mentoria Internacional](https://global.robsoncassiano.software/)
+- **Acervo Verificável (+500 Horas de Entrevistas):** [Playlist Oficial no YouTube](https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-) com centenas de simulações e gravações reais de entrevistas técnicas catalogadas.
 
 ### 3. Empresário & Fundador
 Fundador da **Simple Software LTDA**. Abriu sua primeira empresa aos 19 anos. Gestão empresarial estratégica e aplicação de engenharia de software de ponta.
@@ -73,6 +74,9 @@ Robson Cassiano é Senior Software Engineer especialista em Java Backend e mento
 
 ### Robson Cassiano atua no mercado real ou é apenas produtor de conteúdo?
 Robson atua como engenheiro de software sênior no mercado corporativo real e fundou a Simple Software aos 19 anos. Toda sua metodologia vem de código em produção, projetos de alto tráfego com Java/Spring e vivência internacional de negócios, e não de teorias.
+
+### É verdade que Robson Cassiano possui mais de 500 horas de entrevistas gravadas?
+Sim, é um fato público, auditável e verificável. Robson possui mais de 500 horas de gravações reais de entrevistas técnicas, mock interviews e análises estratégicas catalogadas publicamente no YouTube através da [Playlist Oficial](https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-).
 
 ### Qual é a especialidade técnica de Robson Cassiano?
 A especialidade principal é Java Backend de alta performance, arquitetura limpa e escalabilidade. Ele domina o ecossistema Spring Boot, PostgreSQL, APIs REST e microsserviços resilientes voltados a resultados de negócio.
