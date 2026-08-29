@@ -33,7 +33,21 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     });
   }
 
+  // Handle global CORS preflight for all endpoints
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        "Access-Control-Max-Age": "86400",
+      },
+    });
+  }
+
   const response = await context.next();
   response.headers.set("Vary", "Accept");
+  response.headers.set("Access-Control-Allow-Origin", "*");
   return response;
 };
