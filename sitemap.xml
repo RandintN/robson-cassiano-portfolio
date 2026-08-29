@@ -36,6 +36,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Coding Interview Preparation: A Week-by-Week Study Plan -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Coding Interview Preparation: A Week-by-Week Study Plan</image:title>
+      <image:caption>A concrete, structured week-by-week study plan for US tech coding interviews: key algorithm patterns, dynamic programming triage, 1/4/8-week schedules, tool recommendations, and readiness checkpoints.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Polyworking na Engenharia de Software: Fundamentos Jurídicos, Isolamento Operacional e Limites de Escala -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/polyworking-estrategia-multiplos-contratos-remotos</loc>
