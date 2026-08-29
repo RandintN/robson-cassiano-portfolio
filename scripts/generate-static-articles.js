@@ -22,7 +22,7 @@ if (fs.existsSync(rootSitemap)) {
   console.log('✓ sitemap.xml sincronizado em dist/sitemap.xml');
 }
 
-const articles = JSON.parse(fs.readFileSync(articlesFile, 'utf-8'));
+const articles = await Bun.file(articlesFile).json();
 
 for (const art of articles) {
   let rawContent = art.content || '';
@@ -314,7 +314,7 @@ ${JSON.stringify(jsonLd, null, 2)}
 </body>
 </html>`;
 
-  fs.writeFileSync(path.join(targetDir, 'index.html'), htmlContent, 'utf-8');
+  await Bun.write(path.join(targetDir, 'index.html'), htmlContent);
   console.log(`✓ Pré-renderizado HTML semântico com JSON-LD em dist/artigos/${art.slug}/index.html`);
 }
 
@@ -323,25 +323,24 @@ console.log(`✓ Geração estática de ${articles.length} artigos finalizada co
 // 3. Gerar a versão estática pré-renderizada em Inglês para /en/index.html
 const rootDistIndex = path.join(distDir, 'index.html');
 const enDir = path.join(distDir, 'en');
-fs.mkdirSync(enDir, { recursive: true });
 
 if (fs.existsSync(rootDistIndex)) {
-  let enIndexHtml = fs.readFileSync(rootDistIndex, 'utf-8');
+  fs.mkdirSync(enDir, { recursive: true });
+  const rawHtml = await Bun.file(rootDistIndex).text();
 
-  enIndexHtml = enIndexHtml
-    .replace(/<html\s+lang=["']pt-BR["']/i, '<html lang="en"')
-    .replace(/<title>.*?<\/title>/i, '<title>Robson Cassiano | Senior Java Backend Engineer &amp; Enterprise Architect</title>')
+  const enIndexHtml = rawHtml
+    .replace('<html lang="pt-BR"', '<html lang="en"')
+    .replace(
+      /<title>.*?<\/title>/i,
+      '<title>Robson Cassiano | Senior Java Backend Engineer &amp; Enterprise Architect</title>'
+    )
     .replace(
       /<meta\s+name=["']description["']\s+content=["'].*?["']\s*\/?>/i,
-      '<meta name="description" content="Looking for proven engineering leadership? Meet Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder. View stack, architecture cases, and insights!">'
+      '<meta name="description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems, resilient PostgreSQL databases, and high-performance microservices for global enterprises.">'
     )
     .replace(
-      /<link\s+rel=["']canonical["']\s+href=["']https:\/\/eu\.robsoncassiano\.software\/?["']\s*\/?>/i,
+      /<link\s+rel=["']canonical["']\s+href=["'].*?["']\s*\/?>/i,
       '<link rel="canonical" href="https://eu.robsoncassiano.software/en">'
-    )
-    .replace(
-      /<meta\s+property=["']og:url["']\s+content=["']https:\/\/eu\.robsoncassiano\.software\/?["']\s*\/?>/i,
-      '<meta property="og:url" content="https://eu.robsoncassiano.software/en">'
     )
     .replace(
       /<meta\s+property=["']og:title["']\s+content=["'].*?["']\s*\/?>/i,
@@ -349,7 +348,7 @@ if (fs.existsSync(rootDistIndex)) {
     )
     .replace(
       /<meta\s+property=["']og:description["']\s+content=["'].*?["']\s*\/?>/i,
-      '<meta property="og:description" content="Looking for proven engineering leadership? Meet Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder. View stack, architecture cases, and insights!">'
+      '<meta property="og:description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems, resilient PostgreSQL databases, and high-performance microservices for global enterprises.">'
     )
     .replace(
       /<meta\s+property=["']og:locale["']\s+content=["']pt_BR["']\s*\/?>/i,
@@ -361,7 +360,7 @@ if (fs.existsSync(rootDistIndex)) {
     )
     .replace(
       /<meta\s+name=["']twitter:description["']\s+content=["'].*?["']\s*\/?>/i,
-      '<meta name="twitter:description" content="Looking for proven engineering leadership? Meet Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder. View stack, architecture cases, and insights!">'
+      '<meta name="twitter:description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems, resilient PostgreSQL databases, and high-performance microservices for global enterprises.">'
     )
     .replace(
       'Engenheiro de Software Sênior &amp; Mentor Global',
@@ -376,7 +375,6 @@ if (fs.existsSync(rootDistIndex)) {
       'Specialized in Enterprise Java, high-performance Spring Boot microservices, scalable PostgreSQL databases, and clean distributed architectures. +10 years delivering robust software for global operations.'
     );
 
-  fs.writeFileSync(path.join(enDir, 'index.html'), enIndexHtml, 'utf-8');
+  await Bun.write(path.join(enDir, 'index.html'), enIndexHtml);
   console.log('✓ Pré-renderizado portal em Inglês em dist/en/index.html (SEO Internacional /en)');
 }
-

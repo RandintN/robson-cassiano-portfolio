@@ -4,15 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "ng serve",
-    "sync": "node scripts/sync-content.js",
-    "build": "node scripts/sync-content.js && ng build && node scripts/generate-static-articles.js",
-    "deploy": "ng build --base-href /robson-cassiano-portfolio/",
+    "dev": "bunx ng serve",
+    "sync": "bun scripts/sync-content.js",
+    "build": "bun scripts/sync-content.js && bunx ng build && bun scripts/generate-static-articles.js",
+    "deploy": "bunx ng build --base-href /robson-cassiano-portfolio/",
     "pages:deploy": "bun run build && bunx wrangler pages deploy dist --project-name=robson-cassiano-portfolio --branch=master",
     "pages:dev": "bunx wrangler pages dev dist",
     "yt:transcript": "bun run scripts/fetch-youtube-transcript.ts",
     "auto:publish": "bun run scripts/auto-publish.ts",
-    "preview": "ng serve --configuration=production"
+    "preview": "bunx ng serve --configuration=production"
   },
   "dependencies": {
     "@angular/build": "^21.0.0",

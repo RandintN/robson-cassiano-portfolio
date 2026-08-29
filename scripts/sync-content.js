@@ -14,7 +14,8 @@ const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'));
 const articles = [];
 
 for (const file of files) {
-  const raw = fs.readFileSync(path.join(contentDir, file), 'utf-8');
+  const filePath = path.join(contentDir, file);
+  const raw = await Bun.file(filePath).text();
   
   // Parse frontmatter
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
@@ -67,9 +68,9 @@ for (const file of files) {
 // Ordenar por data decrescente
 articles.sort((a, b) => b.date.localeCompare(a.date));
 
-// 1. Salvar JSON para a SPA do Angular
+// 1. Salvar JSON para a SPA do Angular via Bun.write
 fs.mkdirSync(path.dirname(targetJson), { recursive: true });
-fs.writeFileSync(targetJson, JSON.stringify(articles, null, 2), 'utf-8');
+await Bun.write(targetJson, JSON.stringify(articles, null, 2));
 console.log(`✓ Sincronizados ${articles.length} artigos em ${targetJson}`);
 
 // 2. Gerar sitemap.xml dinâmico e internacionalizado (W3C / Google Search Central Standard)
@@ -134,6 +135,6 @@ ${sitemapEntries.join('\n\n')}
 </urlset>
 `;
 
-fs.writeFileSync(targetSitemap, sitemapXml, 'utf-8');
+await Bun.write(targetSitemap, sitemapXml);
 console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 2} URLs indexáveis.`);
 
