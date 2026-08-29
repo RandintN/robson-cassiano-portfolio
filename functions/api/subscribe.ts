@@ -28,7 +28,15 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
   }
 
   try {
-    const body = await request.json() as { email?: string; name?: string; source?: string };
+    let body: { email?: string; name?: string; source?: string } = {};
+    try {
+      const text = await request.text();
+      body = JSON.parse(text);
+    } catch {
+      try {
+        body = await request.json();
+      } catch {}
+    }
     const email = body.email ? body.email.toLowerCase().trim() : '';
     const name = body.name ? body.name.trim() : '';
     const source = body.source ? body.source.trim() : 'portfolio';
