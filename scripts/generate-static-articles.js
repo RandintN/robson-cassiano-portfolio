@@ -207,6 +207,9 @@ ${JSON.stringify(jsonLd, null, 2)}
     .article-body tr:nth-child(even) { background-color: rgba(30, 41, 59, 0.4); }
     .article-body hr { border-color: #1e293b; margin: 2.5rem 0; }
     .article-body a { color: #a3e635; text-decoration: underline; text-underline-offset: 3px; }
+    .article-body img { max-width: 100%; height: auto; border-radius: 0.875rem; border: 1px solid #334155; margin: 1.75rem auto; display: block; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+    .article-body figure { margin: 2rem 0; text-align: center; }
+    .article-body figcaption { margin-top: 0.5rem; font-size: 0.875rem; color: #94a3b8; font-style: italic; }
     .article-video-callout { margin: 2.5rem 0; padding: 1.5rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.95)); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
     .article-video-callout .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 0.75rem; overflow: hidden; border: 1px solid #334155; background-color: #020617; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); margin-top: 0.75rem; }
     .article-video-callout .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }

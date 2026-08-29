@@ -7,12 +7,14 @@ category: "Carreira & Engenharia"
 readTime: "12 min de leitura"
 tags: ["Coding Interview", "LeetCode", "Algorithm Patterns", "System Design", "Behavioral Interview", "US Tech Jobs", "Dev na Gringa"]
 summary: "A concrete, structured week-by-week study plan for US tech coding interviews: key algorithm patterns, dynamic programming triage, 1/4/8-week schedules, tool recommendations, and readiness checkpoints."
-coverImage: "assets/images/robson-cassiano-mentor.jpg"
+coverImage: "assets/images/coding-interview-preparation-roadmap.webp"
 canonicalUrl: "https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan"
 preSoldTarget: "mentoria"
 ---
 
 # Coding Interview Preparation: A Week-by-Week Study Plan
+
+![Your 7-Week Interview Prep Roadmap: From Foundations to Acing US Tech Loops](/assets/images/coding-interview-preparation-roadmap.webp)
 
 Most developers preparing for US tech interviews don't fail because they lack ability. They fail because their **coding interview preparation has no structure**. 
 
