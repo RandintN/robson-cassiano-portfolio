@@ -23,13 +23,22 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
         </p>
 
         @if (state() === 'success') {
-          <div class="p-4 rounded-xl bg-lime-500/10 border border-lime-500/30 text-lime-300 text-sm flex items-center gap-3">
-            <svg class="w-6 h-6 shrink-0 text-lime-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="p-5 rounded-xl bg-lime-500/10 border border-lime-500/30 text-lime-300 text-sm flex items-start gap-3">
+            <svg class="w-6 h-6 shrink-0 text-lime-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
             <div>
-              <p class="font-bold">{{ 'NEWSLETTER_SUCCESS_TITLE' | translate }}</p>
-              <p class="text-xs text-slate-400 mt-0.5">{{ 'NEWSLETTER_SUCCESS_DESC' | translate }}</p>
+              <p class="font-bold text-base text-white">{{ 'NEWSLETTER_SUCCESS_TITLE' | translate }}</p>
+              <p class="text-xs text-slate-300 mt-1">{{ 'NEWSLETTER_SUCCESS_DESC' | translate }}</p>
+              <a
+                [href]="ebookUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-lime-500 hover:bg-lime-400 text-slate-950 font-bold rounded-lg text-xs transition-colors shadow-md shadow-lime-500/20"
+              >
+                <span>📖 {{ 'NEWSLETTER_SUCCESS_EBOOK_BTN' | translate }}</span>
+                <span>&rarr;</span>
+              </a>
             </div>
           </div>
         } @else {
@@ -95,6 +104,7 @@ export class NewsletterFormComponent {
   buttonLabel = input<string>('');
   source = input<string>('portfolio_home');
 
+  readonly ebookUrl = 'https://robsoncassiano.software/7-passos-simples-dev-na-gringa';
   readonly email = signal('');
   readonly name = signal('');
   readonly state = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -122,6 +132,9 @@ export class NewsletterFormComponent {
       const data = await res.json();
       if (res.ok && data.success) {
         this.state.set('success');
+        if (typeof window !== 'undefined') {
+          window.open(this.ebookUrl, '_blank');
+        }
       } else {
         this.state.set('error');
         this.errorMessage.set(data.error || 'Erro ao processar inscrição. Tente novamente.');

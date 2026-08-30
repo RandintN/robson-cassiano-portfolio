@@ -113,6 +113,22 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
           </p>
         </div>
 
+        <!-- Ebook CTA Box -->
+        <div style="background: linear-gradient(135deg, rgba(163, 230, 53, 0.15), rgba(15, 23, 42, 0.8)); padding: 22px; border-radius: 12px; border: 1px solid rgba(163, 230, 53, 0.4); margin-bottom: 24px; text-align: center;">
+          <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 800; color: #a3e635; text-transform: uppercase; letter-spacing: 0.05em;">
+            🎁 Seu E-book Gratuito
+          </p>
+          <h3 style="margin: 0 0 12px 0; font-size: 18px; font-weight: 800; color: #ffffff; line-height: 1.3;">
+            7 Passos Simples para Conquistar sua Vaga DEV na Gringa
+          </h3>
+          <p style="margin: 0 0 16px 0; font-size: 14px; color: #cbd5e1;">
+            Se o seu download não abriu automaticamente, acesse o material pelo botão abaixo:
+          </p>
+          <a href="https://robsoncassiano.software/7-passos-simples-dev-na-gringa" target="_blank" style="display: inline-block; background-color: #a3e635; color: #022c22; font-weight: 800; font-size: 14px; padding: 12px 24px; border-radius: 8px; text-decoration: none;">
+            📖 Baixar E-book Agora &rarr;
+          </a>
+        </div>
+
         <!-- Micro-commitment / Deliverability Hack Box -->
         <div style="background-color: rgba(163, 230, 53, 0.06); padding: 20px; border-radius: 12px; border: 1px solid rgba(163, 230, 53, 0.25); margin-bottom: 24px;">
           <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 700; color: #a3e635; text-transform: uppercase; letter-spacing: 0.05em;">

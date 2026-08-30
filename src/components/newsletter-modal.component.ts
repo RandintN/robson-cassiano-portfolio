@@ -68,13 +68,24 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
               <div>
                 <p class="font-bold text-base text-white">{{ 'EXIT_MODAL_SUCCESS_TITLE' | translate }}</p>
                 <p class="text-xs text-slate-300 mt-1">{{ 'EXIT_MODAL_SUCCESS_DESC' | translate }}</p>
-                <button
-                  type="button"
-                  (click)="closeModal()"
-                  class="mt-4 px-4 py-2 bg-lime-500 text-slate-950 font-bold rounded-lg text-xs hover:bg-lime-400 transition-colors"
-                >
-                  {{ 'EXIT_MODAL_SUCCESS_BUTTON' | translate }}
-                </button>
+                <div class="flex flex-wrap items-center gap-3 mt-4">
+                  <a
+                    [href]="ebookUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-2.5 bg-lime-500 hover:bg-lime-400 text-slate-950 font-bold rounded-lg text-xs transition-colors inline-flex items-center gap-1.5 shadow-md shadow-lime-500/20"
+                  >
+                    <span>📖 {{ 'EXIT_MODAL_SUCCESS_EBOOK_BTN' | translate }}</span>
+                    <span>&rarr;</span>
+                  </a>
+                  <button
+                    type="button"
+                    (click)="closeModal()"
+                    class="px-3 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-medium rounded-lg text-xs transition-colors"
+                  >
+                    {{ 'EXIT_MODAL_SUCCESS_BUTTON' | translate }}
+                  </button>
+                </div>
               </div>
             </div>
           } @else {
@@ -142,6 +153,7 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
 })
 export class NewsletterModalComponent implements OnInit {
   readonly isOpen = signal(false);
+  readonly ebookUrl = 'https://robsoncassiano.software/7-passos-simples-dev-na-gringa';
   readonly email = signal('');
   readonly name = signal('');
   readonly state = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -265,6 +277,9 @@ export class NewsletterModalComponent implements OnInit {
         try {
           localStorage.setItem(this.SUBSCRIBED_KEY, 'true');
         } catch (e) {}
+        if (typeof window !== 'undefined') {
+          window.open(this.ebookUrl, '_blank');
+        }
       } else {
         this.state.set('error');
         this.errorMessage.set(data.error || 'Erro ao processar inscrição. Tente novamente.');
