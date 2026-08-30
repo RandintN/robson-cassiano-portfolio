@@ -88,6 +88,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: A Aporia da Venda de Horas: Uma Análise Estrutural do Polyworking na Engenharia de Software -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/aporia-venda-de-horas-polyworking-engenharia-de-software</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>A Aporia da Venda de Horas: Uma Análise Estrutural do Polyworking na Engenharia de Software</image:title>
+      <image:caption>Uma investigação analítica e jurídica sobre o polyworking, seus riscos operacionais, manobras de mitigação e os limites inerentes à alocação linear de tempo.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Como Criar um Monopólio Pessoal e Vencer o Conteúdo Genérico da IA -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/como-criar-diferencial-era-inteligencia-artificial</loc>

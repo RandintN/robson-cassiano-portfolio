@@ -166,7 +166,11 @@ export class NewsletterModalComponent implements OnInit {
   ngOnInit() {
     if (typeof window === 'undefined') return;
 
-    // Não exibe se já for inscrito ou tiver fechado recentemente
+    // Expõe no window para testes ou acionamento manual
+    (window as any).openNewsletterModal = () => this.openModal();
+    (window as any).closeNewsletterModal = () => this.closeModal();
+
+    // Não inicializa triggers automáticos se já for inscrito ou tiver fechado recentemente
     if (this.isUserExempt()) return;
 
     this.setupTriggers();
