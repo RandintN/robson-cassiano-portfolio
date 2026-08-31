@@ -7,6 +7,7 @@ export interface EmailEnv {
     fetch: typeof fetch;
   };
   ADMIN_SECRET?: string;
+  TURNSTILE_SECRET_KEY?: string;
 }
 
 export interface SendEmailPayload {

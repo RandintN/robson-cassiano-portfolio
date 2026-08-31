@@ -28,7 +28,7 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
   }
 
   try {
-    let body: { email?: string; name?: string; source?: string } = {};
+    let body: { email?: string; name?: string; source?: string; turnstileToken?: string; 'cf-turnstile-response'?: string } = {};
     try {
       const text = await request.text();
       body = JSON.parse(text);
@@ -37,30 +37,87 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
         body = await request.json();
       } catch {}
     }
-    const email = body.email ? body.email.toLowerCase().trim() : '';
-    const name = body.name ? body.name.trim() : '';
+
+    // 0. Cloudflare Turnstile Anti-Bot Verification
+    const turnstileToken = body.turnstileToken || body['cf-turnstile-response'] || request.headers.get('cf-turnstile-response');
+    if (env.TURNSTILE_SECRET_KEY && turnstileToken) {
+      try {
+        const clientIp = request.headers.get('cf-connecting-ip') || '';
+        const turnstileRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            secret: env.TURNSTILE_SECRET_KEY,
+            response: turnstileToken,
+            remoteip: clientIp || undefined,
+          }),
+        });
+        const turnstileOutcome = (await turnstileRes.json()) as { success: boolean; 'error-codes'?: string[] };
+        if (!turnstileOutcome.success) {
+          return new Response(JSON.stringify({ error: 'Verificação de segurança (Turnstile) falhou. Por favor, tente novamente.' }), {
+            status: 403,
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+          });
+        }
+      } catch (err) {
+        console.error('[Turnstile Verification Error]:', err);
+      }
+    }
+
+    // 1. Sanitização e Normalização Estrita (Unicode, Zero-Width Spaces, Trim, Lowercase)
+    let rawEmail = body.email ? body.email.replace(/[\u200B-\u200D\uFEFF\u00A0]/g, '').trim().toLowerCase() : '';
+    const name = body.name ? body.name.replace(/[\u200B-\u200D\uFEFF\u00A0]/g, '').trim() : '';
     const source = body.source ? body.source.trim() : 'portfolio';
 
-    // Validação estrita e higienização de e-mail (List Hygiene & Anti-Bounce)
+    // Validação estrita de formato RFC 5322
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
-    if (!email || !emailRegex.test(email) || email.length < 5 || email.length > 254) {
+    if (!rawEmail || !emailRegex.test(rawEmail) || rawEmail.length < 5 || rawEmail.length > 254) {
       return new Response(JSON.stringify({ error: 'E-mail inválido ou incompleto.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
       });
     }
 
-    const domain = email.split('@')[1];
+    const [localPart, domain] = rawEmail.split('@');
+
+    // Validação de limites RFC 5321 (Local: máx 64 chars, Domínio: máx 255 chars)
+    if (localPart.length > 64 || domain.length > 255) {
+      return new Response(JSON.stringify({ error: 'Comprimento de e-mail inválido.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
+    // Bloqueio de e-mails departamentais / genéricos (Role-Based Addresses)
+    const roleBasedPrefixes = new Set([
+      'admin', 'administrator', 'contato', 'contact', 'suporte', 'support', 'help', 'info',
+      'informacoes', 'financeiro', 'finance', 'billing', 'faturamento', 'vendas', 'sales',
+      'comercial', 'postmaster', 'hostmaster', 'webmaster', 'abuse', 'noreply', 'no-reply',
+      'marketing', 'rh', 'hr', 'jobs', 'carreiras', 'careers', 'sac', 'atendimento',
+      'recepcao', 'press', 'imprensa', 'parcerias', 'contabilidade'
+    ]);
+
+    // Extrai o identificador base (removendo tags + se existirem)
+    const baseLocalPart = localPart.split('+')[0];
+    if (roleBasedPrefixes.has(baseLocalPart)) {
+      return new Response(JSON.stringify({ 
+        error: 'Por favor, utilize seu e-mail individual ou corporativo pessoal (não aceitamos e-mails genéricos de equipe como contato@, suporte@, admin@).' 
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
 
     // Bloqueio de domínios descartáveis e de teste que causam Hard Bounces
     const blockedDomains = new Set([
       'example.com', 'example.org', 'example.net', 'test.com', 'invalid.com', 'localhost',
       'mailinator.com', 'tempmail.com', 'guerrillamail.com', '10minutemail.com', 'throwawaymail.com',
-      'yopmail.com', 'trashmail.com', 'sharklasers.com', 'dispostable.com', 'getairmail.com'
+      'yopmail.com', 'trashmail.com', 'sharklasers.com', 'dispostable.com', 'getairmail.com',
+      'nada.ltd', 'mohmal.com', 'burnermail.io'
     ]);
 
-    if (blockedDomains.has(domain) || email.startsWith('test_')) {
-      return new Response(JSON.stringify({ error: 'Por favor, utilize um endereço de e-mail válido.' }), {
+    if (blockedDomains.has(domain) || rawEmail.startsWith('test_')) {
+      return new Response(JSON.stringify({ error: 'Por favor, utilize um endereço de e-mail válido e definitivo.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
       });
@@ -71,20 +128,25 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
       'gmai.com': 'gmail.com',
       'gamil.com': 'gmail.com',
       'gmial.com': 'gmail.com',
+      'gmaill.com': 'gmail.com',
       'hotmial.com': 'hotmail.com',
       'hotmai.com': 'hotmail.com',
       'outlok.com': 'outlook.com',
-      'yaho.com': 'yahoo.com'
+      'outloo.com': 'outlook.com',
+      'yaho.com': 'yahoo.com',
+      'yahooo.com': 'yahoo.com'
     };
 
     if (typoCorrections[domain]) {
       return new Response(JSON.stringify({ 
-        error: `Você quis dizer ${email.split('@')[0]}@${typoCorrections[domain]}? Corrija seu e-mail.` 
+        error: `Você quis dizer ${localPart}@${typoCorrections[domain]}? Corrija seu e-mail.` 
       }), {
         status: 400,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
       });
     }
+
+    const email = rawEmail;
 
     const country = request.headers.get('cf-ipcountry') || 'BR';
 
