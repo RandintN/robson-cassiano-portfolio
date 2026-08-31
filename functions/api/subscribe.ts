@@ -41,9 +41,46 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
     const name = body.name ? body.name.trim() : '';
     const source = body.source ? body.source.trim() : 'portfolio';
 
-    // Validação básica de e-mail
-    if (!email || !email.includes('@') || email.length < 5) {
+    // Validação estrita e higienização de e-mail (List Hygiene & Anti-Bounce)
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+    if (!email || !emailRegex.test(email) || email.length < 5 || email.length > 254) {
       return new Response(JSON.stringify({ error: 'E-mail inválido ou incompleto.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
+    const domain = email.split('@')[1];
+
+    // Bloqueio de domínios descartáveis e de teste que causam Hard Bounces
+    const blockedDomains = new Set([
+      'example.com', 'example.org', 'example.net', 'test.com', 'invalid.com', 'localhost',
+      'mailinator.com', 'tempmail.com', 'guerrillamail.com', '10minutemail.com', 'throwawaymail.com',
+      'yopmail.com', 'trashmail.com', 'sharklasers.com', 'dispostable.com', 'getairmail.com'
+    ]);
+
+    if (blockedDomains.has(domain) || email.startsWith('test_')) {
+      return new Response(JSON.stringify({ error: 'Por favor, utilize um endereço de e-mail válido.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
+    // Detecção de erros comuns de digitação em domínios populares
+    const typoCorrections: Record<string, string> = {
+      'gmai.com': 'gmail.com',
+      'gamil.com': 'gmail.com',
+      'gmial.com': 'gmail.com',
+      'hotmial.com': 'hotmail.com',
+      'hotmai.com': 'hotmail.com',
+      'outlok.com': 'outlook.com',
+      'yaho.com': 'yahoo.com'
+    };
+
+    if (typoCorrections[domain]) {
+      return new Response(JSON.stringify({ 
+        error: `Você quis dizer ${email.split('@')[0]}@${typoCorrections[domain]}? Corrija seu e-mail.` 
+      }), {
         status: 400,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
       });
