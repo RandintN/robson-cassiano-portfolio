@@ -64,6 +64,9 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
               />
             </div>
 
+            <!-- Cloudflare Turnstile Widget -->
+            <div class="cf-turnstile my-2 flex justify-center" data-sitekey="0x4AAAAAAEjUfJwT3yG_vHIF" data-action="subscribe" data-theme="dark"></div>
+
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
               <p class="text-xs text-slate-500 flex items-center gap-1.5">
                 <span>🔒</span> {{ 'NEWSLETTER_ZERO_SPAM' | translate }}
@@ -118,6 +121,8 @@ export class NewsletterFormComponent {
     this.state.set('loading');
     this.errorMessage.set('');
 
+    const turnstileToken = (document.querySelector('.cf-turnstile [name="cf-turnstile-response"]') as HTMLInputElement)?.value || (window as any).turnstile?.getResponse();
+
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
@@ -125,7 +130,8 @@ export class NewsletterFormComponent {
         body: JSON.stringify({
           email: mail,
           name: this.name().trim(),
-          source: this.source()
+          source: this.source(),
+          turnstileToken
         })
       });
 
@@ -142,6 +148,10 @@ export class NewsletterFormComponent {
     } catch (e: any) {
       this.state.set('error');
       this.errorMessage.set('Erro de conexão com o servidor. Tente novamente.');
+    } finally {
+      if (typeof window !== 'undefined' && (window as any).turnstile?.reset) {
+        try { (window as any).turnstile.reset(); } catch (err) {}
+      }
     }
   }
 }

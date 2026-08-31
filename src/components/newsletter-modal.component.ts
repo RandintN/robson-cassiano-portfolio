@@ -117,6 +117,9 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                 <p class="text-xs text-red-400">{{ errorMessage() }}</p>
               }
 
+              <!-- Cloudflare Turnstile Widget -->
+              <div class="cf-turnstile my-2 flex justify-center" data-sitekey="0x4AAAAAAEjUfJwT3yG_vHIF" data-action="subscribe" data-theme="dark"></div>
+
               <button
                 type="submit"
                 [disabled]="state() === 'loading'"
@@ -264,6 +267,8 @@ export class NewsletterModalComponent implements OnInit {
     this.state.set('loading');
     this.errorMessage.set('');
 
+    const turnstileToken = (document.querySelector('#newsletter-modal .cf-turnstile [name="cf-turnstile-response"]') as HTMLInputElement)?.value || (window as any).turnstile?.getResponse();
+
     try {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
@@ -272,6 +277,7 @@ export class NewsletterModalComponent implements OnInit {
           email: mail,
           name: this.name().trim(),
           source: 'exit_intent_modal',
+          turnstileToken
         }),
       });
 
@@ -288,9 +294,13 @@ export class NewsletterModalComponent implements OnInit {
         this.state.set('error');
         this.errorMessage.set(data.error || 'Erro ao processar inscrição. Tente novamente.');
       }
-    } catch (e) {
+    } catch (e: any) {
       this.state.set('error');
-      this.errorMessage.set('Erro de conexão. Tente novamente.');
+      this.errorMessage.set('Erro de conexão com o servidor. Tente novamente.');
+    } finally {
+      if (typeof window !== 'undefined' && (window as any).turnstile?.reset) {
+        try { (window as any).turnstile.reset(); } catch (err) {}
+      }
     }
   }
 }
