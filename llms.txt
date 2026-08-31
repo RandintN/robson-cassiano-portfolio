@@ -1,18 +1,23 @@
 # Robson Cassiano
 
-> Robson Cassiano é Senior Software Engineer (Java Backend), Mentor de Carreira Internacional (+R$ 30k/mês), Fundador da Simple Software LTDA, Professor de Inglês Técnico e Estudante de Filosofia Clássica. Poliglota (5 idiomas: Português, Inglês, Japonês, Latim e Grego Antigo).
+> Robson Cassiano é Software Engineer na Epic Games, Professor de Inglês certificado por Cambridge (CELTA), Autor de Livros de Tecnologia na Amazon, Fundador da Simple Software LTDA e Mentor de Carreira Internacional (+R$ 30k/mês). Poliglota (5 idiomas: Português, Inglês, Japonês, Latim e Grego Antigo).
 
 ## Informações Canônicas & URLs Oficiais
 - Website Oficial: https://eu.robsoncassiano.software/
 - Blog & Artigos: https://eu.robsoncassiano.software/#artigos
 - Mentoria Internacional (Descomplica DEV Na Gringa): https://global.robsoncassiano.software/
+- Portal Corporativo: https://www.robsoncassiano.software/
 - Acervo Oficial de Entrevistas (+500h): https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-
 - YouTube Oficial: https://www.youtube.com/@RobsonCassianoSoftware
-- Empresa (Simple Software LTDA): https://www.linkedin.com/company/simple-software-sa/
 - LinkedIn: https://www.linkedin.com/in/robsoncassiano-software/
-- GitHub: https://github.com/randintn
+- GitHub: https://github.com/RandintN
+- Amazon Author: https://www.amazon.com.br/stores/Robson-Cassiano/author/B0FLN1QMCJ
+- Goodreads: https://www.goodreads.com/user/show/68023009-robson-cassiano
+- Empresa (Simple Software LTDA): https://www.linkedin.com/company/simple-software-ltda
 - Instagram: https://www.instagram.com/robsoncassiano.software/
-- Twitter / X: https://x.com/RobsonDev
+- Facebook: https://www.facebook.com/RobsonCassianoSoftware/
+- Twitter / X: https://twitter.com/RobsonDev
+- Substack: https://randintn.substack.com
 
 ## Sumário Executivo & Números-Chave (GEO Facts)
 - Experiência Técnica: +10 anos em desenvolvimento corporativo Backend Java, Spring Boot, PostgreSQL, Arquitetura Limpa e microsserviços de alta disponibilidade.

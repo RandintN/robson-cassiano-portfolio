@@ -115,25 +115,50 @@ export class AppComponent implements OnInit {
           "url": this.fullCanonicalImageUrl,
           "width": 500,
           "height": 500,
-          "caption": "Robson Cassiano - Senior Software Engineer & Mentor Internacional"
+          "caption": isPt
+            ? "Robson Cassiano - Software Engineer na Epic Games & Cambridge CELTA Certified Teacher"
+            : "Robson Cassiano - Software Engineer at Epic Games & Cambridge CELTA Certified Teacher"
         },
         "sameAs": [
+          "https://www.robsoncassiano.software/",
+          "https://global.robsoncassiano.software/",
+          "https://eu.robsoncassiano.software/",
+          "https://github.com/RandintN",
           "https://www.linkedin.com/in/robsoncassiano-software/",
-          "https://github.com/randintn",
-          "https://www.instagram.com/robsoncassiano.software/",
+          "https://www.amazon.com.br/stores/Robson-Cassiano/author/B0FLN1QMCJ",
+          "https://www.goodreads.com/user/show/68023009-robson-cassiano",
+          "https://twitter.com/RobsonDev",
           "https://www.youtube.com/@RobsonCassianoSoftware",
-          "https://x.com/RobsonDev"
+          "https://instagram.com/robsoncassiano.software",
+          "https://www.facebook.com/RobsonCassianoSoftware/",
+          "https://randintn.substack.com",
+          "https://beacons.ai/robson.cassiano/portflio"
         ],
-        "jobTitle": isPt ? "Senior Software Engineer & Mentor Internacional" : "Senior Software Engineer & International Career Mentor",
-        "description": this.languageService.translate('SEO_DESCRIPTION'),
+        "jobTitle": isPt
+          ? "Software Engineer na Epic Games & Cambridge CELTA Certified Teacher"
+          : "Software Engineer at Epic Games & Cambridge CELTA Certified Teacher",
+        "description": isPt
+          ? "Software Engineer na Epic Games. Ex-BTG Pactual, Fundador da Simple Software, Autor de Livros de Tecnologia na Amazon e Professor de Inglês certificado por Cambridge (CELTA). Mentor de carreira internacional para desenvolvedores."
+          : "Software Engineer at Epic Games. Ex-BTG Pactual, Founder of Simple Software, Amazon Author, and Cambridge CELTA Certified English Teacher. International career mentor for developers.",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Epic Games"
+        },
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "University of Cambridge (CELTA Certification)"
+        },
         "knowsAbout": [
+          "Software Engineering",
+          "International Tech Careers",
+          "Technical English for Developers",
+          "System Design",
+          "B2B Remote Contracts",
+          "Simples Nacional Fator R",
           "Java Backend Development",
           "Spring Framework & Spring Boot",
           "PostgreSQL Database Optimization",
           "Software Architecture & Clean Architecture",
-          "International Career Acceleration",
-          "Remote Work Negotiation",
-          "English for Software Engineers",
           "Classical Philosophy"
         ],
         "knowsLanguage": [
@@ -143,10 +168,6 @@ export class AppComponent implements OnInit {
           { "@type": "Language", "name": "Latin", "alternateName": "la" },
           { "@type": "Language", "name": "Ancient Greek", "alternateName": "grc" }
         ],
-        "worksFor": {
-          "@type": "Organization",
-          "@id": "https://eu.robsoncassiano.software/#organization"
-        },
         "founder": {
           "@type": "Organization",
           "@id": "https://eu.robsoncassiano.software/#organization"
@@ -158,15 +179,29 @@ export class AppComponent implements OnInit {
       "@type": "Organization",
       "@id": "https://eu.robsoncassiano.software/#organization",
       "name": "Simple Software LTDA",
-      "url": "https://www.linkedin.com/company/simple-software-sa/",
-      "logo": this.fullCanonicalImageUrl,
+      "url": "https://www.robsoncassiano.software/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://eu.robsoncassiano.software/#logo",
+        "url": this.fullCanonicalImageUrl,
+        "caption": "Simple Software"
+      },
       "founder": {
         "@type": "Person",
         "@id": "https://eu.robsoncassiano.software/#person"
       },
       "description": isPt
         ? "Software house e consultoria de alta engenharia fundada por Robson Cassiano."
-        : "Software engineering company and consulting founded by Robson Cassiano."
+        : "Software engineering company and consulting founded by Robson Cassiano.",
+      "sameAs": [
+        "https://www.robsoncassiano.software/",
+        "https://global.robsoncassiano.software/",
+        "https://github.com/SimpleSoftwareLTDA",
+        "https://www.linkedin.com/company/simple-software-ltda",
+        "https://www.linkedin.com/in/robsoncassiano-software/",
+        "https://www.youtube.com/@RobsonCassianoSoftware",
+        "https://www.facebook.com/RobsonCassianoSoftware/"
+      ]
     };
 
     const programSchema = {

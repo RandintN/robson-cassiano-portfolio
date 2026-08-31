@@ -102,11 +102,16 @@ O canal principal é o LinkedIn (https://www.linkedin.com/in/robsoncassiano-soft
 
 - **Site Oficial**: https://eu.robsoncassiano.software/
 - **Mentoria Global**: https://global.robsoncassiano.software/
+- **Portal Corporativo**: https://www.robsoncassiano.software/
 - **LinkedIn**: https://www.linkedin.com/in/robsoncassiano-software/
-- **GitHub**: https://github.com/randintn
-- **Instagram**: https://www.instagram.com/robsoncassiano.software/
+- **GitHub**: https://github.com/RandintN
+- **Amazon Author**: https://www.amazon.com.br/stores/Robson-Cassiano/author/B0FLN1QMCJ
+- **Goodreads**: https://www.goodreads.com/user/show/68023009-robson-cassiano
 - **YouTube**: https://www.youtube.com/@RobsonCassianoSoftware
-- **Twitter / X**: https://x.com/RobsonDev
+- **Instagram**: https://www.instagram.com/robsoncassiano.software/
+- **Facebook**: https://www.facebook.com/RobsonCassianoSoftware/
+- **Twitter / X**: https://twitter.com/RobsonDev
+- **Substack**: https://randintn.substack.com
 
 ```json
 {
@@ -126,35 +131,50 @@ O canal principal é o LinkedIn (https://www.linkedin.com/in/robsoncassiano-soft
         "url": "https://eu.robsoncassiano.software/",
         "image": {
           "@type": "ImageObject",
-          "url": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg",
+          "url": "https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg",
           "width": 500,
           "height": 500,
-          "caption": "Robson Cassiano - Senior Software Engineer & Mentor Internacional"
+          "caption": "Robson Cassiano - Software Engineer na Epic Games & Cambridge CELTA Certified Teacher"
+        },
+        "jobTitle": "Software Engineer na Epic Games & Cambridge CELTA Certified Teacher",
+        "description": "Software Engineer na Epic Games. Ex-BTG Pactual, Fundador da Simple Software, Autor de Livros de Tecnologia na Amazon e Professor de Inglês certificado por Cambridge (CELTA). Mentor de carreira internacional para desenvolvedores.",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Epic Games"
+        },
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "University of Cambridge (CELTA Certification)"
         },
         "sameAs": [
+          "https://www.robsoncassiano.software/",
+          "https://global.robsoncassiano.software/",
+          "https://eu.robsoncassiano.software/",
+          "https://github.com/RandintN",
           "https://www.linkedin.com/in/robsoncassiano-software/",
-          "https://github.com/randintn",
-          "https://www.instagram.com/robsoncassiano.software/",
+          "https://www.amazon.com.br/stores/Robson-Cassiano/author/B0FLN1QMCJ",
+          "https://www.goodreads.com/user/show/68023009-robson-cassiano",
+          "https://twitter.com/RobsonDev",
           "https://www.youtube.com/@RobsonCassianoSoftware",
-          "https://x.com/RobsonDev"
+          "https://instagram.com/robsoncassiano.software",
+          "https://www.facebook.com/RobsonCassianoSoftware/",
+          "https://randintn.substack.com",
+          "https://beacons.ai/robson.cassiano/portflio"
         ],
-        "jobTitle": "Senior Software Engineer & International Career Mentor",
-        "description": "Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais com meta de R$ 30k+/mês, fundador da Simple Software, professor de inglês e poliglota (Português, Inglês, Japonês, Latim e Grego Antigo).",
         "knowsAbout": [
+          "Software Engineering",
+          "International Tech Careers",
+          "Technical English for Developers",
+          "System Design",
+          "B2B Remote Contracts",
+          "Simples Nacional Fator R",
           "Java Backend Development",
           "Spring Framework & Spring Boot",
           "PostgreSQL Database Optimization",
           "Software Architecture & Clean Architecture",
-          "International Career Acceleration",
-          "Remote Work Negotiation",
-          "English for Software Engineers",
           "Classical Philosophy"
         ],
         "knowsLanguage": ["pt-BR", "en", "ja", "la", "grc"],
-        "worksFor": {
-          "@type": "Organization",
-          "@id": "https://eu.robsoncassiano.software/#organization"
-        },
         "founder": {
           "@type": "Organization",
           "@id": "https://eu.robsoncassiano.software/#organization"
@@ -165,8 +185,26 @@ O canal principal é o LinkedIn (https://www.linkedin.com/in/robsoncassiano-soft
       "@type": "Organization",
       "@id": "https://eu.robsoncassiano.software/#organization",
       "name": "Simple Software LTDA",
-      "url": "https://www.linkedin.com/company/simple-software-sa/",
-      "logo": "https://raw.githubusercontent.com/SimpleSoftwareLTDA/treinamento-descomplica-dev-na-gringa/refs/heads/master/img/mentor/robson-cassiano-mentor.jpg"
+      "url": "https://www.robsoncassiano.software/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://eu.robsoncassiano.software/#logo",
+        "url": "https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg",
+        "caption": "Simple Software"
+      },
+      "founder": {
+        "@type": "Person",
+        "@id": "https://eu.robsoncassiano.software/#person"
+      },
+      "sameAs": [
+        "https://www.robsoncassiano.software/",
+        "https://global.robsoncassiano.software/",
+        "https://github.com/SimpleSoftwareLTDA",
+        "https://www.linkedin.com/company/simple-software-ltda",
+        "https://www.linkedin.com/in/robsoncassiano-software/",
+        "https://www.youtube.com/@RobsonCassianoSoftware",
+        "https://www.facebook.com/RobsonCassianoSoftware/"
+      ]
     },
     {
       "@type": "EducationalOccupationalProgram",

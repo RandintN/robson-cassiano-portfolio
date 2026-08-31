@@ -87,22 +87,55 @@ for (const art of articles) {
     "author": {
       "@type": "Person",
       "name": "Robson Cassiano",
-      "url": "https://eu.robsoncassiano.software/",
-      "jobTitle": "Senior Software Engineer & Mentor Internacional"
+      "jobTitle": "Software Engineer na Epic Games & Cambridge CELTA Certified Teacher",
+      "url": "https://www.robsoncassiano.software/",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Epic Games"
+      },
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "University of Cambridge (CELTA Certification)"
+      },
+      "sameAs": [
+        "https://www.robsoncassiano.software/",
+        "https://global.robsoncassiano.software/",
+        "https://eu.robsoncassiano.software/",
+        "https://github.com/RandintN",
+        "https://www.linkedin.com/in/robsoncassiano-software/",
+        "https://www.amazon.com.br/stores/Robson-Cassiano/author/B0FLN1QMCJ",
+        "https://www.goodreads.com/user/show/68023009-robson-cassiano",
+        "https://twitter.com/RobsonDev",
+        "https://www.youtube.com/@RobsonCassianoSoftware",
+        "https://instagram.com/robsoncassiano.software",
+        "https://www.facebook.com/RobsonCassianoSoftware/",
+        "https://randintn.substack.com",
+        "https://beacons.ai/robson.cassiano/portflio"
+      ]
     },
     "publisher": {
       "@type": "Organization",
       "name": "Simple Software LTDA",
-      "url": "https://eu.robsoncassiano.software/",
+      "url": "https://www.robsoncassiano.software/",
       "logo": {
         "@type": "ImageObject",
         "url": coverImageUrl
-      }
+      },
+      "sameAs": [
+        "https://www.robsoncassiano.software/",
+        "https://global.robsoncassiano.software/",
+        "https://github.com/SimpleSoftwareLTDA",
+        "https://www.linkedin.com/company/simple-software-ltda",
+        "https://www.linkedin.com/in/robsoncassiano-software/",
+        "https://www.youtube.com/@RobsonCassianoSoftware",
+        "https://www.facebook.com/RobsonCassianoSoftware/"
+      ]
     },
     "datePublished": art.date,
     "dateModified": art.date,
     "articleSection": art.category,
-    "keywords": art.tags.join(', ')
+    "keywords": art.tags.join(', '),
+    "inLanguage": "pt-BR"
   };
 
   const htmlContent = `<!DOCTYPE html>
@@ -270,7 +303,7 @@ ${JSON.stringify(jsonLd, null, 2)}
           <img src="/assets/images/robson-cassiano-mentor.jpg" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-slate-700 object-cover" itemprop="image">
           <div>
             <span class="text-base font-bold text-white block" itemprop="name">Robson Cassiano</span>
-            <span class="text-xs text-slate-400 block" itemprop="jobTitle">Senior Software Engineer & Mentor Internacional (+R$ 30k/mês)</span>
+            <span class="text-xs text-slate-400 block" itemprop="jobTitle">Software Engineer na Epic Games & Cambridge CELTA Certified Teacher</span>
           </div>
         </div>
       </header>
