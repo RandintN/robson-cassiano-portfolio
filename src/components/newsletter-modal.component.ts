@@ -1,4 +1,4 @@
-import { Component, signal, ChangeDetectionStrategy, HostListener, OnInit, inject } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, HostListener, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { TranslatePipe } from '../app/pipes/translate.pipe';
 
 @Component({
@@ -155,6 +155,8 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NewsletterModalComponent implements OnInit {
+  private readonly cdr = inject(ChangeDetectorRef);
+
   readonly isOpen = signal(false);
   readonly ebookUrl = 'https://robsoncassiano.software/7-passos-simples-dev-na-gringa';
   readonly email = signal('');
@@ -266,6 +268,7 @@ export class NewsletterModalComponent implements OnInit {
 
     this.state.set('loading');
     this.errorMessage.set('');
+    this.cdr.markForCheck();
 
     const turnstileToken = (document.querySelector('#newsletter-modal .cf-turnstile [name="cf-turnstile-response"]') as HTMLInputElement)?.value || (window as any).turnstile?.getResponse();
 
@@ -284,20 +287,26 @@ export class NewsletterModalComponent implements OnInit {
       const data = await res.json();
       if (res.ok && data.success) {
         this.state.set('success');
+        this.cdr.markForCheck();
         try {
           localStorage.setItem(this.SUBSCRIBED_KEY, 'true');
         } catch (e) {}
         if (typeof window !== 'undefined') {
-          window.open(this.ebookUrl, '_blank');
+          try {
+            window.open(this.ebookUrl, '_blank');
+          } catch (err) {}
         }
       } else {
         this.state.set('error');
         this.errorMessage.set(data.error || 'Erro ao processar inscrição. Tente novamente.');
+        this.cdr.markForCheck();
       }
     } catch (e: any) {
       this.state.set('error');
       this.errorMessage.set('Erro de conexão com o servidor. Tente novamente.');
+      this.cdr.markForCheck();
     } finally {
+      this.cdr.markForCheck();
       if (typeof window !== 'undefined' && (window as any).turnstile?.reset) {
         try { (window as any).turnstile.reset(); } catch (err) {}
       }
