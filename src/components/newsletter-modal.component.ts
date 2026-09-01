@@ -117,8 +117,8 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                 <p class="text-xs text-red-400">{{ errorMessage() }}</p>
               }
 
-              <!-- Cloudflare Turnstile Widget -->
-              <div class="cf-turnstile my-2 flex justify-center" data-sitekey="0x4AAAAAAEjUfJwT3yG_vHIF" data-action="subscribe" data-theme="dark"></div>
+              <!-- Cloudflare Turnstile Widget Container -->
+              <div id="turnstile-modal-container" class="my-2 flex justify-center min-h-[65px]"></div>
 
               <button
                 type="submit"
@@ -163,6 +163,9 @@ export class NewsletterModalComponent implements OnInit {
   readonly name = signal('');
   readonly state = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
   readonly errorMessage = signal('');
+
+  private widgetId: string | null = null;
+  private readonly turnstileToken = signal<string>('');
 
   private readonly STORAGE_KEY = 'rc_newsletter_dismissed_at';
   private readonly SUBSCRIBED_KEY = 'rc_newsletter_subscribed';
@@ -249,10 +252,34 @@ export class NewsletterModalComponent implements OnInit {
     this.isOpen.set(true);
     this.state.set('idle');
     this.errorMessage.set('');
+    this.cdr.detectChanges();
+    setTimeout(() => this.renderTurnstile(), 50);
+  }
+
+  private renderTurnstile() {
+    if (typeof window === 'undefined') return;
+    const container = document.getElementById('turnstile-modal-container');
+    if (!container) return;
+    if ((window as any).turnstile) {
+      try {
+        container.innerHTML = '';
+        this.widgetId = (window as any).turnstile.render(container, {
+          sitekey: '0x4AAAAAAEjUfJwT3yG_vHIF',
+          action: 'subscribe',
+          theme: 'dark',
+          callback: (token: string) => {
+            this.turnstileToken.set(token);
+          }
+        });
+      } catch (e) {}
+    } else {
+      setTimeout(() => this.renderTurnstile(), 200);
+    }
   }
 
   closeModal() {
     this.isOpen.set(false);
+    this.cdr.detectChanges();
     try {
       localStorage.setItem(this.STORAGE_KEY, Date.now().toString());
     } catch (e) {}
@@ -263,14 +290,15 @@ export class NewsletterModalComponent implements OnInit {
     const mail = this.email().trim();
     if (!mail || !mail.includes('@')) {
       this.errorMessage.set('Por favor, informe um e-mail válido.');
+      this.cdr.detectChanges();
       return;
     }
 
     this.state.set('loading');
     this.errorMessage.set('');
-    this.cdr.markForCheck();
+    this.cdr.detectChanges();
 
-    const turnstileToken = (document.querySelector('#newsletter-modal .cf-turnstile [name="cf-turnstile-response"]') as HTMLInputElement)?.value || (window as any).turnstile?.getResponse();
+    const token = this.turnstileToken() || (this.widgetId ? (window as any).turnstile?.getResponse(this.widgetId) : '') || (window as any).turnstile?.getResponse() || '';
 
     try {
       const res = await fetch('/api/subscribe', {
@@ -280,14 +308,14 @@ export class NewsletterModalComponent implements OnInit {
           email: mail,
           name: this.name().trim(),
           source: 'exit_intent_modal',
-          turnstileToken
+          turnstileToken: token || undefined
         }),
       });
 
       const data = await res.json();
       if (res.ok && data.success) {
         this.state.set('success');
-        this.cdr.markForCheck();
+        this.cdr.detectChanges();
         try {
           localStorage.setItem(this.SUBSCRIBED_KEY, 'true');
         } catch (e) {}
@@ -299,16 +327,16 @@ export class NewsletterModalComponent implements OnInit {
       } else {
         this.state.set('error');
         this.errorMessage.set(data.error || 'Erro ao processar inscrição. Tente novamente.');
-        this.cdr.markForCheck();
+        this.cdr.detectChanges();
       }
     } catch (e: any) {
       this.state.set('error');
       this.errorMessage.set('Erro de conexão com o servidor. Tente novamente.');
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
     } finally {
-      this.cdr.markForCheck();
-      if (typeof window !== 'undefined' && (window as any).turnstile?.reset) {
-        try { (window as any).turnstile.reset(); } catch (err) {}
+      this.cdr.detectChanges();
+      if (typeof window !== 'undefined' && (window as any).turnstile?.reset && this.widgetId) {
+        try { (window as any).turnstile.reset(this.widgetId); } catch (err) {}
       }
     }
   }

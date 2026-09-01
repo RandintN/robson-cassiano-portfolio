@@ -5,7 +5,7 @@
   <!-- Página Principal (Português / Canônico x-default) -->
   <url>
     <loc>https://eu.robsoncassiano.software/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -22,7 +22,7 @@
   <!-- Dedicated English Portal (International SEO / English Speakers) -->
   <url>
     <loc>https://eu.robsoncassiano.software/en</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />

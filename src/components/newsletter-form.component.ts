@@ -1,4 +1,4 @@
-import { Component, signal, ChangeDetectionStrategy, input, inject, ChangeDetectorRef } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, input, inject, ChangeDetectorRef, AfterViewInit } from '@angular/core';
 import { TranslatePipe } from '../app/pipes/translate.pipe';
 
 @Component({
@@ -64,8 +64,8 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
               />
             </div>
 
-            <!-- Cloudflare Turnstile Widget -->
-            <div class="cf-turnstile my-2 flex justify-center" data-sitekey="0x4AAAAAAEjUfJwT3yG_vHIF" data-action="subscribe" data-theme="dark"></div>
+            <!-- Cloudflare Turnstile Widget Container -->
+            <div id="turnstile-form-container" class="my-2 flex justify-center min-h-[65px]"></div>
 
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
               <p class="text-xs text-slate-500 flex items-center gap-1.5">
@@ -100,7 +100,7 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NewsletterFormComponent {
+export class NewsletterFormComponent implements AfterViewInit {
   private readonly cdr = inject(ChangeDetectorRef);
 
   badge = input<string>('');
@@ -115,6 +115,37 @@ export class NewsletterFormComponent {
   readonly state = signal<'idle' | 'loading' | 'success' | 'error'>('idle');
   readonly errorMessage = signal('');
 
+  private widgetId: string | null = null;
+  private readonly turnstileToken = signal<string>('');
+
+  ngAfterViewInit() {
+    this.initTurnstile();
+  }
+
+  private initTurnstile() {
+    if (typeof window === 'undefined') return;
+    const poll = () => {
+      if ((window as any).turnstile) {
+        const container = document.getElementById('turnstile-form-container');
+        if (container && !container.hasChildNodes()) {
+          try {
+            this.widgetId = (window as any).turnstile.render(container, {
+              sitekey: '0x4AAAAAAEjUfJwT3yG_vHIF',
+              action: 'subscribe',
+              theme: 'dark',
+              callback: (token: string) => {
+                this.turnstileToken.set(token);
+              }
+            });
+          } catch (e) {}
+        }
+      } else {
+        setTimeout(poll, 150);
+      }
+    };
+    setTimeout(poll, 100);
+  }
+
   async subscribe(event: Event) {
     event.preventDefault();
     const mail = this.email().trim();
@@ -122,9 +153,9 @@ export class NewsletterFormComponent {
 
     this.state.set('loading');
     this.errorMessage.set('');
-    this.cdr.markForCheck();
+    this.cdr.detectChanges();
 
-    const turnstileToken = (document.querySelector('.cf-turnstile [name="cf-turnstile-response"]') as HTMLInputElement)?.value || (window as any).turnstile?.getResponse();
+    const token = this.turnstileToken() || (this.widgetId ? (window as any).turnstile?.getResponse(this.widgetId) : '') || (window as any).turnstile?.getResponse() || '';
 
     try {
       const res = await fetch('/api/subscribe', {
@@ -134,14 +165,14 @@ export class NewsletterFormComponent {
           email: mail,
           name: this.name().trim(),
           source: this.source(),
-          turnstileToken
+          turnstileToken: token || undefined
         })
       });
 
       const data = await res.json();
       if (res.ok && data.success) {
         this.state.set('success');
-        this.cdr.markForCheck();
+        this.cdr.detectChanges();
         if (typeof window !== 'undefined') {
           try {
             window.open(this.ebookUrl, '_blank');
@@ -150,16 +181,16 @@ export class NewsletterFormComponent {
       } else {
         this.state.set('error');
         this.errorMessage.set(data.error || 'Erro ao processar inscrição. Tente novamente.');
-        this.cdr.markForCheck();
+        this.cdr.detectChanges();
       }
     } catch (e: any) {
       this.state.set('error');
       this.errorMessage.set('Erro de conexão com o servidor. Tente novamente.');
-      this.cdr.markForCheck();
+      this.cdr.detectChanges();
     } finally {
-      this.cdr.markForCheck();
-      if (typeof window !== 'undefined' && (window as any).turnstile?.reset) {
-        try { (window as any).turnstile.reset(); } catch (err) {}
+      this.cdr.detectChanges();
+      if (typeof window !== 'undefined' && (window as any).turnstile?.reset && this.widgetId) {
+        try { (window as any).turnstile.reset(this.widgetId); } catch (err) {}
       }
     }
   }
