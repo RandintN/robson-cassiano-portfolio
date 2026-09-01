@@ -150,26 +150,67 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
 
     const country = request.headers.get('cf-ipcountry') || 'BR';
 
-    // 1. Salvar no banco Cloudflare D1 (se disponível)
+    // 1. Verificação de Idempotência e Persistência no Cloudflare D1
+    let isNewSubscriber = true;
+    let shouldSendWelcomeEmail = true;
+
     if (env.DB) {
-      await env.DB.prepare(`
-        INSERT INTO subscribers (email, name, source, ip_country, status)
-        VALUES (?, ?, ?, ?, 'active')
-        ON CONFLICT(email) DO UPDATE SET
-          name = CASE WHEN excluded.name != '' THEN excluded.name ELSE subscribers.name END,
-          status = 'active',
-          source = excluded.source
-      `).bind(email, name, source, country).run();
+      const existing = await env.DB.prepare(`
+        SELECT id, email, name, status, sequence_step, last_sequence_sent_at, created_at
+        FROM subscribers
+        WHERE email = ?
+      `).bind(email).first<{
+        id: number;
+        email: string;
+        name: string;
+        status: string;
+        sequence_step: number;
+        last_sequence_sent_at: string | null;
+        created_at: string;
+      }>();
+
+      if (existing) {
+        isNewSubscriber = false;
+        // Se o lead já está ativo no banco: Idempotência estrita (NÃO envia e-mail duplicado)
+        if (existing.status === 'active') {
+          shouldSendWelcomeEmail = false;
+          // Apenas atualiza metadados se necessário
+          await env.DB.prepare(`
+            UPDATE subscribers SET
+              name = CASE WHEN ? != '' THEN ? ELSE name END,
+              source = ?
+            WHERE email = ?
+          `).bind(name, name, source, email).run();
+        } else {
+          // O lead estava unsubscribed/inativo e pediu para se reinscrever voluntariamente
+          shouldSendWelcomeEmail = true;
+          await env.DB.prepare(`
+            UPDATE subscribers SET
+              name = CASE WHEN ? != '' THEN ? ELSE name END,
+              status = 'active',
+              source = ?,
+              unsubscribed_at = NULL
+            WHERE email = ?
+          `).bind(name, name, source, email).run();
+        }
+      } else {
+        // Novo inscrito inédito
+        await env.DB.prepare(`
+          INSERT INTO subscribers (email, name, source, ip_country, status, last_sequence_sent_at)
+          VALUES (?, ?, ?, ?, 'active', CURRENT_TIMESTAMP)
+        `).bind(email, name, source, country).run();
+      }
     }
 
-    // 2. Envio do e-mail de boas-vindas com Copy de Alta Conversão (Ray Edwards Framework)
-    const firstName = name ? name.split(' ')[0] : 'dev';
-    
-    const subject = `[Acesso Confirmado] O caminho para os contratos de R$ 30k+ no exterior`;
+    // 2. Envio do e-mail de boas-vindas APENAS para novos inscritos ou reativações
+    if (shouldSendWelcomeEmail) {
+      const firstName = name ? name.split(' ')[0] : 'dev';
+      
+      const subject = `[Acesso Confirmado] O caminho para os contratos de R$ 30k+ no exterior`;
 
-    const textContent = `Fala, ${firstName}!\n\nParabéns pela decisão. Você acabou de garantir seu lugar em um círculo seleto de desenvolvedores que se recusam a ser tratados como commodities na engenharia de software.\n\nA partir de hoje, você terá acesso direto aos bastidores de mais de uma década de engenharia sênior e mentoria internacional:\n\n• Java & Spring Boot de Alto Nível: Decisões arquiteturais limpas, resiliência e performance real para sistemas corporativos de missão crítica.\n• Contratos Globais (R$ 30k+ a R$ 60k+/mês): Estratégias reais de posicionamento internacional e "Real English" para negociar com clientes nos EUA e Europa.\n• Modelos Mentais & Filosofia Clássica: Como a lógica dos estoicos e clássicos transforma engenheiros comuns em líderes técnicos insubstituíveis na era da IA.\n\n💡 "Nem só de código vive o DEV. Construímos o futuro sobre os ombros de gigantes."\n\n📌 UM PEDIDO RÁPIDO (E MUITO IMPORTANTE):\nPara garantir que os ensaios técnicos cheguem sempre à sua caixa de entrada principal e não se percam nos filtros automáticos:\n\n👉 Responda a este e-mail com a palavra "RECEBIDO" (e, se quiser, me diga: qual é o seu maior desafio na carreira hoje? Eu leio e respondo pessoalmente).\n\nNo próximo e-mail, vou te mostrar por que o mercado internacional procura engenheiros com visão arquitetural e não apenas digitadores de código.\n\nForte abraço,\n\nRobson Cassiano\nSenior Software Engineer & Mentor Global\nhttps://eu.robsoncassiano.software`;
+      const textContent = `Fala, ${firstName}!\n\nParabéns pela decisão. Você acabou de garantir seu lugar em um círculo seleto de desenvolvedores que se recusam a ser tratados como commodities na engenharia de software.\n\nA partir de hoje, você terá acesso direto aos bastidores de mais de uma década de engenharia sênior e mentoria internacional:\n\n• Java & Spring Boot de Alto Nível: Decisões arquiteturais limpas, resiliência e performance real para sistemas corporativos de missão crítica.\n• Contratos Globais (R$ 30k+ a R$ 60k+/mês): Estratégias reais de posicionamento internacional e "Real English" para negociar com clientes nos EUA e Europa.\n• Modelos Mentais & Filosofia Clássica: Como a lógica dos estoicos e clássicos transforma engenheiros comuns em líderes técnicos insubstituíveis na era da IA.\n\n💡 "Nem só de código vive o DEV. Construímos o futuro sobre os ombros de gigantes."\n\n📌 UM PEDIDO RÁPIDO (E MUITO IMPORTANTE):\nPara garantir que os ensaios técnicos cheguem sempre à sua caixa de entrada principal e não se percam nos filtros automáticos:\n\n👉 Responda a este e-mail com a palavra "RECEBIDO" (e, se quiser, me diga: qual é o seu maior desafio na carreira hoje? Eu leio e respondo pessoalmente).\n\nNo próximo e-mail, vou te mostrar por que o mercado internacional procura engenheiros com visão arquitetural e não apenas digitadores de código.\n\nForte abraço,\n\nRobson Cassiano\nSenior Software Engineer & Mentor Global\nhttps://eu.robsoncassiano.software`;
 
-    const htmlContent = `
+      const htmlContent = `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 32px 28px; border-radius: 16px; border: 1px solid #1e293b; line-height: 1.6;">
         
         <!-- Header Badge -->
@@ -258,16 +299,19 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
       </div>
     `;
 
-    await sendEmail({
-      to: email,
-      subject: subject,
-      html: htmlContent,
-      text: textContent
-    }, env);
+      await sendEmail({
+        to: email,
+        subject: subject,
+        html: htmlContent,
+        text: textContent
+      }, env);
+    }
 
     return new Response(JSON.stringify({
       success: true,
-      message: 'Inscrição confirmada! Verifique sua caixa de entrada.'
+      message: shouldSendWelcomeEmail 
+        ? 'Inscrição confirmada! Verifique sua caixa de entrada.' 
+        : 'Inscrição atualizada! Seu acesso já está liberado.'
     }), {
       status: 200,
       headers: {
