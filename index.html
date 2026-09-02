@@ -56,7 +56,32 @@
   <link rel="manifest" href="assets/icons/site.webmanifest">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#08080a',
+            obsidian: {
+              DEFAULT: '#0e0e12',
+              card: '#141418',
+              raised: '#16161c',
+              overlay: '#1f1f27',
+              border: '#252530',
+            },
+            gold: {
+              DEFAULT: '#dfb15b',
+              light: '#f6e0a4',
+              muted: '#967432',
+              primary: '#dfb15b',
+              glow: 'rgba(223, 177, 91, 0.15)',
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Cloudflare Turnstile Script -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script>
@@ -67,11 +92,11 @@
         this.dataset.initialized = 'true';
 
         const playLabel = this.getAttribute('playlabel') || 'Assistir transmissão';
-        this.innerHTML = \`
+        this.innerHTML = `
           <div class="relative w-full aspect-video bg-slate-950 rounded-xl overflow-hidden cursor-pointer group shadow-2xl border border-slate-800 transition-all">
             <img 
-              src="https://i.ytimg.com/vi/\${videoId}/hqdefault.jpg" 
-              alt="\${playLabel}"
+              src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg" 
+              alt="${playLabel}"
               loading="lazy"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 opacity-90 group-hover:opacity-100"
             />
@@ -81,22 +106,22 @@
               </div>
             </div>
           </div>
-        \`;
+        `;
 
         this.firstElementChild?.addEventListener('click', (e) => {
           e.preventDefault();
           const origin = encodeURIComponent(window.location.origin);
-          this.innerHTML = \`
+          this.innerHTML = `
             <iframe 
-              src="https://www.youtube.com/embed/\${videoId}?autoplay=1&origin=\${origin}"
-              title="\${playLabel}"
+              src="https://www.youtube.com/embed/${videoId}?autoplay=1&origin=${origin}"
+              title="${playLabel}"
               class="w-full aspect-video rounded-xl shadow-2xl border border-slate-800"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
-          \`;
+          `;
         }, { once: true });
       }
     }
@@ -107,10 +132,10 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0f172a;
-      /* slate-950 */
-      color: #e2e8f0;
-      /* slate-200 */
+      background-color: #08080a;
+      /* Jinkan Void Black */
+      color: #f4f4f6;
+      /* Jinkan Pearl White */
     }
 
     /* Custom scrollbar */
@@ -119,16 +144,16 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: #0f172a;
+      background: #08080a;
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #334155;
+      background: #252530;
       border-radius: 4px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #475569;
+      background: #967432;
     }
   </style>
 
@@ -365,15 +390,15 @@
 
 <body>
   <app-root>
-    <div style="min-height: 100vh; background-color: #0f172a; color: #e2e8f0; padding: 2.5rem 1.5rem; font-family: system-ui, sans-serif;">
+    <div style="min-height: 100vh; background-color: #08080a; color: #f4f4f6; padding: 2.5rem 1.5rem; font-family: system-ui, sans-serif;">
       <header style="max-width: 64rem; margin: 0 auto;">
-        <p style="color: #a3e635; font-weight: bold; text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em; margin-bottom: 1rem;">
+        <p style="color: #dfb15b; font-weight: bold; text-transform: uppercase; font-size: 0.875rem; letter-spacing: 0.05em; margin-bottom: 1rem;">
           Engenheiro de Software Sênior &amp; Mentor Global
         </p>
         <h1 style="font-size: 3rem; font-weight: 800; color: #ffffff; line-height: 1.15; margin-bottom: 1.5rem;">
-          Nem só de <span style="color: #a3e635;">código</span> vive o DEV.
+          Nem só de <span style="color: #dfb15b;">código</span> vive o DEV.
         </h1>
-        <p style="font-size: 1.125rem; color: #94a3b8; max-width: 36rem; line-height: 1.6; margin-bottom: 2rem;">
+        <p style="font-size: 1.125rem; color: #9e9ea8; max-width: 36rem; line-height: 1.6; margin-bottom: 2rem;">
           Especialista em Java Backend, filósofo clássico e mentor de carreiras internacionais. Construindo o futuro sobre os ombros de gigantes para levar devs sênior a faturar +R$ 30k/mês no exterior.
         </p>
       </header>

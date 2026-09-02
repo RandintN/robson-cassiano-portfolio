@@ -219,32 +219,32 @@ ${JSON.stringify(jsonLd, null, 2)}
     }
   </script>
   <style>
-    body { background-color: #020617; color: #cbd5e1; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+    body { background-color: #08080a; color: #cbd5e1; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
     .article-body h1 { font-size: 1.875rem; font-weight: 800; color: #ffffff; margin-top: 2rem; margin-bottom: 1rem; line-height: 1.3; }
-    .article-body h2 { font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-top: 2rem; margin-bottom: 0.75rem; border-left: 4px solid #a3e635; padding-left: 0.75rem; }
-    .article-body h3 { font-size: 1.25rem; font-weight: 700; color: #a3e635; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .article-body h2 { font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-top: 2rem; margin-bottom: 0.75rem; border-left: 4px solid #dfb15b; padding-left: 0.75rem; }
+    .article-body h3 { font-size: 1.25rem; font-weight: 700; color: #dfb15b; margin-top: 1.5rem; margin-bottom: 0.5rem; }
     .article-body p { margin-bottom: 1.25rem; line-height: 1.8; color: #cbd5e1; font-size: 1.05rem; }
     .article-body ul, .article-body ol { margin-left: 1.5rem; margin-bottom: 1.25rem; color: #cbd5e1; list-style-type: disc; }
     .article-body ol { list-style-type: decimal; }
     .article-body li { margin-bottom: 0.5rem; line-height: 1.6; }
     .article-body strong { color: #ffffff; font-weight: 700; }
     .article-body em { color: #e2e8f0; font-style: italic; }
-    .article-body blockquote { border-left: 4px solid #a3e635; padding: 1rem 1.25rem; margin: 1.5rem 0; background: rgba(30, 41, 59, 0.6); border-radius: 0 0.75rem 0.75rem 0; color: #e2e8f0; font-style: italic; }
+    .article-body blockquote { border-left: 4px solid #dfb15b; padding: 1rem 1.25rem; margin: 1.5rem 0; background: rgba(22, 22, 28, 0.7); border-radius: 0 0.75rem 0.75rem 0; color: #f6e0a4; font-style: italic; }
     .article-body blockquote p { margin-bottom: 0; }
-    .article-body pre { background: #0b0f19; border: 1px solid #1e293b; border-radius: 0.75rem; padding: 1.25rem; overflow-x: auto; margin: 1.5rem 0; font-family: ui-monospace, monospace; font-size: 0.9rem; color: #f8fafc; }
-    .article-body code { font-family: ui-monospace, monospace; font-size: 0.875rem; color: #a3e635; background: rgba(15, 23, 42, 0.9); padding: 0.2rem 0.4rem; border-radius: 0.25rem; }
+    .article-body pre { background: #0e0e12; border: 1px solid #252530; border-radius: 0.75rem; padding: 1.25rem; overflow-x: auto; margin: 1.5rem 0; font-family: ui-monospace, monospace; font-size: 0.9rem; color: #f8fafc; }
+    .article-body code { font-family: ui-monospace, monospace; font-size: 0.875rem; color: #dfb15b; background: rgba(20, 20, 24, 0.9); padding: 0.2rem 0.4rem; border-radius: 0.25rem; }
     .article-body pre code { color: #f8fafc; background: transparent; padding: 0; }
-    .article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border: 1px solid #334155; border-radius: 0.75rem; overflow: hidden; }
-    .article-body th { background-color: #1e293b; color: #ffffff; font-weight: 700; text-align: left; padding: 0.75rem 1rem; border: 1px solid #334155; font-size: 0.9rem; }
-    .article-body td { padding: 0.75rem 1rem; border: 1px solid #334155; color: #cbd5e1; font-size: 0.95rem; }
-    .article-body tr:nth-child(even) { background-color: rgba(30, 41, 59, 0.4); }
-    .article-body hr { border-color: #1e293b; margin: 2.5rem 0; }
-    .article-body a { color: #a3e635; text-decoration: underline; text-underline-offset: 3px; }
-    .article-body img { max-width: 100%; height: auto; border-radius: 0.875rem; border: 1px solid #334155; margin: 1.75rem auto; display: block; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+    .article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border: 1px solid #252530; border-radius: 0.75rem; overflow: hidden; }
+    .article-body th { background-color: #16161c; color: #ffffff; font-weight: 700; text-align: left; padding: 0.75rem 1rem; border: 1px solid #252530; font-size: 0.9rem; }
+    .article-body td { padding: 0.75rem 1rem; border: 1px solid #252530; color: #cbd5e1; font-size: 0.95rem; }
+    .article-body tr:nth-child(even) { background-color: rgba(22, 22, 28, 0.4); }
+    .article-body hr { border-color: #252530; margin: 2.5rem 0; }
+    .article-body a { color: #dfb15b; text-decoration: underline; text-underline-offset: 3px; }
+    .article-body img { max-width: 100%; height: auto; border-radius: 0.875rem; border: 1px solid #252530; margin: 1.75rem auto; display: block; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
     .article-body figure { margin: 2rem 0; text-align: center; }
     .article-body figcaption { margin-top: 0.5rem; font-size: 0.875rem; color: #94a3b8; font-style: italic; }
-    .article-video-callout { margin: 2.5rem 0; padding: 1.5rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.95)); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
-    .article-video-callout .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 0.75rem; overflow: hidden; border: 1px solid #334155; background-color: #020617; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); margin-top: 0.75rem; }
+    .article-video-callout { margin: 2.5rem 0; padding: 1.5rem; background: linear-gradient(135deg, rgba(20, 20, 24, 0.95), rgba(8, 8, 10, 0.95)); border: 1px solid rgba(223, 177, 91, 0.35); border-radius: 1rem; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); }
+    .article-video-callout .video-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 0.75rem; overflow: hidden; border: 1px solid #252530; background-color: #08080a; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); margin-top: 0.75rem; }
     .article-video-callout .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
   </style>
 </head>
@@ -400,8 +400,8 @@ if (fs.existsSync(rootDistIndex)) {
       'Senior Java Backend Engineer &amp; Enterprise Architect'
     )
     .replace(
-      'Nem só de <span style="color: #a3e635;">código</span> vive o DEV.',
-      'Engineering <span style="color: #a3e635;">high-throughput</span> resilient systems.'
+      'Nem só de <span style="color: #dfb15b;">código</span> vive o DEV.',
+      'Engineering <span style="color: #dfb15b;">high-throughput</span> resilient systems.'
     )
     .replace(
       'Especialista em Java Backend, filósofo clássico e mentor de carreiras internacionais. Construindo o futuro sobre os ombros de gigantes para levar devs sênior a faturar +R$ 30k/mês no exterior.',

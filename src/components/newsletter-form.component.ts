@@ -5,12 +5,12 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
   selector: 'app-newsletter-form',
   imports: [TranslatePipe],
   template: `
-    <div class="relative overflow-hidden p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-800 shadow-2xl">
+    <div class="relative overflow-hidden p-8 lg:p-10 rounded-2xl bg-gradient-to-br from-[#141418] via-[#0e0e12] to-[#08080a] border border-[#dfb15b]/30 shadow-2xl">
       <!-- Glow effect -->
-      <div class="absolute -top-24 -right-24 w-64 h-64 bg-lime-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -top-24 -right-24 w-64 h-64 bg-[#dfb15b]/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="relative z-10 max-w-2xl">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-500/10 border border-lime-500/30 text-lime-400 text-xs font-bold mb-4 uppercase tracking-wider">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#dfb15b]/10 border border-[#dfb15b]/30 text-[#dfb15b] text-xs font-bold mb-4 uppercase tracking-wider">
           <span>📬 {{ (badge() ? badge() : 'NEWSLETTER_BADGE') | translate }}</span>
         </div>
 
@@ -18,13 +18,13 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
           {{ (title() ? title() : 'NEWSLETTER_TITLE') | translate }}
         </h3>
 
-        <p class="text-slate-400 text-sm lg:text-base leading-relaxed mb-6">
+        <p class="text-slate-300 text-sm lg:text-base leading-relaxed mb-6">
           {{ (description() ? description() : 'NEWSLETTER_DESC') | translate }}
         </p>
 
         @if (state() === 'success') {
-          <div class="p-5 rounded-xl bg-lime-500/10 border border-lime-500/30 text-lime-300 text-sm flex items-start gap-3">
-            <svg class="w-6 h-6 shrink-0 text-lime-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="p-5 rounded-xl bg-[#dfb15b]/10 border border-[#dfb15b]/30 text-[#f6e0a4] text-sm flex items-start gap-3">
+            <svg class="w-6 h-6 shrink-0 text-[#dfb15b] mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
             </svg>
             <div>
@@ -34,7 +34,7 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                 [href]="ebookUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-lime-500 hover:bg-lime-400 text-slate-950 font-bold rounded-lg text-xs transition-colors shadow-md shadow-lime-500/20"
+                class="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#dfb15b] to-[#c99839] hover:from-[#f6e0a4] hover:to-[#dfb15b] text-[#08080a] font-bold rounded-lg text-xs transition-colors shadow-md shadow-[#dfb15b]/20"
               >
                 <span>📖 {{ 'NEWSLETTER_SUCCESS_EBOOK_BTN' | translate }}</span>
                 <span>&rarr;</span>
@@ -49,7 +49,7 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                 [value]="name()"
                 (input)="name.set($any($event.target).value)"
                 [placeholder]="'NEWSLETTER_NAME_PLACEHOLDER' | translate"
-                class="w-full sm:w-1/3 px-4 py-3.5 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400 transition-all"
+                class="w-full sm:w-1/3 px-4 py-3.5 rounded-xl bg-[#16161c] border border-[#252530] text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#dfb15b] focus:ring-1 focus:ring-[#dfb15b] transition-all"
                 [disabled]="state() === 'loading'"
               />
 
@@ -59,7 +59,7 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
                 [value]="email()"
                 (input)="email.set($any($event.target).value)"
                 [placeholder]="'NEWSLETTER_EMAIL_PLACEHOLDER' | translate"
-                class="w-full sm:w-2/3 px-4 py-3.5 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400 transition-all"
+                class="w-full sm:w-2/3 px-4 py-3.5 rounded-xl bg-[#16161c] border border-[#252530] text-white placeholder-slate-500 text-sm focus:outline-none focus:border-[#dfb15b] focus:ring-1 focus:ring-[#dfb15b] transition-all"
                 [disabled]="state() === 'loading'"
               />
             </div>
@@ -68,17 +68,17 @@ import { TranslatePipe } from '../app/pipes/translate.pipe';
             <div id="turnstile-form-container" class="my-2 flex justify-center min-h-[65px]"></div>
 
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-1">
-              <p class="text-xs text-slate-500 flex items-center gap-1.5">
+              <p class="text-xs text-slate-400 flex items-center gap-1.5">
                 <span>🔒</span> {{ 'NEWSLETTER_ZERO_SPAM' | translate }}
               </p>
 
               <button
                 type="submit"
                 [disabled]="state() === 'loading'"
-                class="w-full sm:w-auto px-6 py-3.5 bg-lime-500 hover:bg-lime-400 text-slate-950 font-bold rounded-xl text-sm transition-all shadow-lg shadow-lime-500/20 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 whitespace-nowrap"
+                class="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#dfb15b] to-[#c99839] hover:from-[#f6e0a4] hover:to-[#dfb15b] text-[#08080a] font-extrabold rounded-xl text-sm transition-all shadow-lg shadow-[#dfb15b]/25 hover:shadow-[#dfb15b]/40 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 whitespace-nowrap"
               >
                 @if (state() === 'loading') {
-                  <svg class="animate-spin h-4 w-4 text-slate-950" fill="none" viewBox="0 0 24 24">
+                  <svg class="animate-spin h-4 w-4 text-[#08080a]" fill="none" viewBox="0 0 24 24">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                   </svg>
