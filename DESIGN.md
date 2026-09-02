@@ -1,281 +1,150 @@
-# 🎨 Design System: Simple Software & Robson Cassiano
-
-Guia de estilo e especificações visuais para replicar o design system, paleta de cores, tipografia, componentes e padrões de interface de **Robson Cassiano / Simple Software** em outros projetos (Angular, React, Vue, Astro, Tailwind ou HTML puro).
-
----
-
-## 🏛️ 1. Filosofia de Design & Identidade Visual
-
-O design system baseia-se em **High-Tech Dark Sovereignty + Engineering Minimalism**:
-* **Foco em Engenharia & Rigor:** Fundo escuro profundo (*Deep Slate*), contraste nítido, sem ruídos desnecessários.
-* **Acentos Neon Lime:** Verde-limão neon vibrante (`#a3e635` / `#84cc16`), transmitindo sofisticação técnica, dinamismo, alta energia e precisão.
-* **Glow & Glassmorphism:** Luzes ambientes difusas (*ambient glow orbs*) no fundo com desfoque pesado (`blur-3xl`) e containers translúcidos (`backdrop-blur-md`).
-* **Tipografia Legível & Hierárquica:** `Inter` para leitura longa e limpa; tipografia monoespacial para código e dados técnicos.
+# Jinkan (迅貫) Design System
+### *Velocidade & Coerência* — Diretrizes de UX, UI e Identidade Visual
 
 ---
 
-## 🎨 2. Paleta de Cores & Design Tokens
+## 1. Filosofia de Design & Arquétipo
 
-### 🟢 Cores de Destaque (Brand / Accent)
-| Token | HEX | Tailwind Class | Aplicação Principal |
+O **Jinkan (迅貫)** nasce da síntese entre **ação fulminante** e **ordem inabalável**. Ele rejeita tanto a lentidão da hiper-ponderação quanto o caos da velocidade desgovernada. 
+
+* **迅 (Jin — Velocidade):** Latência zero, atrito nulo, microinterações instantâneas e fluxo contínuo de pensamento.
+* **貫 (Kan — Coerência):** Integridade de ponta a ponta, consistência de grid, clareza tipográfica e hierarquia visual rigorosa.
+
+> **Princípio Fundamental:**  
+> *"Cada interação deve responder com a rapidez do pensamento e a estabilidade da rocha."*
+
+---
+
+## 2. Paleta de Cores (Obsidian & Imperial Gold)
+
+A atmosfera cromática é construída sobre uma base **Dark Luxury / Industrial Minimalist**, utilizando tons profundos de ardósia e carbono como pano de fundo para destacar acentos metálicos dourados.
+
+### Cores Primárias (Surfaces & Canvas)
+| Token | Hex | Nome | Uso |
 | :--- | :--- | :--- | :--- |
-| **Accent Primary** | `#a3e635` | `text-lime-400` / `bg-lime-400` | Links, badges, barras de citação, bordas ativas |
-| **Accent Solid** | `#84cc16` | `bg-lime-500` | Botões primários de alta conversão (CTAs) |
-| **Accent Hover** | `#bef264` | `hover:text-lime-300` / `hover:bg-lime-400` | Hover states |
-| **Accent Glow** | `rgba(163, 230, 53, 0.15)` | `bg-lime-500/10` / `border-lime-500/30` | Fundos de badges, caixas de destaque |
+| `surface-void` | `#08080A` | **Void Black** | Background da aplicação e canvas principal |
+| `surface-base` | `#0E0E12` | **Obsidian Slate** | Background padrão de painéis e containers |
+| `surface-raised` | `#16161C` | **Carbon Matrix** | Cards, modais e superfícies elevadas |
+| `surface-overlay` | `#1F1F27` | **Brushed Steel** | Dropdowns, tooltips e estados de hover em superfícies |
 
-### ⚫ Escala de Fundos Escuros (Deep Slate)
-| Token | HEX | Tailwind Class | Aplicação Principal |
+### Acentos Metálicos (The Golden Thread)
+| Token | Hex | Nome | Uso |
 | :--- | :--- | :--- | :--- |
-| **Background Root** | `#020617` | `bg-slate-950` | Fundo principal da página |
-| **Surface Deep** | `#0f172a` | `bg-slate-900` | Fundo de cartões, seções, modais |
-| **Surface Elevated** | `#1e293b` | `bg-slate-800` | Inputs, botões secundários, cabeçalhos de tabela |
-| **Border Subtle** | `#334155` | `border-slate-700` | Bordas de inputs, separadores de cartões |
-| **Border Minimal** | `#1e293b` | `border-slate-800` | Linhas de divisão, grids, rodapé |
+| `gold-primary` | `#DFB15B` | **Imperial Gold** | Bordas ativas, ícones chave, badges de prestígio e CTAs |
+| `gold-light` | `#F6E0A4` | **Champagne Light** | Highlights, texto de destaque e brilho especular em hover |
+| `gold-muted` | `#967432` | **Burnished Bronze** | Bordas sutis (hairlines), divisores e estados inativos |
+| `gold-glow` | `rgba(223, 177, 91, 0.12)` | **Aura Gold** | Sombras difusas e backdrops radiantes |
 
-### ⚪ Tipografia & Contrastes
-| Token | HEX | Tailwind Class | Aplicação Principal |
+### Tipografia & Contraste (Text Tokens)
+| Token | Hex | Nome | Uso |
 | :--- | :--- | :--- | :--- |
-| **Text Heading** | `#ffffff` | `text-white` | Títulos `h1`, `h2`, `h3`, números de destaque |
-| **Text High-Contrast** | `#f8fafc` | `text-slate-100` | Títulos secundários e cabeçalhos de tabela |
-| **Text Body Primary** | `#cbd5e1` | `text-slate-300` | Parágrafos de leitura, listas, artigos |
-| **Text Body Secondary** | `#94a3b8` | `text-slate-400` | Subtítulos, descrições secundárias |
-| **Text Muted / Meta** | `#64748b` | `text-slate-500` | Datas, badges discretos, copyright |
-
-### 🔴 Cores Funcionais
-| Token | HEX | Tailwind Class | Aplicação |
-| :--- | :--- | :--- | :--- |
-| **Danger / Video** | `#ef4444` | `text-red-400` / `border-red-500/30` | Badges de gravação de vídeo, erros |
-| **Success** | `#a3e635` | `text-lime-400` / `bg-lime-500/10` | Mensagens de sucesso, confirmação de formulário |
+| `text-primary` | `#F4F4F6` | **Pure White Pearl** | Títulos e leitura primária de alto contraste |
+| `text-secondary` | `#9E9EA8` | **Titanium Silver** | Subtítulos, labels descritivos e metadados |
+| `text-tertiary` | `#5A5A66` | **Muted Slate** | Placeholders, atalhos de teclado e texto desativado |
+| `text-gold` | `#E8CA7C` | **Refined Gold Text** | Kanjis, palavras-chave e chamadas de valor |
 
 ---
 
-## 🔤 3. Tipografia & Escala
+## 3. Tipografia & Escala
 
-* **Família Primária:** `'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif`
-* **Família Monospace:** `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace`
+A tipografia reflete a dualidade do sistema: a solidez geométrica moderna unida à elegância clássica.
 
-```html
-<!-- Importação do Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-```
+### Famílias Tipográficas
+* **Primária (UI / Textos):** `Inter`, `Geist Sans` ou `SF Pro Text` — alta legibilidade e espaçamento métrico preciso.
+* **Display / Títulos:** `Cinzel`, `Cormorant Garamond` ou `Syne` — refinamento atemporal e presença marcante.
+* **Monospace / Métricas:** `Geist Mono` ou `JetBrains Mono` — para código, dados e telemetria.
+* **Caligrafia Oriental:** `Shippori Mincho` ou `Noto Serif JP` — para ideogramas e acentos orientais.
 
-### Escala de Títulos
-* **Display / Hero H1:** `text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-white`
-* **Section Title H2:** `text-3xl lg:text-4xl font-extrabold text-white leading-tight`
-* **Card / Subsection H3:** `text-xl lg:text-2xl font-bold text-white`
-* **Body / Artigos:** `text-base lg:text-lg text-slate-300 leading-relaxed` (`line-height: 1.8`)
-* **Badges / Tags:** `text-xs font-bold uppercase tracking-wider`
-
----
-
-## 🧩 4. Componentes e Padrões de Interface
-
-### 4.1. Fundo com Luz Ambiente Difusa (Ambient Glow Orbs)
-```html
-<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-  <div class="absolute -top-[10%] -right-[5%] w-[500px] h-[500px] bg-lime-500/10 rounded-full blur-3xl animate-pulse"></div>
-  <div class="absolute bottom-[10%] -left-[10%] w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl"></div>
-</div>
+### Escala de Tipografia
+```css
+--font-display-2xl: 4.5rem;   /* 72px - Hero display / Kanjis monumentais */
+--font-display-xl:  3.0rem;   /* 48px - Títulos principais */
+--font-title-lg:    1.75rem;  /* 28px - Cabeçalhos de seção */
+--font-title-md:    1.25rem;  /* 20px - Títulos de cards */
+--font-body-lg:     1.0rem;   /* 16px - Texto corrido principal */
+--font-body-sm:     0.875rem; /* 14px - UI compacta e dados */
+--font-caption:     0.75rem;  /* 12px - Labels técnicos e tags */
 ```
 
 ---
 
-### 4.2. Badges & Tags (Pills)
-```html
-<!-- Badge Primário (Lime) -->
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-500/10 border border-lime-500/30 text-lime-400 text-xs font-bold uppercase tracking-wider">
-  <span>💡 Conhecimento & Alta Engenharia</span>
-</div>
+## 4. Grid, Espaçamento & Estrutura (貫 - Kan)
 
-<!-- Badge de Vídeo / Atenção (Red) -->
-<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 uppercase tracking-wider">
-  Gravação Original
-</span>
+Para assegurar **coerência absoluta**, todo o layout é construído em um sistema de múltiplos de **8px** (com sub-unidade de **4px** para micro-espaçamento).
+
+* `space-1`: `4px` (Ajustes finos entre ícone e texto)
+* `space-2`: `8px` (Gaps internos compactos)
+* `space-3`: `12px` (Paddings de botões e tags)
+* `space-4`: `16px` (Padding padrão de containers)
+* `space-6`: `24px` (Espaçamento entre seções internas)
+* `space-8`: `32px` (Margens de blocos e grids)
+* `space-12`: `48px` (Gaps estruturais maiores)
+
+---
+
+## 5. Física de Movimento & Animações (迅 - Jin)
+
+O movimento no Jinkan nunca é decorativo ou lento. Ele é instantâneo na partida e sedoso na desaceleração.
+
+### Curvas de Easing (Velocidade Responsiva)
+```css
+/* Easing padrão: Saída rápida como raio, parada ultra-suave */
+--ease-jin: cubic-bezier(0.16, 1, 0.3, 1);
+
+/* Durações */
+--duration-instant: 100ms; /* Toggles, micro-hovers, cliques */
+--duration-fast:    180ms; /* Abertura de tooltips, badges, menus */
+--duration-flow:    300ms; /* Transição de páginas e expansão de cards */
+```
+
+### Regras de Ouro de Animação
+1. **Zero CLS (Cumulative Layout Shift):** O layout nunca deve "pular" enquanto elementos carregam.
+2. **Feedback em < 50ms:** Toda ação tem resposta visual imediata (micro-brilho dourado ou depressão tátil).
+
+---
+
+## 6. Especificação de Componentes Chave
+
+### A. O Cartão "Jinkan Black Card" (Componente Assinatura)
+```css
+.jinkan-card {
+  background: linear-gradient(145deg, #141418 0%, #0c0c0f 100%);
+  border: 1px solid rgba(223, 177, 91, 0.22);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 24px -1px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  transition: all 180ms var(--ease-jin);
+  position: relative;
+  overflow: hidden;
+}
+
+.jinkan-card:hover {
+  border-color: rgba(223, 177, 91, 0.6);
+  box-shadow: 
+    0 8px 32px -2px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(223, 177, 91, 0.12);
+  transform: translateY(-2px);
+}
+```
+
+### B. Botões de Ação (Gold Foil & Obsidian)
+* **Primário (Gold Emboss):** Fundo gradiente ouro metálico, texto preto grafite (`#0A0A0C`), peso 600, leve efeito de chanfro nas bordas.
+* **Secundário (Dark Wireframe):** Fundo escuro transparente, borda de `1px` em `gold-muted`, texto `text-primary`. Ao hover: borda brilha em `gold-primary` com fundo levemente iluminado.
+
+### C. Bordas Hairline & Divisores
+* Nunca use divisores cinzas genéricos. Use gradientes lineares horizontais que se dissolvem nas extremidades:
+```css
+.jinkan-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(223, 177, 91, 0.3) 50%, transparent);
+  border: none;
+}
 ```
 
 ---
 
-### 4.3. Botões de Ação (CTAs)
-```html
-<!-- 1. Botão Primário (Lime Neon - Alta Conversão) -->
-<a href="#link" class="px-6 py-3.5 bg-lime-500 hover:bg-lime-400 text-slate-950 font-extrabold rounded-xl transition-all shadow-lg shadow-lime-500/20 inline-flex items-center gap-2">
-  <span>Acessar Mentoria Internacional</span>
-  <span>&rarr;</span>
-</a>
+## 7. Acessibilidade (a11y) & Usabilidade
 
-<!-- 2. Botão Secundário (Dark Slate Outline) -->
-<a href="#link" class="px-6 py-3.5 bg-slate-800 text-white font-bold rounded-xl border border-slate-700 hover:border-lime-500 hover:text-lime-400 transition-colors inline-flex items-center gap-2">
-  <span>Ver Perfil no LinkedIn</span>
-</a>
-```
-
----
-
-### 4.4. Cartão com Glassmorphism (Card Container)
-```html
-<div class="p-6 sm:p-8 rounded-2xl bg-slate-900/80 border border-slate-800 backdrop-blur-sm hover:border-lime-500/40 transition-all duration-300 shadow-xl relative overflow-hidden group">
-  <div class="text-xs text-lime-400 font-bold mb-2 uppercase tracking-wider">Categoria</div>
-  <h3 class="text-xl font-bold text-white mb-3 group-hover:text-lime-400 transition-colors">Título do Cartão</h3>
-  <p class="text-slate-400 text-sm leading-relaxed mb-4">Descrição detalhada do cartão mantendo contraste acessível.</p>
-</div>
-```
-
----
-
-### 4.5. Caixa de Citação & Modelo Mental (Quote Box)
-```html
-<!-- Estilo para citações em artigos e seções -->
-<blockquote class="border-l-4 border-lime-400 p-4 pl-5 my-6 bg-slate-800/60 rounded-r-xl text-slate-200 italic">
-  <p class="m-0 leading-relaxed font-light text-lime-100/90">
-    "Standing on the shoulders of giants."
-  </p>
-</blockquote>
-```
-
----
-
-### 4.6. Player de Vídeo Responsivo (YouTube Callout)
-```html
-<div class="my-8 p-6 bg-gradient-to-br from-slate-900/95 to-slate-950/95 border border-red-500/30 rounded-2xl shadow-2xl">
-  <div class="flex items-center gap-2 mb-3">
-    <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20 uppercase tracking-wider">Gravação Original</span>
-    <span class="text-xs text-slate-300 font-semibold">🎥 Assista à transmissão completa sem cortes:</span>
-  </div>
-  <div class="relative w-full pb-[56.25%] h-0 rounded-xl overflow-hidden border border-slate-700 bg-slate-950 shadow-2xl mt-2">
-    <iframe 
-      src="https://www.youtube.com/embed/VIDEO_ID?rel=0" 
-      title="Transmissão Original" 
-      class="absolute top-0 left-0 w-full h-full border-0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      allowfullscreen
-      loading="lazy"
-    ></iframe>
-  </div>
-</div>
-```
-
----
-
-### 4.7. Tabela Comparativa (Dark Zebra Table)
-```html
-<div class="overflow-x-auto rounded-2xl border border-slate-800 shadow-2xl bg-slate-900/60">
-  <table class="w-full text-left border-collapse">
-    <thead class="bg-slate-800/90 text-xs uppercase tracking-wider font-semibold text-slate-300">
-      <tr>
-        <th class="p-5 border-b border-slate-700 text-slate-400">Critério</th>
-        <th class="p-5 border-b border-slate-700 bg-lime-500/10 text-lime-400 font-bold border-x border-lime-500/30">Nossa Solução</th>
-        <th class="p-5 border-b border-slate-700 text-slate-400">Mercado Tradicional</th>
-      </tr>
-    </thead>
-    <tbody class="divide-y divide-slate-800 text-sm">
-      <tr class="hover:bg-slate-800/40 transition-colors">
-        <td class="p-5 font-semibold text-white">Renda Mensal</td>
-        <td class="p-5 bg-lime-500/5 font-bold text-lime-400 border-x border-lime-500/20">R$ 30k+ a R$ 60k+/mês</td>
-        <td class="p-5 text-slate-400">R$ 4k a R$ 8k/mês</td>
-      </tr>
-      <tr class="hover:bg-slate-800/40 transition-colors">
-        <td class="p-5 font-semibold text-white">Metodologia</td>
-        <td class="p-5 bg-lime-500/5 font-medium text-slate-200 border-x border-lime-500/20">Engenharia Real &amp; Prática</td>
-        <td class="p-5 text-slate-400">Aulas expositivas e código defasado</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-```
-
----
-
-### 4.8. Modal Soberano (Popup / Dialog)
-```html
-<div class="fixed inset-0 z-50 overflow-y-auto bg-slate-950/80 backdrop-blur-md p-4 sm:p-6 flex items-center justify-center animate-fade-in" role="dialog" aria-modal="true">
-  <div class="relative w-full max-w-lg bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-slate-700/80 rounded-2xl shadow-2xl p-6 sm:p-8 overflow-hidden my-8">
-    
-    <!-- Luz ambiente do modal -->
-    <div class="absolute -top-20 -right-20 w-56 h-56 bg-lime-500/15 rounded-full blur-3xl pointer-events-none"></div>
-
-    <!-- Botão de Fechar -->
-    <button type="button" aria-label="Fechar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-800/80 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors border border-slate-700">
-      ✕
-    </button>
-
-    <!-- Header Badge -->
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-500/10 border border-lime-500/30 text-lime-400 text-xs font-bold mb-4 uppercase tracking-wider">
-      <span>🎁 Material Exclusivo Gratuito</span>
-    </div>
-
-    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-2 leading-tight">Título Principal</h2>
-    <p class="text-slate-400 text-sm leading-relaxed mb-6">Subtítulo explicativo sobre a oportunidade.</p>
-
-    <!-- Formulário -->
-    <form class="space-y-3.5">
-      <input type="text" placeholder="Seu primeiro nome" class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400 transition-all" />
-      <input type="email" required placeholder="Seu melhor e-mail" class="w-full px-4 py-3 rounded-xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-lime-400 focus:ring-1 focus:ring-lime-400 transition-all" />
-      <button type="submit" class="w-full py-3.5 bg-lime-500 hover:bg-lime-400 text-slate-950 font-extrabold rounded-xl text-sm transition-all shadow-lg shadow-lime-500/25">
-        Garantir Acesso &rarr;
-      </button>
-    </form>
-  </div>
-</div>
-```
-
----
-
-## 🛠️ 5. Configuração Recomendada do Tailwind CSS
-
-Para replicar exatamente as cores e utilitários em novos projetos com Tailwind CSS:
-
-```javascript
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: 'class',
-  content: [
-    "./src/**/*.{html,ts,tsx,jsx,vue,svelte,astro}"
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace']
-      },
-      colors: {
-        slate: {
-          950: '#020617',
-          900: '#0f172a',
-          850: '#151f33',
-          800: '#1e293b',
-          700: '#334155'
-        },
-        lime: {
-          300: '#bef264',
-          400: '#a3e635',
-          500: '#84cc16',
-          600: '#65a30d'
-        }
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.2s ease-in-out'
-      },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0', transform: 'scale(0.98)' },
-          '100%': { opacity: '1', transform: 'scale(1)' }
-        }
-      }
-    }
-  },
-  plugins: []
-};
-```
-
----
-
-## 📋 6. Resumo das Regras Áureas
-
-1. **Dark Mode Perpétuo:** O fundo da página principal deve ser sempre `slate-950` (`#020617`) ou `slate-900` (`#0f172a`). Nunca use branco puro como fundo.
-2. **Neon Lime para Foco de Ação:** O verde `#a3e635` / `#84cc16` deve ser reservado para CTAs principais, pontos de foco, badges de validação e links.
-3. **Bordas Sutis:** Use `border-slate-800` (`#1e293b`) ou `border-slate-700` (`#334155`) para delimitar containers sem criar caixas pesadas.
-4. **Proporções de Imagem Fixas:** Imagens de avatar sempre em proporção 1:1 (`aspect-square`), e vídeos sempre em proporção 16:9 (`padding-bottom: 56.25%` ou `aspect-video`).
-5. **Legibilidade WCAG AA:** O texto dos parágrafos deve manter contraste alto com `#cbd5e1` sobre `#0f172a`, e títulos em `#ffffff`.
+* **Contraste de Texto:** O ouro para textos (`#E8CA7C`) sobre o fundo preto (`#0E0E12`) atinge uma relação de contraste superior a **8.5:1**, superando os requisitos **WCAG AAA**.
+* **Focus States:** Anéis de foco definidos em `2px solid #DFB15B` com `2px offset`, garantindo navegação por teclado fluida e visível.
