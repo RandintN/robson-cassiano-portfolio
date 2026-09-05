@@ -1,7 +1,7 @@
 ---
 title: "Robson Cassiano | Senior Java Backend Engineer & Enterprise Architect"
 description: "Executive and technical profile of Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder of Simple Software LTDA."
-image: "https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg"
+image: "https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp"
 canonical: "https://eu.robsoncassiano.software/en"
 author: "Robson Cassiano"
 ---

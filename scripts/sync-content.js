@@ -58,7 +58,7 @@ for (const file of files) {
     readTime: meta.readTime || '5 min de leitura',
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     summary: meta.summary || '',
-    coverImage: meta.coverImage || 'assets/images/robson-cassiano-mentor.jpg',
+    coverImage: meta.coverImage || 'assets/images/Robson-Cassiano.webp',
     canonicalUrl: meta.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${slug}`,
     youtubeVideoId: meta.youtubeVideoId || undefined,
     content: markdownBody
@@ -88,7 +88,7 @@ const sitemapEntries = [
     <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
       <image:title>Robson Cassiano - Senior Software Engineer &amp; Mentor Internacional</image:title>
       <image:caption>Robson Cassiano - Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais e filósofo clássico</image:caption>
     </image:image>
@@ -105,7 +105,7 @@ const sitemapEntries = [
     <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
       <image:title>Robson Cassiano - Senior Java Backend Engineer &amp; Enterprise Architect</image:title>
       <image:caption>Robson Cassiano - Senior Java Backend Engineer and Enterprise Software Architect</image:caption>
     </image:image>

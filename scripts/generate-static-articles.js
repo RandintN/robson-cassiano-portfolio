@@ -300,7 +300,7 @@ ${JSON.stringify(jsonLd, null, 2)}
 
         <!-- Author Card -->
         <div class="flex items-center gap-4 pt-4 border-t border-slate-900" itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <img src="/assets/images/robson-cassiano-mentor.jpg" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-slate-700 object-cover" itemprop="image">
+          <img src="/assets/images/Robson-Cassiano.webp" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-slate-700 object-cover" itemprop="image">
           <div>
             <span class="text-base font-bold text-white block" itemprop="name">Robson Cassiano</span>
             <span class="text-xs text-slate-400 block" itemprop="jobTitle">Software Engineer na Epic Games & Cambridge CELTA Certified Teacher</span>
