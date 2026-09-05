@@ -254,9 +254,17 @@ ${JSON.stringify(jsonLd, null, 2)}
   <!-- Header -->
   <header class="border-b border-[#252530] bg-[#08080a]/90 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 group">
-        <div class="w-8 h-8 bg-gradient-to-br from-lime-400 to-green-600 rounded-lg flex items-center justify-center text-slate-900 font-bold">R</div>
-        <span class="font-bold text-lg tracking-tight text-white group-hover:text-lime-400 transition-colors">Robson<span class="text-lime-400">Cassiano</span></span>
+      <a href="/" class="flex items-center gap-3 group">
+        <img
+          src="/assets/icons/apple-touch-icon.png"
+          width="36"
+          height="36"
+          alt="Robson Cassiano"
+          class="w-9 h-9 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_2px_10px_rgba(223,177,91,0.25)]" />
+        <div class="flex flex-col">
+          <span class="font-bold text-lg tracking-tight text-white group-hover:text-[#dfb15b] transition-colors">Robson<span class="text-[#dfb15b]">Cassiano</span></span>
+          <span class="text-[9px] tracking-widest uppercase font-semibold text-[#967432] font-mono">迅貫 · Jinkan</span>
+        </div>
       </a>
       <a href="/#artigos" class="text-sm font-semibold text-slate-300 hover:text-[#dfb15b] transition-colors flex items-center gap-1.5 group">
         <span class="group-hover:-translate-x-1 transition-transform">&larr;</span> <span>Todos os Artigos</span>
