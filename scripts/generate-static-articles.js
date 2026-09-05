@@ -172,7 +172,7 @@ for (const art of articles) {
 ${JSON.stringify(jsonLd, null, 2)}
   </script>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
   <script>
     class LiteYouTube extends HTMLElement {
       connectedCallback() {
@@ -256,7 +256,7 @@ ${JSON.stringify(jsonLd, null, 2)}
     <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3 group">
         <img
-          src="/assets/icons/apple-touch-icon.png"
+          src="/assets/icons/logo-header.webp"
           width="36"
           height="36"
           alt="Robson Cassiano"
@@ -274,7 +274,7 @@ ${JSON.stringify(jsonLd, null, 2)}
 
   <!-- Breadcrumb -->
   <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto px-6 pt-6">
-    <ol class="flex items-center gap-2 text-xs text-slate-500">
+    <ol class="flex items-center gap-2 text-xs text-slate-400">
       <li><a href="/" class="hover:text-[#dfb15b] transition-colors">Início</a></li>
       <li>/</li>
       <li><a href="/#artigos" class="hover:text-[#dfb15b] transition-colors">Blog</a></li>

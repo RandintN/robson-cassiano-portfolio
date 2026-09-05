@@ -55,32 +55,9 @@
   <link rel="shortcut icon" href="assets/icons/favicon.ico">
   <link rel="manifest" href="assets/icons/site.webmanifest">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            void: '#08080a',
-            obsidian: {
-              DEFAULT: '#0e0e12',
-              card: '#141418',
-              raised: '#16161c',
-              overlay: '#1f1f27',
-              border: '#252530',
-            },
-            gold: {
-              DEFAULT: '#dfb15b',
-              light: '#f6e0a4',
-              muted: '#967432',
-              primary: '#dfb15b',
-              glow: 'rgba(223, 177, 91, 0.15)',
-            },
-          },
-        },
-      },
-    };
-  </script>
+  <!-- Preload Critical LCP Hero Image -->
+  <link rel="preload" fetchpriority="high" as="image" href="assets/images/Robson-Cassiano.webp" type="image/webp">
+
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Cloudflare Turnstile Script -->
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>

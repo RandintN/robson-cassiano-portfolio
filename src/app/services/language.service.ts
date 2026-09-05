@@ -49,9 +49,8 @@ export class LanguageService {
         if (saved === 'pt' || saved === 'en') return saved;
       } catch (e) {}
 
-      // 3. Detecção do navegador
-      const browserLang = (navigator.language || 'en').toLowerCase();
-      return browserLang.startsWith('pt') ? 'pt' : 'en';
+      // 3. Raiz padrão em Português para alinhamento estrito de canonical e hreflang
+      return 'pt';
     }
     return 'pt';
   }

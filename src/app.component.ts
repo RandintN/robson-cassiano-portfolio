@@ -68,7 +68,8 @@ export class AppComponent implements OnInit {
       this.metaService.updateTag({ property: 'og:site_name', content: 'Robson Cassiano' });
       this.metaService.updateTag({ property: 'og:title', content: title });
       this.metaService.updateTag({ property: 'og:description', content: description });
-      this.metaService.updateTag({ property: 'og:url', content: isPt ? 'https://eu.robsoncassiano.software/' : 'https://eu.robsoncassiano.software/en' });
+      const isEnUrl = typeof window !== 'undefined' ? window.location.pathname.startsWith('/en') : !isPt;
+      this.metaService.updateTag({ property: 'og:url', content: isEnUrl ? 'https://eu.robsoncassiano.software/en' : 'https://eu.robsoncassiano.software/' });
       this.metaService.updateTag({ property: 'og:image', content: this.fullCanonicalImageUrl });
       this.metaService.updateTag({ property: 'og:locale', content: locale });
 
@@ -82,7 +83,7 @@ export class AppComponent implements OnInit {
       if (typeof document !== 'undefined') {
         const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
         if (canonical) {
-          canonical.href = isPt ? 'https://eu.robsoncassiano.software/' : 'https://eu.robsoncassiano.software/en';
+          canonical.href = isEnUrl ? 'https://eu.robsoncassiano.software/en' : 'https://eu.robsoncassiano.software/';
         }
       }
 

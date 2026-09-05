@@ -11,7 +11,7 @@
   <header class="container mx-auto px-6 py-6 flex justify-between items-center z-10">
     <a [href]="navPrefix() || '/'" class="flex items-center gap-3 group">
       <img
-        src="assets/icons/apple-touch-icon.png"
+        src="assets/icons/logo-header.webp"
         width="36"
         height="36"
         alt="Robson Cassiano"
@@ -23,9 +23,9 @@
     </a>
 
     <div class="flex md:hidden items-center gap-2 text-slate-400">
-      <button (click)="changeLanguage('pt')" [class.text-[#dfb15b]]="currentLanguage() === 'pt'" aria-label="Mudar idioma para Português" class="hover:text-[#dfb15b] transition-colors font-bold">PT</button>
+      <button (click)="changeLanguage('pt')" [class.text-[#dfb15b]]="currentLanguage() === 'pt'" aria-label="PT - Português" class="hover:text-[#dfb15b] transition-colors font-bold">PT</button>
       <span class="text-[#252530]">|</span>
-      <button (click)="changeLanguage('en')" [class.text-[#dfb15b]]="currentLanguage() === 'en'" aria-label="Switch language to English" class="hover:text-[#dfb15b] transition-colors font-bold">EN</button>
+      <button (click)="changeLanguage('en')" [class.text-[#dfb15b]]="currentLanguage() === 'en'" aria-label="EN - English" class="hover:text-[#dfb15b] transition-colors font-bold">EN</button>
     </div>
 
     <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
@@ -38,18 +38,18 @@
         class="px-5 py-2.5 bg-gradient-to-r from-[#dfb15b] to-[#c99839] text-[#08080a] rounded-full hover:from-[#f6e0a4] hover:to-[#dfb15b] transition-all font-extrabold shadow-lg shadow-[#dfb15b]/20 hover:shadow-[#dfb15b]/35">{{ 'NAV_CONTACT' | translate }}</a>
       
       <div class="flex items-center gap-2 ml-4 border-l border-[#252530] pl-4">
-        <button (click)="changeLanguage('pt')" [class.text-[#dfb15b]]="currentLanguage() === 'pt'" aria-label="Mudar idioma para Português" class="hover:text-[#dfb15b] transition-colors font-bold">PT</button>
+        <button (click)="changeLanguage('pt')" [class.text-[#dfb15b]]="currentLanguage() === 'pt'" aria-label="PT - Português" class="hover:text-[#dfb15b] transition-colors font-bold">PT</button>
         <span class="text-[#252530]">|</span>
-        <button (click)="changeLanguage('en')" [class.text-[#dfb15b]]="currentLanguage() === 'en'" aria-label="Switch language to English" class="hover:text-[#dfb15b] transition-colors font-bold">EN</button>
+        <button (click)="changeLanguage('en')" [class.text-[#dfb15b]]="currentLanguage() === 'en'" aria-label="EN - English" class="hover:text-[#dfb15b] transition-colors font-bold">EN</button>
       </div>
     </nav>
   </header>
 
   <!-- Breadcrumb Navigation -->
   <nav aria-label="Breadcrumb" class="container mx-auto px-6 py-2">
-    <ol class="flex items-center gap-2 text-sm text-slate-500">
+    <ol class="flex items-center gap-2 text-sm text-slate-400">
       <li>
-        <a [href]="navPrefix() || '/'" aria-label="Página Inicial Robson Cassiano" class="hover:text-[#dfb15b] transition-colors">
+        <a [href]="navPrefix() || '/'" aria-label="Home" class="hover:text-[#dfb15b] transition-colors">
           <span>Home</span>
         </a>
       </li>
@@ -75,12 +75,10 @@
 
           <div class="flex flex-wrap gap-4 mb-6">
             <a href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer"
-              aria-label="Conhecer o Treinamento Descomplica DEV Na Gringa"
               class="px-6 py-3.5 bg-gradient-to-r from-[#dfb15b] to-[#c99839] text-[#08080a] font-extrabold rounded-xl hover:from-[#f6e0a4] hover:to-[#dfb15b] transition-all shadow-lg shadow-[#dfb15b]/25 hover:shadow-[#dfb15b]/40 flex items-center gap-2">
               {{ 'HERO_MENTORSHIP' | translate }}
             </a>
             <a href="https://www.linkedin.com/in/robsoncassiano-software/" target="_blank" rel="noopener noreferrer"
-              aria-label="Acessar o perfil de Robson Cassiano no LinkedIn"
               class="px-6 py-3.5 bg-[#141418] text-white font-bold rounded-xl border border-[#252530] hover:border-[#dfb15b]/60 hover:text-[#dfb15b] hover:bg-[#16161c] transition-all flex items-center gap-2 shadow-md">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -187,7 +185,7 @@
             class="h-full p-6 rounded-2xl border border-dashed border-[#252530] bg-[#0e0e12]/40 flex items-center justify-center text-center group hover:border-[#dfb15b]/50 transition-colors">
             <div>
               <div class="text-4xl text-slate-700 mb-2 group-hover:text-[#dfb15b] transition-colors">+</div>
-              <p class="text-slate-500 font-medium group-hover:text-slate-400 transition-colors">{{ 'ROLE_LEARNING' | translate }}</p>
+              <p class="text-slate-400 font-medium group-hover:text-slate-300 transition-colors">{{ 'ROLE_LEARNING' | translate }}</p>
             </div>
           </div>
         </div>
@@ -464,7 +462,7 @@
         </div>
       </div>
 
-      <div class="text-center text-slate-500 text-sm border-t border-[#252530] pt-8">
+      <div class="text-center text-slate-400 text-sm border-t border-[#252530] pt-8">
         &copy; {{ currentYear() }} Simple Software LTDA. {{ 'FOOTER_RIGHTS' | translate }}
       </div>
     </div>
@@ -478,7 +476,6 @@
       <span class="text-xs text-[#dfb15b] font-bold">{{ 'STICKY_MOBILE_LABEL' | translate }}</span>
     </div>
     <a href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer"
-      aria-label="Conhecer método para conquistar vagas remotas na gringa de 30k+"
       class="px-4 py-2.5 bg-gradient-to-r from-[#dfb15b] to-[#c99839] text-[#08080a] text-xs font-extrabold rounded-lg hover:from-[#f6e0a4] hover:to-[#dfb15b] transition-all shadow-md shadow-[#dfb15b]/20 flex items-center gap-1.5 whitespace-nowrap">
       {{ 'STICKY_MOBILE_CTA' | translate }}
     </a>
