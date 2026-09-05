@@ -1,5 +1,32 @@
 import { EmailEnv, sendEmail } from './_email';
 
+async function hasValidMxRecord(domain: string): Promise<boolean> {
+  try {
+    const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=MX`, {
+      headers: { Accept: 'application/dns-json' },
+    });
+    if (!res.ok) return true;
+    const data = await res.json() as { Status: number; Answer?: Array<{ type: number; data: string }> };
+
+    // Status 3: NXDOMAIN (domínio não existe na raiz DNS global)
+    if (data.Status === 3) return false;
+
+    // Se possui registros MX configurados
+    if (data.Status === 0 && Array.isArray(data.Answer) && data.Answer.length > 0) return true;
+
+    // Fallback RFC 5321 para domínios sem MX explícito com registro A
+    const aRes = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(domain)}&type=A`, {
+      headers: { Accept: 'application/dns-json' },
+    });
+    if (!aRes.ok) return true;
+    const aData = await aRes.json() as { Status: number; Answer?: Array<{ type: number; data: string }> };
+    return aData.Status === 0 && Array.isArray(aData.Answer) && aData.Answer.length > 0;
+  } catch (err) {
+    console.error('[DNS MX Validation Error]:', err);
+    return true; // Fail-open para resiliência
+  }
+}
+
 export const onRequest: PagesFunction<EmailEnv> = async (context) => {
   const { request, env } = context;
 
@@ -140,6 +167,17 @@ export const onRequest: PagesFunction<EmailEnv> = async (context) => {
     if (typoCorrections[domain]) {
       return new Response(JSON.stringify({ 
         error: `Você quis dizer ${localPart}@${typoCorrections[domain]}? Corrija seu e-mail.` 
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
+      });
+    }
+
+    // Validação ativa de existência do domínio e servidores MX via DNS over HTTPS da Cloudflare
+    const hasMx = await hasValidMxRecord(domain);
+    if (!hasMx) {
+      return new Response(JSON.stringify({ 
+        error: 'O domínio do e-mail informado não existe ou não está configurado para receber mensagens.' 
       }), {
         status: 400,
         headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
