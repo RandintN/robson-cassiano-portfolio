@@ -378,6 +378,7 @@ export default {
           headers: {
             Authorization: `Bearer ${secret}`,
             'Content-Type': 'application/json',
+            'X-Idempotency-Key': `cron-${event.scheduledTime}`,
           },
         }).then(async res => {
           const data = await res.json();

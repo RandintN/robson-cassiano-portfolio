@@ -39,10 +39,18 @@ CREATE TABLE IF NOT EXISTS sequence_logs (
     FOREIGN KEY(subscriber_id) REFERENCES subscribers(id)
 );
 
--- Índices para consultas rápidas na borda
+-- Tabela de Controle de Locks de Disparo Concorrente
+CREATE TABLE IF NOT EXISTS sequence_dispatch_locks (
+    lock_key TEXT PRIMARY KEY,
+    locked_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Índices para consultas rápidas e garantia de unicidade na borda
 CREATE INDEX IF NOT EXISTS idx_subscribers_email ON subscribers(email);
 CREATE INDEX IF NOT EXISTS idx_subscribers_status ON subscribers(status);
 CREATE INDEX IF NOT EXISTS idx_subscribers_seq ON subscribers(sequence_status, sequence_step);
 CREATE INDEX IF NOT EXISTS idx_newsletters_slug ON newsletters_sent(article_slug);
 CREATE INDEX IF NOT EXISTS idx_sequence_logs_email ON sequence_logs(email);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_sequence_logs_sub_step ON sequence_logs(subscriber_id, step);
+
 
