@@ -48,26 +48,26 @@ export const onRequestPost: PagesFunction<EmailEnv> = async (context) => {
           const firstName = subscriber.name ? subscriber.name.split(' ')[0] : 'dev';
 
           const html = `
-            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 30px; border-radius: 12px; border: 1px solid #1e293b;">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #08080a; color: #f4f4f6; padding: 30px; border-radius: 12px; border: 1px solid #252530;">
               <div style="margin-bottom: 20px;">
-                <span style="background-color: #a3e635; color: #022c22; padding: 4px 10px; border-radius: 9999px; font-weight: bold; font-size: 11px; text-transform: uppercase;">Novo Artigo Publicado</span>
+                <span style="background-color: rgba(223, 177, 91, 0.15); color: #dfb15b; border: 1px solid rgba(223, 177, 91, 0.3); padding: 4px 10px; border-radius: 9999px; font-weight: bold; font-size: 11px; text-transform: uppercase;">Novo Artigo Publicado</span>
               </div>
               <h1 style="color: #ffffff; font-size: 22px; line-height: 1.3; margin-bottom: 16px;">${body.title}</h1>
               <p style="font-size: 16px; line-height: 1.6; color: #cbd5e1; margin-bottom: 24px;">
                 Olá, ${firstName}! Acabei de publicar uma nova análise técnica no meu portal.
               </p>
-              <div style="background-color: #1e293b; padding: 18px; border-radius: 8px; border-left: 4px solid #a3e635; margin-bottom: 24px;">
+              <div style="background-color: #141418; padding: 18px; border-radius: 8px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
                 <p style="margin: 0; font-size: 15px; color: #cbd5e1; line-height: 1.6;">
                   ${body.previewText}
                 </p>
               </div>
               <div style="margin-bottom: 30px;">
-                <a href="${body.articleUrl}" style="display: inline-block; background-color: #a3e635; color: #022c22; font-weight: bold; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 15px;">
+                <a href="${body.articleUrl}" style="display: inline-block; background: linear-gradient(135deg, #dfb15b, #c99839); color: #08080a; font-weight: 800; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 15px;">
                   Ler Artigo Completo no Portal &rarr;
                 </a>
               </div>
-              <p style="font-size: 12px; color: #64748b; border-top: 1px solid #1e293b; padding-top: 20px; margin-top: 30px;">
-                Você recebeu este e-mail porque se inscreveu em <a href="https://eu.robsoncassiano.software" style="color: #94a3b8;">eu.robsoncassiano.software</a>.<br />
+              <p style="font-size: 12px; color: #64748b; border-top: 1px solid #252530; padding-top: 20px; margin-top: 30px;">
+                Você recebeu este e-mail porque se inscreveu em <a href="https://eu.robsoncassiano.software" style="color: #dfb15b;">eu.robsoncassiano.software</a>.<br />
                 Para deixar de receber novos artigos, <a href="${unsubLink}" style="color: #ef4444;">cancele sua inscrição aqui</a>.
               </p>
             </div>

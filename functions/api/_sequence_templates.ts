@@ -22,7 +22,7 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
     renderHtml: (firstName: string, unsubLink: string) => `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 32px 24px; border-radius: 16px; border: 1px solid #1e293b; line-height: 1.6;">
         <div style="margin-bottom: 20px;">
-          <span style="background-color: #a3e635; color: #022c22; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
+          <span style="background-color: #dfb15b; color: #08080a; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
             Dia 1 de 7 • Entrevistas Reais Gravadas
           </span>
         </div>
@@ -44,12 +44,12 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
               <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 8px 0; font-weight: 700;">
                 ▶️ Assistir Gravação: Eu venci a entrevista não técnica em 19 minutos!
               </h3>
-              <span style="color: #a3e635; font-weight: bold; font-size: 14px;">Assistir no YouTube &rarr;</span>
+              <span style="color: #dfb15b; font-weight: bold; font-size: 14px;">Assistir no YouTube &rarr;</span>
             </div>
           </a>
         </div>
 
-        <div style="background-color: rgba(163, 230, 53, 0.05); padding: 18px; border-radius: 10px; border-left: 4px solid #a3e635; margin-bottom: 24px;">
+        <div style="background-color: rgba(223, 177, 91, 0.08); padding: 18px; border-radius: 10px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
           <p style="margin: 0 0 8px 0; font-weight: bold; color: #ffffff; font-size: 14px;">💡 Principal Modelo Mental deste vídeo:</p>
           <p style="margin: 0; font-size: 14px; color: #cbd5e1;">
             O recrutador não quer avaliar sua gramática britânica; ele quer checar clareza, alinhamento de expectativas e se você é um solucionador de problemas tranquilo de trabalhar em equipe.
@@ -80,7 +80,7 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
     renderHtml: (firstName: string, unsubLink: string) => `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 32px 24px; border-radius: 16px; border: 1px solid #1e293b; line-height: 1.6;">
         <div style="margin-bottom: 20px;">
-          <span style="background-color: #a3e635; color: #022c22; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
+          <span style="background-color: #dfb15b; color: #08080a; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
             Dia 2 de 7 • Fase Técnica ao Vivo
           </span>
         </div>
@@ -102,12 +102,12 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
               <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 8px 0; font-weight: 700;">
                 ▶️ Aprovado: Entrevista Java Sênior para ganhar $6.500 USD (Entrevista Real)
               </h3>
-              <span style="color: #a3e635; font-weight: bold; font-size: 14px;">Assistir Entrevista Completa &rarr;</span>
+              <span style="color: #dfb15b; font-weight: bold; font-size: 14px;">Assistir Entrevista Completa &rarr;</span>
             </div>
           </a>
         </div>
 
-        <div style="background-color: rgba(163, 230, 53, 0.05); padding: 18px; border-radius: 10px; border-left: 4px solid #a3e635; margin-bottom: 24px;">
+        <div style="background-color: rgba(223, 177, 91, 0.08); padding: 18px; border-radius: 10px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
           <p style="margin: 0 0 8px 0; font-weight: bold; color: #ffffff; font-size: 14px;">💡 O que observar neste vídeo:</p>
           <p style="margin: 0; font-size: 14px; color: #cbd5e1;">
             Note como eu conduzo a conversa de igual para igual. Não respondo como um aluno sendo sabatinado, mas como um consultor sênior alinhando soluções técnicas com outro engenheiro.
@@ -138,7 +138,7 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
     renderHtml: (firstName: string, unsubLink: string) => `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 32px 24px; border-radius: 16px; border: 1px solid #1e293b; line-height: 1.6;">
         <div style="margin-bottom: 20px;">
-          <span style="background-color: #a3e635; color: #022c22; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
+          <span style="background-color: #dfb15b; color: #08080a; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
             Dia 3 de 7 • Código ao Vivo
           </span>
         </div>
@@ -160,12 +160,12 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
               <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 8px 0; font-weight: 700;">
                 ▶️ Gravei Minha Entrevista Sênior: Live Coding com TDD (Sem Cortes)
               </h3>
-              <span style="color: #a3e635; font-weight: bold; font-size: 14px;">Assistir Live Coding Completo &rarr;</span>
+              <span style="color: #dfb15b; font-weight: bold; font-size: 14px;">Assistir Live Coding Completo &rarr;</span>
             </div>
           </a>
         </div>
 
-        <div style="background-color: rgba(163, 230, 53, 0.05); padding: 18px; border-radius: 10px; border-left: 4px solid #a3e635; margin-bottom: 24px;">
+        <div style="background-color: rgba(223, 177, 91, 0.08); padding: 18px; border-radius: 10px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
           <p style="margin: 0 0 8px 0; font-weight: bold; color: #ffffff; font-size: 14px;">💡 O Segredo do Live Coding Internacional:</p>
           <p style="margin: 0; font-size: 14px; color: #cbd5e1;">
             O entrevistador quer ver como você lida com dúvidas e se comunica sob pressão. Começar escrevendo o teste garante clareza e mostra maturidade técnica imediata.
@@ -196,7 +196,7 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
     renderHtml: (firstName: string, unsubLink: string) => `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 32px 24px; border-radius: 16px; border: 1px solid #1e293b; line-height: 1.6;">
         <div style="margin-bottom: 20px;">
-          <span style="background-color: #a3e635; color: #022c22; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
+          <span style="background-color: #dfb15b; color: #08080a; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
             Dia 4 de 7 • Code Review na Gringa
           </span>
         </div>
@@ -218,12 +218,12 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
               <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 8px 0; font-weight: 700;">
                 ▶️ Desafio Técnico feito em Code Review - 5.3k USD - Realista e Incomum
               </h3>
-              <span style="color: #a3e635; font-weight: bold; font-size: 14px;">Ver Análise do Desafio &rarr;</span>
+              <span style="color: #dfb15b; font-weight: bold; font-size: 14px;">Ver Análise do Desafio &rarr;</span>
             </div>
           </a>
         </div>
 
-        <div style="background-color: rgba(163, 230, 53, 0.05); padding: 18px; border-radius: 10px; border-left: 4px solid #a3e635; margin-bottom: 24px;">
+        <div style="background-color: rgba(223, 177, 91, 0.08); padding: 18px; border-radius: 10px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
           <p style="margin: 0 0 8px 0; font-weight: bold; color: #ffffff; font-size: 14px;">💡 Diferencial Sênior:</p>
           <p style="margin: 0; font-size: 14px; color: #cbd5e1;">
             Em um Code Review sênior, você não aponta apenas formatação de código; você identifica vazamentos de memória, gargalos de I/O e sugere refatorações de alto impacto de forma empática.
@@ -254,7 +254,7 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
     renderHtml: (firstName: string, unsubLink: string) => `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 32px 24px; border-radius: 16px; border: 1px solid #1e293b; line-height: 1.6;">
         <div style="margin-bottom: 20px;">
-          <span style="background-color: #a3e635; color: #022c22; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
+          <span style="background-color: #dfb15b; color: #08080a; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
             Dia 5 de 7 • Negociação em Inglês
           </span>
         </div>
@@ -276,12 +276,12 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
               <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 8px 0; font-weight: 700;">
                 ▶️ Descobrindo o salário que estão dispostos a pagar - Call em Inglês
               </h3>
-              <span style="color: #a3e635; font-weight: bold; font-size: 14px;">Assistir Negociação ao Vivo &rarr;</span>
+              <span style="color: #dfb15b; font-weight: bold; font-size: 14px;">Assistir Negociação ao Vivo &rarr;</span>
             </div>
           </a>
         </div>
 
-        <div style="background-color: rgba(163, 230, 53, 0.05); padding: 18px; border-radius: 10px; border-left: 4px solid #a3e635; margin-bottom: 24px;">
+        <div style="background-color: rgba(223, 177, 91, 0.08); padding: 18px; border-radius: 10px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
           <p style="margin: 0 0 8px 0; font-weight: bold; color: #ffffff; font-size: 14px;">💡 Estratégia de Posicionamento:</p>
           <p style="margin: 0; font-size: 14px; color: #cbd5e1;">
             Perguntar <em>"What is the allocated budget range for this seniority level?"</em> demonstra maturidade corporativa e evita que você feche por $3k uma vaga que pagaria $6.5k.
@@ -312,7 +312,7 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
     renderHtml: (firstName: string, unsubLink: string) => `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 32px 24px; border-radius: 16px; border: 1px solid #1e293b; line-height: 1.6;">
         <div style="margin-bottom: 20px;">
-          <span style="background-color: #a3e635; color: #022c22; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
+          <span style="background-color: #dfb15b; color: #08080a; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
             Dia 6 de 7 • Soberania Financeira
           </span>
         </div>
@@ -334,12 +334,12 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
               <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 8px 0; font-weight: 700;">
                 ▶️ Polyworking, como não ser descoberto e tirar vantagem disso?
               </h3>
-              <span style="color: #a3e635; font-weight: bold; font-size: 14px;">Assistir Análise de Polyworking &rarr;</span>
+              <span style="color: #dfb15b; font-weight: bold; font-size: 14px;">Assistir Análise de Polyworking &rarr;</span>
             </div>
           </a>
         </div>
 
-        <div style="background-color: rgba(163, 230, 53, 0.05); padding: 18px; border-radius: 10px; border-left: 4px solid #a3e635; margin-bottom: 24px;">
+        <div style="background-color: rgba(223, 177, 91, 0.08); padding: 18px; border-radius: 10px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
           <p style="margin: 0 0 8px 0; font-weight: bold; color: #ffffff; font-size: 14px;">💡 Pilar Central do Polyworking:</p>
           <p style="margin: 0; font-size: 14px; color: #cbd5e1;">
             Polyworking não é fazer corpo mole; é dominar a entrega assíncrona orientada a resultados e não a horas de cadeira.
@@ -370,7 +370,7 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
     renderHtml: (firstName: string, unsubLink: string) => `
       <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #0f172a; color: #e2e8f0; padding: 32px 24px; border-radius: 16px; border: 1px solid #1e293b; line-height: 1.6;">
         <div style="margin-bottom: 20px;">
-          <span style="background-color: #a3e635; color: #022c22; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
+          <span style="background-color: #dfb15b; color: #08080a; padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase;">
             Dia 7 de 7 • Conclusão & Próximo Passo
           </span>
         </div>
@@ -392,20 +392,20 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
               <h3 style="color: #ffffff; font-size: 16px; margin: 0 0 8px 0; font-weight: 700;">
                 ▶️ Em 2 meses conseguiu a vaga na gringa, e hoje ganha mais que 99% dos Brasileiros
               </h3>
-              <span style="color: #a3e635; font-weight: bold; font-size: 14px;">Assistir Caso Real &rarr;</span>
+              <span style="color: #dfb15b; font-weight: bold; font-size: 14px;">Assistir Caso Real &rarr;</span>
             </div>
           </a>
         </div>
 
         <!-- Mentorship CTA Box -->
-        <div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 2px solid #a3e635; border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 24px;">
+        <div style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 2px solid #dfb15b; border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 24px;">
           <h2 style="color: #ffffff; font-size: 20px; font-weight: 800; margin: 0 0 12px 0;">
             🚀 Quer acelerar sua aprovação com a minha mentoria direta?
           </h2>
           <p style="color: #cbd5e1; font-size: 14px; margin-bottom: 20px; line-height: 1.6;">
             No programa <strong>Descomplica DEV Na Gringa</strong>, nós fazemos simulações reais de entrevistas técnicas em inglês, otimização de currículo para filtros ATS e acompanhamento até a assinatura do seu contrato de R$ 30k+/mês.
           </p>
-          <a href="https://global.robsoncassiano.software" target="_blank" style="display: inline-block; background-color: #a3e635; color: #022c22; font-weight: 800; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 15px;">
+          <a href="https://global.robsoncassiano.software" target="_blank" style="display: inline-block; background-color: #dfb15b; color: #08080a; font-weight: 800; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-size: 15px;">
             Conhecer o Programa & Ver Mais Casos Reais &rarr;
           </a>
         </div>
@@ -416,7 +416,7 @@ export const SEQUENCE_TEMPLATES: Record<number, SequenceEmailTemplate> = {
 
         <div style="border-top: 1px solid #1e293b; padding-top: 16px; font-size: 12px; color: #64748b;">
           Robson Cassiano | Senior Software Engineer & Mentor Global<br />
-          <a href="https://eu.robsoncassiano.software" style="color: #a3e635; text-decoration: none;">eu.robsoncassiano.software</a> • <a href="${unsubLink}" style="color: #ef4444; text-decoration: none;">Cancelar inscrição</a>
+          <a href="https://eu.robsoncassiano.software" style="color: #dfb15b; text-decoration: none;">eu.robsoncassiano.software</a> • <a href="${unsubLink}" style="color: #ef4444; text-decoration: none;">Cancelar inscrição</a>
         </div>
       </div>
     `,

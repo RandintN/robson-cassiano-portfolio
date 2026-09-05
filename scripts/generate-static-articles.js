@@ -238,8 +238,9 @@ ${JSON.stringify(jsonLd, null, 2)}
     .article-body th { background-color: #16161c; color: #ffffff; font-weight: 700; text-align: left; padding: 0.75rem 1rem; border: 1px solid #252530; font-size: 0.9rem; }
     .article-body td { padding: 0.75rem 1rem; border: 1px solid #252530; color: #cbd5e1; font-size: 0.95rem; }
     .article-body tr:nth-child(even) { background-color: rgba(22, 22, 28, 0.4); }
-    .article-body hr { border-color: #252530; margin: 2.5rem 0; }
+    .article-body hr { border: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(223, 177, 91, 0.3) 50%, transparent); margin: 2.5rem 0; }
     .article-body a { color: #dfb15b; text-decoration: underline; text-underline-offset: 3px; }
+    .article-body a:hover { color: #f6e0a4; }
     .article-body img { max-width: 100%; height: auto; border-radius: 0.875rem; border: 1px solid #252530; margin: 1.75rem auto; display: block; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
     .article-body figure { margin: 2rem 0; text-align: center; }
     .article-body figcaption { margin-top: 0.5rem; font-size: 0.875rem; color: #94a3b8; font-style: italic; }
@@ -248,17 +249,17 @@ ${JSON.stringify(jsonLd, null, 2)}
     .article-video-callout .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
   </style>
 </head>
-<body class="min-h-screen antialiased selection:bg-lime-500 selection:text-slate-900">
+<body class="min-h-screen antialiased selection:bg-[#dfb15b] selection:text-[#08080a] bg-[#08080a] text-[#f4f4f6]">
 
   <!-- Header -->
-  <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
+  <header class="border-b border-[#252530] bg-[#08080a]/90 backdrop-blur-md sticky top-0 z-50">
     <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 group">
         <div class="w-8 h-8 bg-gradient-to-br from-lime-400 to-green-600 rounded-lg flex items-center justify-center text-slate-900 font-bold">R</div>
         <span class="font-bold text-lg tracking-tight text-white group-hover:text-lime-400 transition-colors">Robson<span class="text-lime-400">Cassiano</span></span>
       </a>
-      <a href="/#artigos" class="text-sm font-semibold text-slate-300 hover:text-lime-400 transition-colors flex items-center gap-1">
-        <span>&larr;</span> <span>Todos os Artigos</span>
+      <a href="/#artigos" class="text-sm font-semibold text-slate-300 hover:text-[#dfb15b] transition-colors flex items-center gap-1.5 group">
+        <span class="group-hover:-translate-x-1 transition-transform">&larr;</span> <span>Todos os Artigos</span>
       </a>
     </div>
   </header>
@@ -266,11 +267,11 @@ ${JSON.stringify(jsonLd, null, 2)}
   <!-- Breadcrumb -->
   <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto px-6 pt-6">
     <ol class="flex items-center gap-2 text-xs text-slate-500">
-      <li><a href="/" class="hover:text-slate-400">Início</a></li>
+      <li><a href="/" class="hover:text-[#dfb15b] transition-colors">Início</a></li>
       <li>/</li>
-      <li><a href="/#artigos" class="hover:text-slate-400">Blog</a></li>
+      <li><a href="/#artigos" class="hover:text-[#dfb15b] transition-colors">Blog</a></li>
       <li>/</li>
-      <li class="text-slate-300 truncate max-w-xs">${art.title}</li>
+      <li class="text-[#dfb15b] truncate max-w-xs">${art.title}</li>
     </ol>
   </nav>
 
@@ -279,9 +280,9 @@ ${JSON.stringify(jsonLd, null, 2)}
     <article itemscope itemtype="https://schema.org/BlogPosting">
       
       <!-- Header -->
-      <header class="mb-10 pb-8 border-b border-slate-800">
+      <header class="mb-10 pb-8 border-b border-[#252530]">
         <div class="flex flex-wrap items-center gap-2 mb-4">
-          <span class="px-3 py-1 rounded-full text-xs font-bold bg-lime-500/10 text-lime-400 border border-lime-500/20 uppercase tracking-wider">
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#dfb15b]/10 text-[#dfb15b] border border-[#dfb15b]/25 uppercase tracking-wider">
             ${art.category}
           </span>
           <span class="text-slate-600">•</span>
@@ -299,8 +300,8 @@ ${JSON.stringify(jsonLd, null, 2)}
         </p>
 
         <!-- Author Card -->
-        <div class="flex items-center gap-4 pt-4 border-t border-slate-900" itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <img src="/assets/images/Robson-Cassiano.webp" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-slate-700 object-cover" itemprop="image">
+        <div class="flex items-center gap-4 pt-4 border-t border-[#252530]" itemprop="author" itemscope itemtype="https://schema.org/Person">
+          <img src="/assets/images/Robson-Cassiano.webp" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-[#dfb15b]/30 object-cover shadow-md shadow-[#dfb15b]/10" itemprop="image">
           <div>
             <span class="text-base font-bold text-white block" itemprop="name">Robson Cassiano</span>
             <span class="text-xs text-slate-400 block" itemprop="jobTitle">Software Engineer na Epic Games & Cambridge CELTA Certified Teacher</span>
@@ -314,22 +315,22 @@ ${JSON.stringify(jsonLd, null, 2)}
       </div>
 
       <!-- Pre-Sold Authority / Mentorship Banner -->
-      <section class="mt-12 p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-lime-500/30 shadow-2xl relative overflow-hidden">
-        <div class="inline-block px-3 py-1 rounded-full bg-lime-500/10 border border-lime-500/30 text-lime-400 text-xs font-bold mb-3 uppercase tracking-wider">
+      <section class="mt-12 p-8 rounded-2xl bg-gradient-to-b from-[#141418] to-[#0e0e12] border border-[#dfb15b]/30 shadow-2xl shadow-[#dfb15b]/5 relative overflow-hidden">
+        <div class="inline-block px-3 py-1 rounded-full bg-[#dfb15b]/10 border border-[#dfb15b]/25 text-[#dfb15b] text-xs font-bold mb-3 uppercase tracking-wider">
           Aceleração de Carreira Internacional
         </div>
         <h3 class="text-2xl font-bold text-white mb-3">
           Quer faturar de R$ 30k a R$ 60k+/mês como Dev Sênior no Exterior?
         </h3>
         <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
-          No programa <strong>Descomplica DEV Na Gringa</strong>, você domina entrevistas técnicas em inglês ("Real English"), negociação salarial em moeda forte (USD/EUR) e posicionamento estratégico global.
+          No programa <strong class="text-white">Descomplica DEV Na Gringa</strong>, você domina entrevistas técnicas em inglês ("Real English"), negociação salarial em moeda forte (USD/EUR) e posicionamento estratégico global.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-lime-500 hover:bg-lime-400 text-slate-950 font-extrabold rounded-xl text-sm transition-all shadow-lg shadow-lime-500/20 inline-flex items-center gap-2">
+          <a href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-gradient-to-r from-[#dfb15b] to-[#c99839] hover:from-[#f6e0a4] hover:to-[#dfb15b] text-[#08080a] font-extrabold rounded-xl text-sm transition-all shadow-lg shadow-[#dfb15b]/20 hover:shadow-[#dfb15b]/35 inline-flex items-center gap-2">
             <span>Conhecer o Método 30k+ & Casos Reais</span>
             <span>&rarr;</span>
           </a>
-          <a href="/#artigos" class="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm font-semibold transition-colors">
+          <a href="/#artigos" class="px-5 py-3 rounded-xl bg-[#16161c] hover:bg-[#1f1f27] border border-[#252530] hover:border-[#dfb15b]/40 text-slate-300 hover:text-white text-sm font-semibold transition-colors">
             Explorar Outros Artigos
           </a>
         </div>
@@ -339,9 +340,9 @@ ${JSON.stringify(jsonLd, null, 2)}
   </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-800 py-10 mt-16 bg-slate-950 text-center text-xs text-slate-500">
+  <footer class="border-t border-[#252530] py-10 mt-16 bg-[#08080a] text-center text-xs text-slate-500">
     <p>© ${new Date().getFullYear()} Robson Cassiano. Todos os direitos reservados.</p>
-    <p class="mt-2"><a href="/" class="text-lime-400 hover:underline">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-lime-400 hover:underline">global.robsoncassiano.software</a></p>
+    <p class="mt-2"><a href="/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">global.robsoncassiano.software</a></p>
   </footer>
 
 </body>
