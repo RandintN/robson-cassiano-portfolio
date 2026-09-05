@@ -36,6 +36,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Como Passar em Entrevistas Técnicas Internacionais feitas por IA? Análise de uma Sessão Real e Lições Práticas para Desenvolvedores -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia</loc>
+    <lastmod>2026-09-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Como Passar em Entrevistas Técnicas Internacionais feitas por IA? Análise de uma Sessão Real e Lições Práticas para Desenvolvedores</image:title>
+      <image:caption>Análise detalhada de uma entrevista técnica real: anatomia da explicação arquitetural, capacidade de decisão, domínio da linguagem técnica e lições práticas para contratação internacional.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Coding Interview Preparation: A Week-by-Week Study Plan -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan</loc>
