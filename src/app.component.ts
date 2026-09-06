@@ -56,9 +56,9 @@ export class AppComponent implements OnInit {
     effect(() => {
       const title = this.languageService.translate('SEO_TITLE');
       const description = this.languageService.translate('SEO_DESCRIPTION');
-      const isPt = this.currentLanguage() === 'pt';
-      const locale = isPt ? 'pt_BR' : 'en_US';
-      const languageTag = isPt ? 'pt-BR' : 'en-US';
+      const isBr = this.currentLanguage() === 'br';
+      const locale = isBr ? 'pt_BR' : 'en_US';
+      const languageTag = isBr ? 'pt-BR' : 'en-US';
 
       this.titleService.setTitle(title);
       this.metaService.updateTag({ name: 'description', content: description });
@@ -68,7 +68,7 @@ export class AppComponent implements OnInit {
       this.metaService.updateTag({ property: 'og:site_name', content: 'Robson Cassiano' });
       this.metaService.updateTag({ property: 'og:title', content: title });
       this.metaService.updateTag({ property: 'og:description', content: description });
-      const isEnUrl = typeof window !== 'undefined' ? window.location.pathname.startsWith('/en') : !isPt;
+      const isEnUrl = typeof window !== 'undefined' ? window.location.pathname.startsWith('/en') : !isBr;
       this.metaService.updateTag({ property: 'og:url', content: isEnUrl ? 'https://eu.robsoncassiano.software/en' : 'https://eu.robsoncassiano.software/' });
       this.metaService.updateTag({ property: 'og:image', content: this.fullCanonicalImageUrl });
       this.metaService.updateTag({ property: 'og:locale', content: locale });
@@ -97,14 +97,14 @@ export class AppComponent implements OnInit {
 
   private updateStructuredData() {
     const lang = this.currentLanguage();
-    const isPt = lang === 'pt';
+    const isBr = lang === 'br';
 
     const profilePageSchema = {
       "@type": "ProfilePage",
       "@id": "https://eu.robsoncassiano.software/#profilepage",
       "url": "https://eu.robsoncassiano.software/",
-      "name": isPt ? "Robson Cassiano | Senior Software Engineer, Mentor e Filósofo" : "Robson Cassiano | Senior Software Engineer, Mentor and Philosopher",
-      "inLanguage": isPt ? "pt-BR" : "en-US",
+      "name": isBr ? "Robson Cassiano | Senior Software Engineer, Mentor e Filósofo" : "Robson Cassiano | Senior Software Engineer, Mentor and Philosopher",
+      "inLanguage": isBr ? "pt-BR" : "en-US",
       "mainEntity": {
         "@type": "Person",
         "@id": "https://eu.robsoncassiano.software/#person",
@@ -116,7 +116,7 @@ export class AppComponent implements OnInit {
           "url": this.fullCanonicalImageUrl,
           "width": 500,
           "height": 500,
-          "caption": isPt
+          "caption": isBr
             ? "Robson Cassiano - Software Engineer na Epic Games & Cambridge CELTA Certified Teacher"
             : "Robson Cassiano - Software Engineer at Epic Games & Cambridge CELTA Certified Teacher"
         },
@@ -135,10 +135,10 @@ export class AppComponent implements OnInit {
           "https://randintn.substack.com",
           "https://beacons.ai/robson.cassiano/portflio"
         ],
-        "jobTitle": isPt
+        "jobTitle": isBr
           ? "Software Engineer na Epic Games & Cambridge CELTA Certified Teacher"
           : "Software Engineer at Epic Games & Cambridge CELTA Certified Teacher",
-        "description": isPt
+        "description": isBr
           ? "Software Engineer na Epic Games. Ex-BTG Pactual, Fundador da Simple Software, Autor de Livros de Tecnologia na Amazon e Professor de Inglês certificado por Cambridge (CELTA). Mentor de carreira internacional para desenvolvedores."
           : "Software Engineer at Epic Games. Ex-BTG Pactual, Founder of Simple Software, Amazon Author, and Cambridge CELTA Certified English Teacher. International career mentor for developers.",
         "worksFor": {
@@ -191,7 +191,7 @@ export class AppComponent implements OnInit {
         "@type": "Person",
         "@id": "https://eu.robsoncassiano.software/#person"
       },
-      "description": isPt
+      "description": isBr
         ? "Software house e consultoria de alta engenharia fundada por Robson Cassiano."
         : "Software engineering company and consulting founded by Robson Cassiano.",
       "sameAs": [
@@ -209,7 +209,7 @@ export class AppComponent implements OnInit {
       "@type": "EducationalOccupationalProgram",
       "@id": "https://global.robsoncassiano.software/#program",
       "name": "Descomplica DEV Na Gringa - Mentoria de Carreira Internacional",
-      "description": isPt
+      "description": isBr
         ? "Programa de mentoria e aceleração para desenvolvedores conquistarem contratos internacionais acima de R$ 30.000 mensais."
         : "Mentorship and career acceleration program for software engineers targeting $6k-$12k+/month remote roles.",
       "provider": {
@@ -243,7 +243,7 @@ export class AppComponent implements OnInit {
     const faqSchema = {
       "@type": "FAQPage",
       "@id": "https://eu.robsoncassiano.software/#faq",
-      "inLanguage": isPt ? "pt-BR" : "en-US",
+      "inLanguage": isBr ? "pt-BR" : "en-US",
       "mainEntity": faqQuestions.map(item => ({
         "@type": "Question",
         "name": this.languageService.translate(item.q),

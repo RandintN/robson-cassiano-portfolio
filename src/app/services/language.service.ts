@@ -1,6 +1,6 @@
 import { Injectable, signal, effect } from '@angular/core';
 
-export type Language = 'pt' | 'en';
+export type Language = 'br' | 'en';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class LanguageService {
   
   // Translation maps
   private translations = signal<Record<Language, Record<string, string>>>({
-    pt: {},
+    br: {},
     en: {}
   });
 
@@ -24,14 +24,14 @@ export class LanguageService {
         try {
           localStorage.setItem('preferred-language', lang);
         } catch (e) {}
-        document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+        document.documentElement.lang = lang === 'br' ? 'pt-BR' : 'en';
       }
     });
 
     if (typeof window !== 'undefined') {
       window.addEventListener('popstate', () => {
         const isEn = window.location.pathname.startsWith('/en');
-        this.currentLanguage.set(isEn ? 'en' : 'pt');
+        this.currentLanguage.set(isEn ? 'en' : 'br');
       });
     }
   }
@@ -45,36 +45,37 @@ export class LanguageService {
 
       // 2. Preferência salva anteriormente
       try {
-        const saved = localStorage.getItem('preferred-language') as Language;
-        if (saved === 'pt' || saved === 'en') return saved;
+        const saved = localStorage.getItem('preferred-language');
+        if (saved === 'br' || saved === 'en') return saved as Language;
+        if (saved === 'pt') return 'br';
       } catch (e) {}
 
       // 3. Raiz padrão em Português para alinhamento estrito de canonical e hreflang
-      return 'pt';
+      return 'br';
     }
-    return 'pt';
+    return 'br';
   }
 
   public async loadTranslations(): Promise<void> {
     try {
-      const [ptResponse, enResponse] = await Promise.all([
-        fetch('assets/i18n/pt.json'),
+      const [brResponse, enResponse] = await Promise.all([
+        fetch('assets/i18n/br.json'),
         fetch('assets/i18n/en.json')
       ]);
 
-      if (!ptResponse.ok || !enResponse.ok) {
-        throw new Error(`Failed to fetch translations: pt=${ptResponse.status}, en=${enResponse.status}`);
+      if (!brResponse.ok || !enResponse.ok) {
+        throw new Error(`Failed to fetch translations: br=${brResponse.status}, en=${enResponse.status}`);
       }
       
-      const [pt, en] = await Promise.all([
-        ptResponse.json(),
+      const [br, en] = await Promise.all([
+        brResponse.json(),
         enResponse.json()
       ]);
       
-      this.translations.set({ pt, en });
+      this.translations.set({ br, en });
     } catch (e) {
       console.error('Failed to load translations', e);
-      this.translations.set({ pt: {}, en: {} });
+      this.translations.set({ br: {}, en: {} });
     }
   }
 
@@ -87,7 +88,7 @@ export class LanguageService {
 
       if (lang === 'en' && !currentPath.startsWith('/en')) {
         window.history.pushState(null, '', '/en' + hash);
-      } else if (lang === 'pt' && currentPath.startsWith('/en')) {
+      } else if (lang === 'br' && currentPath.startsWith('/en')) {
         window.history.pushState(null, '', '/' + hash);
       }
     }
