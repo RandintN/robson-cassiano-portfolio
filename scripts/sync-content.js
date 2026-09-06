@@ -59,7 +59,7 @@ for (const file of files) {
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     summary: meta.summary || '',
     coverImage: meta.coverImage || 'assets/images/Robson-Cassiano.webp',
-    canonicalUrl: meta.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${slug}`,
+    canonicalUrl: meta.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${slug}/`,
     youtubeVideoId: meta.youtubeVideoId || undefined,
     content: markdownBody
   });
@@ -115,7 +115,7 @@ const sitemapEntries = [
 for (const art of articles) {
   sitemapEntries.push(`  <!-- Artigo: ${art.title} -->
   <url>
-    <loc>https://eu.robsoncassiano.software/artigos/${art.slug}</loc>
+    <loc>https://eu.robsoncassiano.software/artigos/${art.slug}/</loc>
     <lastmod>${art.date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>

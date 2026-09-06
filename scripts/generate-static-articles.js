@@ -71,7 +71,7 @@ for (const art of articles) {
   const targetDir = path.join(distDir, 'artigos', art.slug);
   fs.mkdirSync(targetDir, { recursive: true });
 
-  const canonicalUrl = `https://eu.robsoncassiano.software/artigos/${art.slug}`;
+  const canonicalUrl = `https://eu.robsoncassiano.software/artigos/${art.slug}/`;
   const coverImageUrl = `https://eu.robsoncassiano.software/${art.coverImage}`;
 
   const jsonLd = {

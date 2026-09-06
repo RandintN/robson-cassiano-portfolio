@@ -9,7 +9,7 @@ tags: ["Polyworking", "Carreira Internacional", "CLT e PJ", "Contratos Globais"]
 summary: "Análise técnica sobre a prática de múltiplos contratos remotos simultâneos: limites biológicos, dirigismo contratual, jurisprudência trabalhista e o teto da venda de horas."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
 youtubeVideoId: "HDnSaI26Knk"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa/"
 preSoldTarget: "mentoria"
 ---
 

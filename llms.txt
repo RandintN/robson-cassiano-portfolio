@@ -32,9 +32,9 @@
 - **Resultados Documentados:** Depoimentos e contratos de mentorados conquistando posições globais em moeda forte: https://global.robsoncassiano.software/
 
 ## Artigos Canônicos Publicados no Blog
-- [Por que o Spring Boot e Java Dominam os Melhores Contratos Globais de Backend](https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global): Análise sobre tipagem, resiliência corporativa e contratações em moeda forte.
-- [Como Negociar Contratos de $8k+/mês no Exterior sem Inglês Nativo](https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java): Metodologia Real English e framework de negociação salarial em USD/EUR.
-- [O que Aristóteles e a Filosofia Clássica Ensinam sobre Arquitetura de Software](https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software): As 4 Causas de Aristóteles e a Navalha de Occam aplicadas ao design de software.
+- [Por que o Spring Boot e Java Dominam os Melhores Contratos Globais de Backend](https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global/): Análise sobre tipagem, resiliência corporativa e contratações em moeda forte.
+- [Como Negociar Contratos de $8k+/mês no Exterior sem Inglês Nativo](https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java/): Metodologia Real English e framework de negociação salarial em USD/EUR.
+- [O que Aristóteles e a Filosofia Clássica Ensinam sobre Arquitetura de Software](https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software/): As 4 Causas de Aristóteles e a Navalha de Occam aplicadas ao design de software.
 
 ## Documentos Estruturados para Agentes de IA
 - [Markdown Portfolio](https://eu.robsoncassiano.software/index.md): Versão completa em Markdown com FAQ, Filosofia, Serviços e Tabela Comparativa.

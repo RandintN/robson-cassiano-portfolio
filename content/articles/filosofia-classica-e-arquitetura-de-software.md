@@ -8,7 +8,7 @@ readTime: "5 min de leitura"
 tags: ["Filosofia", "Clean Code", "Arquitetura", "Modelos Mentais"]
 summary: "Como a busca pelas causas primeiras, a virtude do equilíbrio e o princípio da simplicidade da filosofia clássica transformam desenvolvedores juniores e plenos em líderes técnicos de referência."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software/"
 preSoldTarget: "mentoria"
 ---
 

@@ -8,7 +8,7 @@ readTime: "6 min de leitura"
 tags: ["Carreira Remota", "Dólar", "Negociação", "Real English"]
 summary: "O maior obstáculo para desenvolvedores sênior ganharem em dólar não é a técnica, mas o medo do inglês acadêmico. Descubra o método 'Real English' e o framework de negociação para fechar contratos de R$ 30k+/mês."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java/"
 preSoldTarget: "mentoria"
 ---
 

@@ -9,7 +9,7 @@ tags: ["ATS", "Workable", "Greenhouse", "Recrutamento", "Carreira Tech"]
 youtubeVideoId: "sGUASE0odeI"
 summary: "Desmontamos a arquitetura dos sistemas de rastreamento de candidatos (ATS) analisando Workable e Greenhouse sob a ótica do recrutador e do engenheiro."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/a-mecanica-oculta-dos-ats-workable-vs-greenhouse"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/a-mecanica-oculta-dos-ats-workable-vs-greenhouse/"
 preSoldTarget: "mentoria"
 ---
 

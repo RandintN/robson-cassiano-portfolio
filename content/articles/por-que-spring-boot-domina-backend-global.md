@@ -8,7 +8,7 @@ readTime: "5 min de leitura"
 tags: ["Java", "Spring Boot", "Arquitetura", "Enterprise"]
 summary: "Enquanto novos frameworks surgem a cada semana, o ecossistema Java/Spring continua sustentando as aplicações mais críticas e lucrativas do mundo. Entenda por que empresas no exterior pagam mais de $8k/mês por quem domina essa stack."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global/"
 preSoldTarget: "mentoria"
 ---
 

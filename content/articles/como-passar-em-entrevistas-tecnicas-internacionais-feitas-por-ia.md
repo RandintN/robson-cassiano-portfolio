@@ -9,7 +9,7 @@ tags: ["Entrevistas Técnicas", "Carreira Internacional", "Inteligência Artific
 youtubeVideoId: "J5yLoWYLy3A"
 summary: "Análise detalhada de uma entrevista técnica real: anatomia da explicação arquitetural, capacidade de decisão, domínio da linguagem técnica e lições práticas para contratação internacional."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia/"
 preSoldTarget: "mentoria"
 ---
 

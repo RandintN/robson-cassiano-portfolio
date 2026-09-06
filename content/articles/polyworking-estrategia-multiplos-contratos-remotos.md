@@ -8,7 +8,7 @@ readTime: "7 min de leitura"
 tags: ["Polyworking", "Trabalho Remoto", "Direito Trabalhista", "Produtividade", "OpSec"]
 summary: "Uma análise técnica e jurídica sobre a sobreposição de contratos remotos na engenharia de software, abordando dirigismo contratual, telemetria corporativa, arquitetura de hardware e preservação de saúde."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/polyworking-estrategia-multiplos-contratos-remotos"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/polyworking-estrategia-multiplos-contratos-remotos/"
 preSoldTarget: "mentoria"
 ---
 

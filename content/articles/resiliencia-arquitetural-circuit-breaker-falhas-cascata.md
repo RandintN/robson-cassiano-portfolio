@@ -8,7 +8,7 @@ readTime: "8 min de leitura"
 tags: ["Arquitetura de Software", "Resiliência", "Microsserviços", "Circuit Breaker", "Sistemas Distribuídos"]
 summary: "Análise técnica sobre resiliência em microsserviços, o padrão Circuit Breaker e desacoplamento via filas para evitar o colapso por falhas em cascata."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata/"
 preSoldTarget: "mentoria"
 ---
 

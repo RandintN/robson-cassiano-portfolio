@@ -10,7 +10,7 @@ tags: ["OpenTelemetry", "Grafana", "Desenvolvimento de Aplicações"]
 youtubeVideoId: "h1W5z1HxrP4"
 summary: "Desenvolvimento de aplicações com OpenTelemetry e Grafana: uma abordagem profunda para otimização de desempenho e análise de dados."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana/"
 preSoldTarget: "mentoria"
 ---
 

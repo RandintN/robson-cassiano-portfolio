@@ -9,7 +9,7 @@ tags: ["Inteligência Artificial", "Carl Jung", "Monopólio Pessoal", "Carreira 
 summary: "Análise sobre como a individuação de Carl Jung e o conceito de Unique Ability de Dan Sullivan formam o único monopólio defensável contra a produção sintética em massa."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
 youtubeVideoId: "I1IJwnWheaA"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/como-criar-diferencial-era-inteligencia-artificial"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/como-criar-diferencial-era-inteligencia-artificial/"
 preSoldTarget: "mentoria"
 ---
 

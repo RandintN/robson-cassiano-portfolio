@@ -9,7 +9,7 @@ tags: ["Polyworking", "Carreira Dev", "Engenharia de Software", "Trabalho Remoto
 summary: "Uma análise analítica e jurídica do polyworking para engenheiros de software, cobrindo riscos de demissão, gestão de LinkedIn e táticas de escalabilidade."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
 youtubeVideoId: "HDnSaI26Knk"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/arquitetura-do-polyworking-estrategia-riscos-limites"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/arquitetura-do-polyworking-estrategia-riscos-limites/"
 preSoldTarget: "mentoria"
 ---
 

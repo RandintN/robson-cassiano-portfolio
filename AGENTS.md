@@ -58,7 +58,7 @@ readTime: "6 min de leitura"
 tags: ["Java", "Spring Boot", "Carreira Internacional"]
 summary: "Resumo objetivo e persuasivo para meta tags e SEO."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/seu-artigo-slug"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/seu-artigo-slug/"
 preSoldTarget: "mentoria"
 ---
 

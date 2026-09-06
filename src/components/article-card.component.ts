@@ -80,7 +80,7 @@ const ARTICLE_TRANSLATIONS_EN: Record<string, { title: string; summary: string; 
         </div>
 
         <h3 class="text-xl font-bold text-white group-hover:text-[#dfb15b] transition-colors leading-snug mb-3">
-          <a [href]="'/artigos/' + article().slug" class="hover:text-[#dfb15b] focus:outline-none focus:underline">
+          <a [href]="'/artigos/' + article().slug + '/'" class="hover:text-[#dfb15b] focus:outline-none focus:underline">
             {{ displayTitle() }}
           </a>
         </h3>
@@ -99,7 +99,7 @@ const ARTICLE_TRANSLATIONS_EN: Record<string, { title: string; summary: string; 
       <div class="pt-4 border-t border-[#252530] flex items-center justify-between">
         <span class="text-xs text-slate-500">{{ article().date }}</span>
         <a
-          [href]="'/artigos/' + article().slug"
+          [href]="'/artigos/' + article().slug + '/'"
           [attr.aria-label]="('READ_ARTICLE' | translate) + ': ' + displayTitle()"
           class="inline-flex items-center text-sm font-bold text-[#dfb15b] hover:text-[#f6e0a4] transition-colors gap-1.5"
         >

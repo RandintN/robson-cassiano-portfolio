@@ -9,7 +9,7 @@ tags: ["Polyworking", "Carreira Dev", "Engenharia de Software", "Trabalho Remoto
 youtubeVideoId: "HDnSaI26Knk"
 summary: "Uma investigação analítica e jurídica sobre o polyworking, seus riscos operacionais, manobras de mitigação e os limites inerentes à alocação linear de tempo."
 coverImage: "assets/images/robson-cassiano-mentor.jpg"
-canonicalUrl: "https://eu.robsoncassiano.software/artigos/aporia-venda-de-horas-polyworking-engenharia-de-software"
+canonicalUrl: "https://eu.robsoncassiano.software/artigos/aporia-venda-de-horas-polyworking-engenharia-de-software/"
 preSoldTarget: "mentoria"
 ---
 
