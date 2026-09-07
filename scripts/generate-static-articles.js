@@ -72,70 +72,117 @@ for (const art of articles) {
   fs.mkdirSync(targetDir, { recursive: true });
 
   const canonicalUrl = `https://eu.robsoncassiano.software/artigos/${art.slug}/`;
-  const coverImageUrl = `https://eu.robsoncassiano.software/${art.coverImage}`;
+  const cleanCoverImage = (art.coverImage || '').replace(/^\/+/, '');
+  const coverImageUrl = `https://eu.robsoncassiano.software/${cleanCoverImage}`;
+  const publisherLogoUrl = 'https://eu.robsoncassiano.software/assets/icons/logo-header.webp';
+
+  const graphItems = [
+    {
+      "@type": "BlogPosting",
+      "@id": `${canonicalUrl}#article`,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalUrl
+      },
+      "headline": art.title,
+      "description": art.summary,
+      "image": coverImageUrl,
+      "author": {
+        "@type": "Person",
+        "@id": "https://eu.robsoncassiano.software/#author",
+        "name": "Robson Cassiano",
+        "jobTitle": "Software Engineer na Epic Games & Cambridge CELTA Certified Teacher",
+        "url": "https://www.robsoncassiano.software/",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Epic Games"
+        },
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "University of Cambridge (CELTA Certification)"
+        },
+        "sameAs": [
+          "https://www.robsoncassiano.software/",
+          "https://global.robsoncassiano.software/",
+          "https://eu.robsoncassiano.software/",
+          "https://github.com/RandintN",
+          "https://www.linkedin.com/in/robsoncassiano-software/",
+          "https://www.amazon.com.br/stores/Robson-Cassiano/author/B0FLN1QMCJ",
+          "https://www.goodreads.com/user/show/68023009-robson-cassiano",
+          "https://twitter.com/RobsonDev",
+          "https://www.youtube.com/@RobsonCassianoSoftware",
+          "https://instagram.com/robsoncassiano.software",
+          "https://www.facebook.com/RobsonCassianoSoftware/",
+          "https://randintn.substack.com",
+          "https://beacons.ai/robson.cassiano/portflio"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://eu.robsoncassiano.software/#publisher",
+        "name": "Simple Software LTDA",
+        "url": "https://www.robsoncassiano.software/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": publisherLogoUrl
+        },
+        "sameAs": [
+          "https://www.robsoncassiano.software/",
+          "https://global.robsoncassiano.software/",
+          "https://github.com/SimpleSoftwareLTDA",
+          "https://www.linkedin.com/company/simple-software-ltda",
+          "https://www.linkedin.com/in/robsoncassiano-software/",
+          "https://www.youtube.com/@RobsonCassianoSoftware",
+          "https://www.facebook.com/RobsonCassianoSoftware/"
+        ]
+      },
+      "datePublished": `${art.date}T10:00:00-03:00`,
+      "dateModified": `${art.date}T10:00:00-03:00`,
+      "articleSection": art.category,
+      "keywords": art.tags.join(', '),
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Início",
+          "item": "https://eu.robsoncassiano.software/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://eu.robsoncassiano.software/#artigos"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": art.title,
+          "item": canonicalUrl
+        }
+      ]
+    }
+  ];
+
+  if (art.youtubeVideoId) {
+    graphItems.push({
+      "@type": "VideoObject",
+      "@id": `${canonicalUrl}#video`,
+      "name": `Transmissão Original: ${art.title}`,
+      "description": art.summary,
+      "thumbnailUrl": `https://i.ytimg.com/vi/${art.youtubeVideoId}/hqdefault.jpg`,
+      "uploadDate": `${art.date}T10:00:00-03:00`,
+      "embedUrl": `https://www.youtube.com/embed/${art.youtubeVideoId}`
+    });
+  }
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": canonicalUrl
-    },
-    "headline": art.title,
-    "description": art.summary,
-    "image": coverImageUrl,
-    "author": {
-      "@type": "Person",
-      "name": "Robson Cassiano",
-      "jobTitle": "Software Engineer na Epic Games & Cambridge CELTA Certified Teacher",
-      "url": "https://www.robsoncassiano.software/",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Epic Games"
-      },
-      "alumniOf": {
-        "@type": "Organization",
-        "name": "University of Cambridge (CELTA Certification)"
-      },
-      "sameAs": [
-        "https://www.robsoncassiano.software/",
-        "https://global.robsoncassiano.software/",
-        "https://eu.robsoncassiano.software/",
-        "https://github.com/RandintN",
-        "https://www.linkedin.com/in/robsoncassiano-software/",
-        "https://www.amazon.com.br/stores/Robson-Cassiano/author/B0FLN1QMCJ",
-        "https://www.goodreads.com/user/show/68023009-robson-cassiano",
-        "https://twitter.com/RobsonDev",
-        "https://www.youtube.com/@RobsonCassianoSoftware",
-        "https://instagram.com/robsoncassiano.software",
-        "https://www.facebook.com/RobsonCassianoSoftware/",
-        "https://randintn.substack.com",
-        "https://beacons.ai/robson.cassiano/portflio"
-      ]
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Simple Software LTDA",
-      "url": "https://www.robsoncassiano.software/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": coverImageUrl
-      },
-      "sameAs": [
-        "https://www.robsoncassiano.software/",
-        "https://global.robsoncassiano.software/",
-        "https://github.com/SimpleSoftwareLTDA",
-        "https://www.linkedin.com/company/simple-software-ltda",
-        "https://www.linkedin.com/in/robsoncassiano-software/",
-        "https://www.youtube.com/@RobsonCassianoSoftware",
-        "https://www.facebook.com/RobsonCassianoSoftware/"
-      ]
-    },
-    "datePublished": art.date,
-    "dateModified": art.date,
-    "articleSection": art.category,
-    "keywords": art.tags.join(', '),
-    "inLanguage": "pt-BR"
+    "@graph": graphItems
   };
 
   const htmlContent = `<!DOCTYPE html>
@@ -145,8 +192,10 @@ for (const art of articles) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${art.title} | Robson Cassiano</title>
   <meta name="description" content="${art.summary}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="${canonicalUrl}">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="alternate" type="text/plain" href="https://eu.robsoncassiano.software/llms.txt" title="LLMs.txt">
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="article">
@@ -285,7 +334,7 @@ ${JSON.stringify(jsonLd, null, 2)}
 
   <!-- Main Article Content -->
   <main class="max-w-4xl mx-auto px-6 py-8">
-    <article itemscope itemtype="https://schema.org/BlogPosting">
+    <article>
       
       <!-- Header -->
       <header class="mb-10 pb-8 border-b border-[#252530]">
@@ -299,44 +348,47 @@ ${JSON.stringify(jsonLd, null, 2)}
           <span class="text-slate-400 text-xs">${art.readTime}</span>
         </div>
 
-        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" itemprop="headline">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
           ${art.title}
         </h1>
 
-        <p class="text-lg text-slate-400 leading-relaxed mb-6 font-medium" itemprop="description">
+        <p class="text-lg text-slate-400 leading-relaxed mb-6 font-medium">
           ${art.summary}
         </p>
 
         <!-- Author Card -->
-        <div class="flex items-center gap-4 pt-4 border-t border-[#252530]" itemprop="author" itemscope itemtype="https://schema.org/Person">
-          <img src="/assets/images/Robson-Cassiano.webp" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-[#dfb15b]/30 object-cover shadow-md shadow-[#dfb15b]/10" itemprop="image">
+        <div class="flex items-center gap-4 pt-4 border-t border-[#252530]">
+          <img src="/assets/images/Robson-Cassiano.webp" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-[#dfb15b]/30 object-cover shadow-md shadow-[#dfb15b]/10">
           <div>
-            <span class="text-base font-bold text-white block" itemprop="name">Robson Cassiano</span>
-            <span class="text-xs text-slate-400 block" itemprop="jobTitle">Software Engineer na Epic Games & Cambridge CELTA Certified Teacher</span>
+            <span class="text-base font-bold text-white block">Robson Cassiano</span>
+            <span class="text-xs text-slate-400 block">Software Engineer na Epic Games & Cambridge CELTA Certified Teacher</span>
           </div>
         </div>
       </header>
 
       <!-- Semantic Body -->
-      <div class="article-body" itemprop="articleBody">
+      <div class="article-body">
         ${articleHtml}
       </div>
 
       <!-- Pre-Sold Authority / Mentorship Banner -->
       <section class="mt-12 p-8 rounded-2xl bg-gradient-to-b from-[#141418] to-[#0e0e12] border border-[#dfb15b]/30 shadow-2xl shadow-[#dfb15b]/5 relative overflow-hidden">
         <div class="inline-block px-3 py-1 rounded-full bg-[#dfb15b]/10 border border-[#dfb15b]/25 text-[#dfb15b] text-xs font-bold mb-3 uppercase tracking-wider">
-          Aceleração de Carreira Internacional
+          Mentoria Executiva Internacional
         </div>
         <h3 class="text-2xl font-bold text-white mb-3">
-          Quer faturar de R$ 30k a R$ 60k+/mês como Dev Sênior no Exterior?
+          Conquiste Contratos de R$ 30k a R$ 60k+/mês como Dev Sênior no Exterior
         </h3>
         <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-6">
           No programa <strong class="text-white">Descomplica DEV Na Gringa</strong>, você domina entrevistas técnicas em inglês ("Real English"), negociação salarial em moeda forte (USD/EUR) e posicionamento estratégico global.
         </p>
         <div class="flex flex-wrap gap-4">
           <a href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 bg-gradient-to-r from-[#dfb15b] to-[#c99839] hover:from-[#f6e0a4] hover:to-[#dfb15b] text-[#08080a] font-extrabold rounded-xl text-sm transition-all shadow-lg shadow-[#dfb15b]/20 hover:shadow-[#dfb15b]/35 inline-flex items-center gap-2">
-            <span>Conhecer o Método 30k+ & Casos Reais</span>
+            <span>Conhecer o Método 30k+ &amp; Casos Reais</span>
             <span>&rarr;</span>
+          </a>
+          <a href="https://robsoncassiano.software/7-passos-simples-dev-na-gringa" data-capture-open target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-[#16161c] hover:bg-[#1f1f27] border border-[#252530] hover:border-[#dfb15b]/40 text-[#dfb15b] hover:text-[#f6e0a4] text-sm font-semibold transition-colors flex items-center gap-2 cursor-pointer">
+            <span>📖 Baixar E-book Gratuito</span>
           </a>
           <a href="/#artigos" class="px-5 py-3 rounded-xl bg-[#16161c] hover:bg-[#1f1f27] border border-[#252530] hover:border-[#dfb15b]/40 text-slate-300 hover:text-white text-sm font-semibold transition-colors">
             Explorar Outros Artigos
@@ -353,6 +405,19 @@ ${JSON.stringify(jsonLd, null, 2)}
     <p class="mt-2"><a href="/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">global.robsoncassiano.software</a></p>
   </footer>
 
+  <!-- Sovereign Cloudflare Lead Capture Modal -->
+  <script 
+    src="https://capture.robsoncassiano.software/embed.js" 
+    data-source="artigo-${art.slug}"
+    data-mode="modal"
+    data-turnstile-sitekey="0x4AAAAAAEjUfJwT3yG_vHIF"
+    data-badge="📬 Acesso Exclusivo &amp; E-book Gratuito"
+    data-title="Conquiste Vagas Internacionais de R$ 30k+/mês"
+    data-description="Receba o e-book 7 Passos Simples DEV na Gringa e acompanhe os bastidores de arquitetura de grandes sistemas globais."
+    data-button="Garantir Meu Acesso VIP"
+    data-ebook-url="https://robsoncassiano.software/7-passos-simples-dev-na-gringa"
+    defer>
+  </script>
 </body>
 </html>`;
 

@@ -2,8 +2,7 @@ import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, O
 import { NgOptimizedImage } from '@angular/common';
 import { RoleCardComponent } from './components/role-card.component';
 import { ArticleCardComponent } from './components/article-card.component';
-import { NewsletterFormComponent } from './components/newsletter-form.component';
-import { NewsletterModalComponent } from './components/newsletter-modal.component';
+import { CaptureEmbedComponent } from './components/capture-embed.component';
 import { LanguageService, Language } from './app/services/language.service';
 import { ContentService } from './app/services/content.service';
 import { TranslatePipe } from './app/pipes/translate.pipe';
@@ -23,8 +22,7 @@ interface SocialLink {
     NgOptimizedImage,
     RoleCardComponent,
     ArticleCardComponent,
-    NewsletterFormComponent,
-    NewsletterModalComponent,
+    CaptureEmbedComponent,
     TranslatePipe
   ],
   templateUrl: './app.component.html',
