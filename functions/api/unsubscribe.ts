@@ -1,48 +1,65 @@
-interface Env {
-  DB?: D1Database;
+/**
+ * Rota de Descadastro Soberana (Proxy de Borda com Service Binding para o Worker Dedicado)
+ * Encaminha chamadas GET e POST prioritariamente em memória via CRON_PUBLISHER
+ */
+
+interface PagesEnv {
+  CRON_PUBLISHER?: { fetch: typeof fetch };
 }
 
-export const onRequestGet: PagesFunction<Env> = async (context) => {
+export const onRequest: PagesFunction<PagesEnv> = async (context) => {
   const { request, env } = context;
+
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, List-Unsubscribe-Post',
+        'Access-Control-Max-Age': '86400',
+      },
+    });
+  }
+
   const url = new URL(request.url);
-  const email = url.searchParams.get('email');
+  const targetPath = `/api/unsubscribe${url.search}`;
 
-  if (!email) {
-    return new Response('E-mail não fornecido.', { status: 400 });
+  // 1. Chamada interna in-memory via Service Binding nativo (Zero Latência)
+  if (env.CRON_PUBLISHER) {
+    try {
+      return await env.CRON_PUBLISHER.fetch(`http://internal${targetPath}`, request);
+    } catch (err: any) {
+      console.error('[CRON_PUBLISHER Service Binding Error]:', err);
+    }
   }
 
-  if (env.DB) {
-    await env.DB.prepare(
-      "UPDATE subscribers SET status = 'unsubscribed', unsubscribed_at = CURRENT_TIMESTAMP WHERE email = ?"
-    ).bind(email.toLowerCase().trim()).run();
+  // 2. Fallback HTTPS na borda Cloudflare
+  const fallbackUrl = new URL(`https://robson-cassiano-cron-publisher.robson-cassiano.workers.dev${targetPath}`);
+  const forwardHeaders = new Headers(request.headers);
+  forwardHeaders.set('X-Forwarded-Host', request.headers.get('Host') || 'eu.robsoncassiano.software');
+
+  try {
+    const res = await fetch(fallbackUrl.toString(), {
+      method: request.method,
+      headers: forwardHeaders,
+      body: request.method !== 'GET' && request.method !== 'HEAD' ? request.body : undefined,
+    });
+
+    const responseHeaders = new Headers(res.headers);
+    responseHeaders.set('Access-Control-Allow-Origin', '*');
+
+    return new Response(res.body, {
+      status: res.status,
+      headers: responseHeaders,
+    });
+  } catch (err: any) {
+    return new Response(JSON.stringify({ error: 'Falha de comunicação com o serviço de descadastro.' }), {
+      status: 502,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    });
   }
-
-  const html = `
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-      <meta charset="utf-8">
-      <title>Descadastro Confirmado | Robson Cassiano</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <style>
-        body { font-family: system-ui, sans-serif; background-color: #08080a; color: #f4f4f6; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
-        .card { background: #141418; padding: 32px; border-radius: 16px; max-width: 450px; text-align: center; border: 1px solid #252530; }
-        h1 { color: #ffffff; font-size: 22px; margin-bottom: 12px; }
-        p { color: #9e9ea8; font-size: 15px; line-height: 1.6; margin-bottom: 24px; }
-        a { display: inline-block; background: linear-gradient(135deg, #dfb15b, #c99839); color: #08080a; font-weight: bold; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; }
-      </style>
-    </head>
-    <body>
-      <div class="card">
-        <h1>Descadastro Realizado</h1>
-        <p>O e-mail <strong>${email}</strong> foi removido da lista de e-mails com sucesso. Você não receberá novos comunicados.</p>
-        <a href="https://eu.robsoncassiano.software">Voltar ao Portfólio</a>
-      </div>
-    </body>
-    </html>
-  `;
-
-  return new Response(html, {
-    headers: { 'Content-Type': 'text/html; charset=utf-8' }
-  });
 };

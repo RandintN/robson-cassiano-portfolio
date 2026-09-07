@@ -1,112 +1,50 @@
-import { EmailEnv, sendEmail } from './_email';
+/**
+ * Rota de Broadcast de Newsletters (Proxy com Service Binding para o Worker Dedicado)
+ * Encaminha o comando de envio prioritariamente em memória via CRON_PUBLISHER
+ */
 
-export const onRequestPost: PagesFunction<EmailEnv> = async (context) => {
+interface PagesEnv {
+  CRON_PUBLISHER?: { fetch: typeof fetch };
+}
+
+export const onRequestPost: PagesFunction<PagesEnv> = async (context) => {
   const { request, env } = context;
 
-  // Autenticação estrita por Bearer Token
-  const authHeader = request.headers.get('Authorization');
-  const secret = env.ADMIN_SECRET;
-  
-  if (!secret || !authHeader || authHeader !== `Bearer ${secret}`) {
-    return new Response(JSON.stringify({ error: 'Não autorizado' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' }
-    });
+  // 1. Chamada in-memory via Service Binding nativo
+  if (env.CRON_PUBLISHER) {
+    try {
+      return await env.CRON_PUBLISHER.fetch('http://internal/api/broadcast', request);
+    } catch (err: any) {
+      console.error('[CRON_PUBLISHER Broadcast Binding Error]:', err);
+    }
   }
 
+  // 2. Fallback HTTPS na borda Cloudflare
+  const targetUrl = 'https://robson-cassiano-cron-publisher.robson-cassiano.workers.dev/api/broadcast';
+  const forwardHeaders = new Headers(request.headers);
+  forwardHeaders.set('X-Forwarded-Host', request.headers.get('Host') || 'eu.robsoncassiano.software');
+
   try {
-    const body = await request.json() as {
-      subject: string;
-      articleSlug: string;
-      title: string;
-      previewText: string;
-      articleUrl: string;
-    };
-
-    if (!body.subject || !body.articleUrl) {
-      return new Response(JSON.stringify({ error: 'Campos subject e articleUrl são obrigatórios.' }), {
-        status: 400,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-
-    if (!env.DB) {
-      return new Response(JSON.stringify({ error: 'Banco D1 não configurado.' }), { status: 500 });
-    }
-
-    // Busca todos os inscritos ativos
-    const { results } = await env.DB.prepare(
-      "SELECT email, name FROM subscribers WHERE status = 'active'"
-    ).all<{ email: string; name: string }>();
-
-    let sentCount = 0;
-
-    if (results && results.length > 0) {
-      for (const subscriber of results) {
-        try {
-          const unsubLink = `https://eu.robsoncassiano.software/api/unsubscribe?email=${encodeURIComponent(subscriber.email)}`;
-          const firstName = subscriber.name ? subscriber.name.split(' ')[0] : 'dev';
-
-          const html = `
-            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #08080a; color: #f4f4f6; padding: 30px; border-radius: 12px; border: 1px solid #252530;">
-              <div style="margin-bottom: 20px;">
-                <span style="background-color: rgba(223, 177, 91, 0.15); color: #dfb15b; border: 1px solid rgba(223, 177, 91, 0.3); padding: 4px 10px; border-radius: 9999px; font-weight: bold; font-size: 11px; text-transform: uppercase;">Novo Artigo Publicado</span>
-              </div>
-              <h1 style="color: #ffffff; font-size: 22px; line-height: 1.3; margin-bottom: 16px;">${body.title}</h1>
-              <p style="font-size: 16px; line-height: 1.6; color: #cbd5e1; margin-bottom: 24px;">
-                Olá, ${firstName}! Acabei de publicar uma nova análise técnica no meu portal.
-              </p>
-              <div style="background-color: #141418; padding: 18px; border-radius: 8px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
-                <p style="margin: 0; font-size: 15px; color: #cbd5e1; line-height: 1.6;">
-                  ${body.previewText}
-                </p>
-              </div>
-              <div style="margin-bottom: 30px;">
-                <a href="${body.articleUrl}" style="display: inline-block; background: linear-gradient(135deg, #dfb15b, #c99839); color: #08080a; font-weight: 800; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-size: 15px;">
-                  Ler Artigo Completo no Portal &rarr;
-                </a>
-              </div>
-              <p style="font-size: 12px; color: #64748b; border-top: 1px solid #252530; padding-top: 20px; margin-top: 30px;">
-                Você recebeu este e-mail porque se inscreveu em <a href="https://eu.robsoncassiano.software" style="color: #dfb15b;">eu.robsoncassiano.software</a>.<br />
-                Para deixar de receber novos artigos, <a href="${unsubLink}" style="color: #ef4444;">cancele sua inscrição aqui</a>.
-              </p>
-            </div>
-          `;
-
-          const textContent = `Olá, ${firstName}!\n\nAcabei de publicar uma nova análise técnica no meu portal: "${body.title}"\n\n${body.previewText}\n\nLer artigo completo: ${body.articleUrl}\n\nPara cancelar sua inscrição: ${unsubLink}`;
-
-          const ok = await sendEmail({
-            to: subscriber.email,
-            subject: body.subject,
-            html: html,
-            text: textContent,
-          }, env);
-
-          if (ok) sentCount++;
-        } catch (e) {
-          console.error(`Falha no envio para ${subscriber.email}:`, e);
-        }
-      }
-    }
-
-    // Registra envio
-    await env.DB.prepare(
-      "INSERT INTO newsletters_sent (article_slug, subject, sent_count) VALUES (?, ?, ?)"
-    ).bind(body.articleSlug || 'custom', body.subject, sentCount).run();
-
-    return new Response(JSON.stringify({
-      success: true,
-      message: `Newsletter enviada com sucesso para ${sentCount} inscritos.`
-    }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
+    const res = await fetch(targetUrl, {
+      method: 'POST',
+      headers: forwardHeaders,
+      body: request.body,
     });
 
+    const responseHeaders = new Headers(res.headers);
+    responseHeaders.set('Access-Control-Allow-Origin', '*');
+
+    return new Response(res.body, {
+      status: res.status,
+      headers: responseHeaders,
+    });
   } catch (err: any) {
-    console.error('Erro no broadcast:', err);
-    return new Response(JSON.stringify({ error: err.message || 'Erro interno.' }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
+    return new Response(JSON.stringify({ error: 'Falha de comunicação com o worker dedicado de broadcast.' }), {
+      status: 502,
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
     });
   }
 };

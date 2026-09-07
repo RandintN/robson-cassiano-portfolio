@@ -3,13 +3,7 @@ compatibility_date = "2026-03-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"
 
-# Cloudflare D1 Database
-[[d1_databases]]
-binding = "DB"
-database_name = "robson-cassiano-portfolio-db"
-database_id = "0bfffdf2-cba9-4abb-90e4-72325fb1b640"
-
-# Service Binding: Cloudflare Email Routing Worker
+# Service Binding para o Worker Dedicado de Automação e Mensageria
 [[services]]
-binding = "EMAIL_ROUTER"
-service = "robson-cassiano-email-router"
+binding = "CRON_PUBLISHER"
+service = "robson-cassiano-cron-publisher"

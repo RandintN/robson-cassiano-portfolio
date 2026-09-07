@@ -1,25 +1,6 @@
-export interface EmailEnv {
-  DB?: D1Database;
-  EMAIL?: {
-    send: (message: { from: string; to: string; raw: string }) => Promise<void>;
-  };
-  EMAIL_ROUTER?: {
-    fetch: typeof fetch;
-  };
-  ADMIN_SECRET?: string;
-  TURNSTILE_SECRET_KEY?: string;
-}
+import { Env, SendMailPayload } from './types';
 
-export interface SendEmailPayload {
-  to: string;
-  subject: string;
-  html: string;
-  text?: string;
-  fromName?: string;
-  fromAddress?: string;
-}
-
-export async function sendEmail(payload: SendEmailPayload, env: EmailEnv): Promise<boolean> {
+export async function sendEmail(payload: SendMailPayload, env: Env): Promise<boolean> {
   const fromName = payload.fromName || 'Robson Cassiano';
   const fromAddress = payload.fromAddress || 'contato@robsoncassiano.software';
 
@@ -28,14 +9,20 @@ export async function sendEmail(payload: SendEmailPayload, env: EmailEnv): Promi
     try {
       const response = await env.EMAIL_ROUTER.fetch('http://internal/send', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(payload.headers || {}),
+        },
         body: JSON.stringify({
           to: payload.to,
           subject: payload.subject,
           html: payload.html,
+          text: payload.text,
           fromName,
           fromAddress,
+          headers: payload.headers,
         }),
+        signal: AbortSignal.timeout(6000),
       });
 
       if (response.ok) {
@@ -43,12 +30,12 @@ export async function sendEmail(payload: SendEmailPayload, env: EmailEnv): Promi
       }
       const err = await response.text();
       console.error('[Cloudflare Email Router Service Error]:', err);
-    } catch (e) {
-      console.error('[Cloudflare Email Router Service Fetch Error]:', e);
+    } catch (e: any) {
+      console.error('[Cloudflare Email Router Service Fetch Error]:', e?.message || e);
     }
   }
 
-  // 2. Envio direto se o binding EMAIL (Send Email) estiver acessível no contexto
+  // 2. Envio direto se o binding nativo EMAIL (Send Email) estiver acessível no contexto
   if (env.EMAIL?.send) {
     try {
       await env.EMAIL.send({
@@ -57,6 +44,7 @@ export async function sendEmail(payload: SendEmailPayload, env: EmailEnv): Promi
         subject: payload.subject,
         html: payload.html,
         text: payload.text,
+        headers: payload.headers,
       });
       return true;
     } catch (e: any) {
@@ -68,23 +56,28 @@ export async function sendEmail(payload: SendEmailPayload, env: EmailEnv): Promi
   try {
     const directRes = await fetch('https://robson-cassiano-email-router.robson-cassiano.workers.dev', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        ...(payload.headers || {}),
+      },
       body: JSON.stringify({
         to: payload.to,
         subject: payload.subject,
         html: payload.html,
+        text: payload.text,
         fromName,
         fromAddress,
+        headers: payload.headers,
       }),
+      signal: AbortSignal.timeout(6000),
     });
     if (directRes.ok) {
       return true;
     }
-  } catch (e) {
-    console.error('[Cloudflare Email Router Worker Fallback Error]:', e);
+  } catch (e: any) {
+    console.error('[Cloudflare Email Router Fallback Error]:', e?.message || e);
   }
 
-  console.warn('[Cloudflare Email Warning]: Não foi possível despachar o e-mail.');
+  console.warn('[Cloudflare Email Warning]: Não foi possível despachar o e-mail para destinatário.');
   return false;
 }
-

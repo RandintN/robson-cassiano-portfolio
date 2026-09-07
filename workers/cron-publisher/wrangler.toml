@@ -14,6 +14,20 @@ crons = [
   "0 15 * * 5"
 ]
 
-
 [ai]
 binding = "AI"
+
+# Cloudflare D1 Database
+[[d1_databases]]
+binding = "DB"
+database_name = "robson-cassiano-portfolio-db"
+database_id = "0bfffdf2-cba9-4abb-90e4-72325fb1b640"
+
+# Cloudflare Email Routing Binding
+[[send_email]]
+name = "EMAIL"
+
+# Service Binding para o Email Router
+[[services]]
+binding = "EMAIL_ROUTER"
+service = "robson-cassiano-email-router"
