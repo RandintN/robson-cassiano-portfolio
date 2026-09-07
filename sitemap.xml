@@ -205,6 +205,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Fase 3 Técnica Internacional: Anatomia do Live Coding e da Sabatina Java Sênior de $5.2k USD -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/fase-3-live-coding-java-senior-5k-usd/</loc>
+    <lastmod>2024-08-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
+      <image:title>Fase 3 Técnica Internacional: Anatomia do Live Coding e da Sabatina Java Sênior de $5.2k USD</image:title>
+      <image:caption>Análise da gravação real da Fase 3 técnica em inglês para vaga sênior de $5.2k USD: resolução ao vivo de palíndromos e sabatina de Java 21 e Spring Boot.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: O Mercado Real de Engenharia de Software: Fundamentos, Choque Prático e a Longevidade da Carreira -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski/</loc>
