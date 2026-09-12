@@ -1,10 +1,25 @@
 # 301 — Consolidação do cluster "Polyworking" (artigos duplicados removidos)
-/artigos/aporia-venda-de-horas-polyworking-engenharia-de-software/  /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
-/artigos/aporia-venda-de-horas-polyworking-engenharia-de-software   /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
-/artigos/arquitetura-do-polyworking-estrategia-riscos-limites/      /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
-/artigos/arquitetura-do-polyworking-estrategia-riscos-limites       /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
-/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa/              /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
-/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa               /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+# Gerado a partir de: git log --diff-filter=D --name-only -- 'content/articles/*.md'
+# Cada slug é listado com e sem trailing slash (Cloudflare Pages faz match exato).
+# Inclui grafias legadas com erro de digitação que chegaram a ser publicadas:
+#   - como-nao-ser-descoberto-e-tirar-vantagem-disso-do-polyworkin (slug truncado)
+#   - como-nao-ser-descoberto-e-tirar-vantagem-do-polyworking      (sem o "disso")
+#   - polyworking-desafios-e-strategias                            (título legado)
+#   - polyworking-nao-                                             (slug truncado)
+/artigos/aporia-venda-de-horas-polyworking-engenharia-de-software/      /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/aporia-venda-de-horas-polyworking-engenharia-de-software       /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/arquitetura-do-polyworking-estrategia-riscos-limites/          /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/arquitetura-do-polyworking-estrategia-riscos-limites           /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/como-nao-ser-descoberto-e-tirar-vantagem-disso-do-polyworkin/  /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/como-nao-ser-descoberto-e-tirar-vantagem-disso-do-polyworkin   /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/como-nao-ser-descoberto-e-tirar-vantagem-do-polyworking/       /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/como-nao-ser-descoberto-e-tirar-vantagem-do-polyworking        /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/polyworking-desafios-e-strategias/                             /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/polyworking-desafios-e-strategias                              /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/polyworking-nao-/                                              /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/polyworking-nao-                                               /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa/                  /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
+/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa                   /artigos/polyworking-estrategia-multiplos-contratos-remotos/  301
 
 # Nota: sem catch-all SPA. Rotas de conteúdo são páginas estáticas pré-renderizadas
 # (/ e /en), e URLs inexistentes caem no /404.html (hard 404, sem soft-404 de SEO).
