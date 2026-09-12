@@ -53,14 +53,17 @@ for (const file of files) {
     slug,
     title: meta.title || 'Sem título',
     date: meta.date || '2026-08-25',
+    updated: meta.updated || meta.date || '2026-08-25',
     author: meta.author || 'Robson Cassiano',
     category: meta.category || 'Geral',
     readTime: meta.readTime || '5 min de leitura',
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     summary: meta.summary || '',
     coverImage: meta.coverImage || 'assets/images/Robson-Cassiano.webp',
+    ogImage: meta.ogImage || `assets/images/og/${slug}.jpg`,
     canonicalUrl: meta.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${slug}/`,
     youtubeVideoId: meta.youtubeVideoId || undefined,
+    videoDuration: meta.videoDuration || undefined,
     content: markdownBody
   });
 }
@@ -116,11 +119,11 @@ for (const art of articles) {
   sitemapEntries.push(`  <!-- Artigo: ${art.title} -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/${art.slug}/</loc>
-    <lastmod>${art.date}</lastmod>
+    <lastmod>${art.updated || art.date}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/${art.coverImage}</image:loc>
+      <image:loc>https://eu.robsoncassiano.software/${art.ogImage || art.coverImage}</image:loc>
       <image:title>${art.title.replace(/&/g, '&amp;')}</image:title>
       <image:caption>${art.summary.replace(/&/g, '&amp;')}</image:caption>
     </image:image>
@@ -137,4 +140,22 @@ ${sitemapEntries.join('\n\n')}
 
 await Bun.write(targetSitemap, sitemapXml);
 console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 2} URLs indexáveis.`);
+
+// 3. Atualizar dinamicamente o índice de artigos do llms.txt (GEO / AI Discovery)
+const llmsPath = path.resolve('llms.txt');
+if (fs.existsSync(llmsPath)) {
+  const llmsRaw = await Bun.file(llmsPath).text();
+  const articleLines = articles
+    .map(a => `- [${a.title}](https://eu.robsoncassiano.software/artigos/${a.slug}/): ${a.summary}`)
+    .join('\n');
+  const block = `<!-- ARTICLES:START -->\n${articleLines}\n<!-- ARTICLES:END -->`;
+
+  if (llmsRaw.includes('<!-- ARTICLES:START -->') && llmsRaw.includes('<!-- ARTICLES:END -->')) {
+    const updated = llmsRaw.replace(/<!-- ARTICLES:START -->[\s\S]*?<!-- ARTICLES:END -->/, block);
+    await Bun.write(llmsPath, updated);
+    console.log(`✓ llms.txt atualizado com ${articles.length} artigos canônicos.`);
+  } else {
+    console.warn('⚠ llms.txt sem marcadores ARTICLES:START/END — índice de artigos não atualizado.');
+  }
+}
 

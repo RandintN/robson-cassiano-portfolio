@@ -133,6 +133,12 @@ export class AppComponent implements OnInit {
           "https://randintn.substack.com",
           "https://beacons.ai/robson.cassiano/portflio"
         ],
+        "subjectOf": {
+          "@type": "ItemList",
+          "name": "Acervo de Entrevistas Técnicas e Mentoria Internacional (+500 Horas Gravadas)",
+          "description": "Acervo público e auditável de mais de 500 horas de gravações de entrevistas técnicas reais, mock interviews e análises com desenvolvedores de software.",
+          "url": "https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-"
+        },
         "jobTitle": isBr
           ? "Software Engineer na Epic Games & Cambridge CELTA Certified Teacher"
           : "Software Engineer at Epic Games & Cambridge CELTA Certified Teacher",
@@ -204,7 +210,7 @@ export class AppComponent implements OnInit {
     };
 
     const programSchema = {
-      "@type": "EducationalOccupationalProgram",
+      "@type": "Course",
       "@id": "https://global.robsoncassiano.software/#program",
       "name": "Descomplica DEV Na Gringa - Mentoria de Carreira Internacional",
       "description": isBr
@@ -215,8 +221,12 @@ export class AppComponent implements OnInit {
         "@id": "https://eu.robsoncassiano.software/#person"
       },
       "url": "https://global.robsoncassiano.software/",
-      "timeToComplete": "P3M",
-      "occupationalCategory": "Software Developers",
+      "inLanguage": isBr ? "pt-BR" : "en-US",
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "P3M"
+      },
       "offers": {
         "@type": "Offer",
         "price": "0.00",
@@ -235,7 +245,8 @@ export class AppComponent implements OnInit {
       { q: 'FAQ_Q5', a: 'FAQ_A5' },
       { q: 'FAQ_Q6', a: 'FAQ_A6' },
       { q: 'FAQ_Q7', a: 'FAQ_A7' },
-      { q: 'FAQ_Q8', a: 'FAQ_A8' }
+      { q: 'FAQ_Q8', a: 'FAQ_A8' },
+      { q: 'FAQ_Q9', a: 'FAQ_A9' }
     ];
 
     const faqSchema = {

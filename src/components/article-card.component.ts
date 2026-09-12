@@ -4,6 +4,36 @@ import { LanguageService } from '../app/services/language.service';
 import { TranslatePipe } from '../app/pipes/translate.pipe';
 
 const ARTICLE_TRANSLATIONS_EN: Record<string, { title: string; summary: string; category: string; readTime: string }> = {
+  'a-mecanica-oculta-dos-ats-workable-vs-greenhouse': {
+    title: 'ATS in Practice: Workable vs Greenhouse and Your Resume',
+    summary: 'I tested Workable hands-on and compared it with Greenhouse: resume parsing, pricing and the Canva myth that gets candidates filtered out before the interview.',
+    category: 'Career & Engineering',
+    readTime: '8 min read'
+  },
+  'como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia': {
+    title: 'AI-Run Technical Interviews: A Real Session Breakdown',
+    summary: 'I broke down a real AI-conducted technical interview frame by frame: what the panel evaluates and the answers that separate a pass from a rejection.',
+    category: 'Career & Engineering',
+    readTime: '9 min read'
+  },
+  'fase-3-live-coding-java-senior-5k-usd': {
+    title: 'Senior Java Live Coding: Inside the US$ 5.2k Phase 3',
+    summary: 'I recorded and analyzed an English Phase 3 interview for a US$ 5.2k senior role: palindrome, think aloud, virtual threads, Spring Security and tests.',
+    category: 'Career & Engineering',
+    readTime: '9 min read'
+  },
+  'programador-portugal-salario-euro-visto-negociacao': {
+    title: 'Developer in Portugal: Salary, Visa and What to Negotiate',
+    summary: 'I recorded a real recruiting call for Portugal and break down each stage: visa, relocation allowance, family reunification and purchasing power parity.',
+    category: 'International Career',
+    readTime: '9 min read'
+  },
+  'coding-interview-preparation-week-by-week-study-plan': {
+    title: 'Coding Interview Prep: A Week-by-Week Study Plan',
+    summary: 'A structured week-by-week plan for US tech coding interviews: core algorithm patterns, dynamic programming triage and readiness checkpoints.',
+    category: 'Career & Engineering',
+    readTime: '12 min read'
+  },
   'por-que-spring-boot-domina-backend-global': {
     title: 'Why Spring Boot and Java Dominate the Most Lucrative Global Backend Contracts',
     summary: "While new frameworks emerge weekly, the Java/Spring ecosystem continues powering the world's most mission-critical and lucrative systems. Learn why US/EU enterprises pay over $8k/mo for engineers mastering this stack.",
@@ -14,18 +44,6 @@ const ARTICLE_TRANSLATIONS_EN: Record<string, { title: string; summary: string; 
     title: 'The Polyworking Strategy: Managing Multiple Global USD/EUR Remote Contracts Securely',
     summary: 'A deep-dive technical and operational guide on structuring multiple international software contracts simultaneously without burnout, delivering high leverage and compounding wealth.',
     category: 'Career & Global Business',
-    readTime: '7 min read'
-  },
-  'arquitetura-do-polyworking-estrategia-riscos-limites': {
-    title: 'The Architecture of Polyworking: Strategy, Operational Risks, and Limits',
-    summary: 'A structured engineering breakdown on managing multiple remote developer contracts simultaneously. Context switching, risk mitigation, ethics, and legal frameworks.',
-    category: 'Career & Engineering',
-    readTime: '6 min read'
-  },
-  'polyworking-nao-e-tao-vantajoso-quanto-pensa': {
-    title: "Polyworking Isn't as Easy as You Think: The Hidden Risks of Multiple Jobs",
-    summary: 'A frank, counter-intuitive analysis on context switching overhead, burnout risks, cognitive tax, and when deepening high-ticket specialization beats stacking low-rate contracts.',
-    category: 'Career & Strategy',
     readTime: '7 min read'
   },
   'como-criar-diferencial-era-inteligencia-artificial': {

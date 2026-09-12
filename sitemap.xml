@@ -5,7 +5,7 @@
   <!-- Página Principal (Português / Canônico x-default) -->
   <url>
     <loc>https://eu.robsoncassiano.software/</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -22,7 +22,7 @@
   <!-- Dedicated English Portal (International SEO / English Speakers) -->
   <url>
     <loc>https://eu.robsoncassiano.software/en</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -36,198 +36,172 @@
     </image:image>
   </url>
 
-  <!-- Artigo: Como Passar em Entrevistas Técnicas Internacionais feitas por IA? Análise de uma Sessão Real e Lições Práticas para Desenvolvedores -->
+  <!-- Artigo: Entrevistas Técnicas de IA: Análise de uma Sessão Real -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Como Passar em Entrevistas Técnicas Internacionais feitas por IA? Análise de uma Sessão Real e Lições Práticas para Desenvolvedores</image:title>
-      <image:caption>Análise detalhada de uma entrevista técnica real: anatomia da explicação arquitetural, capacidade de decisão, domínio da linguagem técnica e lições práticas para contratação internacional.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia.jpg</image:loc>
+      <image:title>Entrevistas Técnicas de IA: Análise de uma Sessão Real</image:title>
+      <image:caption>Dissequei, quadro a quadro, uma entrevista técnica real conduzida por IA: o que a banca avalia e as respostas que separam aprovação de rejeição.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: Coding Interview Preparation: A Week-by-Week Study Plan -->
+  <!-- Artigo: Coding Interview Prep: A Week-by-Week Study Plan -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan/</loc>
-    <lastmod>2026-08-29</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/coding-interview-preparation-roadmap.webp</image:loc>
-      <image:title>Coding Interview Preparation: A Week-by-Week Study Plan</image:title>
-      <image:caption>A concrete, structured week-by-week study plan for US tech coding interviews: key algorithm patterns, dynamic programming triage, 1/4/8-week schedules, tool recommendations, and readiness checkpoints.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/coding-interview-preparation-week-by-week-study-plan.jpg</image:loc>
+      <image:title>Coding Interview Prep: A Week-by-Week Study Plan</image:title>
+      <image:caption>A structured week-by-week plan for US tech coding interviews: core algorithm patterns, dynamic programming triage and readiness checkpoints.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: Polyworking na Engenharia de Software: Fundamentos Jurídicos, Isolamento Operacional e Limites de Escala -->
+  <!-- Artigo: Programador em Portugal: Salário, Visto e o Que Negociar -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/programador-portugal-salario-euro-visto-negociacao/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/programador-portugal-salario-euro-visto-negociacao.jpg</image:loc>
+      <image:title>Programador em Portugal: Salário, Visto e o Que Negociar</image:title>
+      <image:caption>Gravei uma call real de recrutamento para Portugal e analiso cada etapa: visto, ajuda de custo, reagrupamento familiar e paridade de poder de compra.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: Polyworking: Contratos Múltiplos, Riscos e Limites Reais -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/polyworking-estrategia-multiplos-contratos-remotos/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Polyworking na Engenharia de Software: Fundamentos Jurídicos, Isolamento Operacional e Limites de Escala</image:title>
-      <image:caption>Uma análise técnica e jurídica sobre a sobreposição de contratos remotos na engenharia de software, abordando dirigismo contratual, telemetria corporativa, arquitetura de hardware e preservação de saúde.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/polyworking-estrategia-multiplos-contratos-remotos.jpg</image:loc>
+      <image:title>Polyworking: Contratos Múltiplos, Riscos e Limites Reais</image:title>
+      <image:caption>Análise prática e jurídica do polyworking escrita por quem praticou múltiplos contratos: exclusividade, isolamento de hardware e o teto da venda de horas.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: A Arquitetura do Polyworking: Estratégia, Riscos e os Limites da Venda de Horas -->
-  <url>
-    <loc>https://eu.robsoncassiano.software/artigos/arquitetura-do-polyworking-estrategia-riscos-limites/</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>A Arquitetura do Polyworking: Estratégia, Riscos e os Limites da Venda de Horas</image:title>
-      <image:caption>Uma análise analítica e jurídica do polyworking para engenheiros de software, cobrindo riscos de demissão, gestão de LinkedIn e táticas de escalabilidade.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Artigo: Polyworking na Engenharia de Software: A Realidade Operacional, Riscos Jurídicos e a Ilusão da Escala -->
-  <url>
-    <loc>https://eu.robsoncassiano.software/artigos/polyworking-nao-e-tao-vantajoso-quanto-pensa/</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Polyworking na Engenharia de Software: A Realidade Operacional, Riscos Jurídicos e a Ilusão da Escala</image:title>
-      <image:caption>Análise técnica sobre a prática de múltiplos contratos remotos simultâneos: limites biológicos, dirigismo contratual, jurisprudência trabalhista e o teto da venda de horas.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Artigo: A Aporia da Venda de Horas: Uma Análise Estrutural do Polyworking na Engenharia de Software -->
-  <url>
-    <loc>https://eu.robsoncassiano.software/artigos/aporia-venda-de-horas-polyworking-engenharia-de-software/</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>A Aporia da Venda de Horas: Uma Análise Estrutural do Polyworking na Engenharia de Software</image:title>
-      <image:caption>Uma investigação analítica e jurídica sobre o polyworking, seus riscos operacionais, manobras de mitigação e os limites inerentes à alocação linear de tempo.</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Artigo: Como Criar um Monopólio Pessoal e Vencer o Conteúdo Genérico da IA -->
+  <!-- Artigo: Monopólio Pessoal: como Vencer o Conteúdo Genérico da IA -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/como-criar-diferencial-era-inteligencia-artificial/</loc>
-    <lastmod>2026-07-26</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Como Criar um Monopólio Pessoal e Vencer o Conteúdo Genérico da IA</image:title>
-      <image:caption>Análise sobre como a individuação de Carl Jung e o conceito de Unique Ability de Dan Sullivan formam o único monopólio defensável contra a produção sintética em massa.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/como-criar-diferencial-era-inteligencia-artificial.jpg</image:loc>
+      <image:title>Monopólio Pessoal: como Vencer o Conteúdo Genérico da IA</image:title>
+      <image:caption>A partir da psicologia de Carl Jung, um método prático para construir um monopólio pessoal, o único ativo defensável contra a produção sintética em massa.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: O que Aristóteles e a Filosofia Clássica Ensinam sobre Arquitetura de Software -->
+  <!-- Artigo: Aristóteles e a Arquitetura de Software: as Quatro Causas -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software/</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>O que Aristóteles e a Filosofia Clássica Ensinam sobre Arquitetura de Software</image:title>
-      <image:caption>Como a busca pelas causas primeiras, a virtude do equilíbrio e o princípio da simplicidade da filosofia clássica transformam desenvolvedores juniores e plenos em líderes técnicos de referência.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/filosofia-classica-e-arquitetura-de-software.jpg</image:loc>
+      <image:title>Aristóteles e a Arquitetura de Software: as Quatro Causas</image:title>
+      <image:caption>Como as Quatro Causas de Aristóteles, a Navalha de Occam e o princípio do Telos orientam decisões de arquitetura sob incerteza em times de engenharia.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: Como Negociar Contratos de $8k+/mês no Exterior sem Inglês Nativo -->
+  <!-- Artigo: Como Negociar US$ 8k/mês no Exterior sem Inglês Nativo -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java/</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Como Negociar Contratos de $8k+/mês no Exterior sem Inglês Nativo</image:title>
-      <image:caption>O maior obstáculo para desenvolvedores sênior ganharem em dólar não é a técnica, mas o medo do inglês acadêmico. Descubra o método 'Real English' e o framework de negociação para fechar contratos de R$ 30k+/mês.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/como-negociar-contratos-8k-mes-dev-java.jpg</image:loc>
+      <image:title>Como Negociar US$ 8k/mês no Exterior sem Inglês Nativo</image:title>
+      <image:caption>O maior obstáculo para devs sênior ganharem em moeda forte não é a técnica, é o método de negociação. Um framework prático de ancoragem de valor.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: Por que o Spring Boot e Java Dominam os Melhores Contratos Globais de Backend -->
+  <!-- Artigo: Por que Spring Boot e Java Dominam Contratos Globais -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global/</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Por que o Spring Boot e Java Dominam os Melhores Contratos Globais de Backend</image:title>
-      <image:caption>Enquanto novos frameworks surgem a cada semana, o ecossistema Java/Spring continua sustentando as aplicações mais críticas e lucrativas do mundo. Entenda por que empresas no exterior pagam mais de $8k/mês por quem domina essa stack.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/por-que-spring-boot-domina-backend-global.jpg</image:loc>
+      <image:title>Por que Spring Boot e Java Dominam Contratos Globais</image:title>
+      <image:caption>Novos frameworks surgem a cada trimestre, mas o ecossistema Java e Spring sustenta as aplicações mais críticas. Por que empresas globais pagam mais por ele.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: Resiliência Arquitetural e Circuit Breaker: Mitigação Sistemática de Falhas em Cascata -->
+  <!-- Artigo: Circuit Breaker: Resiliência e Falhas em Cascata -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata/</loc>
-    <lastmod>2026-02-05</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Resiliência Arquitetural e Circuit Breaker: Mitigação Sistemática de Falhas em Cascata</image:title>
-      <image:caption>Análise técnica sobre resiliência em microsserviços, o padrão Circuit Breaker e desacoplamento via filas para evitar o colapso por falhas em cascata.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/resiliencia-arquitetural-circuit-breaker-falhas-cascata.jpg</image:loc>
+      <image:title>Circuit Breaker: Resiliência e Falhas em Cascata</image:title>
+      <image:caption>Análise técnica de resiliência em microsserviços: acoplamento síncrono, desacoplamento via filas e o padrão Circuit Breaker que prevê falhas.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: A Mecânica Oculta dos ATS: Uma Análise da Visão do Recrutador no Workable e Greenhouse -->
+  <!-- Artigo: ATS na Prática: Workable vs Greenhouse e o Seu Currículo -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/a-mecanica-oculta-dos-ats-workable-vs-greenhouse/</loc>
-    <lastmod>2025-09-10</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>A Mecânica Oculta dos ATS: Uma Análise da Visão do Recrutador no Workable e Greenhouse</image:title>
-      <image:caption>Desmontamos a arquitetura dos sistemas de rastreamento de candidatos (ATS) analisando Workable e Greenhouse sob a ótica do recrutador e do engenheiro.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/a-mecanica-oculta-dos-ats-workable-vs-greenhouse.jpg</image:loc>
+      <image:title>ATS na Prática: Workable vs Greenhouse e o Seu Currículo</image:title>
+      <image:caption>Testei o Workable na prática e comparei com o Greenhouse: parser de currículo, preços e o mito do Canva que elimina candidatos antes da entrevista.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: Desenvolvimento de Aplicações com OpenTelemetry e Grafana: Uma Abordagem Profunda -->
+  <!-- Artigo: OpenTelemetry e Grafana: Caching e Status 202 na Prática -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana/</loc>
-    <lastmod>2025-08-30</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Desenvolvimento de Aplicações com OpenTelemetry e Grafana: Uma Abordagem Profunda</image:title>
-      <image:caption>Desenvolvimento de aplicações com OpenTelemetry e Grafana: uma abordagem profunda para otimização de desempenho e análise de dados.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/otimizacao-com-open-telemetry-e-grafana.jpg</image:loc>
+      <image:title>OpenTelemetry e Grafana: Caching e Status 202 na Prática</image:title>
+      <image:caption>Demonstração prática de OpenTelemetry e Grafana em backend Kotlin com Spring: tracing, caching seletivo e 110 mil linhas com resposta 202 Accepted.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: Fase 3 Técnica Internacional: Anatomia do Live Coding e da Sabatina Java Sênior de $5.2k USD -->
+  <!-- Artigo: Live Coding Java Sênior: Anatomia da Fase 3 de US$ 5.2k -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/fase-3-live-coding-java-senior-5k-usd/</loc>
-    <lastmod>2024-08-29</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>Fase 3 Técnica Internacional: Anatomia do Live Coding e da Sabatina Java Sênior de $5.2k USD</image:title>
-      <image:caption>Análise da gravação real da Fase 3 técnica em inglês para vaga sênior de $5.2k USD: resolução ao vivo de palíndromos e sabatina de Java 21 e Spring Boot.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/fase-3-live-coding-java-senior-5k-usd.jpg</image:loc>
+      <image:title>Live Coding Java Sênior: Anatomia da Fase 3 de US$ 5.2k</image:title>
+      <image:caption>Gravei e analisei uma Fase 3 técnica em inglês para vaga sênior de US$ 5.2k: palíndromo, think aloud, virtual threads, Spring Security e testes.</image:caption>
     </image:image>
   </url>
 
-  <!-- Artigo: O Mercado Real de Engenharia de Software: Fundamentos, Choque Prático e a Longevidade da Carreira -->
+  <!-- Artigo: O Mercado Real de Engenharia de Software em 14 Anos -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski/</loc>
-    <lastmod>2023-10-12</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/robson-cassiano-mentor.jpg</image:loc>
-      <image:title>O Mercado Real de Engenharia de Software: Fundamentos, Choque Prático e a Longevidade da Carreira</image:title>
-      <image:caption>Ensaio analítico sobre a primeira live técnica do canal: o abismo entre o ensino acadêmico e a produção real, e os princípios que sustentam mais de uma década na engenharia de software.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/mercado-real-engenharia-software-clecius-martinkoski.jpg</image:loc>
+      <image:title>O Mercado Real de Engenharia de Software em 14 Anos</image:title>
+      <image:caption>Conversa com Clécius Martinkoski sobre o abismo entre a academia e a produção, a migração de um sistema de 2011 e o que sustenta a relevância profissional.</image:caption>
     </image:image>
   </url>
 </urlset>

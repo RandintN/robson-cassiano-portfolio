@@ -24,6 +24,13 @@ if (fs.existsSync(rootSitemap)) {
 
 const articles = await Bun.file(articlesFile).json();
 
+const escapeAttr = (value = '') =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
 for (const art of articles) {
   let rawContent = art.content || '';
   rawContent = rawContent.replace(/^#\s+[^\n]+\n+/, '');
@@ -74,7 +81,13 @@ for (const art of articles) {
   const canonicalUrl = `https://eu.robsoncassiano.software/artigos/${art.slug}/`;
   const cleanCoverImage = (art.coverImage || '').replace(/^\/+/, '');
   const coverImageUrl = `https://eu.robsoncassiano.software/${cleanCoverImage}`;
+  const cleanOgImage = (art.ogImage || art.coverImage || '').replace(/^\/+/, '');
+  const ogImageUrl = `https://eu.robsoncassiano.software/${cleanOgImage}`;
   const publisherLogoUrl = 'https://eu.robsoncassiano.software/assets/icons/logo-header.webp';
+
+  // Keep the <title> within the 50-60 char SERP budget: append the brand only if it still fits.
+  const brandedTitle = `${art.title} | Robson Cassiano`;
+  const metaTitle = brandedTitle.length <= 60 ? brandedTitle : art.title;
 
   const graphItems = [
     {
@@ -89,7 +102,7 @@ for (const art of articles) {
       "image": coverImageUrl,
       "author": {
         "@type": "Person",
-        "@id": "https://eu.robsoncassiano.software/#author",
+        "@id": "https://eu.robsoncassiano.software/#person",
         "name": "Robson Cassiano",
         "jobTitle": "Software Engineer na Epic Games & Cambridge CELTA Certified Teacher",
         "url": "https://www.robsoncassiano.software/",
@@ -119,7 +132,7 @@ for (const art of articles) {
       },
       "publisher": {
         "@type": "Organization",
-        "@id": "https://eu.robsoncassiano.software/#publisher",
+        "@id": "https://eu.robsoncassiano.software/#organization",
         "name": "Simple Software LTDA",
         "url": "https://www.robsoncassiano.software/",
         "logo": {
@@ -137,7 +150,7 @@ for (const art of articles) {
         ]
       },
       "datePublished": `${art.date}T10:00:00-03:00`,
-      "dateModified": `${art.date}T10:00:00-03:00`,
+      "dateModified": `${art.updated || art.date}T10:00:00-03:00`,
       "articleSection": art.category,
       "keywords": art.tags.join(', '),
       "inLanguage": "pt-BR"
@@ -169,15 +182,19 @@ for (const art of articles) {
   ];
 
   if (art.youtubeVideoId) {
-    graphItems.push({
+    const videoObject = {
       "@type": "VideoObject",
       "@id": `${canonicalUrl}#video`,
       "name": `Transmissão Original: ${art.title}`,
       "description": art.summary,
       "thumbnailUrl": `https://i.ytimg.com/vi/${art.youtubeVideoId}/hqdefault.jpg`,
       "uploadDate": `${art.date}T10:00:00-03:00`,
+      "contentUrl": `https://www.youtube.com/watch?v=${art.youtubeVideoId}`,
       "embedUrl": `https://www.youtube.com/embed/${art.youtubeVideoId}`
-    });
+    };
+    // duration is required for Google video rich results; only emit it when a real ISO-8601 value exists.
+    if (art.videoDuration) videoObject.duration = art.videoDuration;
+    graphItems.push(videoObject);
   }
 
   const jsonLd = {
@@ -190,31 +207,40 @@ for (const art of articles) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${art.title} | Robson Cassiano</title>
-  <meta name="description" content="${art.summary}">
+  <title>${escapeAttr(metaTitle)}</title>
+  <meta name="description" content="${escapeAttr(art.summary)}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="${canonicalUrl}">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/icons/site.webmanifest">
   <link rel="alternate" type="text/plain" href="https://eu.robsoncassiano.software/llms.txt" title="LLMs.txt">
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="${art.title}">
-  <meta property="og:description" content="${art.summary}">
+  <meta property="og:title" content="${escapeAttr(art.title)}">
+  <meta property="og:description" content="${escapeAttr(art.summary)}">
   <meta property="og:url" content="${canonicalUrl}">
-  <meta property="og:image" content="${coverImageUrl}">
+  <meta property="og:image" content="${ogImageUrl}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${escapeAttr(art.title)}">
   <meta property="og:site_name" content="Robson Cassiano - Senior Software Engineer">
   <meta property="article:published_time" content="${art.date}">
+  <meta property="article:modified_time" content="${art.updated || art.date}">
   <meta property="article:author" content="Robson Cassiano">
-  <meta property="article:section" content="${art.category}">
+  <meta property="article:section" content="${escapeAttr(art.category)}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@RobsonDev">
   <meta name="twitter:creator" content="@RobsonDev">
-  <meta name="twitter:title" content="${art.title}">
-  <meta name="twitter:description" content="${art.summary}">
-  <meta name="twitter:image" content="${coverImageUrl}">
+  <meta name="twitter:title" content="${escapeAttr(art.title)}">
+  <meta name="twitter:description" content="${escapeAttr(art.summary)}">
+  <meta name="twitter:image" content="${ogImageUrl}">
+  <meta name="twitter:image:alt" content="${escapeAttr(art.title)}">
 
   <!-- Schema.org JSON-LD Structured Data for Googlebot & LLMs -->
   <script type="application/ld+json">

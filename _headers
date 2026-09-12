@@ -3,15 +3,49 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Cache-Control: public, max-age=0, must-revalidate
   Vary: Accept
 
-/assets/*
+# IMPORTANT: Cloudflare merges Cache-Control from every matching rule, so rules
+# below are written to NEVER overlap on Cache-Control. Do not add a Cache-Control
+# to /* and keep each path matched by a single caching rule.
+
+# Hashed Angular JS bundles (content-addressed)
+/*.js
   Cache-Control: public, max-age=31536000, immutable
+
+# Hashed Angular CSS bundle: styles-<hash>.css (the un-hashed one lives in /assets/css)
+/styles-*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Static media (immutable in place)
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/icons/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Runtime data that changes on every deploy MUST revalidate (no stale CMS/i18n)
+/assets/content/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/i18n/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/css/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# HTML documents
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/artigos/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/en/*
+  Cache-Control: public, max-age=0, must-revalidate
 
 /assets/images/bimi-logo.svg
   Content-Type: image/svg+xml
-  Cache-Control: public, max-age=86400, must-revalidate
   Access-Control-Allow-Origin: *
 
 /index.md
@@ -47,4 +81,3 @@
   Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
   Access-Control-Allow-Headers: Content-Type, Authorization
   Access-Control-Max-Age: 86400
-

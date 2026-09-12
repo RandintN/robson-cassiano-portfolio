@@ -1,12 +1,13 @@
 ---
-title: "Coding Interview Preparation: A Week-by-Week Study Plan"
+title: "Coding Interview Prep: A Week-by-Week Study Plan"
 slug: "coding-interview-preparation-week-by-week-study-plan"
 date: "2026-08-29"
 author: "Robson Cassiano"
+updated: "2026-09-12"
 category: "Carreira & Engenharia"
 readTime: "12 min de leitura"
 tags: ["Coding Interview", "LeetCode", "Algorithm Patterns", "System Design", "Behavioral Interview", "US Tech Jobs", "Dev na Gringa"]
-summary: "A concrete, structured week-by-week study plan for US tech coding interviews: key algorithm patterns, dynamic programming triage, 1/4/8-week schedules, tool recommendations, and readiness checkpoints."
+summary: "A structured week-by-week plan for US tech coding interviews: core algorithm patterns, dynamic programming triage and readiness checkpoints."
 coverImage: "assets/images/coding-interview-preparation-roadmap.webp"
 canonicalUrl: "https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan/"
 preSoldTarget: "mentoria"
@@ -309,3 +310,7 @@ Effective coding interview preparation requires structure, disciplined time mana
 If you want a proven roadmap with personalized mentorship, live mock interviews, and technical English coaching tailored for international developers, explore the [Dev na Gringa Training](https://treinamento.robsoncassiano.software/) track.
 
 The plan works. The only question is when you begin.
+
+---
+
+**About the author.** Robson Cassiano is a senior software engineer with nearly a decade of backend experience in Java and Kotlin, including work at large financial institutions and international contracts. He analyzes real interview recordings from his mentees and runs Descomplica DEV Na Gringa, a mentorship that prepares Brazilian engineers for international hiring loops. This article is based on firsthand review of real technical interviews and hiring processes, not on generic advice.

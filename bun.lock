@@ -12,6 +12,7 @@
         "@angular/compiler-cli": "^21.0.0",
         "@angular/core": "^21.0.0",
         "@angular/platform-browser": "^21.0.0",
+        "@zernio/node": "0.2.733",
         "googleapis": "^176.0.0",
         "marked": "^18.0.11",
         "mimetext": "^3.0.28",
@@ -533,6 +534,8 @@
     "@vitejs/plugin-basic-ssl": ["@vitejs/plugin-basic-ssl@2.1.0", "", { "peerDependencies": { "vite": "^6.0.0 || ^7.0.0" } }, "sha512-dOxxrhgyDIEUADhb/8OlV9JIqYLgos03YorAueTIeOUskLJSEsfwCByjbu98ctXitUN3znXKp0bYD/WHSudCeA=="],
 
     "@yarnpkg/lockfile": ["@yarnpkg/lockfile@1.1.0", "", {}, "sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ=="],
+
+    "@zernio/node": ["@zernio/node@0.2.733", "", {}, "sha512-m3N0UL0qoB3pCTfpeXmd7gEDEEC5+jRO+ghto7JCJT4XneVH7w1+RcQv9fhRH5ymAJfRWSshSSdfDmwPmbHfKQ=="],
 
     "abbrev": ["abbrev@4.0.0", "", {}, "sha512-a1wflyaL0tHtJSmLSOVybYhy22vRih4eduhhrkcjgrWGnRfrZtovJ2FRjxuTtkkj47O/baf0R86QU5OuYpz8fA=="],
 
