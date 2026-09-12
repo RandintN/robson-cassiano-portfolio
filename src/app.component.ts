@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
     const profilePageSchema = {
       "@type": "ProfilePage",
       "@id": "https://eu.robsoncassiano.software/#profilepage",
-      "url": "https://eu.robsoncassiano.software/",
+      "url": isBr ? "https://eu.robsoncassiano.software/" : "https://eu.robsoncassiano.software/en",
       "name": isBr ? "Robson Cassiano | Senior Software Engineer, Mentor e Filósofo" : "Robson Cassiano | Senior Software Engineer, Mentor and Philosopher",
       "inLanguage": isBr ? "pt-BR" : "en-US",
       "mainEntity": {

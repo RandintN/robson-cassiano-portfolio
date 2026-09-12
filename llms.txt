@@ -50,4 +50,6 @@
 
 ## Documentos Estruturados para Agentes de IA
 - [Markdown Portfolio](https://eu.robsoncassiano.software/index.md): Versão completa em Markdown com FAQ, Filosofia, Serviços e Tabela Comparativa.
+- [English Markdown Portfolio](https://eu.robsoncassiano.software/index-en.md): Full English Markdown mirror with FAQ, capabilities and market comparison.
+- [English Portal (/en)](https://eu.robsoncassiano.software/en): English version of the portfolio (en-US, hreflang alternate).
 - [Full LLMs Context](https://eu.robsoncassiano.software/llms-full.txt): Base de conhecimento factual para citações e respostas de agentes autônomos.

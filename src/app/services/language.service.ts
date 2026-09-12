@@ -97,6 +97,15 @@ export class LanguageService {
   translate(key: string): string {
     const lang = this.currentLanguage();
     const translations = this.translations();
-    return translations[lang][key] || key;
+    const current = translations[lang]?.[key];
+    if (current) return current;
+
+    // Fall back to the other language before exposing the raw key (never leak KEY_NAME to users)
+    const fallbackLang: Language = lang === 'br' ? 'en' : 'br';
+    const fallback = translations[fallbackLang]?.[key];
+    if (fallback) return fallback;
+
+    console.warn(`[i18n] Missing translation for "${key}" in both br and en.`);
+    return key;
   }
 }

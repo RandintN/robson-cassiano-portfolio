@@ -211,6 +211,8 @@ for (const art of articles) {
   <meta name="description" content="${escapeAttr(art.summary)}">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="alternate" hreflang="pt-BR" href="${canonicalUrl}">
+  <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
   <link rel="shortcut icon" href="/assets/icons/favicon.ico">
@@ -220,6 +222,8 @@ for (const art of articles) {
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
   <meta property="og:title" content="${escapeAttr(art.title)}">
   <meta property="og:description" content="${escapeAttr(art.summary)}">
   <meta property="og:url" content="${canonicalUrl}">
@@ -341,9 +345,12 @@ ${JSON.stringify(jsonLd, null, 2)}
           <span class="text-[9px] tracking-widest uppercase font-semibold text-[#967432] font-mono">迅貫 · Jinkan</span>
         </div>
       </a>
-      <a href="/#artigos" class="text-sm font-semibold text-slate-300 hover:text-[#dfb15b] transition-colors flex items-center gap-1.5 group">
-        <span class="group-hover:-translate-x-1 transition-transform">&larr;</span> <span>Todos os Artigos</span>
-      </a>
+      <div class="flex items-center gap-4">
+        <a href="/en/" hreflang="en" title="Read the English portfolio" class="text-sm font-bold text-slate-400 hover:text-[#dfb15b] transition-colors border border-[#252530] hover:border-[#dfb15b]/40 rounded-lg px-3 py-1.5">EN</a>
+        <a href="/#artigos" class="text-sm font-semibold text-slate-300 hover:text-[#dfb15b] transition-colors flex items-center gap-1.5 group">
+          <span class="group-hover:-translate-x-1 transition-transform">&larr;</span> <span>Todos os Artigos</span>
+        </a>
+      </div>
     </div>
   </header>
 
@@ -453,13 +460,200 @@ ${JSON.stringify(jsonLd, null, 2)}
 
 console.log(`✓ Geração estática de ${articles.length} artigos finalizada com sucesso.`);
 
+// ---------------------------------------------------------------------------
+// Structured data (Schema.org JSON-LD) built from the i18n source of truth, so
+// both / (pt-BR) and /en (en-US) ship language-correct schema to crawlers that
+// do not execute JavaScript (Googlebot, Bingbot, most AI crawlers).
+// ---------------------------------------------------------------------------
+const i18nBr = await Bun.file(path.resolve('src/assets/i18n/br.json')).json();
+const i18nEn = await Bun.file(path.resolve('src/assets/i18n/en.json')).json();
+
+const SITE_URL = 'https://eu.robsoncassiano.software/';
+const ARCHIVE_URL = 'https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-';
+const FAQ_KEYS = ['FAQ_Q1', 'FAQ_Q2', 'FAQ_Q3', 'FAQ_Q4', 'FAQ_Q5', 'FAQ_Q6', 'FAQ_Q7', 'FAQ_Q8', 'FAQ_Q9'];
+const PERSON_SAME_AS = [
+  'https://www.robsoncassiano.software/',
+  'https://global.robsoncassiano.software/',
+  'https://eu.robsoncassiano.software/',
+  'https://github.com/RandintN',
+  'https://www.linkedin.com/in/robsoncassiano-software/',
+  'https://www.amazon.com.br/stores/Robson-Cassiano/author/B0FLN1QMCJ',
+  'https://www.goodreads.com/user/show/68023009-robson-cassiano',
+  'https://twitter.com/RobsonDev',
+  'https://www.youtube.com/@RobsonCassianoSoftware',
+  'https://instagram.com/robsoncassiano.software',
+  'https://www.facebook.com/RobsonCassianoSoftware/',
+  'https://randintn.substack.com',
+  'https://beacons.ai/robson.cassiano/portflio'
+];
+const ORG_SAME_AS = [
+  'https://www.robsoncassiano.software/',
+  'https://global.robsoncassiano.software/',
+  'https://github.com/SimpleSoftwareLTDA',
+  'https://www.linkedin.com/company/simple-software-ltda',
+  'https://www.linkedin.com/in/robsoncassiano-software/',
+  'https://www.youtube.com/@RobsonCassianoSoftware',
+  'https://www.facebook.com/RobsonCassianoSoftware/'
+];
+const KNOWS_ABOUT = [
+  'Software Engineering', 'International Tech Careers', 'Technical English for Developers',
+  'System Design', 'B2B Remote Contracts', 'Simples Nacional Fator R', 'Java Backend Development',
+  'Spring Framework & Spring Boot', 'PostgreSQL Database Optimization',
+  'Software Architecture & Clean Architecture', 'Classical Philosophy'
+];
+const KNOWS_LANGUAGE = [
+  { '@type': 'Language', name: 'Portuguese', alternateName: 'pt-BR' },
+  { '@type': 'Language', name: 'English', alternateName: 'en' },
+  { '@type': 'Language', name: 'Japanese', alternateName: 'ja' },
+  { '@type': 'Language', name: 'Latin', alternateName: 'la' },
+  { '@type': 'Language', name: 'Ancient Greek', alternateName: 'grc' }
+];
+const stripHtml = (value) => String(value || '').replace(/<[^>]*>/g, '');
+
+function buildStructuredData(lang) {
+  const isBr = lang === 'br';
+  const dict = isBr ? i18nBr : i18nEn;
+  const t = (key) => dict[key] || key;
+  const pageUrl = isBr ? SITE_URL : `${SITE_URL}en`;
+  const locale = isBr ? 'pt-BR' : 'en-US';
+
+  const profilePage = {
+    '@type': 'ProfilePage',
+    '@id': `${SITE_URL}#profilepage`,
+    url: pageUrl,
+    name: isBr
+      ? 'Robson Cassiano | Senior Software Engineer, Mentor de Carreira Internacional e Filósofo'
+      : 'Robson Cassiano | Senior Software Engineer, International Career Mentor and Philosopher',
+    inLanguage: locale,
+    mainEntity: {
+      '@type': 'Person',
+      '@id': `${SITE_URL}#person`,
+      name: 'Robson Cassiano',
+      alternateName: ['RobsonDev', 'Robson Cassiano Software', 'randintn'],
+      url: SITE_URL,
+      image: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}assets/images/Robson-Cassiano.webp`,
+        width: 800,
+        height: 800,
+        caption: isBr
+          ? 'Robson Cassiano - Software Engineer na Epic Games & Cambridge CELTA Certified Teacher'
+          : 'Robson Cassiano - Software Engineer at Epic Games & Cambridge CELTA Certified Teacher'
+      },
+      jobTitle: isBr
+        ? 'Software Engineer na Epic Games & Cambridge CELTA Certified Teacher'
+        : 'Software Engineer at Epic Games & Cambridge CELTA Certified Teacher',
+      description: isBr
+        ? 'Software Engineer na Epic Games. Ex-BTG Pactual, Fundador da Simple Software, Autor de Livros de Tecnologia na Amazon e Professor de Inglês certificado por Cambridge (CELTA). Mentor de carreira internacional para desenvolvedores.'
+        : 'Software Engineer at Epic Games. Ex-BTG Pactual, Founder of Simple Software, Amazon Author, and Cambridge CELTA Certified English Teacher. International career mentor for developers.',
+      worksFor: { '@type': 'Organization', name: 'Epic Games' },
+      alumniOf: { '@type': 'Organization', name: 'University of Cambridge (CELTA Certification)' },
+      sameAs: PERSON_SAME_AS,
+      subjectOf: {
+        '@type': 'ItemList',
+        name: isBr
+          ? 'Acervo de Entrevistas Técnicas e Mentoria Internacional (+500 Horas Gravadas)'
+          : 'Technical Interview & International Mentorship Archive (500+ Recorded Hours)',
+        description: isBr
+          ? 'Acervo público e auditável de mais de 500 horas de gravações de entrevistas técnicas reais, mock interviews e análises com desenvolvedores de software.'
+          : 'Public, auditable archive of 500+ hours of real technical interviews, mock sessions and engineering analyses with software developers.',
+        url: ARCHIVE_URL
+      },
+      knowsAbout: KNOWS_ABOUT,
+      knowsLanguage: KNOWS_LANGUAGE,
+      founder: { '@type': 'Organization', '@id': `${SITE_URL}#organization` }
+    }
+  };
+
+  const organization = {
+    '@type': 'Organization',
+    '@id': `${SITE_URL}#organization`,
+    name: 'Simple Software LTDA',
+    url: 'https://www.robsoncassiano.software/',
+    logo: {
+      '@type': 'ImageObject',
+      '@id': `${SITE_URL}#logo`,
+      url: `${SITE_URL}assets/images/Robson-Cassiano.webp`,
+      caption: 'Simple Software'
+    },
+    founder: { '@type': 'Person', '@id': `${SITE_URL}#person` },
+    description: isBr
+      ? 'Software house e consultoria de alta engenharia fundada por Robson Cassiano.'
+      : 'High-engineering software house and consultancy founded by Robson Cassiano.',
+    sameAs: ORG_SAME_AS
+  };
+
+  const course = {
+    '@type': 'Course',
+    '@id': 'https://global.robsoncassiano.software/#program',
+    name: isBr
+      ? 'Descomplica DEV Na Gringa - Mentoria de Carreira Internacional'
+      : 'Descomplica DEV Na Gringa - International Career Mentorship',
+    description: isBr
+      ? 'Programa de mentoria e aceleração para desenvolvedores conquistarem contratos internacionais acima de R$ 30.000 mensais, fundamentado em um acervo auditável de mais de 500 horas de entrevistas técnicas reais.'
+      : 'Mentorship and career acceleration program for engineers targeting international contracts above US$ 6,000/month, grounded in an auditable archive of 500+ hours of real technical interviews.',
+    inLanguage: locale,
+    hasCourseInstance: { '@type': 'CourseInstance', courseMode: 'online', courseWorkload: 'P3M' },
+    hasPart: {
+      '@type': 'ItemList',
+      name: isBr ? 'Acervo de +500 Horas de Entrevistas Gravadas' : 'Archive of 500+ Hours of Recorded Interviews',
+      url: ARCHIVE_URL
+    },
+    provider: { '@type': 'Person', '@id': `${SITE_URL}#person` },
+    url: 'https://global.robsoncassiano.software/',
+    offers: {
+      '@type': 'Offer',
+      price: '0.00',
+      priceCurrency: 'BRL',
+      category: isBr ? 'Mentoria & Aceleração de Carreira' : 'Mentorship & Career Acceleration',
+      availability: 'https://schema.org/InStock',
+      url: 'https://global.robsoncassiano.software/'
+    }
+  };
+
+  const faq = {
+    '@type': 'FAQPage',
+    '@id': `${SITE_URL}#faq`,
+    inLanguage: locale,
+    mainEntity: FAQ_KEYS.map((key) => ({
+      '@type': 'Question',
+      name: stripHtml(t(key)),
+      acceptedAnswer: { '@type': 'Answer', text: stripHtml(t(key.replace('_Q', '_A'))) }
+    }))
+  };
+
+  const breadcrumb = {
+    '@type': 'BreadcrumbList',
+    '@id': `${SITE_URL}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: isBr ? 'Início' : 'Home', item: SITE_URL }
+    ]
+  };
+
+  return { '@context': 'https://schema.org', '@graph': [profilePage, organization, course, faq, breadcrumb] };
+}
+
+function injectStructuredData(html, lang) {
+  const jsonLd = JSON.stringify(buildStructuredData(lang), null, 2);
+  const scriptTag = `  <script id="structured-data" type="application/ld+json">\n${jsonLd}\n  </script>`;
+  const pattern = /<script id="structured-data" type="application\/ld\+json">[\s\S]*?<\/script>/;
+  if (!pattern.test(html)) {
+    console.warn(`⚠ structured-data não encontrado para injeção (${lang}).`);
+    return html;
+  }
+  return html.replace(pattern, scriptTag);
+}
+
 // 3. Gerar a versão estática pré-renderizada em Inglês para /en/index.html
 const rootDistIndex = path.join(distDir, 'index.html');
 const enDir = path.join(distDir, 'en');
 
 if (fs.existsSync(rootDistIndex)) {
   fs.mkdirSync(enDir, { recursive: true });
-  const rawHtml = await Bun.file(rootDistIndex).text();
+
+  // 3a. Rebuild the PT structured data from br.json (single source of truth)
+  const rawHtml = injectStructuredData(await Bun.file(rootDistIndex).text(), 'br');
+  await Bun.write(rootDistIndex, rawHtml);
 
   const enIndexHtml = rawHtml
     .replace('<html lang="pt-BR"', '<html lang="en"')
@@ -508,6 +702,8 @@ if (fs.existsSync(rootDistIndex)) {
       'Specialized in Enterprise Java, high-performance Spring Boot microservices, scalable PostgreSQL databases, and clean distributed architectures. +10 years delivering robust software for global operations.'
     );
 
-  await Bun.write(path.join(enDir, 'index.html'), enIndexHtml);
+  // 3b. Inject EN structured data (en-US) so non-JS crawlers never see PT schema on /en
+  const enIndexWithSchema = injectStructuredData(enIndexHtml, 'en');
+  await Bun.write(path.join(enDir, 'index.html'), enIndexWithSchema);
   console.log('✓ Pré-renderizado portal em Inglês em dist/en/index.html (SEO Internacional /en)');
 }
