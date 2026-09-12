@@ -8,6 +8,7 @@ import {
   buildArticlesHubMarkdown,
   injectShell,
 } from './lib/static-shell.js';
+import { buildPrivacyPage } from './lib/privacy-page.js';
 
 const articlesFile = path.resolve('src/assets/content/articles.json');
 const articlesEnFile = path.resolve('src/assets/content/articles.en.json');
@@ -459,7 +460,7 @@ ${JSON.stringify(jsonLd, null, 2)}
   <!-- Footer -->
   <footer class="border-t border-[#252530] py-10 mt-16 bg-[#08080a] text-center text-xs text-slate-500">
     <p>© ${new Date().getFullYear()} Robson Cassiano. Todos os direitos reservados.</p>
-    <p class="mt-2"><a href="/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">global.robsoncassiano.software</a></p>
+    <p class="mt-2"><a href="/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">global.robsoncassiano.software</a> | <a href="/privacidade/" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Política de Privacidade</a></p>
   </footer>
 
   <!-- Sovereign Cloudflare Lead Capture Modal -->
@@ -779,3 +780,10 @@ await Bun.write(
   buildArticlesHubMarkdown({ articles, t: (key) => i18nBr[key] || key })
 );
 console.log(`✓ Hub de artigos gerado em dist/artigos/index.html (+ index.md, ${articles.length} artigos)`);
+
+// 5. Política de Privacidade: a URL é impressa em todos os e-mails da régua e do
+// broadcast, então precisa existir e ser indexável.
+const privacyDir = path.join(distDir, 'privacidade');
+fs.mkdirSync(privacyDir, { recursive: true });
+await Bun.write(path.join(privacyDir, 'index.html'), buildPrivacyPage({ stylesHref }));
+console.log('✓ Política de Privacidade gerada em dist/privacidade/index.html');

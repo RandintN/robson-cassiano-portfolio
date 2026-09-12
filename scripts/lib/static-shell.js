@@ -226,7 +226,7 @@ ${faq}
         ${socialLinks(lang)}
         </nav>
         <p>${escapeHtml(stripHtml(t('FOOTER_RIGHTS')))}</p>
-        <p><a href="/artigos/">${isEn ? 'All articles' : 'Todos os artigos'}</a> · <a href="${isEn ? '/' : '/en/'}">${isEn ? 'Português' : 'English'}</a></p>
+        <p><a href="/artigos/">${isEn ? 'All articles' : 'Todos os artigos'}</a> · <a href="/privacidade/" hreflang="pt-BR">${isEn ? 'Privacy Policy (PT)' : 'Política de Privacidade'}</a> · <a href="${isEn ? '/' : '/en/'}">${isEn ? 'Português' : 'English'}</a></p>
       </div>
     </footer>
   </div>`;
@@ -399,7 +399,7 @@ ${cards}
   </main>
 
   <footer>
-    <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="/">eu.robsoncassiano.software</a> · <a href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer">global.robsoncassiano.software</a></p>
+    <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="/">eu.robsoncassiano.software</a> · <a href="/artigos/">Blog</a> · <a href="/privacidade/">Política de Privacidade</a></p>
   </footer>
 </body>
 </html>

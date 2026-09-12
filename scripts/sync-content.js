@@ -124,6 +124,14 @@ const sitemapEntries = [
       <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
       <image:title>Artigos e Ensaios de Engenharia de Software</image:title>
     </image:image>
+  </url>`,
+
+  `  <!-- Política de Privacidade (LGPD) — referenciada em todos os e-mails da régua -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/privacidade/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>`
 ];
 
@@ -151,7 +159,7 @@ ${sitemapEntries.join('\n\n')}
 `;
 
 await Bun.write(targetSitemap, sitemapXml);
-console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 3} URLs indexáveis.`);
+console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 4} URLs indexáveis.`);
 
 // 3. Atualizar dinamicamente os índices de artigos dos documentos para agentes de
 // IA (GEO / AI Discovery): llms.txt, llms-full.txt e os espelhos em markdown.

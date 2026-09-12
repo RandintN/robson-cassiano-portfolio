@@ -126,6 +126,7 @@ if (stylesHref) {
 // ---------------------------------------------------------------------------
 // 3. Blog hub, sitemap and agent catalogs.
 // ---------------------------------------------------------------------------
+
 const hub = read(path.join(distDir, 'artigos', 'index.html'));
 check('hub: um único <h1>', count(hub, /<h1[\s>]/g) === 1);
 check('hub: lista os artigos', count(hub, /class="hub-meta"/g) === articles.length, `${count(hub, /class="hub-meta"/g)}`);
@@ -135,10 +136,64 @@ check('hub: markdown twin', fs.existsSync(path.join(distDir, 'artigos', 'index.m
 
 const sitemap = read(path.join(distDir, 'sitemap.xml'));
 const locs = count(sitemap, /<loc>/g);
-check(`sitemap: ${articles.length + 3} URLs`, locs === articles.length + 3, `${locs}`);
+check(`sitemap: ${articles.length + 4} URLs`, locs === articles.length + 4, `${locs}`);
 check('sitemap: hub presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/artigos/</loc>'));
+check('sitemap: privacidade presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/privacidade/</loc>'));
 check('sitemap: /en/ com barra final', sitemap.includes('<loc>https://eu.robsoncassiano.software/en/</loc>'));
 check('sitemap: nenhuma URL sem barra final além da raiz', !/<loc>https:\/\/[^<]*[a-z0-9]<\/loc>/.test(sitemap));
+
+// ---------------------------------------------------------------------------
+// 4. Privacy page: the URL is printed in every drip/broadcast email, so a missing
+// or empty page would leave every outbound message with a dead compliance link.
+// ---------------------------------------------------------------------------
+const privacy = read(path.join(distDir, 'privacidade', 'index.html'));
+check('privacidade: canonical', privacy.includes('rel="canonical" href="https://eu.robsoncassiano.software/privacidade/"'));
+check('privacidade: indexável', /name="robots" content="index, follow/.test(privacy));
+check('privacidade: um único <h1>', count(privacy, /<h1[\s>]/g) === 1);
+for (const disclosure of ['LGPD', 'consentimento', 'Cloudflare', 'contato@robsoncassiano.software', 'Turnstile', 'descadastr']) {
+  check(`privacidade: divulga "${disclosure}"`, privacy.toLowerCase().includes(disclosure.toLowerCase()));
+}
+check('privacidade: sem AggregateRating/Review', !/aggregateRating|"@type":\s*"Review"/i.test(privacy));
+
+// Links para a política precisam existir onde o visitante pode clicar.
+for (const [file, html] of [
+  ['index.html', read(path.join(distDir, 'index.html'))],
+  [path.join('en', 'index.html'), read(path.join(distDir, 'en', 'index.html'))],
+  ['artigos/index.html', hub],
+  ['artigos/{slug}/index.html', read(path.join(distDir, 'artigos', articles[0].slug, 'index.html'))],
+]) {
+  check(`${file}: link para /privacidade/`, /href="\/privacidade\/"/.test(html));
+}
+
+// ---------------------------------------------------------------------------
+// 5. Structured-data policy: reviews about ourselves are forbidden.
+//
+// Google treats reviews published on the same site as the entity they describe as
+// self-serving: they are explicitly out of policy for Organization/LocalBusiness
+// (and a grey area everywhere else), and marking them up anyway is handled as
+// structured-data spam — which would strip the BlogPosting, FAQPage, VideoObject
+// and BreadcrumbList rich results this site already earns. If a future change
+// introduces rating markup, this check fails the build instead of the SERP.
+// ---------------------------------------------------------------------------
+const FORBIDDEN_SCHEMA = /aggregateRating|ratingValue|ratingCount|reviewCount|itemReviewed|reviewedBy|starRating|bestRating|"@type"\s*:\s*"Review"/i;
+
+function collectHtml(dir) {
+  const out = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) out.push(...collectHtml(full));
+    else if (entry.name.endsWith('.html')) out.push(full);
+  }
+  return out;
+}
+
+const generatedHtml = collectHtml(distDir);
+const offenders = generatedHtml.filter((file) => FORBIDDEN_SCHEMA.test(fs.readFileSync(file, 'utf8')));
+check(
+  'nenhum markup de review/avaliação própria em páginas geradas',
+  offenders.length === 0,
+  offenders.map((f) => path.relative(distDir, f)).join(', ')
+);
 
 for (const catalog of ['llms.txt', 'llms-full.txt', 'index.md', 'index-en.md']) {
   const content = read(path.resolve(catalog));

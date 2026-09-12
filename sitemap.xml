@@ -48,6 +48,14 @@
     </image:image>
   </url>
 
+  <!-- Política de Privacidade (LGPD) — referenciada em todos os e-mails da régua -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/privacidade/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Artigo: Entrevistas Técnicas de IA: Análise de uma Sessão Real -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia/</loc>
