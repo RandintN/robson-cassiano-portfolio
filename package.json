@@ -8,7 +8,7 @@
     "dev": "bun run build:css && bunx ng serve",
     "sync": "bun scripts/sync-content.js",
     "og:images": "bun scripts/generate-og-images.js",
-    "build": "bun run build:css && bun scripts/sync-content.js && bunx ng build && bun scripts/generate-static-articles.js",
+    "build": "bun run build:css && bun scripts/sync-content.js && bunx ng build && bun scripts/generate-static-articles.js && bun scripts/validate-static-output.js",
     "deploy": "bunx ng build --base-href /robson-cassiano-portfolio/",
     "pages:deploy": "bun run build && bunx wrangler pages deploy dist --project-name=robson-cassiano-portfolio --branch=master",
     "pages:dev": "bunx wrangler pages dev dist",
