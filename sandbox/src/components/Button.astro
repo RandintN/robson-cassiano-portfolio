@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props {
+  variant?: "primary" | "secondary";
+  href?: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const { variant = "primary", href, target, rel, class: className, ...rest } = Astro.props;
+
+const baseStyles = "px-6 py-3.5 inline-flex items-center justify-center gap-2 font-extrabold rounded-xl transition-all shadow-md cursor-pointer text-center";
+const primaryStyles = "bg-gradient-to-r from-[#dfb15b] to-[#c99839] text-[#08080a] hover:from-[#f6e0a4] hover:to-[#dfb15b] shadow-lg shadow-[#dfb15b]/20 hover:shadow-[#dfb15b]/35";
+const secondaryStyles = "bg-[#141418] text-white border border-[#252530] hover:border-[#dfb15b]/60 hover:text-[#dfb15b] hover:bg-[#16161c]";
+
+const styles = `${baseStyles} ${variant === "primary" ? primaryStyles : secondaryStyles} ${className || ""}`;
+---
+
+{href ? (
+  <a href={href} target={target} rel={rel} class={styles} {...rest}>
+    <slot />
+  </a>
+) : (
+  <button class={styles} {...rest}>
+    <slot />
+  </button>
+)}

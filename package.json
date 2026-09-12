@@ -12,6 +12,10 @@
     "deploy": "bunx ng build --base-href /robson-cassiano-portfolio/",
     "pages:deploy": "bun run build && bunx wrangler pages deploy dist --project-name=robson-cassiano-portfolio --branch=master",
     "pages:dev": "bunx wrangler pages dev dist",
+    "sandbox:install": "cd sandbox && bun install",
+    "sandbox:dev": "cd sandbox && bun run dev",
+    "sandbox:build": "mkdir -p sandbox/public/assets && cp -r src/assets/* sandbox/public/assets/ && cd sandbox && bun run build",
+    "sandbox:deploy": "bun run sandbox:build && bunx wrangler pages deploy sandbox/dist --project-name=robson-cassiano-portfolio --branch=sandbox",
     "yt:transcript": "bun run scripts/fetch-youtube-transcript.ts",
     "auto:publish": "bun run scripts/auto-publish.ts",
     "preview": "bunx ng serve --configuration=production"

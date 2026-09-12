@@ -1,0 +1,358 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getTranslation } from "@/utils/translate.ts";
+import Section from "@/components/Wrapper/Section.astro";
+import ContentWrapper from "@/components/Wrapper/ContentWrapper.astro";
+import Grid from "@/components/Wrapper/Grid.astro";
+import Button from "@/components/Button.astro";
+import RoleCard from "@/components/RoleCard.astro";
+import ArticleCard from "@/components/ArticleCard.astro";
+import CaptureForm from "@/components/CaptureForm.astro";
+
+import articles from "../../../src/assets/content/articles.json";
+import articlesEn from "../../../src/assets/content/articles.en.json";
+
+const typedArticlesEn = articlesEn as Record<string, any>;
+
+const t = getTranslation("br");
+const lang = "br";
+const navPrefix = "";
+---
+
+<BaseLayout title={t("SEO_TITLE")} description={t("SEO_DESCRIPTION")} lang="pt-BR">
+  <!-- Header -->
+  <header class="container mx-auto px-6 py-6 flex justify-between items-center z-10 relative">
+    <a href={navPrefix || "/sandbox/"} class="flex items-center gap-3 group">
+      <img
+        src="/assets/icons/logo-header.webp"
+        width="36"
+        height="36"
+        alt="Robson Cassiano"
+        class="w-9 h-9 object-contain group-hover:scale-105 transition-transform drop-shadow-[0_2px_10px_rgba(223,177,91,0.25)]" />
+      <div class="flex flex-col">
+        <span class="font-bold text-xl tracking-tight text-white">Robson<span class="text-[#dfb15b]">Cassiano</span></span>
+        <span class="text-[10px] tracking-widest uppercase font-semibold text-[#967432] font-mono">迅貫 · Jinkan (Sandbox)</span>
+      </div>
+    </a>
+
+    <div class="flex md:hidden items-center gap-2 text-slate-400">
+      <a href="/sandbox/" class="hover:text-[#dfb15b] transition-colors font-bold text-[#dfb15b]">BR</a>
+      <span class="text-[#252530]">|</span>
+      <a href="/sandbox/en/" class="hover:text-[#dfb15b] transition-colors font-bold">EN</a>
+    </div>
+
+    <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+      <a href="#sobre" class="hover:text-[#dfb15b] transition-colors">{t("NAV_ABOUT")}</a>
+      <a href="#atuacao" class="hover:text-[#dfb15b] transition-colors">{t("NAV_ROLES")}</a>
+      <a href="#artigos" class="hover:text-[#dfb15b] transition-colors">{t("NAV_ARTICLES")}</a>
+      <a href="#comparativo" class="hover:text-[#dfb15b] transition-colors">{t("NAV_COMPARISON")}</a>
+      <a href="#faq" class="hover:text-[#dfb15b] transition-colors">{t("NAV_FAQ")}</a>
+      <Button href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer" class="px-5 py-2">{t("NAV_CONTACT")}</Button>
+      
+      <div class="flex items-center gap-2 ml-4 border-l border-[#252530] pl-4">
+        <a href="/sandbox/" class="hover:text-[#dfb15b] transition-colors font-bold text-[#dfb15b]">BR</a>
+        <span class="text-[#252530]">|</span>
+        <a href="/sandbox/en/" class="hover:text-[#dfb15b] transition-colors font-bold">EN</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <Section align="center" paddingTop="large" paddingBottom="large">
+      <ContentWrapper variant="columns" reverse={false}>
+        <div slot="default">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#141418] border border-[#dfb15b]/30 text-[#dfb15b] text-xs font-bold mb-6 tracking-wide uppercase shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-[#dfb15b] animate-ping"></span>
+            <span>{t("HERO_BADGE")}</span>
+          </div>
+          <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6 text-white" set:html={t("HERO_TITLE")}></h1>
+          <p class="text-lg text-slate-300 mb-8 max-w-xl leading-relaxed">
+            {t("HERO_DESCRIPTION")}
+          </p>
+
+          <div class="flex flex-wrap gap-4 mb-6">
+            <Button href="https://global.robsoncassiano.software/" target="_blank" rel="noopener noreferrer">
+              {t("HERO_MENTORSHIP")}
+            </Button>
+            <Button href="https://www.linkedin.com/in/robsoncassiano-software/" target="_blank" rel="noopener noreferrer" variant="secondary">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              {t("HERO_LINKEDIN")}
+            </Button>
+          </div>
+
+          <div class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#141418]/90 border border-[#252530] text-xs text-slate-300 shadow-md">
+            <span class="text-[#dfb15b]">✦</span>
+            <span>{t("HERO_RISK_REVERSAL")}</span>
+          </div>
+        </div>
+
+        <div slot="column2" class="flex justify-center lg:justify-end relative">
+          <div class="relative w-72 h-72 lg:w-96 lg:h-96">
+            <div class="absolute inset-0 bg-[#dfb15b] rounded-3xl rotate-6 opacity-15 blur-sm"></div>
+            <div class="absolute inset-0 bg-[#141418] rounded-3xl -rotate-3 border border-[#dfb15b]/25 shadow-2xl"></div>
+            <img src="/assets/images/Robson-Cassiano.webp" width="344" height="344" alt="Robson Cassiano - Senior Software Engineer e Mentor Internacional" class="relative w-full h-full object-cover rounded-2xl border-2 border-[#dfb15b]/30 shadow-2xl aspect-square" />
+          </div>
+        </div>
+      </ContentWrapper>
+    </Section>
+
+    <!-- Social Proof Section -->
+    <Section id="proof" align="center" paddingTop="medium" paddingBottom="medium">
+      <ContentWrapper variant="stack" centered={false}>
+        <div class="max-w-2xl mb-8">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfb15b]/10 border border-[#dfb15b]/30 text-[#dfb15b] text-xs font-bold mb-3 uppercase tracking-wider">
+            <span>{t("PROOF_BADGE")}</span>
+          </div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-white">{t("PROOF_TITLE")}</h2>
+          <p class="text-slate-400 mt-2 leading-relaxed">{t("PROOF_TEXT")}</p>
+        </div>
+
+        <Grid columns={{ mobile: 2, tablet: 2, desktop: 4 }} gap="4">
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-[#141418] to-[#0e0e12] border border-[#252530]">
+            <div class="text-3xl lg:text-4xl font-extrabold text-[#dfb15b] mb-1">{t("PROOF_1_VALUE")}</div>
+            <div class="text-xs sm:text-sm text-slate-400 leading-snug">{t("PROOF_1_LABEL")}</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-[#141418] to-[#0e0e12] border border-[#252530]">
+            <div class="text-3xl lg:text-4xl font-extrabold text-[#dfb15b] mb-1">{t("PROOF_2_VALUE")}</div>
+            <div class="text-xs sm:text-sm text-slate-400 leading-snug">{t("PROOF_2_LABEL")}</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-[#141418] to-[#0e0e12] border border-[#252530]">
+            <div class="text-3xl lg:text-4xl font-extrabold text-[#dfb15b] mb-1">{t("PROOF_3_VALUE")}</div>
+            <div class="text-xs sm:text-sm text-slate-400 leading-snug">{t("PROOF_3_LABEL")}</div>
+          </div>
+          <div class="p-6 rounded-2xl bg-gradient-to-b from-[#141418] to-[#0e0e12] border border-[#252530]">
+            <div class="text-3xl lg:text-4xl font-extrabold text-[#dfb15b] mb-1">{t("PROOF_4_VALUE")}</div>
+            <div class="text-xs sm:text-sm text-slate-400 leading-snug">{t("PROOF_4_LABEL")}</div>
+          </div>
+        </Grid>
+
+        <a href="https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-6 text-sm font-bold text-[#dfb15b] hover:text-[#f6e0a4] transition-colors">
+          <span>{t("PROOF_LINK")}</span>
+          <span>&rarr;</span>
+        </a>
+      </ContentWrapper>
+    </Section>
+
+    <!-- Answer First Section -->
+    <Section id="answer-first" align="center" paddingTop="medium" paddingBottom="medium">
+      <ContentWrapper variant="stack" centered={false}>
+        <div class="p-8 lg:p-10 bg-gradient-to-br from-[#141418] via-[#0e0e12] to-[#08080a] border border-[#dfb15b]/30 rounded-2xl shadow-2xl relative overflow-hidden w-full">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfb15b]/10 border border-[#dfb15b]/30 text-[#dfb15b] text-xs font-bold mb-4 uppercase tracking-wider">
+            <span>{t("ANSWER_FIRST_BADGE")}</span>
+          </div>
+          <h2 class="text-2xl lg:text-3xl font-bold text-white mb-4">
+            {t("ANSWER_FIRST_TITLE")}
+          </h2>
+          <p class="text-base lg:text-lg text-slate-200 leading-relaxed max-w-4xl">
+            {t("ANSWER_FIRST_TEXT")}
+          </p>
+        </div>
+      </ContentWrapper>
+    </Section>
+
+    <!-- Philosophy Section -->
+    <Section id="sobre" align="center" paddingTop="medium" paddingBottom="medium">
+      <ContentWrapper variant="stack" centered={false}>
+        <div class="p-8 lg:p-12 bg-gradient-to-br from-[#141418] to-[#0e0e12] rounded-3xl border border-[#252530] relative overflow-hidden shadow-2xl w-full">
+          <div class="absolute top-0 right-0 p-12 opacity-5 text-9xl font-serif italic text-[#dfb15b] select-none">"</div>
+
+          <h2 class="text-3xl font-bold mb-6 text-white flex items-center gap-3">
+            <span class="w-1.5 h-8 bg-[#dfb15b] rounded-full block shadow-sm shadow-[#dfb15b]/50"></span>
+            {t("PHILOSOPHY_TITLE")}
+          </h2>
+
+          <div class="space-y-6 text-slate-300 leading-relaxed max-w-4xl">
+            <p class="text-xl font-light italic text-[#f6e0a4]/95 border-l-2 border-[#dfb15b]/40 pl-4 my-4">
+              {t("PHILOSOPHY_QUOTE")}
+            </p>
+            <p>{t("PHILOSOPHY_P1")}</p>
+            <p>{t("PHILOSOPHY_P2")}</p>
+          </div>
+        </div>
+      </ContentWrapper>
+    </Section>
+
+    <!-- Roles Grid -->
+    <Section id="atuacao" align="center" paddingTop="medium" paddingBottom="medium">
+      <ContentWrapper variant="stack" centered={false}>
+        <h2 class="text-3xl font-bold mb-10 text-white text-center w-full">{t("ROLES_TITLE")}</h2>
+
+        <Grid columns={{ mobile: 1, tablet: 2, desktop: 3 }} gap="6">
+          <RoleCard title={t("ROLE_SOFTWARE_ENGINEER_TITLE")} icon="code">
+            <span set:html={t("ROLE_SOFTWARE_ENGINEER_DESC")}></span>
+          </RoleCard>
+
+          <RoleCard title={t("ROLE_MENTOR_TITLE")} icon="compass" link="https://global.robsoncassiano.software/" linkText={t("ROLE_MENTOR_LINK_TEXT")}>
+            <span set:html={t("ROLE_MENTOR_DESC")}></span>
+          </RoleCard>
+
+          <RoleCard title={t("ROLE_ENTREPRENEUR_TITLE")} icon="briefcase" link="https://simple.software/" linkText={t("ROLE_ENTREPRENEUR_LINK_TEXT")}>
+            <span set:html={t("ROLE_ENTREPRENEUR_DESC")}></span>
+          </RoleCard>
+
+          <RoleCard title={t("ROLE_TEACHER_TITLE")} icon="language">
+            <span set:html={t("ROLE_TEACHER_DESC")}></span>
+          </RoleCard>
+
+          <RoleCard title={t("ROLE_PHILOSOPHER_TITLE")} icon="philosophy" link="https://www.academiaatlantico.com.br/" linkText={t("ROLE_PHILOSOPHER_LINK_TEXT")}>
+            <span set:html={t("ROLE_PHILOSOPHER_DESC")}></span>
+          </RoleCard>
+        </Grid>
+      </ContentWrapper>
+    </Section>
+
+    <!-- Articles Section -->
+    <Section id="artigos" align="center" paddingTop="medium" paddingBottom="medium">
+      <ContentWrapper variant="stack" centered={false}>
+        <div class="max-w-3xl mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfb15b]/10 border border-[#dfb15b]/30 text-[#dfb15b] text-xs font-bold mb-3 uppercase tracking-wider">
+            <span>{t("ARTICLES_BADGE")}</span>
+          </div>
+          <h2 class="text-3xl font-bold text-white mb-4">{t("ARTICLES_TITLE")}</h2>
+          <p class="text-slate-400 leading-relaxed">{t("ARTICLES_SUBTITLE")}</p>
+        </div>
+
+        <Grid columns={{ mobile: 1, tablet: 2, desktop: 3 }} gap="6">
+          {articles.map((art) => {
+            const tr = typedArticlesEn[art.slug] || {};
+            return (
+              <ArticleCard
+                article={art}
+                lang={lang}
+                enTranslation={tr}
+                readArticleText={t("READ_ARTICLE")}
+              />
+            );
+          })}
+        </Grid>
+      </ContentWrapper>
+    </Section>
+
+    <!-- Comparison Section -->
+    <Section id="comparativo" align="center" paddingTop="medium" paddingBottom="medium">
+      <ContentWrapper variant="stack" centered={false}>
+        <div class="max-w-2xl mb-10">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfb15b]/10 border border-[#dfb15b]/30 text-[#dfb15b] text-xs font-bold mb-3 uppercase tracking-wider">
+            <span>{t("COMPARISON_BADGE")}</span>
+          </div>
+          <h2 class="text-3xl font-bold text-white mb-4">{t("COMPARISON_TITLE")}</h2>
+          <p class="text-slate-400 leading-relaxed">{t("COMPARISON_SUBTITLE")}</p>
+        </div>
+
+        <!-- Desktop Comparison Table -->
+        <div class="hidden md:block overflow-x-auto w-full border border-[#252530] rounded-2xl bg-gradient-to-b from-[#141418] to-[#0e0e12]">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="border-b border-[#252530] bg-[#1a1a22]/50 text-[#dfb15b]">
+                <th class="p-5 font-bold">{t("COMP_COL_CRITERIA")}</th>
+                <th class="p-5 font-bold bg-[#dfb15b]/5 text-[#dfb15b] border-x border-[#252530]">{t("COMP_COL_ROBSON")}</th>
+                <th class="p-5 font-bold text-slate-400">{t("COMP_COL_BOOTCAMPS")}</th>
+                <th class="p-5 font-bold text-slate-400">{t("COMP_COL_COURSES")}</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#252530]">
+              <tr>
+                <td class="p-5 font-semibold text-white">{t("COMP_ROW1_CRITERIA")}</td>
+                <td class="p-5 bg-[#dfb15b]/5 text-[#dfb15b] font-bold border-x border-[#252530]">{t("COMP_ROW1_ROBSON")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW1_BOOTCAMPS")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW1_COURSES")}</td>
+              </tr>
+              <tr>
+                <td class="p-5 font-semibold text-white">{t("COMP_ROW2_CRITERIA")}</td>
+                <td class="p-5 bg-[#dfb15b]/5 text-[#dfb15b] font-bold border-x border-[#252530]">{t("COMP_ROW2_ROBSON")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW2_BOOTCAMPS")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW2_COURSES")}</td>
+              </tr>
+              <tr>
+                <td class="p-5 font-semibold text-white">{t("COMP_ROW3_CRITERIA")}</td>
+                <td class="p-5 bg-[#dfb15b]/5 text-[#dfb15b] font-bold border-x border-[#252530]">{t("COMP_ROW3_ROBSON")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW3_BOOTCAMPS")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW3_COURSES")}</td>
+              </tr>
+              <tr>
+                <td class="p-5 font-semibold text-white">{t("COMP_ROW4_CRITERIA")}</td>
+                <td class="p-5 bg-[#dfb15b]/5 text-[#dfb15b] font-bold border-x border-[#252530]">{t("COMP_ROW4_ROBSON")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW4_BOOTCAMPS")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW4_COURSES")}</td>
+              </tr>
+              <tr>
+                <td class="p-5 font-semibold text-white">{t("COMP_ROW5_CRITERIA")}</td>
+                <td class="p-5 bg-[#dfb15b]/5 text-[#dfb15b] font-bold border-x border-[#252530]">{t("COMP_ROW5_ROBSON")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW5_BOOTCAMPS")}</td>
+                <td class="p-5 text-slate-300">{t("COMP_ROW5_COURSES")}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ContentWrapper>
+    </Section>
+
+    <!-- FAQ Section -->
+    <Section id="faq" align="center" paddingTop="medium" paddingBottom="medium">
+      <ContentWrapper variant="stack" centered={false}>
+        <div class="max-w-2xl mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#dfb15b]/10 border border-[#dfb15b]/30 text-[#dfb15b] text-xs font-bold mb-3 uppercase tracking-wider">
+            <span>{t("FAQ_BADGE")}</span>
+          </div>
+          <h2 class="text-3xl font-bold text-white mb-4">{t("FAQ_TITLE")}</h2>
+        </div>
+
+        <div class="w-full max-w-4xl space-y-4">
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((index) => {
+            const question = t(`FAQ_Q${index}` as any);
+            const answer = t(`FAQ_A${index}` as any);
+            return (
+              <details class="group bg-[#141418] border border-[#252530] rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
+                <summary class="flex justify-between items-center font-bold text-lg text-white cursor-pointer select-none group-open:text-[#dfb15b] transition-colors gap-4">
+                  <span>{question}</span>
+                  <span class="p-1 rounded-lg bg-[#1f1f27] text-slate-400 group-open:rotate-180 transition-transform">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </summary>
+                <div class="mt-4 text-slate-300 leading-relaxed border-t border-[#252530]/60 pt-4" set:html={answer}></div>
+              </details>
+            );
+          })}
+        </div>
+      </ContentWrapper>
+    </Section>
+
+    <!-- Capture Newsletter Section -->
+    <Section id="contato" align="center" paddingTop="medium" paddingBottom="medium">
+      <ContentWrapper variant="stack" centered={false}>
+        <CaptureForm
+          lang={lang}
+          badge={t("NEWSLETTER_BADGE")}
+          title={t("NEWSLETTER_TITLE")}
+          description={t("NEWSLETTER_DESC")}
+          buttonText={t("NEWSLETTER_BUTTON")}
+        />
+      </ContentWrapper>
+    </Section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[#08080a] border-t border-[#252530] py-12 relative z-10 text-center">
+    <div class="container mx-auto px-6">
+      <h3 class="text-2xl font-bold text-white mb-2" set:html={t("FOOTER_TITLE")}></h3>
+      <p class="text-slate-400 text-sm mb-6">{t("FOOTER_SUBTITLE")}</p>
+      
+      <div class="flex justify-center gap-6 mb-8 text-slate-400 text-sm font-medium">
+        <a href="https://www.linkedin.com/in/robsoncassiano-software/" target="_blank" rel="noopener noreferrer" class="hover:text-[#dfb15b] transition-colors">LinkedIn</a>
+        <a href="https://github.com/randintn" target="_blank" rel="noopener noreferrer" class="hover:text-[#dfb15b] transition-colors">GitHub</a>
+        <a href="https://www.instagram.com/robsoncassiano.software/" target="_blank" rel="noopener noreferrer" class="hover:text-[#dfb15b] transition-colors">Instagram</a>
+        <a href="https://www.youtube.com/@RobsonCassianoSoftware" target="_blank" rel="noopener noreferrer" class="hover:text-[#dfb15b] transition-colors">YouTube</a>
+        <a href="https://x.com/RobsonDev" target="_blank" rel="noopener noreferrer" class="hover:text-[#dfb15b] transition-colors">Twitter</a>
+      </div>
+
+      <div class="text-xs text-slate-600">
+        &copy; {new Date().getFullYear()} Robson Cassiano. {t("FOOTER_RIGHTS")}
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

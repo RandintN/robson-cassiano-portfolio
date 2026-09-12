@@ -1,0 +1,14 @@
+# Astro build artifacts
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Local configuration files
+.env
+.env.*
+.dev.vars
+
+# Duplicate assets copied during build
+public/assets/
