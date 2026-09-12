@@ -54,6 +54,8 @@ Adicione a tag de script antes do fechamento de `</body>`:
 | `data-button` | `"Garantir Acesso VIP"` | Rótulo de ação do botão de submissão. |
 | `data-ebook-url` | `https://robsoncassiano.software/7-passos-simples-dev-na-gringa` | URL validada (`http:`/`https:`) para download do material pós-conversão. |
 | `data-api` | `https://capture.robsoncassiano.software` | Origem da API de captura. |
+| `data-theme` | `"dark"` | Tema visual do cartão. |
+| `data-lang` | `lang` do documento hospedeiro | Idioma dos **textos internos** do SDK (placeholders, privacidade, mensagem de autocorreção de e-mail, estados de carregamento, erro e sucesso, `aria-label` de fechar) e dos defaults de copy. Aceita `pt-BR` (fallback) e `en`. Use `en` em páginas em inglês: sem isso o visitante preenche um formulário em português. |
 
 ---
 

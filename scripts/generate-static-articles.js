@@ -468,6 +468,7 @@ ${JSON.stringify(jsonLd, null, 2)}
     data-source="artigo-${art.slug}"
     data-mode="modal"
     data-turnstile-sitekey="0x4AAAAAAEjUfJwT3yG_vHIF"
+    data-lang="pt-BR"
     data-badge="📬 Acesso Exclusivo &amp; E-book Gratuito"
     data-title="Conquiste Vagas Internacionais de R$ 30k+/mês"
     data-description="Receba o e-book 7 Passos Simples DEV na Gringa e acompanhe os bastidores de arquitetura de grandes sistemas globais."

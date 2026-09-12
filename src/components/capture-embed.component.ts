@@ -52,6 +52,9 @@ export class CaptureEmbedComponent implements AfterViewInit {
     script.setAttribute('data-target', '#newsletter-container');
     script.setAttribute('data-turnstile-sitekey', '0x4AAAAAAEjUfJwT3yG_vHIF');
     script.setAttribute('data-ebook-url', 'https://robsoncassiano.software/7-passos-simples-dev-na-gringa');
+    // Os textos internos do SDK (placeholders, autocorreção de e-mail, estados de
+    // carregamento/erro/sucesso) vêm do dicionário do próprio embed.
+    script.setAttribute('data-lang', this.languageService.language() === 'en' ? 'en' : 'pt-BR');
 
     script.onload = () => {
       const skeleton = document.getElementById('newsletter-skeleton');
@@ -62,7 +65,6 @@ export class CaptureEmbedComponent implements AfterViewInit {
     script.setAttribute('data-title', this.languageService.translate('NEWSLETTER_TITLE'));
     script.setAttribute('data-description', this.languageService.translate('NEWSLETTER_DESC'));
     script.setAttribute('data-button', this.languageService.translate('NEWSLETTER_BUTTON'));
-
     document.body.appendChild(script);
   }
 }
