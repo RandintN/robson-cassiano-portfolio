@@ -136,9 +136,10 @@ check('hub: markdown twin', fs.existsSync(path.join(distDir, 'artigos', 'index.m
 
 const sitemap = read(path.join(distDir, 'sitemap.xml'));
 const locs = count(sitemap, /<loc>/g);
-check(`sitemap: ${articles.length + 4} URLs`, locs === articles.length + 4, `${locs}`);
+check(`sitemap: ${articles.length + 5} URLs`, locs === articles.length + 5, `${locs}`);
 check('sitemap: hub presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/artigos/</loc>'));
 check('sitemap: privacidade presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/privacidade/</loc>'));
+check('sitemap: depoimentos presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/depoimentos/</loc>'));
 check('sitemap: /en/ com barra final', sitemap.includes('<loc>https://eu.robsoncassiano.software/en/</loc>'));
 check('sitemap: nenhuma URL sem barra final além da raiz', !/<loc>https:\/\/[^<]*[a-z0-9]<\/loc>/.test(sitemap));
 
@@ -163,6 +164,54 @@ for (const [file, html] of [
   ['artigos/{slug}/index.html', read(path.join(distDir, 'artigos', articles[0].slug, 'index.html'))],
 ]) {
   check(`${file}: link para /privacidade/`, /href="\/privacidade\/"/.test(html));
+  check(`${file}: link para /depoimentos/`, /href="\/depoimentos\/"/.test(html));
+}
+
+// ---------------------------------------------------------------------------
+// 4b. Testimonials page (/depoimentos/) — pre-rendered, evidence-backed.
+// ---------------------------------------------------------------------------
+const testimonialsFile = path.resolve('src/assets/content/testimonials.json');
+const testimonials = fs.existsSync(testimonialsFile)
+  ? JSON.parse(fs.readFileSync(testimonialsFile, 'utf8'))
+  : [];
+const consenting = testimonials.filter((t) => t.consent);
+const dep = read(path.join(distDir, 'depoimentos', 'index.html'));
+
+if (testimonials.length) {
+  check('depoimentos: canonical', dep.includes('rel="canonical" href="https://eu.robsoncassiano.software/depoimentos/"'));
+  check('depoimentos: indexável', /name="robots" content="index, follow/.test(dep));
+  check('depoimentos: um único <h1>', count(dep, /<h1[\s>]/g) === 1);
+  check('depoimentos: CollectionPage + ItemList', dep.includes('"@type": "CollectionPage"') && dep.includes('"@type": "ItemList"'));
+  check('depoimentos: sem AggregateRating/Review', !/aggregateRating|"@type"\s*:\s*"Review"/i.test(dep));
+  check(`depoimentos: publica os ${consenting.length} relatos consentidos`, count(dep, /class="dep-card"/g) === consenting.length, `${count(dep, /class="dep-card"/g)} cards`);
+  check('depoimentos: html lang pt-BR', /<html[^>]*lang="pt-BR"/.test(dep));
+  check('depoimentos: markdown twin', fs.existsSync(path.join(distDir, 'depoimentos', 'index.md')));
+
+  // SSG de verdade: o conteudo precisa estar no HTML inicial, sem JS.
+  const depNoScripts = dep.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ');
+  const depText = depNoScripts.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  for (const t of consenting) {
+    check(`depoimentos: ${t.slug} presente no HTML estatico`, depText.includes(t.name), t.name);
+    check(`depoimentos: ${t.slug} cita o resultado`, depText.includes(t.headline.slice(0, 30)));
+    check(`depoimentos: ${t.slug} tem consentimento registrado`, t.consent === true);
+    for (const image of t.images) {
+      check(`depoimentos: imagem ${image} existe`, fs.existsSync(path.join(distDir, 'assets', 'images', 'depoimentos', image)));
+    }
+  }
+
+  // Toda imagem publicada precisa de alt, dimensoes explicitas e lazy loading (CLS/CWV).
+  for (const img of dep.match(/<img\b[^>]*>/g) || []) {
+    check('depoimentos: img com alt', /\balt="[^"]{10,}"/.test(img));
+    check('depoimentos: img com width/height', /\bwidth="\d+"/.test(img) && /\bheight="\d+"/.test(img));
+    check('depoimentos: img com loading=lazy', /loading="lazy"/.test(img));
+  }
+
+  // O validador tambem exige que TODO depoimento publicado tenha passado pelo
+  // processo de redacao/corte (as imagens vivem so em assets/images/depoimentos).
+  check(
+    'depoimentos: nenhuma imagem fora de /assets/images/depoimentos',
+    !/<img\b[^>]*src="\/assets\/images\/(?!depoimentos\/)/.test(dep)
+  );
 }
 
 // ---------------------------------------------------------------------------

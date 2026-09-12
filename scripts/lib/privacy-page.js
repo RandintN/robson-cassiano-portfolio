@@ -292,7 +292,7 @@ ${JSON.stringify(jsonLd, null, 2)}
 
   <footer>
     <div class="pv-wrap">
-      <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="/">eu.robsoncassiano.software</a> · <a href="/artigos/">Todos os artigos</a></p>
+      <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="/">eu.robsoncassiano.software</a> · <a href="/artigos/">Blog</a> · <a href="/depoimentos/">Depoimentos</a></p>
     </div>
   </footer>
 </body>

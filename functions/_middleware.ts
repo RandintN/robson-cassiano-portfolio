@@ -17,6 +17,7 @@ function markdownVariant(pathname: string): string | null {
   if (clean === "/") return "/index.md";
   if (clean === "/en") return "/index-en.md";
   if (clean === "/artigos") return "/artigos/index.md";
+  if (clean === "/depoimentos") return "/depoimentos/index.md";
   const article = /^\/artigos\/([a-z0-9-]+)$/i.exec(clean);
   if (article) return `/artigos/${article[1]}.md`;
   return null;
@@ -27,6 +28,7 @@ function canonicalOf(mdPath: string): string {
   if (mdPath === "/index.md") return `${SITE_URL}/`;
   if (mdPath === "/index-en.md") return `${SITE_URL}/en/`;
   if (mdPath === "/artigos/index.md") return `${SITE_URL}/artigos/`;
+  if (mdPath === "/depoimentos/index.md") return `${SITE_URL}/depoimentos/`;
   const article = /^\/artigos\/(.+)\.md$/i.exec(mdPath);
   if (article) return `${SITE_URL}/artigos/${article[1]}/`;
   return SITE_URL;

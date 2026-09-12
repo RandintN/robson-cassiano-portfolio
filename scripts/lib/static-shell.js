@@ -184,6 +184,7 @@ export function buildStaticShell({ lang, t, articles, translations = {} }) {
 
           <h2 style="margin-top:36px">${escapeHtml(stripHtml(t('PROOF_TITLE')))}</h2>
           <p>${escapeHtml(stripHtml(t('PROOF_TEXT')))}</p>
+          <p><a href="/depoimentos/" hreflang="pt-BR">${isEn ? 'See the testimonials with evidence (PT)' : 'Ver os depoimentos com prints de evidência'} &rarr;</a></p>
           <ul class="ss-stats">
 ${proofItems}
           </ul>
@@ -226,7 +227,7 @@ ${faq}
         ${socialLinks(lang)}
         </nav>
         <p>${escapeHtml(stripHtml(t('FOOTER_RIGHTS')))}</p>
-        <p><a href="/artigos/">${isEn ? 'All articles' : 'Todos os artigos'}</a> · <a href="/privacidade/" hreflang="pt-BR">${isEn ? 'Privacy Policy (PT)' : 'Política de Privacidade'}</a> · <a href="${isEn ? '/' : '/en/'}">${isEn ? 'Português' : 'English'}</a></p>
+        <p><a href="/artigos/">${isEn ? 'All articles' : 'Todos os artigos'}</a> · <a href="/depoimentos/" hreflang="pt-BR">${isEn ? 'Testimonials (PT)' : 'Depoimentos'}</a> · <a href="/privacidade/" hreflang="pt-BR">${isEn ? 'Privacy Policy (PT)' : 'Política de Privacidade'}</a> · <a href="${isEn ? '/' : '/en/'}">${isEn ? 'Português' : 'English'}</a></p>
       </div>
     </footer>
   </div>`;
@@ -399,7 +400,7 @@ ${cards}
   </main>
 
   <footer>
-    <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="/">eu.robsoncassiano.software</a> · <a href="/artigos/">Blog</a> · <a href="/privacidade/">Política de Privacidade</a></p>
+    <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="/">eu.robsoncassiano.software</a> · <a href="/artigos/">Blog</a> · <a href="/depoimentos/">Depoimentos</a> · <a href="/privacidade/">Política de Privacidade</a></p>
   </footer>
 </body>
 </html>

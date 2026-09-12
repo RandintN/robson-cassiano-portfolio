@@ -9,9 +9,11 @@ import {
   injectShell,
 } from './lib/static-shell.js';
 import { buildPrivacyPage } from './lib/privacy-page.js';
+import { buildTestimonialsPage, buildTestimonialsMarkdown } from './lib/testimonials-page.js';
 
 const articlesFile = path.resolve('src/assets/content/articles.json');
 const articlesEnFile = path.resolve('src/assets/content/articles.en.json');
+const testimonialsFile = path.resolve('src/assets/content/testimonials.json');
 const distDir = path.resolve('dist');
 
 if (!fs.existsSync(articlesFile)) {
@@ -47,6 +49,7 @@ if (fs.existsSync(rootSitemap)) {
 
 const articles = await Bun.file(articlesFile).json();
 const articlesEn = fs.existsSync(articlesEnFile) ? await Bun.file(articlesEnFile).json() : {};
+const testimonials = fs.existsSync(testimonialsFile) ? await Bun.file(testimonialsFile).json() : [];
 
 const escapeAttr = (value = '') =>
   String(value)
@@ -460,7 +463,7 @@ ${JSON.stringify(jsonLd, null, 2)}
   <!-- Footer -->
   <footer class="border-t border-[#252530] py-10 mt-16 bg-[#08080a] text-center text-xs text-slate-500">
     <p>© ${new Date().getFullYear()} Robson Cassiano. Todos os direitos reservados.</p>
-    <p class="mt-2"><a href="/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">global.robsoncassiano.software</a> | <a href="/privacidade/" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Política de Privacidade</a></p>
+    <p class="mt-2"><a href="/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">global.robsoncassiano.software</a> | <a href="/depoimentos/" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Depoimentos</a> | <a href="/privacidade/" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Política de Privacidade</a></p>
   </footer>
 
   <!-- Sovereign Cloudflare Lead Capture Modal -->
@@ -787,3 +790,14 @@ const privacyDir = path.join(distDir, 'privacidade');
 fs.mkdirSync(privacyDir, { recursive: true });
 await Bun.write(path.join(privacyDir, 'index.html'), buildPrivacyPage({ stylesHref }));
 console.log('✓ Política de Privacidade gerada em dist/privacidade/index.html');
+
+// 6. Depoimentos (/depoimentos/) — SSG: relatos, citações e prints de evidência no
+// HTML inicial, sem depender de JavaScript.
+if (testimonials.length) {
+  const depDir = path.join(distDir, 'depoimentos');
+  fs.mkdirSync(depDir, { recursive: true });
+  await Bun.write(path.join(depDir, 'index.html'), buildTestimonialsPage({ testimonials, stylesHref }));
+  await Bun.write(path.join(depDir, 'index.md'), buildTestimonialsMarkdown({ testimonials }));
+  const publicados = testimonials.filter((t) => t.consent).length;
+  console.log(`✓ Depoimentos gerados em dist/depoimentos/index.html (${publicados}/${testimonials.length} com consentimento, + index.md)`);
+}

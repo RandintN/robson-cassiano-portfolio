@@ -12,6 +12,7 @@ if (!fs.existsSync(contentDir)) {
 
 const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md'));
 const articles = [];
+const today = new Date().toISOString().split('T')[0];
 
 for (const file of files) {
   const filePath = path.join(contentDir, file);
@@ -76,8 +77,65 @@ fs.mkdirSync(path.dirname(targetJson), { recursive: true });
 await Bun.write(targetJson, JSON.stringify(articles, null, 2));
 console.log(`✓ Sincronizados ${articles.length} artigos em ${targetJson}`);
 
+// 1b. Depoimentos (content/testimonials/*.md) -> src/assets/content/testimonials.json
+const testimonialsDir = path.resolve('content/testimonials');
+const targetTestimonials = path.resolve('src/assets/content/testimonials.json');
+let testimonials = [];
+
+if (fs.existsSync(testimonialsDir)) {
+  for (const file of fs.readdirSync(testimonialsDir).filter((f) => f.endsWith('.md'))) {
+    const raw = await Bun.file(path.join(testimonialsDir, file)).text();
+    const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+    if (!match) continue;
+
+    const meta = {};
+    for (const line of match[1].split('\n')) {
+      const colonIdx = line.indexOf(':');
+      if (colonIdx === -1) continue;
+      const key = line.slice(0, colonIdx).trim();
+      let val = line.slice(colonIdx + 1).trim();
+      if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+        val = val.slice(1, -1);
+      }
+      if (val.startsWith('[') && val.endsWith(']')) {
+        try {
+          val = JSON.parse(val.replace(/'/g, '"'));
+        } catch {
+          val = val.slice(1, -1).split(',').map((s) => s.trim().replace(/['"]/g, '')).filter(Boolean);
+        }
+      }
+      meta[key] = val;
+    }
+
+    testimonials.push({
+      slug: meta.slug || file.replace(/\.md$/, ''),
+      name: meta.name || '',
+      role: meta.role || '',
+      category: meta.category || 'Depoimento',
+      headline: meta.headline || '',
+      quote: meta.quote || '',
+      metrics: Array.isArray(meta.metrics) ? meta.metrics : [],
+      images: Array.isArray(meta.images) ? meta.images : [],
+      evidence: meta.evidence || '',
+      consent: meta.consent === 'true',
+      date: meta.date || today,
+      body: match[2].trim(),
+    });
+  }
+}
+
+testimonials.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
+
+if (testimonials.length) {
+  await Bun.write(targetTestimonials, JSON.stringify(testimonials, null, 2));
+  const missingConsent = testimonials.filter((t) => !t.consent);
+  console.log(`✓ Sincronizados ${testimonials.length} depoimentos em ${targetTestimonials}`);
+  if (missingConsent.length) {
+    console.warn(`⚠ ${missingConsent.length} depoimento(s) sem consentimento registrado: ${missingConsent.map((t) => t.slug).join(', ')}`);
+  }
+}
+
 // 2. Gerar sitemap.xml dinâmico e internacionalizado (W3C / Google Search Central Standard)
-const today = new Date().toISOString().split('T')[0];
 
 const sitemapEntries = [
   `  <!-- Página Principal (Português / Canônico x-default) -->
@@ -126,6 +184,14 @@ const sitemapEntries = [
     </image:image>
   </url>`,
 
+  `  <!-- Depoimentos (prova pública com prints de evidência) -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/depoimentos/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`,
+
   `  <!-- Política de Privacidade (LGPD) — referenciada em todos os e-mails da régua -->
   <url>
     <loc>https://eu.robsoncassiano.software/privacidade/</loc>
@@ -159,7 +225,7 @@ ${sitemapEntries.join('\n\n')}
 `;
 
 await Bun.write(targetSitemap, sitemapXml);
-console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 4} URLs indexáveis.`);
+console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 5} URLs indexáveis.`);
 
 // 3. Atualizar dinamicamente os índices de artigos dos documentos para agentes de
 // IA (GEO / AI Discovery): llms.txt, llms-full.txt e os espelhos em markdown.
@@ -177,6 +243,10 @@ const englishLine = (a) => {
 
 const simpleLine = (a) =>
   `- [${a.title}](https://eu.robsoncassiano.software/artigos/${a.slug}/) — ${a.date} · ${a.category}. Markdown: https://eu.robsoncassiano.software/artigos/${a.slug}.md`;
+
+const depLines = testimonials
+  .filter((t) => t.consent)
+  .map((t) => `- ${t.name} — ${t.headline}: ${t.quote}`);
 
 const catalogTargets = [
   { file: 'llms.txt', lines: articles.map(canonicalLine) },

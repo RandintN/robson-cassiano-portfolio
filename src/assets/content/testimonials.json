@@ -1,0 +1,301 @@
+[
+  {
+    "slug": "caio-aluno",
+    "name": "Caio",
+    "role": "Desenvolvedor",
+    "category": "Antes e depois",
+    "headline": "De 1 a 2 por semana para mais",
+    "quote": "Em media, 1-2x na semana. Hoje esta sendo mais, com certeza.",
+    "metrics": [
+      "Antes: 1 a 2 abordagens por semana",
+      "Depois: frequencia maior",
+      "Referencia de mercado checada no Glassdoor antes de responder"
+    ],
+    "images": [
+      "caio-aluno-1.webp"
+    ],
+    "evidence": "A comparacao de frequencia respondida por ele na conversa.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "Comparacao de frequencia feita pelo proprio candidato, sem eu ter pedido numero exato: ele mesmo define a media anterior e a mudanca."
+  },
+  {
+    "slug": "caio-braga",
+    "name": "Caio Braga",
+    "role": "Engenheiro de Software",
+    "category": "Contratacao",
+    "headline": "Contratado com aval direto do CEO",
+    "quote": "Eu assisti a entrevista gravada que voce me mandou, com certeza ajuda. Acho que ajudou de alguma forma sim.",
+    "metrics": [
+      "Contratacao fechada",
+      "Na primeira entrevista, o CEO (canadense) ja declarou que queria trabalhar com ele",
+      "Credito explicito ao material de entrevistas gravadas"
+    ],
+    "images": [
+      "caio-braga-1.webp"
+    ],
+    "evidence": "A conversa em que ele relata a entrevista com o CEO e atribui parte do resultado ao estudo das entrevistas gravadas.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "Perguntado se a mentoria ajudou a conseguir a vaga, ele responde que sim e aponta o material de entrevistas reais gravadas como parte do motivo."
+  },
+  {
+    "slug": "diego-grassato",
+    "name": "Diego Grassato",
+    "role": "Engenheiro de Software Senior",
+    "category": "Abordagens no LinkedIn",
+    "headline": "8 recrutadores e oferta de US$ 6.000 a US$ 9.000/mes",
+    "quote": "Diretor de TI do Laranjinha me pingou kkkk. Itau. E mais outro agora.",
+    "metrics": [
+      "8 recrutadores identificados em uma unica caixa de entrada",
+      "Oferta ativa: US$ 6.000 a US$ 9.000/mes, 100% remoto (Nexton, stack AWS/Java/Node.js)",
+      "Abordagens de Itau Unibanco, Arbit (projeto nos EUA), EVT, Jobbility (Nova York, pagamento em dolar), Capmation e Inmetrics"
+    ],
+    "images": [
+      "diego-2.webp",
+      "diego-3.webp"
+    ],
+    "evidence": "A caixa de entrada com as abordagens simultaneas e a mensagem da Nexton com a faixa salarial em dolar.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "Prova de volume: a mesma caixa de entrada concentra oito recrutadores, incluindo banco, consultoria com projeto internacional e duas empresas que pagam em dolar. A faixa mais alta aparece escrita pelo proprio recrutador."
+  },
+  {
+    "slug": "enrico-meira",
+    "name": "Enrico Meira",
+    "role": "Desenvolvedor Java",
+    "category": "Primeira abordagem",
+    "headline": "Primeira vez + faixas de R$ 12.000 a R$ 17.000",
+    "quote": "Primeira vez na verdade KAKAKAK",
+    "metrics": [
+      "Primeira abordagem recebida no privado, depois do ajuste de posicionamento",
+      "Faixas oferecidas pela Stefanini no print: Pleno ate R$ 12.000 + R$ 2.000 de beneficios",
+      "Senior: R$ 14.000 a R$ 15.000 + R$ 2.000 de beneficios. Especialista: R$ 17.000 + R$ 2.000"
+    ],
+    "images": [
+      "enrico-1.webp",
+      "enrico-2.webp"
+    ],
+    "evidence": "A confirmacao de que era a primeira vez que recebia uma abordagem, e a mensagem da recrutadora com as faixas salariais por senioridade.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "Ele nunca tinha recebido contato espontaneo de recrutador. O print seguinte mostra a mensagem com as faixas salariais abertas por senioridade, incluindo a de especialista."
+  },
+  {
+    "slug": "fabiano-moreira",
+    "name": "Fabiano Moreira",
+    "role": "Desenvolvedor",
+    "category": "Nao aluno",
+    "headline": "Resultado com conteudo gratuito",
+    "quote": "Nem contratei sua consultoria, so consumindo seu conteudo gratuito voltou a pingar mensagem de Recruiter. Fiz alguns ajustes e parece que voltei a aparecer para os Recruiters, nao acho que seja coincidencia.",
+    "metrics": [
+      "Nao contratou a mentoria: aplicou apenas o conteudo gratuito",
+      "Relata retomada das abordagens depois dos ajustes",
+      "Ele mesmo censurou o print do recrutador antes de enviar"
+    ],
+    "images": [
+      "fabiano-1.webp"
+    ],
+    "evidence": "O feedback enviado por mensagem, com o print do recrutador ja censurado por ele.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "O depoimento mais util para quem ainda nao decide, porque vem de alguem que nao pagou nada e mesmo assim aplicou e mediu o resultado."
+  },
+  {
+    "slug": "felipe-barboza",
+    "name": "Felipe Barboza",
+    "role": "Desenvolvedor Backend Java",
+    "category": "Abordagens no LinkedIn",
+    "headline": "4 abordagens depois do ajuste; nenhuma antes",
+    "quote": "Mas so as 3 desde que a gente mudou o perfil. Antes dos ajustes no perfil e curriculo, tinha acontecido? Nunca.",
+    "metrics": [
+      "Antes dos ajustes de perfil e curriculo: nunca recebeu abordagem",
+      "Depois: 3 abordagens (F Camara, Aubay e Dexian IT Solutions) mais uma no mesmo dia, total de 4",
+      "Oferta internacional no print: Senior Golang Developer, Dexian IT Solutions, Brazil/Remote"
+    ],
+    "images": [
+      "felipe-barboza-1.webp",
+      "felipe-barboza-2.webp"
+    ],
+    "evidence": "A conversa em que ele confirma que nunca tinha sido abordado antes dos ajustes e que passou a receber abordagens depois, e o print da quarta abordagem (Dexian IT Solutions).",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "O caso mais direto de antes e depois: nenhuma abordagem de recrutador antes do ajuste de perfil e curriculo, e quatro depois. Ele registra ainda que deixou de ser procurado em uma semana e, no mesmo dia, apareceram tres contatos."
+  },
+  {
+    "slug": "felipe-lima",
+    "name": "Felipe Lima",
+    "role": "Desenvolvedor Java",
+    "category": "Entrevistas",
+    "headline": "Avanco para a etapa de ingles",
+    "quote": "Gostamos do seu perfil e gostariamos de avancar para as proximas etapas. Voce tem disponibilidade para participar de um bate papo de ingles hoje as 17h?",
+    "metrics": [
+      "Aprovado na triagem e convocado para a etapa de conversacao em ingles",
+      "Ele negocia o horario da reuniao em vez de aceitar de imediato"
+    ],
+    "images": [
+      "felipe-lima-1.webp"
+    ],
+    "evidence": "A mensagem da recrutadora convocando para a etapa de ingles e a resposta dele.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "A etapa decisiva para candidatos brasileiros aparece aqui pelo nome: o bate papo de ingles, com convocacao no mesmo dia."
+  },
+  {
+    "slug": "jeovany-negocio",
+    "name": "Jeovany Negocio",
+    "role": "Engenheiro de Software",
+    "category": "Negociacao",
+    "headline": "Recusou teto de R$ 10.000 CLT mirando dolar",
+    "quote": "Infelizmente nao. As dicas de LinkedIn do Robson Cassiano funcionam.",
+    "metrics": [
+      "Pretensao declarada: US$ 2.500 a US$ 2.800",
+      "Resposta ao teto de R$ 10.000 CLT: Infelizmente nao",
+      "InMails internacionais no print: DevOps em Salt Lake City, DevOps IaC + Cloud e Python/PostgreSQL remoto"
+    ],
+    "images": [
+      "jeovany-1.webp",
+      "jeovany-2.webp"
+    ],
+    "evidence": "A negociacao em que ele recusa o teto em real mantendo a pretensao em dolar, e a caixa de entrada com as abordagens internacionais.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "O print mostra a recusa objetiva a uma proposta que chegava ao teto de R$ 10.000 no CLT, porque a referencia de preco ja estava em dolar. O telefone da recrutadora foi censurado na imagem publicada."
+  },
+  {
+    "slug": "kaua-sacramento",
+    "name": "Kaua Sacramento",
+    "role": "Desenvolvedor",
+    "category": "Antes e depois",
+    "headline": "3 oportunidades simultaneas, nenhuma antes",
+    "quote": "To ate deixando um pessoal no vacuo, porque e gente demais.",
+    "metrics": [
+      "3 oportunidades ao mesmo tempo",
+      "Antes: nunca havia ficado com 3 em maos"
+    ],
+    "images": [
+      "kaua-1.webp"
+    ],
+    "evidence": "A pergunta sobre ja ter ficado com tres oportunidades e a resposta de que nunca, seguida do comentario sobre volume.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "A inversao de logica que interessa: o problema deixa de ser conseguir contato e passa a ser triagem de excesso de contato."
+  },
+  {
+    "slug": "luiz-gasparetto",
+    "name": "Luiz Gasparetto",
+    "role": "Desenvolvedor Java",
+    "category": "Abordagens no LinkedIn",
+    "headline": "Abordagem espontanea da Minsait",
+    "quote": "Sou Viviane da Minsait Consultoria. Estamos com oportunidade para Desenvolvedor Java, atuacao home e contratacao CLT. Gostaria de saber se voce esta avaliando novas oportunidades?",
+    "metrics": [
+      "Abordagem espontanea: Minsait, desenvolvedor Java, home office e CLT",
+      "Ele relatou o resultado tambem em audio, na conversa"
+    ],
+    "images": [
+      "luiz-1.webp"
+    ],
+    "evidence": "A mensagem da recrutadora encaminhada por ele, junto do relato em audio sobre as entrevistas que passou a receber.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "A mensagem chegou sem ele ter se candidatado, que e exatamente o efeito de posicionamento descrito nos outros casos."
+  },
+  {
+    "slug": "marcelo-aluno",
+    "name": "Marcelo",
+    "role": "Desenvolvedor",
+    "category": "Ofertas recebidas",
+    "headline": "R$ 15.000/mes + 10% de bonus anual",
+    "quote": "Recebi um contato de uma recrutadora estrangeira.",
+    "metrics": [
+      "Oferta: R$ 15.000/mes + 10% de bonus anual",
+      "Posicao: Fullstack Software Engineer remoto, Java e Angular, InComm Payments"
+    ],
+    "images": [
+      "marcelo-aluno-1.webp"
+    ],
+    "evidence": "A mensagem da recrutadora com a faixa e o bonus, encaminhada por ele.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "A oferta chega com todos os numeros explicitos: salario mensal, bonus anual e modelo de contratacao, para uma posicao remota de stack Java e Angular."
+  },
+  {
+    "slug": "marcelo-jean",
+    "name": "Marcelo Jean",
+    "role": "Backend Software Engineer",
+    "category": "Antes e depois",
+    "headline": "De 1 abordagem por mes para volume continuo",
+    "quote": "Eu sempre recebia algumas vagas dessa 1 por mes, mas recentemente depois de ter feito small updates aumentou significativamente a visita no meu perfil e o contato deles comigo passivamente",
+    "metrics": [
+      "Antes: cerca de 1 abordagem por mes",
+      "Depois: aumento significativo de visitas ao perfil e de contatos espontaneos",
+      "Exemplo citado no print: abordagem da Louis Dreyfus Company para Backend Software Engineer"
+    ],
+    "images": [
+      "marcelo-jean-1.webp"
+    ],
+    "evidence": "A resposta em que ele compara a frequencia anterior com a atual e o print da nova abordagem recebida.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "Ele mesmo quantifica: cerca de uma abordagem por mes antes, e um aumento significativo depois dos ajustes."
+  },
+  {
+    "slug": "marcos-vinicius",
+    "name": "Marcos Vinicius",
+    "role": "Desenvolvedor",
+    "category": "Abordagens no LinkedIn",
+    "headline": "Recusando entrevistas por volume",
+    "quote": "Aqui nao para de tocar mensagem de recrutadores. Estou ate recusando entrevistas.",
+    "metrics": [
+      "Volume continuo de abordagens",
+      "Recusando entrevistas por falta de capacidade de absorver todas"
+    ],
+    "images": [
+      "marcos-1.webp"
+    ],
+    "evidence": "O relato espontaneo enviado por mensagem direta.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "Tambem registra um aprendizado tecnico de triagem: empresas pedem versoes especificas do Java no requisito."
+  },
+  {
+    "slug": "matus-moura",
+    "name": "Matus Moura",
+    "role": "Desenvolvedor",
+    "category": "Antes e depois",
+    "headline": "De nao chegar a entrevista para entrevistas agendadas",
+    "quote": "Antes eu nem chegava na parte da entrevista.",
+    "metrics": [
+      "Antes: nao chegava a fase de entrevista",
+      "Depois: entrevistas agendadas, incluindo a GBT Solutions",
+      "Objetivo declarado de ganhar em euro e chegar a senior"
+    ],
+    "images": [
+      "matus-1.webp",
+      "matus-2.webp"
+    ],
+    "evidence": "A frase em que ele compara o antes e o depois, e o e-mail de recrutadora marcando a conversa.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "O relato mais direto sobre a barreira de entrada: a dificuldade nao era passar na entrevista, era ser chamado para uma."
+  },
+  {
+    "slug": "thaissa-barbosa",
+    "name": "Thaissa Barbosa",
+    "role": "Desenvolvedora",
+    "category": "Abordagens no LinkedIn",
+    "headline": "3 mensagens em um unico dia",
+    "quote": "And today I received 3 more messages.",
+    "metrics": [
+      "3 abordagens em um unico dia",
+      "4 abordagens visiveis no print: Ovi O.Kedo, Wendell Costa (Full-stack), Nesj Joy Ordonio (Software Engineer Expert C# + remoto) e Carlos Levir"
+    ],
+    "images": [
+      "thaissa-1.webp"
+    ],
+    "evidence": "O print da caixa de entrada com as abordagens do mesmo dia, publicado no story do proprio Robson.",
+    "consent": true,
+    "date": "2026-09-12",
+    "body": "Volume concentrado: tres recrutadores no mesmo dia, com abordagens nacionais e internacionais."
+  }
+]

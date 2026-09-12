@@ -48,6 +48,14 @@
     </image:image>
   </url>
 
+  <!-- Depoimentos (prova pública com prints de evidência) -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/depoimentos/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Política de Privacidade (LGPD) — referenciada em todos os e-mails da régua -->
   <url>
     <loc>https://eu.robsoncassiano.software/privacidade/</loc>
