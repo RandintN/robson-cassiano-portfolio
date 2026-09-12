@@ -10,41 +10,41 @@ Sitemap: https://eu.robsoncassiano.software/sitemap.xml
 # Specific bot rules & Content Signals (https://contentsignals.org/)
 User-agent: Googlebot
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 User-agent: Slurp
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 # AI / LLM Crawlers for AEO & Agent Readiness
 User-agent: GPTBot
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 User-agent: CCBot
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 User-agent: anthropic-ai
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 User-agent: Claude-Web
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/
 
 User-agent: YouBot
 Allow: /
-Content-Signal: ai-train=yes, search=yes, ai-input=yes
+Disallow: /api/

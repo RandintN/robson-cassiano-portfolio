@@ -88,4 +88,6 @@
   Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
   Access-Control-Allow-Headers: Content-Type, Authorization
   Access-Control-Max-Age: 86400
+  # Nota: respostas de Pages Functions ignoram este arquivo. O X-Robots-Tag
+  # efetivo para /api/* é aplicado em functions/_middleware.ts.
   X-Robots-Tag: noindex, nofollow

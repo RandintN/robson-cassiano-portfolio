@@ -86,5 +86,12 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const response = await context.next();
   response.headers.set("Vary", "Accept");
   response.headers.set("Access-Control-Allow-Origin", "*");
+
+  // Responses produced by Pages Functions ignore the _headers file, so the crawl
+  // directive for the capture API has to be set on the response itself.
+  if (url.pathname.startsWith("/api/")) {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
+
   return response;
 };
