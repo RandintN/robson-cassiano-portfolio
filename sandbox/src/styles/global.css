@@ -1,3 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #08080a;
+  --color-obsidian: #0e0e12;
+  --color-obsidian-card: #141418;
+  --color-obsidian-raised: #16161c;
+  --color-obsidian-overlay: #1f1f27;
+  --color-obsidian-border: #252530;
+  --color-gold: #dfb15b;
+  --color-gold-light: #f6e0a4;
+  --color-gold-muted: #967432;
+  --color-gold-primary: #dfb15b;
+  --color-gold-glow: rgba(223, 177, 91, 0.15);
+}
+
 /* Cascade order, lowest priority first */
 
 @layer base, patterns, components, utilities;
