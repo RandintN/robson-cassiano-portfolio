@@ -29,7 +29,7 @@ function figureFor(testimonial, index, image) {
   const src = `/assets/images/depoimentos/${image}`;
   return `        <figure class="dep-figure">
           <img src="${src}" alt="Print enviado por ${escapeHtml(testimonial.name)}: ${escapeHtml(stripTags(testimonial.evidence)).slice(0, 150)}" width="1200" height="800" loading="lazy" decoding="async">
-          <figcaption>${index === 0 ? escapeHtml(testimonial.evidence) : 'Evidencia complementar enviada pelo proprio autor do depoimento.'}</figcaption>
+          <figcaption>${index === 0 ? escapeHtml(testimonial.evidence) : 'Evidência complementar enviada pelo próprio autor do depoimento.'}</figcaption>
         </figure>`;
 }
 
