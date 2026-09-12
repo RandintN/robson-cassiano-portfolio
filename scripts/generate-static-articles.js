@@ -218,6 +218,7 @@ for (const art of articles) {
   <link rel="shortcut icon" href="/assets/icons/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="/assets/icons/site.webmanifest">
+  <link rel="alternate" type="text/markdown" href="https://eu.robsoncassiano.software/artigos/${art.slug}.md" title="Markdown Version for AI Agents">
   <link rel="alternate" type="text/plain" href="https://eu.robsoncassiano.software/llms.txt" title="LLMs.txt">
 
   <!-- Open Graph / Facebook / LinkedIn -->
@@ -456,6 +457,27 @@ ${JSON.stringify(jsonLd, null, 2)}
 
   await Bun.write(path.join(targetDir, 'index.html'), htmlContent);
   console.log(`✓ Pré-renderizado HTML semântico com JSON-LD em dist/artigos/${art.slug}/index.html`);
+
+  // Markdown alternate for AI agents: the same content minus HTML noise, served at
+  // /artigos/{slug}.md and negotiated by functions/_middleware.ts on Accept: text/markdown.
+  const markdownBody = (art.content || '').replace(/^#\s+[^\n]+\n+/, '').trim();
+  const markdownMeta = [
+    `# ${art.title}`,
+    '',
+    `> ${art.summary}`,
+    '',
+    `- Canonical URL: ${canonicalUrl}`,
+    '- Author: Robson Cassiano (https://eu.robsoncassiano.software/#person)',
+    `- Published: ${art.date}${art.updated && art.updated !== art.date ? ` (updated: ${art.updated})` : ''}`,
+    `- Category: ${art.category} · ${art.readTime}`,
+    `- Language: pt-BR`,
+    `- Tags: ${art.tags.join(', ')}`
+  ];
+  if (art.youtubeVideoId) {
+    markdownMeta.push(`- Original broadcast: https://www.youtube.com/watch?v=${art.youtubeVideoId}`);
+  }
+  const markdownDoc = `${markdownMeta.join('\n')}\n\n---\n\n${markdownBody}\n`;
+  await Bun.write(path.join(distDir, 'artigos', `${art.slug}.md`), markdownDoc);
 }
 
 console.log(`✓ Geração estática de ${articles.length} artigos finalizada com sucesso.`);
@@ -659,35 +681,41 @@ if (fs.existsSync(rootDistIndex)) {
     .replace('<html lang="pt-BR"', '<html lang="en"')
     .replace(
       /<title>.*?<\/title>/i,
-      '<title>Robson Cassiano | Senior Java Backend Engineer &amp; Enterprise Architect</title>'
+      '<title>Robson Cassiano: Senior Java Backend Engineer | 2026</title>'
     )
     .replace(
       /<meta\s+name=["']description["']\s+content=["'].*?["']\s*\/?>/i,
-      '<meta name="description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems, resilient PostgreSQL databases, and high-performance microservices for global enterprises.">'
+      '<meta name="description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems and resilient PostgreSQL databases for global enterprises.">'
     )
     .replace(
       /<link\s+rel=["']canonical["']\s+href=["'].*?["']\s*\/?>/i,
-      '<link rel="canonical" href="https://eu.robsoncassiano.software/en">'
+      '<link rel="canonical" href="https://eu.robsoncassiano.software/en/" />'
     )
+    // The EN portal is its own document: every self-referencing URL must use the
+    // final /en/ form (the bare /en 308-redirects to it) and every social/agent
+    // alternate must point to the English artefacts, never back to the PT ones.
+    .replace(/(<link\s+rel=["']alternate["']\s+hreflang=["']en["']\s+href=["'])[^"']*(["'])/i, '$1https://eu.robsoncassiano.software/en/$2')
+    .replace(/(<meta\s+property=["']og:url["']\s+content=["'])[^"']*(["'])/i, '$1https://eu.robsoncassiano.software/en/$2')
+    .replace(/(<link\s+rel=["']alternate["']\s+type=["']text\/markdown["']\s+href=["'])[^"']*(["'])/i, '$1https://eu.robsoncassiano.software/index-en.md$2')
     .replace(
       /<meta\s+property=["']og:title["']\s+content=["'].*?["']\s*\/?>/i,
-      '<meta property="og:title" content="Robson Cassiano | Senior Java Backend Engineer &amp; Enterprise Architect">'
+      '<meta property="og:title" content="Robson Cassiano: Senior Java Backend Engineer | 2026">'
     )
     .replace(
       /<meta\s+property=["']og:description["']\s+content=["'].*?["']\s*\/?>/i,
-      '<meta property="og:description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems, resilient PostgreSQL databases, and high-performance microservices for global enterprises.">'
+      '<meta property="og:description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems and resilient PostgreSQL databases for global enterprises.">'
     )
-    .replace(
-      /<meta\s+property=["']og:locale["']\s+content=["']pt_BR["']\s*\/?>/i,
-      '<meta property="og:locale" content="en_US">'
-    )
+    // og:locale must be en_US and its alternate the original pt_BR; a naive swap
+    // would leave both on en_US.
+    .replace(/(<meta\s+property=["']og:locale["']\s+content=["'])[^"']*(["'])/i, '$1en_US$2')
+    .replace(/(<meta\s+property=["']og:locale:alternate["']\s+content=["'])[^"']*(["'])/i, '$1pt_BR$2')
     .replace(
       /<meta\s+name=["']twitter:title["']\s+content=["'].*?["']\s*\/?>/i,
-      '<meta name="twitter:title" content="Robson Cassiano | Senior Java Backend Engineer &amp; Enterprise Architect">'
+      '<meta name="twitter:title" content="Robson Cassiano: Senior Java Backend Engineer | 2026">'
     )
     .replace(
       /<meta\s+name=["']twitter:description["']\s+content=["'].*?["']\s*\/?>/i,
-      '<meta name="twitter:description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems, resilient PostgreSQL databases, and high-performance microservices for global enterprises.">'
+      '<meta name="twitter:description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems and resilient PostgreSQL databases for global enterprises.">'
     )
     .replace(
       'Engenheiro de Software Sênior &amp; Mentor Global',

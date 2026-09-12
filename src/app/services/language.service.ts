@@ -87,7 +87,7 @@ export class LanguageService {
       const hash = window.location.hash || '';
 
       if (lang === 'en' && !currentPath.startsWith('/en')) {
-        window.history.pushState(null, '', '/en' + hash);
+        window.history.pushState(null, '', '/en/' + hash);
       } else if (lang === 'br' && currentPath.startsWith('/en')) {
         window.history.pushState(null, '', '/' + hash);
       }

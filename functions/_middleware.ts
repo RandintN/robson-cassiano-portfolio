@@ -4,6 +4,32 @@ interface Env {
   };
 }
 
+const SITE_URL = "https://eu.robsoncassiano.software";
+
+/**
+ * Maps an HTML route to its Markdown alternate, when one exists.
+ * `/`            -> /index.md
+ * `/en` `/en/`   -> /index-en.md
+ * `/artigos/{s}/` -> /artigos/{s}.md
+ */
+function markdownVariant(pathname: string): string | null {
+  const clean = pathname.replace(/\/index\.html$/i, "").replace(/\/+$/, "") || "/";
+  if (clean === "/") return "/index.md";
+  if (clean === "/en") return "/index-en.md";
+  const article = /^\/artigos\/([a-z0-9-]+)$/i.exec(clean);
+  if (article) return `/artigos/${article[1]}.md`;
+  return null;
+}
+
+/** Canonical HTML URL that a given Markdown file mirrors (for the Link header). */
+function canonicalOf(mdPath: string): string {
+  if (mdPath === "/index.md") return `${SITE_URL}/`;
+  if (mdPath === "/index-en.md") return `${SITE_URL}/en/`;
+  const article = /^\/artigos\/(.+)\.md$/i.exec(mdPath);
+  if (article) return `${SITE_URL}/artigos/${article[1]}/`;
+  return SITE_URL;
+}
+
 export const onRequest: PagesFunction<Env> = async (context) => {
   const request = context.request;
   const accept = request.headers.get("accept") || "";
@@ -14,23 +40,32 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     accept.includes("text/x-markdown") ||
     url.searchParams.get("format") === "markdown";
 
-  // When an AI agent requests markdown on root, serve /index.md with proper agent headers
-  if (wantsMarkdown && (url.pathname === "/" || url.pathname === "/index.html")) {
-    const mdUrl = new URL("/index.md", url.origin);
-    const mdResponse = await context.env.ASSETS.fetch(mdUrl);
-    const mdText = await mdResponse.text();
-    const tokenCount = Math.round(mdText.length / 4);
+  // Content negotiation for AI agents: serve the Markdown twin of any page that has
+  // one, so agents do not have to download and parse the full HTML payload.
+  if (wantsMarkdown && request.method === "GET") {
+    const mdPath = markdownVariant(url.pathname);
 
-    return new Response(mdText, {
-      status: 200,
-      headers: {
-        "Content-Type": "text/markdown; charset=utf-8",
-        "Vary": "Accept",
-        "x-markdown-tokens": tokenCount.toString(),
-        "Access-Control-Allow-Origin": "*",
-        "Cache-Control": "public, max-age=0, must-revalidate",
-      },
-    });
+    if (mdPath) {
+      const mdResponse = await context.env.ASSETS.fetch(new URL(mdPath, url.origin));
+
+      if (mdResponse.ok) {
+        const mdText = await mdResponse.text();
+        const tokenCount = Math.round(mdText.length / 4);
+
+        return new Response(mdText, {
+          status: 200,
+          headers: {
+            "Content-Type": "text/markdown; charset=utf-8",
+            "Content-Language": mdPath === "/index-en.md" ? "en" : "pt-BR",
+            "Vary": "Accept",
+            "x-markdown-tokens": tokenCount.toString(),
+            "Link": `<${canonicalOf(mdPath)}>; rel="canonical"`,
+            "Access-Control-Allow-Origin": "*",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+          },
+        });
+      }
+    }
   }
 
   // Handle global CORS preflight for all endpoints

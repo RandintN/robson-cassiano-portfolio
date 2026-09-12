@@ -58,6 +58,13 @@
   Cache-Control: public, max-age=0, must-revalidate
   Access-Control-Allow-Origin: *
 
+# Markdown alternates of each pre-rendered article (/artigos/{slug}.md).
+# Cache-Control is intentionally omitted here: it is inherited from /artigos/*
+# above, because Cloudflare concatenates overlapping Cache-Control rules.
+/artigos/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
 /llms.txt
   Content-Type: text/plain; charset=utf-8
   Cache-Control: public, max-age=0, must-revalidate

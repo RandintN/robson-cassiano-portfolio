@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
 
   currentYear = signal(new Date().getFullYear());
   currentLanguage = this.languageService.language;
-  readonly navPrefix = computed(() => this.currentLanguage() === 'en' ? '/en' : '');
+  readonly navPrefix = computed(() => this.currentLanguage() === 'en' ? '/en/' : '');
 
   // Local optimized image served on the same edge origin (Cloudflare Pages)
   profileImage = signal('assets/images/Robson-Cassiano.webp');
@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
       this.metaService.updateTag({ property: 'og:title', content: title });
       this.metaService.updateTag({ property: 'og:description', content: description });
       const isEnUrl = typeof window !== 'undefined' ? window.location.pathname.startsWith('/en') : !isBr;
-      this.metaService.updateTag({ property: 'og:url', content: isEnUrl ? 'https://eu.robsoncassiano.software/en' : 'https://eu.robsoncassiano.software/' });
+      this.metaService.updateTag({ property: 'og:url', content: isEnUrl ? 'https://eu.robsoncassiano.software/en/' : 'https://eu.robsoncassiano.software/' });
       this.metaService.updateTag({ property: 'og:image', content: this.fullCanonicalImageUrl });
       this.metaService.updateTag({ property: 'og:locale', content: locale });
 
@@ -81,7 +81,7 @@ export class AppComponent implements OnInit {
       if (typeof document !== 'undefined') {
         const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
         if (canonical) {
-          canonical.href = isEnUrl ? 'https://eu.robsoncassiano.software/en' : 'https://eu.robsoncassiano.software/';
+          canonical.href = isEnUrl ? 'https://eu.robsoncassiano.software/en/' : 'https://eu.robsoncassiano.software/';
         }
       }
 
@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
     const profilePageSchema = {
       "@type": "ProfilePage",
       "@id": "https://eu.robsoncassiano.software/#profilepage",
-      "url": isBr ? "https://eu.robsoncassiano.software/" : "https://eu.robsoncassiano.software/en",
+      "url": isBr ? "https://eu.robsoncassiano.software/" : "https://eu.robsoncassiano.software/en/",
       "name": isBr ? "Robson Cassiano | Senior Software Engineer, Mentor e Filósofo" : "Robson Cassiano | Senior Software Engineer, Mentor and Philosopher",
       "inLanguage": isBr ? "pt-BR" : "en-US",
       "mainEntity": {

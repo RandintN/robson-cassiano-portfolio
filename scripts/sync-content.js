@@ -88,7 +88,7 @@ const sitemapEntries = [
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://eu.robsoncassiano.software/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
       <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
@@ -99,13 +99,13 @@ const sitemapEntries = [
 
   `  <!-- Dedicated English Portal (International SEO / English Speakers) -->
   <url>
-    <loc>https://eu.robsoncassiano.software/en</loc>
+    <loc>https://eu.robsoncassiano.software/en/</loc>
     <lastmod>${today}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://eu.robsoncassiano.software/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
       <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
@@ -146,7 +146,7 @@ const llmsPath = path.resolve('llms.txt');
 if (fs.existsSync(llmsPath)) {
   const llmsRaw = await Bun.file(llmsPath).text();
   const articleLines = articles
-    .map(a => `- [${a.title}](https://eu.robsoncassiano.software/artigos/${a.slug}/): ${a.summary}`)
+    .map(a => `- [${a.title}](https://eu.robsoncassiano.software/artigos/${a.slug}/): ${a.summary} ([markdown](https://eu.robsoncassiano.software/artigos/${a.slug}.md))`)
     .join('\n');
   const block = `<!-- ARTICLES:START -->\n${articleLines}\n<!-- ARTICLES:END -->`;
 
