@@ -1,88 +1,7 @@
 import { Component, input, computed, inject, ChangeDetectionStrategy } from '@angular/core';
-import { Article } from '../app/services/content.service';
+import { ContentService, Article } from '../app/services/content.service';
 import { LanguageService } from '../app/services/language.service';
 import { TranslatePipe } from '../app/pipes/translate.pipe';
-
-const ARTICLE_TRANSLATIONS_EN: Record<string, { title: string; summary: string; category: string; readTime: string }> = {
-  'a-mecanica-oculta-dos-ats-workable-vs-greenhouse': {
-    title: 'ATS in Practice: Workable vs Greenhouse and Your Resume',
-    summary: 'I tested Workable hands-on and compared it with Greenhouse: resume parsing, pricing and the Canva myth that gets candidates filtered out before the interview.',
-    category: 'Career & Engineering',
-    readTime: '8 min read'
-  },
-  'como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia': {
-    title: 'AI-Run Technical Interviews: A Real Session Breakdown',
-    summary: 'I broke down a real AI-conducted technical interview frame by frame: what the panel evaluates and the answers that separate a pass from a rejection.',
-    category: 'Career & Engineering',
-    readTime: '9 min read'
-  },
-  'fase-3-live-coding-java-senior-5k-usd': {
-    title: 'Senior Java Live Coding: Inside the US$ 5.2k Phase 3',
-    summary: 'I recorded and analyzed an English Phase 3 interview for a US$ 5.2k senior role: palindrome, think aloud, virtual threads, Spring Security and tests.',
-    category: 'Career & Engineering',
-    readTime: '9 min read'
-  },
-  'programador-portugal-salario-euro-visto-negociacao': {
-    title: 'Developer in Portugal: Salary, Visa and What to Negotiate',
-    summary: 'I recorded a real recruiting call for Portugal and break down each stage: visa, relocation allowance, family reunification and purchasing power parity.',
-    category: 'International Career',
-    readTime: '9 min read'
-  },
-  'coding-interview-preparation-week-by-week-study-plan': {
-    title: 'Coding Interview Prep: A Week-by-Week Study Plan',
-    summary: 'A structured week-by-week plan for US tech coding interviews: core algorithm patterns, dynamic programming triage and readiness checkpoints.',
-    category: 'Career & Engineering',
-    readTime: '12 min read'
-  },
-  'por-que-spring-boot-domina-backend-global': {
-    title: 'Why Spring Boot and Java Dominate the Most Lucrative Global Backend Contracts',
-    summary: "While new frameworks emerge weekly, the Java/Spring ecosystem continues powering the world's most mission-critical and lucrative systems. Learn why US/EU enterprises pay over $8k/mo for engineers mastering this stack.",
-    category: 'Software Engineering',
-    readTime: '5 min read'
-  },
-  'polyworking-estrategia-multiplos-contratos-remotos': {
-    title: 'The Polyworking Strategy: Managing Multiple Global USD/EUR Remote Contracts Securely',
-    summary: 'A deep-dive technical and operational guide on structuring multiple international software contracts simultaneously without burnout, delivering high leverage and compounding wealth.',
-    category: 'Career & Global Business',
-    readTime: '7 min read'
-  },
-  'como-criar-diferencial-era-inteligencia-artificial': {
-    title: 'Building Unfair Advantage as a Software Engineer in the AI Era',
-    summary: 'Why syntactic coding is getting commoditized by LLMs and how classical reasoning, business architecture, and complex domain modeling become the ultimate moat.',
-    category: 'Philosophy & Career',
-    readTime: '8 min read'
-  },
-  'filosofia-classica-e-arquitetura-de-software': {
-    title: 'Classical Philosophy & Software Architecture: What Socrates and Aristotle Teach About Clean Code',
-    summary: 'Applying Greek logic, Aristotelian categorization, and first-principles thinking to decouple domain logic, design clean microservices, and eliminate cognitive debt.',
-    category: 'Philosophy & Engineering',
-    readTime: '8 min read'
-  },
-  'como-negociar-contratos-8k-mes-dev-java': {
-    title: 'How to Negotiate $8,000+/Month Remote Contracts as an Enterprise Java Engineer',
-    summary: 'Negotiation frameworks, positioning strategies, and communication protocols to command premium compensation in USD/EUR from international clients.',
-    category: 'Career & Global Business',
-    readTime: '6 min read'
-  },
-  'resiliencia-arquitetural-circuit-breaker-falhas-cascata': {
-    title: 'Architectural Resilience: Implementing Circuit Breakers and Preventing Cascading Failures in Spring Boot',
-    summary: 'Preventing distributed system outages using Resilience4j, bulkhead patterns, fallback strategies, and distributed tracing in production environments.',
-    category: 'Software Engineering',
-    readTime: '9 min read'
-  },
-  'mercado-real-engenharia-software-clecius-martinkoski': {
-    title: 'The Real State of Software Engineering: Conversation with Clecius Martinkoski',
-    summary: 'An unfiltered architectural debate on senior engineering reality, legacy code modernization, hiring trends, and career longevity.',
-    category: 'Interviews & Market',
-    readTime: '6 min read'
-  },
-  'otimizacao-com-open-telemetry-e-grafana': {
-    title: 'Performance Optimization & Observability with OpenTelemetry and Grafana',
-    summary: 'Practical enterprise guide on tracing distributed transactions, detecting latency spikes, and profiling Java Spring Boot microservices in production.',
-    category: 'Software Engineering',
-    readTime: '7 min read'
-  }
-};
 
 @Component({
   selector: 'app-article-card',
@@ -131,10 +50,11 @@ const ARTICLE_TRANSLATIONS_EN: Record<string, { title: string; summary: string; 
 })
 export class ArticleCardComponent {
   private languageService = inject(LanguageService);
+  private contentService = inject(ContentService);
 
   article = input.required<Article>();
 
-  private enTranslation = computed(() => ARTICLE_TRANSLATIONS_EN[this.article().slug]);
+  private enTranslation = computed(() => this.contentService.articlesEn()[this.article().slug]);
   private isEn = computed(() => this.languageService.language() === 'en');
 
   displayTitle = computed(() => {

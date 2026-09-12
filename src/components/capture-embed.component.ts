@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, AfterViewInit, inject, ElementRef, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, AfterViewInit, inject } from '@angular/core';
 import { LanguageService } from '../app/services/language.service';
 
 @Component({
@@ -19,9 +19,6 @@ import { LanguageService } from '../app/services/language.service';
 })
 export class CaptureEmbedComponent implements AfterViewInit {
   private readonly languageService = inject(LanguageService);
-  private readonly el = inject(ElementRef);
-
-  private readonly isEn = computed(() => this.languageService.language() === 'en');
 
   ngAfterViewInit() {
     if (typeof window === 'undefined') return;
@@ -61,17 +58,10 @@ export class CaptureEmbedComponent implements AfterViewInit {
       if (skeleton) skeleton.remove();
     };
 
-    if (this.isEn()) {
-      script.setAttribute('data-badge', '🎁 Free Ebook & VIP Briefing');
-      script.setAttribute('data-title', 'Download Free Playbook: 7 Simple Steps to Land a Global Remote Dev Job');
-      script.setAttribute('data-description', 'Get instant access to the 7 Simple Steps playbook, high-throughput architecture breakdowns, and tactical negotiation strategies for senior remote roles.');
-      script.setAttribute('data-button', 'Download Free Playbook');
-    } else {
-      script.setAttribute('data-badge', '📬 Guia Prático & Acesso VIP');
-      script.setAttribute('data-title', 'Baixe o E-book: 7 Passos Simples para Conquistar sua Vaga DEV na Gringa');
-      script.setAttribute('data-description', 'Receba o passo a passo para conquistar contratos de R$ 30k+/mês no exterior, dominar entrevistas técnicas em inglês e acessar análises de arquitetura sênior.');
-      script.setAttribute('data-button', 'Baixar E-book & Acessar Lista VIP');
-    }
+    script.setAttribute('data-badge', this.languageService.translate('NEWSLETTER_BADGE'));
+    script.setAttribute('data-title', this.languageService.translate('NEWSLETTER_TITLE'));
+    script.setAttribute('data-description', this.languageService.translate('NEWSLETTER_DESC'));
+    script.setAttribute('data-button', this.languageService.translate('NEWSLETTER_BUTTON'));
 
     document.body.appendChild(script);
   }
