@@ -1,8 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { marked } from 'marked';
+import {
+  buildStaticShell,
+  buildArticlesHub,
+  buildArticlesHubMarkdown,
+  injectShell,
+} from './lib/static-shell.js';
 
 const articlesFile = path.resolve('src/assets/content/articles.json');
+const articlesEnFile = path.resolve('src/assets/content/articles.en.json');
 const distDir = path.resolve('dist');
 
 if (!fs.existsSync(articlesFile)) {
@@ -14,6 +22,20 @@ if (!fs.existsSync(distDir)) {
   fs.mkdirSync(distDir, { recursive: true });
 }
 
+// The un-hashed /assets/css/styles.css is capped by Cloudflare's zone-level
+// Browser Cache TTL (4h), which would leave the SSG pages on stale CSS after a
+// deploy. Emitting a content-addressed copy in the root lets the existing
+// /styles-*.css rule serve it as immutable.
+const cssSource = path.resolve('src/assets/css/styles.css');
+let stylesHref = '/assets/css/styles.css';
+if (fs.existsSync(cssSource)) {
+  const css = await Bun.file(cssSource).text();
+  const hash = createHash('sha256').update(css).digest('hex').slice(0, 10);
+  const hashedFile = `styles-artigos.${hash}.css`;
+  await Bun.write(path.join(distDir, hashedFile), css);
+  stylesHref = `/${hashedFile}`;
+}
+
 // Sincronizar sitemap.xml gerado para o dist
 const rootSitemap = path.resolve('sitemap.xml');
 const distSitemap = path.join(distDir, 'sitemap.xml');
@@ -23,6 +45,7 @@ if (fs.existsSync(rootSitemap)) {
 }
 
 const articles = await Bun.file(articlesFile).json();
+const articlesEn = fs.existsSync(articlesEnFile) ? await Bun.file(articlesEnFile).json() : {};
 
 const escapeAttr = (value = '') =>
   String(value)
@@ -169,7 +192,7 @@ for (const art of articles) {
           "@type": "ListItem",
           "position": 2,
           "name": "Blog",
-          "item": "https://eu.robsoncassiano.software/#artigos"
+          "item": "https://eu.robsoncassiano.software/artigos/"
         },
         {
           "@type": "ListItem",
@@ -252,7 +275,7 @@ for (const art of articles) {
 ${JSON.stringify(jsonLd, null, 2)}
   </script>
 
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="${stylesHref}">
   <script>
     class LiteYouTube extends HTMLElement {
       connectedCallback() {
@@ -360,7 +383,7 @@ ${JSON.stringify(jsonLd, null, 2)}
     <ol class="flex items-center gap-2 text-xs text-slate-400">
       <li><a href="/" class="hover:text-[#dfb15b] transition-colors">Início</a></li>
       <li>/</li>
-      <li><a href="/#artigos" class="hover:text-[#dfb15b] transition-colors">Blog</a></li>
+      <li><a href="/artigos/" class="hover:text-[#dfb15b] transition-colors">Blog</a></li>
       <li>/</li>
       <li class="text-[#dfb15b] truncate max-w-xs">${art.title}</li>
     </ol>
@@ -663,7 +686,8 @@ function injectStructuredData(html, lang) {
     console.warn(`⚠ structured-data não encontrado para injeção (${lang}).`);
     return html;
   }
-  return html.replace(pattern, scriptTag);
+  // Function replacer keeps "$1"/"$&" sequences in the copy literal.
+  return html.replace(pattern, () => scriptTag);
 }
 
 // 3. Gerar a versão estática pré-renderizada em Inglês para /en/index.html
@@ -675,9 +699,19 @@ if (fs.existsSync(rootDistIndex)) {
 
   // 3a. Rebuild the PT structured data from br.json (single source of truth)
   const rawHtml = injectStructuredData(await Bun.file(rootDistIndex).text(), 'br');
-  await Bun.write(rootDistIndex, rawHtml);
 
-  const enIndexHtml = rawHtml
+  // 3b. Static semantic shell for the PT host document: navigation, the full
+  // article catalogue, proof metrics and FAQ text, served to clients that never
+  // run JavaScript. Angular replaces the whole block on bootstrap.
+  const ptShellHtml = injectShell(rawHtml, buildStaticShell({
+    lang: 'br',
+    t: (key) => i18nBr[key] || key,
+    articles,
+    translations: {},
+  }));
+  await Bun.write(rootDistIndex, ptShellHtml);
+
+  const enIndexHtml = ptShellHtml
     .replace('<html lang="pt-BR"', '<html lang="en"')
     .replace(
       /<title>.*?<\/title>/i,
@@ -716,22 +750,31 @@ if (fs.existsSync(rootDistIndex)) {
     .replace(
       /<meta\s+name=["']twitter:description["']\s+content=["'].*?["']\s*\/?>/i,
       '<meta name="twitter:description" content="Senior Software Engineer with 10+ years architecting high-throughput Java/Spring systems and resilient PostgreSQL databases for global enterprises.">'
-    )
-    .replace(
-      'Engenheiro de Software Sênior &amp; Mentor Global',
-      'Senior Java Backend Engineer &amp; Enterprise Architect'
-    )
-    .replace(
-      'Nem só de <span style="color: #dfb15b;">código</span> vive o DEV.',
-      'Engineering <span style="color: #dfb15b;">high-throughput</span> resilient systems.'
-    )
-    .replace(
-      'Especialista em Java Backend, filósofo clássico e mentor de carreiras internacionais. Construindo o futuro sobre os ombros de gigantes para levar devs sênior a faturar +R$ 30k/mês no exterior.',
-      'Specialized in Enterprise Java, high-performance Spring Boot microservices, scalable PostgreSQL databases, and clean distributed architectures. +10 years delivering robust software for global operations.'
     );
 
-  // 3b. Inject EN structured data (en-US) so non-JS crawlers never see PT schema on /en
+  // 3c. Inject EN structured data (en-US) so non-JS crawlers never see PT schema on /en,
+  // then swap the PT shell for an EN shell built from en.json + articles.en.json.
   const enIndexWithSchema = injectStructuredData(enIndexHtml, 'en');
-  await Bun.write(path.join(enDir, 'index.html'), enIndexWithSchema);
-  console.log('✓ Pré-renderizado portal em Inglês em dist/en/index.html (SEO Internacional /en)');
+  const enShellHtml = injectShell(enIndexWithSchema, buildStaticShell({
+    lang: 'en',
+    t: (key) => i18nEn[key] || key,
+    articles,
+    translations: articlesEn,
+  }));
+  await Bun.write(path.join(enDir, 'index.html'), enShellHtml);
+  console.log('✓ Pré-renderizado portal em Inglês em dist/en/index.html (SEO Internacional /en + shell EN)');
 }
+
+// 4. Blog hub: a real /artigos/ collection page for the article cluster, which also
+// gives the host shell a stable internal-linking target.
+const hubDir = path.join(distDir, 'artigos');
+fs.mkdirSync(hubDir, { recursive: true });
+await Bun.write(
+  path.join(hubDir, 'index.html'),
+  buildArticlesHub({ articles, t: (key) => i18nBr[key] || key, stylesHref })
+);
+await Bun.write(
+  path.join(hubDir, 'index.md'),
+  buildArticlesHubMarkdown({ articles, t: (key) => i18nBr[key] || key })
+);
+console.log(`✓ Hub de artigos gerado em dist/artigos/index.html (+ index.md, ${articles.length} artigos)`);

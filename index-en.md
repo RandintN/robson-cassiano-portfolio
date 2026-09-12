@@ -2,7 +2,7 @@
 title: "Robson Cassiano | Senior Java Backend Engineer & Enterprise Architect"
 description: "Executive and technical profile of Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder of Simple Software LTDA."
 image: "https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp"
-canonical: "https://eu.robsoncassiano.software/en"
+canonical: "https://eu.robsoncassiano.software/en/"
 author: "Robson Cassiano"
 ---
 
@@ -116,3 +116,23 @@ Robson is a polyglot and actively studies 5 languages: Portuguese (native), Engl
 - **Facebook**: https://www.facebook.com/RobsonCassianoSoftware/
 - **Twitter / X**: https://twitter.com/RobsonDev
 - **Substack**: https://randintn.substack.com
+
+---
+
+## 📚 Canonical Published Articles (Blog)
+
+<!-- ARTICLES:START -->
+- [AI-Run Technical Interviews: A Real Session Breakdown](https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia/): I broke down a real AI-conducted technical interview frame by frame: what the panel evaluates and the answers that separate a pass from a rejection. ([markdown](https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia.md))
+- [Coding Interview Prep: A Week-by-Week Study Plan](https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan/): A structured week-by-week plan for US tech coding interviews: core algorithm patterns, dynamic programming triage and readiness checkpoints. ([markdown](https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan.md))
+- [Developer in Portugal: Salary, Visa and What to Negotiate](https://eu.robsoncassiano.software/artigos/programador-portugal-salario-euro-visto-negociacao/): I recorded a real recruiting call for Portugal and break down each stage: visa, relocation allowance, family reunification and purchasing power parity. ([markdown](https://eu.robsoncassiano.software/artigos/programador-portugal-salario-euro-visto-negociacao.md))
+- [The Polyworking Strategy: Managing Multiple Global USD/EUR Remote Contracts Securely](https://eu.robsoncassiano.software/artigos/polyworking-estrategia-multiplos-contratos-remotos/): A deep-dive technical and operational guide on structuring multiple international software contracts simultaneously without burnout, delivering high leverage and compounding wealth. ([markdown](https://eu.robsoncassiano.software/artigos/polyworking-estrategia-multiplos-contratos-remotos.md))
+- [Building Unfair Advantage as a Software Engineer in the AI Era](https://eu.robsoncassiano.software/artigos/como-criar-diferencial-era-inteligencia-artificial/): Why syntactic coding is getting commoditized by LLMs and how classical reasoning, business architecture, and complex domain modeling become the ultimate moat. ([markdown](https://eu.robsoncassiano.software/artigos/como-criar-diferencial-era-inteligencia-artificial.md))
+- [Classical Philosophy & Software Architecture: What Socrates and Aristotle Teach About Clean Code](https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software/): Applying Greek logic, Aristotelian categorization, and first-principles thinking to decouple domain logic, design clean microservices, and eliminate cognitive debt. ([markdown](https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software.md))
+- [How to Negotiate $8,000+/Month Remote Contracts as an Enterprise Java Engineer](https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java/): Negotiation frameworks, positioning strategies, and communication protocols to command premium compensation in USD/EUR from international clients. ([markdown](https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java.md))
+- [Why Spring Boot and Java Dominate the Most Lucrative Global Backend Contracts](https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global/): While new frameworks emerge weekly, the Java/Spring ecosystem continues powering the world's most mission-critical and lucrative systems. Learn why US/EU enterprises pay over $8k/mo for engineers mastering this stack. ([markdown](https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global.md))
+- [Architectural Resilience: Implementing Circuit Breakers and Preventing Cascading Failures in Spring Boot](https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata/): Preventing distributed system outages using Resilience4j, bulkhead patterns, fallback strategies, and distributed tracing in production environments. ([markdown](https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata.md))
+- [ATS in Practice: Workable vs Greenhouse and Your Resume](https://eu.robsoncassiano.software/artigos/a-mecanica-oculta-dos-ats-workable-vs-greenhouse/): I tested Workable hands-on and compared it with Greenhouse: resume parsing, pricing and the Canva myth that gets candidates filtered out before the interview. ([markdown](https://eu.robsoncassiano.software/artigos/a-mecanica-oculta-dos-ats-workable-vs-greenhouse.md))
+- [Performance Optimization & Observability with OpenTelemetry and Grafana](https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana/): Practical enterprise guide on tracing distributed transactions, detecting latency spikes, and profiling Java Spring Boot microservices in production. ([markdown](https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana.md))
+- [Senior Java Live Coding: Inside the US$ 5.2k Phase 3](https://eu.robsoncassiano.software/artigos/fase-3-live-coding-java-senior-5k-usd/): I recorded and analyzed an English Phase 3 interview for a US$ 5.2k senior role: palindrome, think aloud, virtual threads, Spring Security and tests. ([markdown](https://eu.robsoncassiano.software/artigos/fase-3-live-coding-java-senior-5k-usd.md))
+- [The Real State of Software Engineering: Conversation with Clecius Martinkoski](https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski/): An unfiltered architectural debate on senior engineering reality, legacy code modernization, hiring trends, and career longevity. ([markdown](https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski.md))
+<!-- ARTICLES:END -->

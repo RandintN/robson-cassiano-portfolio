@@ -36,6 +36,18 @@
     </image:image>
   </url>
 
+  <!-- Hub de Artigos (Blog) -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
+      <image:title>Artigos e Ensaios de Engenharia de Software</image:title>
+    </image:image>
+  </url>
+
   <!-- Artigo: Entrevistas Técnicas de IA: Análise de uma Sessão Real -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia/</loc>

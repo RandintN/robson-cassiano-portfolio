@@ -112,6 +112,18 @@ const sitemapEntries = [
       <image:title>Robson Cassiano - Senior Java Backend Engineer &amp; Enterprise Architect</image:title>
       <image:caption>Robson Cassiano - Senior Java Backend Engineer and Enterprise Software Architect</image:caption>
     </image:image>
+  </url>`,
+
+  `  <!-- Hub de Artigos (Blog) -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/</loc>
+    <lastmod>${articles[0]?.updated || articles[0]?.date || today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
+      <image:title>Artigos e Ensaios de Engenharia de Software</image:title>
+    </image:image>
   </url>`
 ];
 
@@ -139,23 +151,42 @@ ${sitemapEntries.join('\n\n')}
 `;
 
 await Bun.write(targetSitemap, sitemapXml);
-console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 2} URLs indexáveis.`);
+console.log(`✓ Gerado sitemap.xml dinâmico com ${articles.length + 3} URLs indexáveis.`);
 
-// 3. Atualizar dinamicamente o índice de artigos do llms.txt (GEO / AI Discovery)
-const llmsPath = path.resolve('llms.txt');
-if (fs.existsSync(llmsPath)) {
-  const llmsRaw = await Bun.file(llmsPath).text();
-  const articleLines = articles
-    .map(a => `- [${a.title}](https://eu.robsoncassiano.software/artigos/${a.slug}/): ${a.summary} ([markdown](https://eu.robsoncassiano.software/artigos/${a.slug}.md))`)
-    .join('\n');
-  const block = `<!-- ARTICLES:START -->\n${articleLines}\n<!-- ARTICLES:END -->`;
+// 3. Atualizar dinamicamente os índices de artigos dos documentos para agentes de
+// IA (GEO / AI Discovery): llms.txt, llms-full.txt e os espelhos em markdown.
+const articlesEn = fs.existsSync(path.resolve('src/assets/content/articles.en.json'))
+  ? await Bun.file(path.resolve('src/assets/content/articles.en.json')).json()
+  : {};
 
-  if (llmsRaw.includes('<!-- ARTICLES:START -->') && llmsRaw.includes('<!-- ARTICLES:END -->')) {
-    const updated = llmsRaw.replace(/<!-- ARTICLES:START -->[\s\S]*?<!-- ARTICLES:END -->/, block);
-    await Bun.write(llmsPath, updated);
-    console.log(`✓ llms.txt atualizado com ${articles.length} artigos canônicos.`);
+const canonicalLine = (a) =>
+  `- [${a.title}](https://eu.robsoncassiano.software/artigos/${a.slug}/): ${a.summary} ([markdown](https://eu.robsoncassiano.software/artigos/${a.slug}.md))`;
+
+const englishLine = (a) => {
+  const tr = articlesEn[a.slug] || {};
+  return `- [${tr.title || a.title}](https://eu.robsoncassiano.software/artigos/${a.slug}/): ${tr.summary || a.summary} ([markdown](https://eu.robsoncassiano.software/artigos/${a.slug}.md))`;
+};
+
+const simpleLine = (a) =>
+  `- [${a.title}](https://eu.robsoncassiano.software/artigos/${a.slug}/) — ${a.date} · ${a.category}. Markdown: https://eu.robsoncassiano.software/artigos/${a.slug}.md`;
+
+const catalogTargets = [
+  { file: 'llms.txt', lines: articles.map(canonicalLine) },
+  { file: 'llms-full.txt', lines: articles.map(simpleLine) },
+  { file: 'index.md', lines: articles.map(canonicalLine) },
+  { file: 'index-en.md', lines: articles.map(englishLine) },
+];
+
+for (const { file, lines } of catalogTargets) {
+  const target = path.resolve(file);
+  const raw = await Bun.file(target).text();
+  const block = `<!-- ARTICLES:START -->\n${lines.join('\n')}\n<!-- ARTICLES:END -->`;
+
+  if (raw.includes('<!-- ARTICLES:START -->') && raw.includes('<!-- ARTICLES:END -->')) {
+    await Bun.write(target, raw.replace(/<!-- ARTICLES:START -->[\s\S]*?<!-- ARTICLES:END -->/, () => block));
+    console.log(`✓ ${file} atualizado com ${articles.length} artigos canônicos.`);
   } else {
-    console.warn('⚠ llms.txt sem marcadores ARTICLES:START/END — índice de artigos não atualizado.');
+    console.warn(`⚠ ${file} sem marcadores ARTICLES:START/END — índice de artigos não atualizado.`);
   }
 }
 
