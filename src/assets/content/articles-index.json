@@ -1,0 +1,277 @@
+[
+  {
+    "slug": "como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia",
+    "title": "Entrevistas Técnicas de IA: Análise de uma Sessão Real",
+    "date": "2026-09-05",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "9 min de leitura",
+    "tags": [
+      "Entrevistas Técnicas",
+      "Carreira Internacional",
+      "Inteligência Artificial",
+      "Engenharia de Software",
+      "Spring Boot"
+    ],
+    "summary": "Dissequei, quadro a quadro, uma entrevista técnica real conduzida por IA: o que a banca avalia e as respostas que separam aprovação de rejeição.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia/",
+    "youtubeVideoId": "J5yLoWYLy3A",
+    "videoDuration": "PT1H43M35S"
+  },
+  {
+    "slug": "coding-interview-preparation-week-by-week-study-plan",
+    "title": "Coding Interview Prep: A Week-by-Week Study Plan",
+    "date": "2026-08-29",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "12 min de leitura",
+    "tags": [
+      "Coding Interview",
+      "LeetCode",
+      "Algorithm Patterns",
+      "System Design",
+      "Behavioral Interview",
+      "US Tech Jobs",
+      "Dev na Gringa"
+    ],
+    "summary": "A structured week-by-week plan for US tech coding interviews: core algorithm patterns, dynamic programming triage and readiness checkpoints.",
+    "coverImage": "assets/images/coding-interview-preparation-roadmap.webp",
+    "ogImage": "assets/images/og/coding-interview-preparation-week-by-week-study-plan.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan/"
+  },
+  {
+    "slug": "programador-portugal-salario-euro-visto-negociacao",
+    "title": "Programador em Portugal: Salário, Visto e o Que Negociar",
+    "date": "2026-08-25",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira Internacional",
+    "readTime": "9 min de leitura",
+    "tags": [
+      "Portugal",
+      "Carreira Internacional",
+      "Negociação Salarial",
+      "Visto de Trabalho",
+      "Europa"
+    ],
+    "summary": "Gravei uma call real de recrutamento para Portugal e analiso cada etapa: visto, ajuda de custo, reagrupamento familiar e paridade de poder de compra.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/programador-portugal-salario-euro-visto-negociacao.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/programador-portugal-salario-euro-visto-negociacao/",
+    "youtubeVideoId": "zi4agVKnnk4",
+    "videoDuration": "PT45M9S"
+  },
+  {
+    "slug": "polyworking-estrategia-multiplos-contratos-remotos",
+    "title": "Polyworking: Contratos Múltiplos, Riscos e Limites Reais",
+    "date": "2026-08-16",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "12 min de leitura",
+    "tags": [
+      "Polyworking",
+      "Trabalho Remoto",
+      "Direito Trabalhista",
+      "OpSec",
+      "Carreira Internacional"
+    ],
+    "summary": "Análise prática e jurídica do polyworking escrita por quem praticou múltiplos contratos: exclusividade, isolamento de hardware e o teto da venda de horas.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/polyworking-estrategia-multiplos-contratos-remotos.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/polyworking-estrategia-multiplos-contratos-remotos/",
+    "youtubeVideoId": "HDnSaI26Knk",
+    "videoDuration": "PT1H31M6S"
+  },
+  {
+    "slug": "como-criar-diferencial-era-inteligencia-artificial",
+    "title": "Monopólio Pessoal: como Vencer o Conteúdo Genérico da IA",
+    "date": "2026-07-26",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Filosofia & Carreira",
+    "readTime": "9 min de leitura",
+    "tags": [
+      "Inteligência Artificial",
+      "Carl Jung",
+      "Monopólio Pessoal",
+      "Carreira Internacional"
+    ],
+    "summary": "A partir da psicologia de Carl Jung, um método prático para construir um monopólio pessoal, o único ativo defensável contra a produção sintética em massa.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/como-criar-diferencial-era-inteligencia-artificial.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/como-criar-diferencial-era-inteligencia-artificial/",
+    "youtubeVideoId": "I1IJwnWheaA",
+    "videoDuration": "PT1H9M1S"
+  },
+  {
+    "slug": "filosofia-classica-e-arquitetura-de-software",
+    "title": "Aristóteles e a Arquitetura de Software: as Quatro Causas",
+    "date": "2026-04-01",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Filosofia & Engenharia",
+    "readTime": "6 min de leitura",
+    "tags": [
+      "Filosofia",
+      "Clean Code",
+      "Arquitetura",
+      "Modelos Mentais"
+    ],
+    "summary": "Como as Quatro Causas de Aristóteles, a Navalha de Occam e o princípio do Telos orientam decisões de arquitetura sob incerteza em times de engenharia.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/filosofia-classica-e-arquitetura-de-software.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software/"
+  },
+  {
+    "slug": "como-negociar-contratos-8k-mes-dev-java",
+    "title": "Como Negociar US$ 8k/mês no Exterior sem Inglês Nativo",
+    "date": "2026-03-15",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira Internacional",
+    "readTime": "7 min de leitura",
+    "tags": [
+      "Carreira Remota",
+      "Dólar",
+      "Negociação",
+      "Real English"
+    ],
+    "summary": "O maior obstáculo para devs sênior ganharem em moeda forte não é a técnica, é o método de negociação. Um framework prático de ancoragem de valor.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/como-negociar-contratos-8k-mes-dev-java.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/como-negociar-contratos-8k-mes-dev-java/"
+  },
+  {
+    "slug": "por-que-spring-boot-domina-backend-global",
+    "title": "Por que Spring Boot e Java Dominam Contratos Globais",
+    "date": "2026-03-01",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Engenharia de Software",
+    "readTime": "6 min de leitura",
+    "tags": [
+      "Java",
+      "Spring Boot",
+      "Arquitetura",
+      "Enterprise",
+      "Carreira Internacional"
+    ],
+    "summary": "Novos frameworks surgem a cada trimestre, mas o ecossistema Java e Spring sustenta as aplicações mais críticas. Por que empresas globais pagam mais por ele.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/por-que-spring-boot-domina-backend-global.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/por-que-spring-boot-domina-backend-global/"
+  },
+  {
+    "slug": "resiliencia-arquitetural-circuit-breaker-falhas-cascata",
+    "title": "Circuit Breaker: Resiliência e Falhas em Cascata",
+    "date": "2026-02-05",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "9 min de leitura",
+    "tags": [
+      "Arquitetura de Software",
+      "Resiliência",
+      "Microsserviços",
+      "Circuit Breaker",
+      "Sistemas Distribuídos"
+    ],
+    "summary": "Análise técnica de resiliência em microsserviços: acoplamento síncrono, desacoplamento via filas e o padrão Circuit Breaker que prevê falhas.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/resiliencia-arquitetural-circuit-breaker-falhas-cascata.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata/"
+  },
+  {
+    "slug": "a-mecanica-oculta-dos-ats-workable-vs-greenhouse",
+    "title": "ATS na Prática: Workable vs Greenhouse e o Seu Currículo",
+    "date": "2025-09-10",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "8 min de leitura",
+    "tags": [
+      "ATS",
+      "Workable",
+      "Greenhouse",
+      "Recrutamento",
+      "Carreira Tech"
+    ],
+    "summary": "Testei o Workable na prática e comparei com o Greenhouse: parser de currículo, preços e o mito do Canva que elimina candidatos antes da entrevista.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/a-mecanica-oculta-dos-ats-workable-vs-greenhouse.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/a-mecanica-oculta-dos-ats-workable-vs-greenhouse/",
+    "youtubeVideoId": "sGUASE0odeI",
+    "videoDuration": "PT5M55S"
+  },
+  {
+    "slug": "otimizacao-com-open-telemetry-e-grafana",
+    "title": "OpenTelemetry e Grafana: Caching e Status 202 na Prática",
+    "date": "2025-08-30",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "7 min de leitura",
+    "tags": [
+      "OpenTelemetry",
+      "Grafana",
+      "Observabilidade",
+      "Spring Boot",
+      "Kotlin"
+    ],
+    "summary": "Demonstração prática de OpenTelemetry e Grafana em backend Kotlin com Spring: tracing, caching seletivo e 110 mil linhas com resposta 202 Accepted.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/otimizacao-com-open-telemetry-e-grafana.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/otimizacao-com-open-telemetry-e-grafana/",
+    "youtubeVideoId": "h1W5z1HxrP4",
+    "videoDuration": "PT7M41S"
+  },
+  {
+    "slug": "fase-3-live-coding-java-senior-5k-usd",
+    "title": "Live Coding Java Sênior: Anatomia da Fase 3 de US$ 5.2k",
+    "date": "2024-08-29",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "9 min de leitura",
+    "tags": [
+      "Live Coding",
+      "Java",
+      "Spring Boot",
+      "Carreira Internacional",
+      "Algoritmos"
+    ],
+    "summary": "Gravei e analisei uma Fase 3 técnica em inglês para vaga sênior de US$ 5.2k: palíndromo, think aloud, virtual threads, Spring Security e testes.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/fase-3-live-coding-java-senior-5k-usd.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/fase-3-live-coding-java-senior-5k-usd/",
+    "youtubeVideoId": "3-5A4cZZ-6I",
+    "videoDuration": "PT1H3M8S"
+  },
+  {
+    "slug": "mercado-real-engenharia-software-clecius-martinkoski",
+    "title": "O Mercado Real de Engenharia de Software em 14 Anos",
+    "date": "2023-10-12",
+    "updated": "2026-09-12",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "10 min de leitura",
+    "tags": [
+      "Engenharia de Software",
+      "Fundamentos",
+      "Carreira Tech",
+      "Clécius Martinkoski",
+      "DDD"
+    ],
+    "summary": "Conversa com Clécius Martinkoski sobre o abismo entre a academia e a produção, a migração de um sistema de 2011 e o que sustenta a relevância profissional.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/mercado-real-engenharia-software-clecius-martinkoski.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/mercado-real-engenharia-software-clecius-martinkoski/",
+    "youtubeVideoId": "PAERGtw-0mk",
+    "videoDuration": "PT56M"
+  }
+]

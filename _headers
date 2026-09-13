@@ -24,6 +24,11 @@
 /assets/icons/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Fontes self-hosted. O nome não tem hash, então um arquivo trocado precisa de
+# nome novo (mesma convenção de /assets/images/* e /assets/icons/*).
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Runtime data that changes on every deploy MUST revalidate (no stale CMS/i18n)
 /assets/content/*
   Cache-Control: public, max-age=0, must-revalidate

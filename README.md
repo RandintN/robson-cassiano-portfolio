@@ -25,7 +25,7 @@ build:css  →  sync-content.js  →  ng build  →  generate-static-articles.js
 | Step | What it does |
 | :--- | :--- |
 | `build:css` | Compiles `src/styles.css` → `src/assets/css/styles.css`. |
-| `sync-content.js` | Parses frontmatter of `content/articles/*.md` → `src/assets/content/articles.json`, regenerates `sitemap.xml` and refreshes the `<!-- ARTICLES:START/END -->` catalog inside `llms.txt`, `llms-full.txt`, `index.md` and `index-en.md`. |
+| `sync-content.js` | Parses frontmatter of `content/articles/*.md` → `src/assets/content/articles.json` (build input) and `articles-index.json` (runtime listing, no bodies), regenerates `sitemap.xml` and refreshes the `<!-- ARTICLES:START/END -->` catalog inside `llms.txt`, `llms-full.txt`, `index.md` and `index-en.md`. |
 | `ng build` | Builds the SPA shell and copies root assets (`_headers`, `_redirects`, `robots.txt`, `llms.txt`, `404.html`, …) into `dist`. |
 | `generate-static-articles.js` | Pre-renders `dist/artigos/{slug}/index.html` with semantic HTML + JSON-LD, its `.md` twin, the `/artigos/` hub, the `/en/` portal and the static shells. |
 
@@ -107,6 +107,16 @@ Then `bun run build` (or push — the Cloudflare Pages Git integration builds an
 Optional English metadata for cards and the `/en` shell lives in
 `src/assets/content/articles.en.json` (keyed by slug: `title`, `summary`, `category`, `readTime`).
 
+`sync-content.js` emits two catalogues from the same source and they are not interchangeable:
+
+| File | Consumer | Contents |
+| :--- | :--- | :--- |
+| `src/assets/content/articles.json` | build only (`generate-static-articles.js`, `generate-og-images.js`, `auto-publish.ts`) | Full entries, including the `content` markdown bodies. Excluded from `dist` via the `ignore` list in `angular.json`. |
+| `src/assets/content/articles-index.json` | the Angular app at runtime | The same entries without `content`. 12 KB instead of 115 KB, because the bodies are 85% of the payload and the cards never read them. |
+
+Publishing the full catalogue is what makes the homepage pay 40 KB per visit, and dropping the
+listing one empties the article grid; `validate-static-output.js` fails the build on either.
+
 ## 🌐 Bilingual layer
 
 | Surface | PT | EN |
@@ -114,7 +124,7 @@ Optional English metadata for cards and the `/en` shell lives in
 | Page | `/` | `/en/` |
 | Markdown alternate | `index.md` | `index-en.md` |
 | UI strings | `src/assets/i18n/br.json` | `src/assets/i18n/en.json` |
-| Article metadata | `articles.json` | `articles.en.json` |
+| Article listing (runtime) | `articles-index.json` | `articles.en.json` |
 | Schema `inLanguage` | `pt-BR` | `en-US` |
 
 Both dictionaries must keep identical key sets (currently 111 each). Articles themselves are

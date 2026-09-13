@@ -71,6 +71,25 @@ for (const [file, lang, minText] of [
   check(`${file}: <html lang="${lang}">`, new RegExp(`<html[^>]*lang="${lang}"`).test(html));
   check(`${file}: um único <h1>`, count(html, /<h1[\s>]/g) === 1, `${count(html, /<h1[\s>]/g)}`);
 
+  // The bundle is the last node of the document; without a head-level hint the
+  // download only starts after the inlined critical CSS is parsed.
+  const entry = html.match(/<script[^>]+src="(main-[^"]*\.js)"/i);
+  check(`${file}: bundle main-*.js presente`, Boolean(entry));
+  if (entry) {
+    check(
+      `${file}: modulepreload do bundle no head`,
+      count(html, /rel="modulepreload"[^>]*href="main-[^"]*\.js"/g) === 1,
+      `${count(html, /rel="modulepreload"/g)} modulepreload`
+    );
+    check(
+      `${file}: modulepreload usa o mesmo href do bundle`,
+      html.includes(`<link rel="modulepreload" crossorigin href="${entry[1]}">`),
+      `esperado href="${entry[1]}"`
+    );
+    const headEnd = html.indexOf('</head>');
+    check(`${file}: modulepreload antes de </head>`, html.indexOf('rel="modulepreload"') < headEnd);
+  }
+
   const schema = html.match(/<script id="structured-data" type="application\/ld\+json">([\s\S]*?)<\/script>/);
   check(`${file}: structured-data presente`, Boolean(schema));
   if (schema) {
@@ -81,6 +100,38 @@ for (const [file, lang, minText] of [
       check(`${file}: structured-data é JSON válido`, false, error.message);
     }
   }
+}
+
+// ---------------------------------------------------------------------------
+// 1b. Runtime asset boundary.
+//
+// articles.json carrega os corpos markdown completos e existe apenas como insumo
+// de build. Se ele voltar a ser publicado, o app pode voltar a buscá-lo e a home
+// volta a pagar 40 KB por visita, e se articles-index.json sumir os cards ficam
+// vazios. As duas coisas falham aqui em vez de em produção.
+// ---------------------------------------------------------------------------
+const publishedCatalog = path.join(distDir, 'assets', 'content', 'articles.json');
+check('articles.json (insumo de build) não é publicado', !fs.existsSync(publishedCatalog));
+
+const runtimeCatalog = path.join(distDir, 'assets', 'content', 'articles-index.json');
+check('catálogo de runtime articles-index.json existe', fs.existsSync(runtimeCatalog));
+if (fs.existsSync(runtimeCatalog)) {
+  const catalog = JSON.parse(fs.readFileSync(runtimeCatalog, 'utf8'));
+  check(
+    `catálogo de runtime com os ${articles.length} artigos`,
+    catalog.length === articles.length,
+    `${catalog.length}`
+  );
+  check(
+    'catálogo de runtime não carrega os corpos markdown',
+    catalog.every((entry) => !('content' in entry))
+  );
+  check(
+    'catálogo de runtime mantém os campos usados pelos cards',
+    catalog.every((entry) =>
+      ['slug', 'title', 'date', 'category', 'readTime', 'tags', 'summary'].every((field) => field in entry)
+    )
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -199,10 +250,16 @@ if (testimonials.length) {
     }
   }
 
-  // Toda imagem publicada precisa de alt, dimensoes explicitas e lazy loading (CLS/CWV).
+  // Toda imagem publicada precisa de alt, dimensões explícitas e lazy loading (CLS/CWV).
+  //
+  // O atributo `width`/`height` só protege contra layout shift quando a proporção bate
+  // com o arquivo: a página declarava 1200x800 fixos e o navegador reflowava ao carregar.
+  // Por isso aqui a dimensão declarada é comparada com o próprio WebP, não só verificada
+  // quanto à presença.
   for (const img of dep.match(/<img\b[^>]*>/g) || []) {
     check('depoimentos: img com alt', /\balt="[^"]{10,}"/.test(img));
     check('depoimentos: img com width/height', /\bwidth="\d+"/.test(img) && /\bheight="\d+"/.test(img));
+
     check('depoimentos: img com loading=lazy', /loading="lazy"/.test(img));
   }
 

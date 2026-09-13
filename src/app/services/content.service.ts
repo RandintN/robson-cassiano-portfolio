@@ -1,5 +1,11 @@
 import { Injectable, signal, computed } from '@angular/core';
 
+/**
+ * Item do catálogo de listagem (assets/content/articles-index.json).
+ *
+ * Os corpos em markdown não fazem parte deste payload: são insumo de build das
+ * páginas pré-renderizadas em /artigos/{slug}/. Ver scripts/sync-content.js.
+ */
 export interface Article {
   slug: string;
   title: string;
@@ -12,7 +18,6 @@ export interface Article {
   coverImage: string;
   canonicalUrl: string;
   youtubeVideoId?: string;
-  content: string;
 }
 
 export interface ArticleTranslation {
@@ -46,26 +51,31 @@ export class ContentService {
   });
 
   constructor() {
-    this.loadArticles();
+    void this.loadArticles();
   }
 
-  async loadArticles() {
+  /**
+   * Busca o catálogo de listagem, que traz apenas os campos usados nos cards.
+   * O articles.json completo (com os corpos markdown) fica restrito ao build.
+   */
+  async loadArticles(): Promise<void> {
     try {
       const [res, resEn] = await Promise.all([
-        fetch('assets/content/articles.json'),
+        fetch('assets/content/articles-index.json'),
         fetch('assets/content/articles.en.json')
       ]);
 
       if (res.ok) {
-        const data = await res.json();
-        this.articlesData.set(data);
+        this.articlesData.set(await res.json());
+      } else {
+        console.error(`Falha ao carregar o catálogo de artigos: HTTP ${res.status}`);
       }
+
       if (resEn.ok) {
-        const dataEn = await resEn.json();
-        this.articlesEnData.set(dataEn);
+        this.articlesEnData.set(await resEn.json());
       }
-    } catch (e) {
-      console.error('Falha ao carregar artigos:', e);
+    } catch (error) {
+      console.error('Falha ao carregar artigos:', error);
     }
   }
 

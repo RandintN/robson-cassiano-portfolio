@@ -77,6 +77,24 @@ fs.mkdirSync(path.dirname(targetJson), { recursive: true });
 await Bun.write(targetJson, JSON.stringify(articles, null, 2));
 console.log(`✓ Sincronizados ${articles.length} artigos em ${targetJson}`);
 
+// 1a. Catálogo de listagem consumido em runtime pelo Angular.
+//
+// O articles.json acima é insumo de build: 85% do peso dele são os corpos em
+// markdown, usados só por generate-static-articles.js para pré-renderizar as
+// páginas /artigos/{slug}/. O app nunca lê `content`: os cards usam apenas
+// slug, título, resumo, tags, categoria, data e tempo de leitura. Emitir um
+// catálogo sem os corpos tira 37 KB (93% gzip) de toda visita à home.
+const targetIndexJson = path.resolve('src/assets/content/articles-index.json');
+await Bun.write(
+  targetIndexJson,
+  JSON.stringify(
+    articles.map(({ content, ...listing }) => listing),
+    null,
+    2
+  )
+);
+console.log(`✓ Catálogo de listagem (sem corpos) em ${targetIndexJson}`);
+
 // 1b. Depoimentos (content/testimonials/*.md) -> src/assets/content/testimonials.json
 const testimonialsDir = path.resolve('content/testimonials');
 const targetTestimonials = path.resolve('src/assets/content/testimonials.json');

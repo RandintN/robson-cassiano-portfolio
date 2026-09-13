@@ -58,10 +58,8 @@
   <!-- Preload Critical LCP Hero Image -->
   <link rel="preload" fetchpriority="high" as="image" href="assets/images/Robson-Cassiano.webp" type="image/webp">
 
-  <!-- Preconnect to font origins to cut LCP latency -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonte primária self-hosted: as demais (@font-face) vivem no CSS hasheado -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
   <script>
     class LiteYouTube extends HTMLElement {
       connectedCallback() {

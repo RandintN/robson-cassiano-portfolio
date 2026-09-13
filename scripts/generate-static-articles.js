@@ -683,6 +683,36 @@ function buildStructuredData(lang) {
   return { '@context': 'https://schema.org', '@graph': [profilePage, organization, course, faq, breadcrumb] };
 }
 
+/**
+ * Hoists the discovery of the Angular entry bundle.
+ *
+ * Angular emits `<script src="main-<hash>.js" type="module">` as the last node of
+ * the document, so with the ~28 KB of inlined critical CSS in the head the browser
+ * only starts the 184 KB bundle download after parsing 98% of the HTML. A
+ * `modulepreload` in the head moves that request next to the stylesheet.
+ *
+ * The href is copied verbatim from the script tag so both requests share one
+ * cache entry, and `crossorigin` matches the CORS mode module scripts are
+ * fetched with.
+ */
+function injectModulePreload(html) {
+  const entry = html.match(/<script[^>]+src="([^"]*main-[^"]*\.js)"[^>]*>/i);
+  if (!entry) {
+    console.warn('⚠ bundle main-*.js não encontrado para injetar modulepreload.');
+    return html;
+  }
+  if (/rel="modulepreload"/i.test(html)) return html;
+
+  const anchor = /(<meta name="viewport"[^>]*>)/i;
+  if (!anchor.test(html)) {
+    console.warn('⚠ <meta name="viewport"> não encontrado para injetar modulepreload.');
+    return html;
+  }
+
+  const tag = `<link rel="modulepreload" crossorigin href="${entry[1]}">`;
+  return html.replace(anchor, (_match, viewport) => `${viewport}\n  ${tag}`);
+}
+
 function injectStructuredData(html, lang) {
   const jsonLd = JSON.stringify(buildStructuredData(lang), null, 2);
   const scriptTag = `  <script id="structured-data" type="application/ld+json">\n${jsonLd}\n  </script>`;
@@ -708,12 +738,12 @@ if (fs.existsSync(rootDistIndex)) {
   // 3b. Static semantic shell for the PT host document: navigation, the full
   // article catalogue, proof metrics and FAQ text, served to clients that never
   // run JavaScript. Angular replaces the whole block on bootstrap.
-  const ptShellHtml = injectShell(rawHtml, buildStaticShell({
+  const ptShellHtml = injectModulePreload(injectShell(rawHtml, buildStaticShell({
     lang: 'br',
     t: (key) => i18nBr[key] || key,
     articles,
     translations: {},
-  }));
+  })));
   await Bun.write(rootDistIndex, ptShellHtml);
 
   const enIndexHtml = ptShellHtml

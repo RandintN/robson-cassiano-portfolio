@@ -10,7 +10,7 @@ This project is a high-performance **Portfolio + Sovereign Headless CMS + Email 
 
 ### 1. Sovereign Markdown CMS (`content/articles/`)
 - **Authoring:** Articles are stored as standard Markdown files in `content/articles/*.md` with YAML frontmatter.
-- **Auto-Sync:** Compiles all `.md` articles into `src/assets/content/articles.json` and updates `sitemap.xml` dynamically via `scripts/sync-content.js`.
+- **Auto-Sync:** Compiles all `.md` articles into `src/assets/content/articles.json` (build input, carries the markdown bodies) plus `articles-index.json` (runtime listing consumed by the app, no bodies) and updates `sitemap.xml` dynamically via `scripts/sync-content.js`.
 - **Markdown Rendering:** Rendered in Angular using `marked` and `DomSanitizer` with signal-driven reactivity in `ArticleReaderComponent`.
 
 ### 2. Static Site Generation (SSG) & Schema.org SEO Engine
@@ -67,7 +67,7 @@ preSoldTarget: "mentoria"
 Seu conteúdo em Markdown aqui...
 ```
 2. Run `bun run build` (or `bun run pages:deploy`):
-   - `scripts/sync-content.js` automatically indexes the article into `articles.json` and `sitemap.xml`.
+   - `scripts/sync-content.js` automatically indexes the article into `articles.json` (build input) and `articles-index.json` (runtime listing), and into `sitemap.xml`.
    - `scripts/generate-static-articles.js` creates the pre-rendered `dist/artigos/seu-artigo-slug/index.html` with JSON-LD.
    - Cloudflare Pages deploys the updated site with zero downtime.
 

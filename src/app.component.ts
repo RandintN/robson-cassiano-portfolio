@@ -1,4 +1,4 @@
-import { Component, signal, inject, effect, computed, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, signal, inject, effect, computed, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { RoleCardComponent } from './components/role-card.component';
 import { ArticleCardComponent } from './components/article-card.component';
@@ -28,7 +28,7 @@ interface SocialLink {
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   private languageService = inject(LanguageService);
   private titleService = inject(Title);
   private metaService = inject(Meta);
@@ -87,10 +87,6 @@ export class AppComponent implements OnInit {
 
       this.updateStructuredData();
     });
-  }
-
-  ngOnInit() {
-    // Initialization hooks
   }
 
   private updateStructuredData() {

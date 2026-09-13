@@ -55,6 +55,12 @@ A tipografia reflete a dualidade do sistema: a solidez geométrica moderna unida
 * **Monospace / Métricas:** `Geist Mono` ou `JetBrains Mono` — para código, dados e telemetria.
 * **Caligrafia Oriental:** `Shippori Mincho` ou `Noto Serif JP` — para ideogramas e acentos orientais.
 
+**Implementação:** apenas `Inter` está em uso (`--font-sans` em `src/styles.css`). Os títulos usam
+Inter com peso alto, então `Cinzel` permanece como referência de design sem arquivo publicado.
+A fonte é self-hosted em `src/assets/fonts/` como variável (`font-weight: 100 900`) nos subsets
+`latin` e `latin-ext`: um arquivo por subset cobre todos os pesos e elimina as requisições a
+`fonts.googleapis.com` / `fonts.gstatic.com`.
+
 ### Escala de Tipografia
 ```css
 --font-display-2xl: 4.5rem;   /* 72px - Hero display / Kanjis monumentais */

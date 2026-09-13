@@ -23,7 +23,8 @@
               {
                 "glob": "**/*",
                 "input": "src/assets",
-                "output": "assets"
+                "output": "assets",
+                "ignore": ["content/articles.json"]
               },
               "robots.txt",
               "sitemap.xml",

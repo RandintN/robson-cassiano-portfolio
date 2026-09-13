@@ -5,7 +5,7 @@
   <!-- Página Principal (Português / Canônico x-default) -->
   <url>
     <loc>https://eu.robsoncassiano.software/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -22,7 +22,7 @@
   <!-- Dedicated English Portal (International SEO / English Speakers) -->
   <url>
     <loc>https://eu.robsoncassiano.software/en/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -51,7 +51,7 @@
   <!-- Depoimentos (prova pública com prints de evidência) -->
   <url>
     <loc>https://eu.robsoncassiano.software/depoimentos/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -59,7 +59,7 @@
   <!-- Política de Privacidade (LGPD) — referenciada em todos os e-mails da régua -->
   <url>
     <loc>https://eu.robsoncassiano.software/privacidade/</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-09-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
