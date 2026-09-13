@@ -111,14 +111,17 @@ const socialLinks = (lang) => {
  */
 export function buildStaticShell({ lang, t, articles, translations = {} }) {
   const isEn = lang === 'en';
+  // Terceiro elemento opcional: hreflang, usado pelos destinos que não têm
+  // equivalente no idioma corrente (ex.: /depoimentos/ só existe em português).
   const navItems = [
     ['#sobre', t('NAV_ABOUT')],
     ['#artigos', t('NAV_ARTICLES')],
+    ['/depoimentos/', t('NAV_TESTIMONIALS'), 'pt-BR'],
     ['#faq', t('NAV_FAQ')],
     ['#contato', t('NAV_CONTACT')],
   ];
   const nav = navItems
-    .map(([href, label]) => `<a href="${href}">${escapeHtml(stripHtml(label))}</a>`)
+    .map(([href, label, hreflang]) => `<a href="${href}"${hreflang ? ` hreflang="${hreflang}"` : ''}>${escapeHtml(stripHtml(label))}</a>`)
     .join('\n          ');
 
   const langSwitch = isEn

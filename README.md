@@ -127,7 +127,7 @@ listing one empties the article grid; `validate-static-output.js` fails the buil
 | Article listing (runtime) | `articles-index.json` | `articles.en.json` |
 | Schema `inLanguage` | `pt-BR` | `en-US` |
 
-Both dictionaries must keep identical key sets (currently 111 each). Articles themselves are
+Both dictionaries must keep identical key sets (currently 112 each). Articles themselves are
 Portuguese-only today, so article pages declare `pt-BR` + `x-default` without an `en` alternate.
 
 ## ⚠️ Operational notes

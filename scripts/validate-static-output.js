@@ -72,6 +72,23 @@ for (const [file, lang, minText] of [
   check(`${file}: <html lang="${lang}">`, new RegExp(`<html[^>]*lang="${lang}"`).test(html));
   check(`${file}: um único <h1>`, count(html, /<h1[\s>]/g) === 1, `${count(html, /<h1[\s>]/g)}`);
 
+  // O cabeçalho pré-renderizado é o que o visitante e o crawler veem antes do
+  // Angular assumir. Se o item de depoimentos sumir dele, a página fica sem
+  // caminho de entrada a partir da home para quem não executa JavaScript.
+  const shellNav = html.match(/<nav class="ss-nav"[\s\S]*?<\/nav>/);
+  check(`${file}: shell tem a nav do cabeçalho`, Boolean(shellNav));
+  if (shellNav) {
+    check(
+      `${file}: nav do cabeçalho aponta para /depoimentos/`,
+      /<a href="\/depoimentos\/" hreflang="pt-BR">/.test(shellNav[0]),
+      shellNav[0].replace(/\s+/g, ' ').slice(0, 200)
+    );
+    check(
+      `${file}: depoimentos vem logo depois dos artigos na nav`,
+      /href="#artigos"[^>]*>[\s\S]*?<a href="\/depoimentos\/"/.test(shellNav[0])
+    );
+  }
+
   // The bundle is the last node of the document; without a head-level hint the
   // download only starts after the inlined critical CSS is parsed.
   const entry = html.match(/<script[^>]+src="(main-[^"]*\.js)"/i);

@@ -28,10 +28,16 @@
       <button (click)="changeLanguage('en')" [class.text-[#dfb15b]]="currentLanguage() === 'en'" aria-label="EN - English" class="hover:text-[#dfb15b] transition-colors font-bold">EN</button>
     </div>
 
-    <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+    <!-- gap-x-8 + flex-wrap: com sete itens (mais o seletor de idioma) a linha
+         precisa de ~1000px. Sem wrap, entre 768px e ~1000px o seletor BR|EN e o
+         botão Contato saíam da viewport, já que a nav liga em md (768px). -->
+    <nav aria-label="Navegação Principal" class="hidden md:flex flex-wrap justify-end items-center gap-x-8 gap-y-3 text-sm font-medium text-slate-400">
       <a [href]="navPrefix() + '#sobre'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_ABOUT' | translate }}</a>
       <a [href]="navPrefix() + '#atuacao'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_ROLES' | translate }}</a>
       <a [href]="navPrefix() + '#artigos'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_ARTICLES' | translate }}</a>
+      <!-- /depoimentos/ só existe em português: href absoluto (navPrefix apontaria
+           para /en/) e hreflang declarando o idioma da página de destino. -->
+      <a href="/depoimentos/" hreflang="pt-BR" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_TESTIMONIALS' | translate }}</a>
       <a [href]="navPrefix() + '#comparativo'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_COMPARISON' | translate }}</a>
       <a [href]="navPrefix() + '#faq'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_FAQ' | translate }}</a>
       <a [href]="navPrefix() + '#contato'"
