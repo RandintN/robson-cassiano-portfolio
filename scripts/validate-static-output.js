@@ -8,6 +8,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { readWebpDimensions } from './lib/testimonials-page.js';
 
 const distDir = path.resolve('dist');
 const articles = await Bun.file(path.resolve('src/assets/content/articles.json')).json();
@@ -260,6 +261,23 @@ if (testimonials.length) {
     check('depoimentos: img com alt', /\balt="[^"]{10,}"/.test(img));
     check('depoimentos: img com width/height', /\bwidth="\d+"/.test(img) && /\bheight="\d+"/.test(img));
 
+    const src = (img.match(/\bsrc="([^"]+)"/) || [])[1];
+    const declared = img.match(/\bwidth="(\d+)"\s+height="(\d+)"/);
+    if (src && declared) {
+      const file = path.join(distDir, src.replace(/^\//, ''));
+      const real = fs.existsSync(file) ? readWebpDimensions(file) : null;
+      if (real) {
+        const declaredRatio = Number(declared[1]) / Number(declared[2]);
+        const realRatio = real.width / real.height;
+        check(
+          `depoimentos: dimensões declaradas batem com ${path.basename(src)}`,
+          Math.abs(declaredRatio - realRatio) <= 0.02,
+          `declarado ${declared[1]}x${declared[2]} (${declaredRatio.toFixed(3)}), arquivo ${real.width}x${real.height} (${realRatio.toFixed(3)})`
+        );
+      } else {
+        check(`depoimentos: ${path.basename(src)} é um WebP legível`, false, src);
+      }
+    }
     check('depoimentos: img com loading=lazy', /loading="lazy"/.test(img));
   }
 

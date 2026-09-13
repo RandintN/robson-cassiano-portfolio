@@ -10,6 +10,8 @@
  *    próprio domínio é self-serving (fora da política do Google). O validador do build
  *    reprova qualquer ocorrência.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 
 const escapeHtml = (value) =>
   String(value ?? '')
@@ -20,6 +22,73 @@ const escapeHtml = (value) =>
 
 const stripTags = (value) => String(value ?? '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
 
+const DEPOIMENTOS_IMG_DIR = path.resolve('src/assets/images/depoimentos');
+const dimensionCache = new Map();
+
+/**
+ * Lê largura e altura reais de um WebP sem decodificar a imagem.
+ *
+ * A página declarava `width="1200" height="800"` fixos em todos os prints, mas os
+ * arquivos vão de 404x597 a 1382x918. O navegador reservava uma caixa 3:2 e
+ * reflowava quando a imagem real chegava, deslocando todo o texto abaixo dela.
+ * Com dimensões erradas, `loading="lazy"` e `decoding="async"` não evitam o salto:
+ * a caixa reservada precisa bater com a proporção do arquivo.
+ *
+ * Exportada para que `validate-static-output.js` confira as dimensões declaradas
+ * contra os arquivos publicados, em vez de só conferir que os atributos existem.
+ *
+ * Formatos cobertos: VP8X (estendido, com alpha), VP8 (lossy) e VP8L (lossless).
+ *
+ * @returns {{width:number,height:number}|null} null quando o arquivo não é um WebP legível.
+ */
+export function readWebpDimensions(filePath) {
+  if (dimensionCache.has(filePath)) return dimensionCache.get(filePath);
+
+  let result = null;
+  try {
+    const buffer = fs.readFileSync(filePath);
+
+    if (buffer.subarray(0, 4).toString('latin1') === 'RIFF' && buffer.subarray(8, 12).toString('latin1') === 'WEBP') {
+      const chunk = buffer.subarray(12, 16).toString('latin1');
+
+      if (chunk === 'VP8X') {
+        // Canvas de 24 bits little-endian menos um, começa no byte 24.
+        result = {
+          width: buffer.readUIntLE(24, 3) + 1,
+          height: buffer.readUIntLE(27, 3) + 1,
+        };
+      } else if (chunk === 'VP8 ') {
+        // Bitstream lossy: assinatura de 3 bytes e depois duas dimensões de 14 bits.
+        result = {
+          width: buffer.readUInt16LE(26) & 0x3fff,
+          height: buffer.readUInt16LE(28) & 0x3fff,
+        };
+      } else if (chunk === 'VP8L') {
+        const bits = buffer.readUInt32LE(21);
+        result = {
+          width: (bits & 0x3fff) + 1,
+          height: ((bits >> 14) & 0x3fff) + 1,
+        };
+      }
+    }
+  } catch {
+    result = null;
+  }
+
+  if (!result || !result.width || !result.height) result = null;
+
+  dimensionCache.set(filePath, result);
+  return result;
+}
+
+function webpDimensions(file) {
+  const dimensions = readWebpDimensions(path.join(DEPOIMENTOS_IMG_DIR, file));
+  if (dimensions) return dimensions;
+
+  console.warn(`⚠ Dimensões desconhecidas para "${file}"; usando 1200x800 como reserva.`);
+  return { width: 1200, height: 800 };
+}
+
 const CANONICAL = 'https://eu.robsoncassiano.software/depoimentos/';
 const TITLE = 'Depoimentos: resultados de quem ajustou o posicionamento | Robson Cassiano';
 const DESCRIPTION =
@@ -27,8 +96,9 @@ const DESCRIPTION =
 
 function figureFor(testimonial, index, image) {
   const src = `/assets/images/depoimentos/${image}`;
+  const { width, height } = webpDimensions(image);
   return `        <figure class="dep-figure">
-          <img src="${src}" alt="Print enviado por ${escapeHtml(testimonial.name)}: ${escapeHtml(stripTags(testimonial.evidence)).slice(0, 150)}" width="1200" height="800" loading="lazy" decoding="async">
+          <img src="${src}" alt="Print enviado por ${escapeHtml(testimonial.name)}: ${escapeHtml(stripTags(testimonial.evidence)).slice(0, 150)}" width="${width}" height="${height}" loading="lazy" decoding="async">
           <figcaption>${index === 0 ? escapeHtml(testimonial.evidence) : 'Evidência complementar enviada pelo próprio autor do depoimento.'}</figcaption>
         </figure>`;
 }
