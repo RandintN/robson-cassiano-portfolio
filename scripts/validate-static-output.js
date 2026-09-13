@@ -31,34 +31,38 @@ function count(html, pattern) {
 }
 
 // ---------------------------------------------------------------------------
-// 0. Drift de dependência entre o build local e o build do CI.
+// 0. Drift entre o build local e o build do CI.
 //
-// O deploy roda na integração Git do Cloudflare Pages, que instala pelo
-// bun.lock. Mas os ranges do package.json são abertos (`^21.0.0`) e a versão
-// efetivamente resolvida fica gravada no HTML que os scripts de build escrevem.
-// O build local roda com o node_modules instalado e o do CI com o lock: quando
-// os dois divergem, o site publicado sai de um Angular diferente do que foi
-// validado, sem nada apontando isso. Aqui o bundle é comparado com o lock.
+// O deploy roda na integração Git do Cloudflare Pages, cujo install NÃO usa o
+// bun.lock: ele resolve os ranges do package.json. Evidência: a produção servia
+// Angular 21.2.23 enquanto o bun.lock fixava 21.0.6. Consequência: o bundle que
+// o CI publica sai de um toolchain diferente do que foi validado aqui, e isso
+// não aparece em lugar nenhum.
+//
+// Por isso o aviso, não a falha: se isto falhasse, o build do CI reprovaria
+// sozinho assim que o Angular publicasse uma versão nova. A correção de verdade
+// é o comando de build do Pages passar a respeitar o lock
+// (`bun install --frozen-lockfile && bun run build`), que é configuração de
+// painel e não deste repositório.
+//
+// Node diferente do .node-version segue o mesmo raciocínio.
 // ---------------------------------------------------------------------------
 const angularCore = JSON.parse(fs.readFileSync(path.resolve('node_modules/@angular/core/package.json'), 'utf8')).version;
-const lock = fs.readFileSync(path.resolve('bun.lock'), 'utf8');
-const lockedAngular = (lock.match(/angular\/core@(\d+\.\d+\.\d+)/) || [])[1];
-check(
-  `Angular instalado (${angularCore}) bate com o bun.lock (${lockedAngular})`,
-  Boolean(lockedAngular) && angularCore === lockedAngular,
-  'rode `bun install` antes do build para alinhar com o CI'
-);
+const lockedAngular = (fs.readFileSync(path.resolve('bun.lock'), 'utf8').match(/angular\/core@(\d+\.\d+\.\d+)/) || [])[1];
+
+if (lockedAngular && angularCore !== lockedAngular) {
+  console.warn(
+    `⚠ Dependência em drift: @angular/core instalado é ${angularCore}, o bun.lock fixa ${lockedAngular}. ` +
+      'O CI ignora o lock e resolve pelo package.json, então o bundle publicado pode não ser o que este build validou.'
+  );
+}
 
 const expectedRuntime = fs.existsSync(path.resolve('.node-version'))
   ? fs.readFileSync(path.resolve('.node-version'), 'utf8').trim()
   : null;
-const actualRuntime = process.versions.node;
-if (expectedRuntime && actualRuntime !== expectedRuntime) {
-  // Aviso, não falha: rodar o build local em outro runtime é normal e o dano é
-  // sobre o artefato, que o validador confere adiante. A divergência de Angular
-  // acima é diferente, porque ela reescreve o HTML e muda o bundle publicado.
+if (expectedRuntime && process.versions.node !== expectedRuntime) {
   console.warn(
-    `⚠ Build rodando em Node ${actualRuntime}, mas .node-version pede ${expectedRuntime} (o que o CI usa).`
+    `⚠ Build rodando em Node ${process.versions.node}, mas .node-version pede ${expectedRuntime}.`
   );
 }
 
