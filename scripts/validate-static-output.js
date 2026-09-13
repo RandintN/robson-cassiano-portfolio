@@ -31,6 +31,38 @@ function count(html, pattern) {
 }
 
 // ---------------------------------------------------------------------------
+// 0. Drift de dependência entre o build local e o build do CI.
+//
+// O deploy roda na integração Git do Cloudflare Pages, que instala pelo
+// bun.lock. Mas os ranges do package.json são abertos (`^21.0.0`) e a versão
+// efetivamente resolvida fica gravada no HTML que os scripts de build escrevem.
+// O build local roda com o node_modules instalado e o do CI com o lock: quando
+// os dois divergem, o site publicado sai de um Angular diferente do que foi
+// validado, sem nada apontando isso. Aqui o bundle é comparado com o lock.
+// ---------------------------------------------------------------------------
+const angularCore = JSON.parse(fs.readFileSync(path.resolve('node_modules/@angular/core/package.json'), 'utf8')).version;
+const lock = fs.readFileSync(path.resolve('bun.lock'), 'utf8');
+const lockedAngular = (lock.match(/angular\/core@(\d+\.\d+\.\d+)/) || [])[1];
+check(
+  `Angular instalado (${angularCore}) bate com o bun.lock (${lockedAngular})`,
+  Boolean(lockedAngular) && angularCore === lockedAngular,
+  'rode `bun install` antes do build para alinhar com o CI'
+);
+
+const expectedRuntime = fs.existsSync(path.resolve('.node-version'))
+  ? fs.readFileSync(path.resolve('.node-version'), 'utf8').trim()
+  : null;
+const actualRuntime = process.versions.node;
+if (expectedRuntime && actualRuntime !== expectedRuntime) {
+  // Aviso, não falha: rodar o build local em outro runtime é normal e o dano é
+  // sobre o artefato, que o validador confere adiante. A divergência de Angular
+  // acima é diferente, porque ela reescreve o HTML e muda o bundle publicado.
+  console.warn(
+    `⚠ Build rodando em Node ${actualRuntime}, mas .node-version pede ${expectedRuntime} (o que o CI usa).`
+  );
+}
+
+// ---------------------------------------------------------------------------
 // 1. Host documents must carry exactly one intact <app-root> with a rich shell.
 // ---------------------------------------------------------------------------
 for (const [file, lang, minText] of [
