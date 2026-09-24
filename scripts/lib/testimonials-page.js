@@ -76,6 +76,20 @@ function webpDimensions(file) {
 }
 
 export const TESTIMONIALS_EN = {
+  'almir-aluno': {
+    role: 'Software Developer',
+    category: 'Hired',
+    headline: 'Job offer from DBC Company allocated to Sicredi within 3 weeks',
+    quote: 'Definitely, it made total difference. I used the inverted pyramid concept in the interview. I achieved approval within two and a half or three weeks, and advanced to the next stage in another selection process.',
+    metrics: [
+      'Official hiring approval from DBC Company (allocated to the Sicredi Milhas engineering team)',
+      'Job offer received within 2.5 to 3 weeks of starting the training',
+      'Direct application of the inverted pyramid communication framework during technical assessment',
+      'Concurrent advancement to the next round of another recruitment pipeline',
+    ],
+    evidence: 'WhatsApp conversation and forwarded formal approval message from DBC Company confirming the impact of the inverted pyramid framework.',
+    body: 'The record documents a rapid job offer from DBC Company to join the Sicredi Milhas engineering team, secured on the exact day of the technical interview. The developer applied the inverted pyramid communication technique during technical questioning, landing the role within three weeks while advancing concurrently in another selection process.',
+  },
   'caio-aluno': {
     role: 'Software Developer',
     category: 'Before & After',
