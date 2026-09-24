@@ -116,7 +116,7 @@ export function buildStaticShell({ lang, t, articles, translations = {} }) {
   const navItems = [
     ['#sobre', t('NAV_ABOUT')],
     ['#artigos', t('NAV_ARTICLES')],
-    ['/depoimentos/', t('NAV_TESTIMONIALS'), 'pt-BR'],
+    [isEn ? '/en/testimonials/' : '/depoimentos/', t('NAV_TESTIMONIALS'), isEn ? 'en' : 'pt-BR'],
     ['#faq', t('NAV_FAQ')],
     ['#contato', t('NAV_CONTACT')],
   ];
@@ -187,7 +187,7 @@ export function buildStaticShell({ lang, t, articles, translations = {} }) {
 
           <h2 style="margin-top:36px">${escapeHtml(stripHtml(t('PROOF_TITLE')))}</h2>
           <p>${escapeHtml(stripHtml(t('PROOF_TEXT')))}</p>
-          <p><a href="/depoimentos/" hreflang="pt-BR">${isEn ? 'See the testimonials with evidence (PT)' : 'Ver os depoimentos com prints de evidência'} &rarr;</a></p>
+          <p><a href="${isEn ? '/en/testimonials/' : '/depoimentos/'}" hreflang="${isEn ? 'en' : 'pt-BR'}">${isEn ? 'See real evidence &amp; testimonials' : 'Ver os depoimentos com prints de evidência'} &rarr;</a></p>
           <ul class="ss-stats">
 ${proofItems}
           </ul>
@@ -230,7 +230,7 @@ ${faq}
         ${socialLinks(lang)}
         </nav>
         <p>${escapeHtml(stripHtml(t('FOOTER_RIGHTS')))}</p>
-        <p><a href="/artigos/">${isEn ? 'All articles' : 'Todos os artigos'}</a> · <a href="/depoimentos/" hreflang="pt-BR">${isEn ? 'Testimonials (PT)' : 'Depoimentos'}</a> · <a href="/privacidade/" hreflang="pt-BR">${isEn ? 'Privacy Policy (PT)' : 'Política de Privacidade'}</a> · <a href="${isEn ? '/' : '/en/'}">${isEn ? 'Português' : 'English'}</a></p>
+        <p><a href="/artigos/">${isEn ? 'All articles' : 'Todos os artigos'}</a> · <a href="${isEn ? '/en/testimonials/' : '/depoimentos/'}" hreflang="${isEn ? 'en' : 'pt-BR'}">${isEn ? 'Testimonials' : 'Depoimentos'}</a> · <a href="/privacidade/" hreflang="pt-BR">${isEn ? 'Privacy Policy (PT)' : 'Política de Privacidade'}</a> · <a href="${isEn ? '/' : '/en/'}">${isEn ? 'Português' : 'English'}</a></p>
       </div>
     </footer>
   </div>`;

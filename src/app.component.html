@@ -35,9 +35,7 @@
       <a [href]="navPrefix() + '#sobre'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_ABOUT' | translate }}</a>
       <a [href]="navPrefix() + '#atuacao'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_ROLES' | translate }}</a>
       <a [href]="navPrefix() + '#artigos'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_ARTICLES' | translate }}</a>
-      <!-- /depoimentos/ só existe em português: href absoluto (navPrefix apontaria
-           para /en/) e hreflang declarando o idioma da página de destino. -->
-      <a href="/depoimentos/" hreflang="pt-BR" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_TESTIMONIALS' | translate }}</a>
+      <a [href]="testimonialsUrl()" [attr.hreflang]="testimonialsHreflang()" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_TESTIMONIALS' | translate }}</a>
       <a [href]="navPrefix() + '#comparativo'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_COMPARISON' | translate }}</a>
       <a [href]="navPrefix() + '#faq'" class="hover:text-[#dfb15b] transition-colors">{{ 'NAV_FAQ' | translate }}</a>
       <a [href]="navPrefix() + '#contato'"

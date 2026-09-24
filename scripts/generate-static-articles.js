@@ -821,13 +821,21 @@ fs.mkdirSync(privacyDir, { recursive: true });
 await Bun.write(path.join(privacyDir, 'index.html'), buildPrivacyPage({ stylesHref }));
 console.log('✓ Política de Privacidade gerada em dist/privacidade/index.html');
 
-// 6. Depoimentos (/depoimentos/) — SSG: relatos, citações e prints de evidência no
+// 6. Depoimentos (/depoimentos/ e /en/testimonials/) - SSG: relatos, citações e prints de evidência no
 // HTML inicial, sem depender de JavaScript.
 if (testimonials.length) {
+  // Português: /depoimentos/
   const depDir = path.join(distDir, 'depoimentos');
   fs.mkdirSync(depDir, { recursive: true });
-  await Bun.write(path.join(depDir, 'index.html'), buildTestimonialsPage({ testimonials, stylesHref }));
-  await Bun.write(path.join(depDir, 'index.md'), buildTestimonialsMarkdown({ testimonials }));
+  await Bun.write(path.join(depDir, 'index.html'), buildTestimonialsPage({ testimonials, stylesHref, lang: 'pt' }));
+  await Bun.write(path.join(depDir, 'index.md'), buildTestimonialsMarkdown({ testimonials, lang: 'pt' }));
+
+  // Inglês: /en/testimonials/
+  const enDepDir = path.join(distDir, 'en', 'testimonials');
+  fs.mkdirSync(enDepDir, { recursive: true });
+  await Bun.write(path.join(enDepDir, 'index.html'), buildTestimonialsPage({ testimonials, stylesHref, lang: 'en' }));
+  await Bun.write(path.join(enDepDir, 'index.md'), buildTestimonialsMarkdown({ testimonials, lang: 'en' }));
+
   const publicados = testimonials.filter((t) => t.consent).length;
-  console.log(`✓ Depoimentos gerados em dist/depoimentos/index.html (${publicados}/${testimonials.length} com consentimento, + index.md)`);
+  console.log(`✓ Depoimentos gerados em dist/depoimentos/ e dist/en/testimonials/ (${publicados}/${testimonials.length} com consentimento, + index.md)`);
 }

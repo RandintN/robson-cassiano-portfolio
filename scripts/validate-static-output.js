@@ -114,14 +114,17 @@ for (const [file, lang, minText] of [
   const shellNav = html.match(/<nav class="ss-nav"[\s\S]*?<\/nav>/);
   check(`${file}: shell tem a nav do cabeçalho`, Boolean(shellNav));
   if (shellNav) {
+    const isEnShell = lang === 'en';
+    const expectedDepHref = isEnShell ? '/en/testimonials/' : '/depoimentos/';
+    const expectedHreflang = isEnShell ? 'en' : 'pt-BR';
     check(
-      `${file}: nav do cabeçalho aponta para /depoimentos/`,
-      /<a href="\/depoimentos\/" hreflang="pt-BR">/.test(shellNav[0]),
+      `${file}: nav do cabeçalho aponta para ${expectedDepHref}`,
+      shellNav[0].includes(`href="${expectedDepHref}"`) && shellNav[0].includes(`hreflang="${expectedHreflang}"`),
       shellNav[0].replace(/\s+/g, ' ').slice(0, 200)
     );
     check(
       `${file}: depoimentos vem logo depois dos artigos na nav`,
-      /href="#artigos"[^>]*>[\s\S]*?<a href="\/depoimentos\/"/.test(shellNav[0])
+      new RegExp(`href="#artigos"[^>]*>[\\s\\S]*?<a href="${expectedDepHref.replace(/\//g, '\\/')}"`).test(shellNav[0])
     );
   }
 
@@ -241,10 +244,11 @@ check('hub: markdown twin', fs.existsSync(path.join(distDir, 'artigos', 'index.m
 
 const sitemap = read(path.join(distDir, 'sitemap.xml'));
 const locs = count(sitemap, /<loc>/g);
-check(`sitemap: ${articles.length + 5} URLs`, locs === articles.length + 5, `${locs}`);
+check(`sitemap: ${articles.length + 6} URLs`, locs === articles.length + 6, `${locs}`);
 check('sitemap: hub presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/artigos/</loc>'));
 check('sitemap: privacidade presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/privacidade/</loc>'));
 check('sitemap: depoimentos presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/depoimentos/</loc>'));
+check('sitemap: testimonials EN presente', sitemap.includes('<loc>https://eu.robsoncassiano.software/en/testimonials/</loc>'));
 check('sitemap: /en/ com barra final', sitemap.includes('<loc>https://eu.robsoncassiano.software/en/</loc>'));
 check('sitemap: nenhuma URL sem barra final além da raiz', !/<loc>https:\/\/[^<]*[a-z0-9]<\/loc>/.test(sitemap));
 
@@ -269,11 +273,13 @@ for (const [file, html] of [
   ['artigos/{slug}/index.html', read(path.join(distDir, 'artigos', articles[0].slug, 'index.html'))],
 ]) {
   check(`${file}: link para /privacidade/`, /href="\/privacidade\/"/.test(html));
-  check(`${file}: link para /depoimentos/`, /href="\/depoimentos\/"/.test(html));
+  const isEnFile = file.startsWith('en');
+  const expectedDepPattern = isEnFile ? /href="\/en\/testimonials\/"/ : /href="\/depoimentos\/"/;
+  check(`${file}: link para depoimentos/testimonials`, expectedDepPattern.test(html));
 }
 
 // ---------------------------------------------------------------------------
-// 4b. Testimonials page (/depoimentos/) — pre-rendered, evidence-backed.
+// 4b. Testimonials pages (/depoimentos/ e /en/testimonials/) - pre-rendered.
 // ---------------------------------------------------------------------------
 const testimonialsFile = path.resolve('src/assets/content/testimonials.json');
 const testimonials = fs.existsSync(testimonialsFile)
@@ -281,9 +287,12 @@ const testimonials = fs.existsSync(testimonialsFile)
   : [];
 const consenting = testimonials.filter((t) => t.consent);
 const dep = read(path.join(distDir, 'depoimentos', 'index.html'));
+const depEn = read(path.join(distDir, 'en', 'testimonials', 'index.html'));
 
 if (testimonials.length) {
   check('depoimentos: canonical', dep.includes('rel="canonical" href="https://eu.robsoncassiano.software/depoimentos/"'));
+  check('depoimentos: hreflang pt-BR', dep.includes('hreflang="pt-BR" href="https://eu.robsoncassiano.software/depoimentos/"'));
+  check('depoimentos: hreflang en', dep.includes('hreflang="en" href="https://eu.robsoncassiano.software/en/testimonials/"'));
   check('depoimentos: indexável', /name="robots" content="index, follow/.test(dep));
   check('depoimentos: um único <h1>', count(dep, /<h1[\s>]/g) === 1);
   check('depoimentos: CollectionPage + ItemList', dep.includes('"@type": "CollectionPage"') && dep.includes('"@type": "ItemList"'));
@@ -291,6 +300,18 @@ if (testimonials.length) {
   check(`depoimentos: publica os ${consenting.length} relatos consentidos`, count(dep, /class="dep-card"/g) === consenting.length, `${count(dep, /class="dep-card"/g)} cards`);
   check('depoimentos: html lang pt-BR', /<html[^>]*lang="pt-BR"/.test(dep));
   check('depoimentos: markdown twin', fs.existsSync(path.join(distDir, 'depoimentos', 'index.md')));
+
+  // Validação da página espelho em inglês (/en/testimonials/)
+  check('testimonials EN: canonical', depEn.includes('rel="canonical" href="https://eu.robsoncassiano.software/en/testimonials/"'));
+  check('testimonials EN: hreflang pt-BR', depEn.includes('hreflang="pt-BR" href="https://eu.robsoncassiano.software/depoimentos/"'));
+  check('testimonials EN: hreflang en', depEn.includes('hreflang="en" href="https://eu.robsoncassiano.software/en/testimonials/"'));
+  check('testimonials EN: indexável', /name="robots" content="index, follow/.test(depEn));
+  check('testimonials EN: um único <h1>', count(depEn, /<h1[\s>]/g) === 1);
+  check('testimonials EN: CollectionPage + ItemList', depEn.includes('"@type": "CollectionPage"') && depEn.includes('"@type": "ItemList"'));
+  check('testimonials EN: sem AggregateRating/Review', !/aggregateRating|"@type"\s*:\s*"Review"/i.test(depEn));
+  check(`testimonials EN: publica os ${consenting.length} relatos consentidos`, count(depEn, /class="dep-card"/g) === consenting.length, `${count(depEn, /class="dep-card"/g)} cards`);
+  check('testimonials EN: html lang en', /<html[^>]*lang="en"/.test(depEn));
+  check('testimonials EN: markdown twin', fs.existsSync(path.join(distDir, 'en', 'testimonials', 'index.md')));
 
   // SSG de verdade: o conteudo precisa estar no HTML inicial, sem JS.
   const depNoScripts = dep.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ');

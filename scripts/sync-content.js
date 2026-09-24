@@ -208,9 +208,25 @@ const sitemapEntries = [
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/depoimentos/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://eu.robsoncassiano.software/depoimentos/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/testimonials/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/depoimentos/" />
   </url>`,
 
-  `  <!-- Política de Privacidade (LGPD) — referenciada em todos os e-mails da régua -->
+  `  <!-- Testimonials English Mirror (Real Wins / Evidence) -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/en/testimonials/</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/testimonials/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/depoimentos/" />
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://eu.robsoncassiano.software/depoimentos/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/depoimentos/" />
+  </url>`,
+
+  `  <!-- Política de Privacidade (LGPD): referenciada em todos os e-mails da régua -->
   <url>
     <loc>https://eu.robsoncassiano.software/privacidade/</loc>
     <lastmod>${today}</lastmod>

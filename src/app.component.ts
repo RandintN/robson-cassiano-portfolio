@@ -37,6 +37,8 @@ export class AppComponent {
   currentYear = signal(new Date().getFullYear());
   currentLanguage = this.languageService.language;
   readonly navPrefix = computed(() => this.currentLanguage() === 'en' ? '/en/' : '');
+  readonly testimonialsUrl = computed(() => this.currentLanguage() === 'en' ? '/en/testimonials/' : '/depoimentos/');
+  readonly testimonialsHreflang = computed(() => this.currentLanguage() === 'en' ? 'en' : 'pt-BR');
 
   // Local optimized image served on the same edge origin (Cloudflare Pages)
   profileImage = signal('assets/images/Robson-Cassiano.webp');
