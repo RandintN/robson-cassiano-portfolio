@@ -166,6 +166,20 @@ export const TESTIMONIALS_EN = {
     evidence: 'Recruiter message scheduling the English assessment and candidate response.',
     body: 'The decisive milestone for Brazilian software engineers: the conversational English assessment invite scheduled for the same day.',
   },
+  'gustavo-aluno': {
+    role: 'Tech Lead / Software Engineer',
+    category: 'Final Stage Interviews',
+    headline: 'Near closing $8,000/month role & Canada relocation offer',
+    quote: 'I am close to closing one with relocation to Canada and another for Tech Lead paying almost $8k. It has been much easier applying what was learned in 3 weeks of consulting, totally worth it.',
+    metrics: [
+      'Two final-stage international opportunities: Tech Lead paying nearly $8,000/month and role with Canada relocation',
+      'Additional concurrent recruitment pipelines underway with HR',
+      'Strategic communication framework: anchoring answers on revenue impact and infrastructure cost efficiency aligned with job descriptions',
+      'Concrete results achieved after 3 weeks of consulting and technical English refinement',
+    ],
+    evidence: 'WhatsApp conversation detailing two final-round international roles (Canada relocation and $8,000/month Tech Lead), 3-week consulting results, and targeted technical communication.',
+    body: 'The report highlights a confident interview posture: fluid technical English, low-pressure conversations, and strategic alignment around core business drivers (revenue generation and infrastructure cost control). Within three weeks of targeted consulting, the developer advanced to the final stages of two simultaneous global opportunities.',
+  },
   'jeovany-negocio': {
     role: 'Software Engineer',
     category: 'Salary Negotiation',
