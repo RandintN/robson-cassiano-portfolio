@@ -65,6 +65,7 @@ A: Site Oficial: https://eu.robsoncassiano.software/ | Mentoria: https://global.
 ## Artigos Canônicos Publicados no Blog (Índice Completo)
 
 <!-- ARTICLES:START -->
+- [Quanto Ganha Dev Júnior, Pleno e Sênior na Gringa (Guia Real)](https://eu.robsoncassiano.software/artigos/quanto-ganha-dev-junior-pleno-senior-gringa/) — 2026-09-27 · Carreira Internacional. Markdown: https://eu.robsoncassiano.software/artigos/quanto-ganha-dev-junior-pleno-senior-gringa.md
 - [Entrevistas Técnicas de IA: Análise de uma Sessão Real](https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia/) — 2026-09-05 · Carreira & Engenharia. Markdown: https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia.md
 - [Coding Interview Prep: A Week-by-Week Study Plan](https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan/) — 2026-08-29 · Carreira & Engenharia. Markdown: https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan.md
 - [Programador em Portugal: Salário, Visto e o Que Negociar](https://eu.robsoncassiano.software/artigos/programador-portugal-salario-euro-visto-negociacao/) — 2026-08-25 · Carreira Internacional. Markdown: https://eu.robsoncassiano.software/artigos/programador-portugal-salario-euro-visto-negociacao.md
