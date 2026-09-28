@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS subscribers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     email TEXT UNIQUE NOT NULL,
     name TEXT DEFAULT '',
+    phone TEXT DEFAULT '',
     status TEXT DEFAULT 'active', -- 'active', 'unsubscribed', 'bounced'
     source TEXT DEFAULT 'portfolio', -- 'portfolio_home', 'article_cta', 'lead_magnet'
     tags TEXT DEFAULT 'general',
