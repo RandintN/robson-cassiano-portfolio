@@ -55,11 +55,38 @@ Adicione a tag de script antes do fechamento de `</body>`:
 | `data-ebook-url` | `https://robsoncassiano.software/7-passos-simples-dev-na-gringa` | URL validada (`http:`/`https:`) para download do material pós-conversão. |
 | `data-api` | `https://capture.robsoncassiano.software` | Origem da API de captura. |
 | `data-theme` | `"dark"` | Tema visual do cartão. |
-| `data-lang` | `lang` do documento hospedeiro | Idioma dos **textos internos** do SDK (placeholders, privacidade, mensagem de autocorreção de e-mail, estados de carregamento, erro e sucesso, `aria-label` de fechar) e dos defaults de copy. Aceita `pt-BR` (fallback) e `en`. Use `en` em páginas em inglês: sem isso o visitante preenche um formulário em português. |
+| `data-lang` | `lang` do documento hospedeiro | Idioma dos **textos internos** do SDK (placeholders, privacidade, mensagem de autocorreção de e-mail, estados de carregamento, erro e sucesso, `aria-label` de fechar) e dos defaults de copy. Aceita `pt-BR` (fallback) e `en`. Use `en` em páginas em inglês. |
 
 ---
 
-## 4. Detecção Algorítmica de Typos e Autocorreção no SDK
+## 4. Campos de Entrada e Regras de Validação
+
+O formulário gerado pelo SDK disponibiliza três campos de entrada:
+
+### 4.1. Nome (`name`)
+* **Obrigatoriedade:** Opcional.
+* **Comportamento:** Limita a 100 caracteres, remove caracteres invisíveis e sanitiza contra injeção de HTML.
+
+### 4.2. E-mail (`email`)
+* **Obrigatoriedade:** Obrigatório.
+* **Conformidade Normativa:** Validação estrutural rigorosa conforme RFC 5322 e RFC 5321.
+* **Bloqueio de Contas Departamentais:** Rejeita endereços genéricos de equipes (`contato@`, `suporte@`, `admin@`, `financeiro@`, `vendas@`, `info@`, `marketing@`, etc.), exigindo e-mails individuais corporativos ou pessoais.
+* **Bloqueio de Domínios Descartáveis:** Lista negra ativa de mais de 300 provedores de e-mails temporários (`tempmail`, `guerrillamail`, `10minutemail`, `mailinator`, etc.).
+* **Verificação DNS MX Ativa:** Consulta em tempo real via Cloudflare DoH (DNS-over-HTTPS) para garantir que o domínio informado possui registros MX ou apontamento A válido para recebimento de mensagens.
+* **Detecção de Typos (Damerau-Levenshtein):** Identifica erros de digitação e sugere correção interativa com 1 clique antes do envio.
+
+### 4.3. Telefone (`phone`)
+* **Obrigatoriedade:** Opcional.
+* **Tipos Aceitos:** Celular ou Telefone Fixo (nacional com DDD ou internacional).
+* **Máscara Dinâmica no SDK:**
+  * Celular BR: formata automaticamente para `(XX) 9XXXX-XXXX` (11 dígitos).
+  * Fixo BR: formata automaticamente para `(XX) XXXX-XXXX` (10 dígitos com inicial 2 a 5).
+  * Internacional: aceita prefixo `+` seguido de 8 a 15 dígitos conforme padrão E.164.
+* **Higienização no Backend:** Remove formatação visual e persiste o número padronizado com código do país (ex: `+5511987654321` ou `+551134567890`).
+
+---
+
+## 5. Detecção Algorítmica de Typos e Autocorreção no SDK
 
 O SDK e o backend utilizam o algoritmo de distância **Damerau-Levenshtein** para identificar erros de digitação e domínios de *typosquatting*:
 
@@ -94,7 +121,7 @@ Provedores legítimos que possuem grafia semelhante (`mail.com`, `zoho.com`, `uo
 
 ---
 
-## 5. Modos de Exibição
+## 6. Modos de Exibição
 
 ### Modo Inline
 Renderiza o formulário no fluxo do documento, dentro do seletor indicado em `data-target` ou logo após o `<script>`, com isolamento total via Shadow DOM:
@@ -120,7 +147,7 @@ Ao ser fechado, o modal memoriza a dispensa no `localStorage` por 7 dias para re
 
 ---
 
-## 6. Disparo Manual do Modal
+## 7. Disparo Manual do Modal
 
 O disparo manual ignora a dispensa temporária do `localStorage` e força a abertura imediata.
 
@@ -152,7 +179,7 @@ window.dispatchEvent(new CustomEvent('rc:open-modal'));
 
 ---
 
-## 7. Exemplos Práticos de Integração
+## 8. Exemplos Práticos de Integração
 
 ### Angular (v19, v20, v21)
 Inserir no arquivo `src/index.html` antes de `</body>`:
@@ -207,7 +234,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 ---
 
-## 8. Diretrizes de Segurança e Boas Práticas
+## 9. Diretrizes de Segurança e Boas Práticas
 
 1. **Anti-Bot Fail-Closed:** O endpoint de submissão exige a presença e a verificação válida do token do Turnstile perante o endpoint oficial da Cloudflare (`https://challenges.cloudflare.com/turnstile/v0/siteverify`). Submissões sem token são rejeitadas com `HTTP 403`.
 2. **Proteção Antienumeração:** A resposta da API é padronizada (`"Inscrição confirmada! Verifique sua caixa de entrada."`), impedindo que terceiros descubram se um e-mail já existe na base de dados.
