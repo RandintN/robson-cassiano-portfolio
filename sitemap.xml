@@ -5,7 +5,7 @@
   <!-- Página Principal (Português / Canônico x-default) -->
   <url>
     <loc>https://eu.robsoncassiano.software/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -13,7 +13,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
+      <image:loc>https://storage.robsoncassiano.software/Robson-Cassiano.webp</image:loc>
       <image:title>Robson Cassiano - Senior Software Engineer &amp; Mentor Internacional</image:title>
       <image:caption>Robson Cassiano - Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais e filósofo clássico</image:caption>
     </image:image>
@@ -22,7 +22,7 @@
   <!-- Dedicated English Portal (International SEO / English Speakers) -->
   <url>
     <loc>https://eu.robsoncassiano.software/en/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -30,7 +30,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
+      <image:loc>https://storage.robsoncassiano.software/Robson-Cassiano.webp</image:loc>
       <image:title>Robson Cassiano - Senior Java Backend Engineer &amp; Enterprise Architect</image:title>
       <image:caption>Robson Cassiano - Senior Java Backend Engineer and Enterprise Software Architect</image:caption>
     </image:image>
@@ -43,7 +43,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
+      <image:loc>https://storage.robsoncassiano.software/Robson-Cassiano.webp</image:loc>
       <image:title>Artigos e Ensaios de Engenharia de Software</image:title>
     </image:image>
   </url>
@@ -51,7 +51,7 @@
   <!-- Depoimentos (prova pública com prints de evidência) -->
   <url>
     <loc>https://eu.robsoncassiano.software/depoimentos/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/depoimentos/" />
@@ -63,7 +63,7 @@
   <!-- Testimonials English Mirror (Real Wins / Evidence) -->
   <url>
     <loc>https://eu.robsoncassiano.software/en/testimonials/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/testimonials/" />
@@ -75,7 +75,7 @@
   <!-- Política de Privacidade (LGPD): referenciada em todos os e-mails da régua -->
   <url>
     <loc>https://eu.robsoncassiano.software/privacidade/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

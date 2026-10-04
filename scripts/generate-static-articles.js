@@ -419,7 +419,7 @@ ${JSON.stringify(jsonLd, null, 2)}
 
         <!-- Author Card -->
         <div class="flex items-center gap-4 pt-4 border-t border-[#252530]">
-          <img src="/assets/images/Robson-Cassiano.webp" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-[#dfb15b]/30 object-cover shadow-md shadow-[#dfb15b]/10">
+          <img src="https://storage.robsoncassiano.software/Robson-Cassiano.webp" width="48" height="48" alt="Robson Cassiano" class="w-12 h-12 rounded-full border border-[#dfb15b]/30 object-cover shadow-md shadow-[#dfb15b]/10">
           <div>
             <span class="text-base font-bold text-white block">Robson Cassiano</span>
             <span class="text-xs text-slate-400 block">Software Engineer na Epic Games & Cambridge CELTA Certified Teacher</span>
@@ -583,7 +583,7 @@ function buildStructuredData(lang) {
       url: SITE_URL,
       image: {
         '@type': 'ImageObject',
-        url: `${SITE_URL}assets/images/Robson-Cassiano.webp`,
+        url: 'https://storage.robsoncassiano.software/Robson-Cassiano.webp',
         width: 800,
         height: 800,
         caption: isBr
@@ -623,7 +623,7 @@ function buildStructuredData(lang) {
     logo: {
       '@type': 'ImageObject',
       '@id': `${SITE_URL}#logo`,
-      url: `${SITE_URL}assets/images/Robson-Cassiano.webp`,
+      url: 'https://storage.robsoncassiano.software/Robson-Cassiano.webp',
       caption: 'Simple Software'
     },
     founder: { '@type': 'Person', '@id': `${SITE_URL}#person` },

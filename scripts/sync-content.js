@@ -60,7 +60,7 @@ for (const file of files) {
     readTime: meta.readTime || '5 min de leitura',
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     summary: meta.summary || '',
-    coverImage: meta.coverImage || 'assets/images/Robson-Cassiano.webp',
+    coverImage: meta.coverImage || 'https://storage.robsoncassiano.software/Robson-Cassiano.webp',
     ogImage: meta.ogImage || `assets/images/og/${slug}.jpg`,
     canonicalUrl: meta.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${slug}/`,
     youtubeVideoId: meta.youtubeVideoId || undefined,
@@ -167,7 +167,7 @@ const sitemapEntries = [
     <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
+      <image:loc>https://storage.robsoncassiano.software/Robson-Cassiano.webp</image:loc>
       <image:title>Robson Cassiano - Senior Software Engineer &amp; Mentor Internacional</image:title>
       <image:caption>Robson Cassiano - Senior Software Engineer especializado em Java Backend, mentor de carreiras internacionais e filósofo clássico</image:caption>
     </image:image>
@@ -184,7 +184,7 @@ const sitemapEntries = [
     <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eu.robsoncassiano.software/" />
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
+      <image:loc>https://storage.robsoncassiano.software/Robson-Cassiano.webp</image:loc>
       <image:title>Robson Cassiano - Senior Java Backend Engineer &amp; Enterprise Architect</image:title>
       <image:caption>Robson Cassiano - Senior Java Backend Engineer and Enterprise Software Architect</image:caption>
     </image:image>
@@ -197,7 +197,7 @@ const sitemapEntries = [
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp</image:loc>
+      <image:loc>https://storage.robsoncassiano.software/Robson-Cassiano.webp</image:loc>
       <image:title>Artigos e Ensaios de Engenharia de Software</image:title>
     </image:image>
   </url>`,

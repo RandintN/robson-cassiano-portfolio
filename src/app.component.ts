@@ -40,9 +40,8 @@ export class AppComponent {
   readonly testimonialsUrl = computed(() => this.currentLanguage() === 'en' ? '/en/testimonials/' : '/depoimentos/');
   readonly testimonialsHreflang = computed(() => this.currentLanguage() === 'en' ? 'en' : 'pt-BR');
 
-  // Local optimized image served on the same edge origin (Cloudflare Pages)
-  profileImage = signal('assets/images/Robson-Cassiano.webp');
-  fullCanonicalImageUrl = 'https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp';
+  profileImage = signal('https://storage.robsoncassiano.software/Robson-Cassiano.webp');
+  fullCanonicalImageUrl = 'https://storage.robsoncassiano.software/Robson-Cassiano.webp';
 
   socials = signal<SocialLink[]>([
     { id: 'linkedin', name: 'LinkedIn', url: 'https://www.linkedin.com/in/robsoncassiano-software/' },

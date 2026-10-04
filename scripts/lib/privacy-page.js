@@ -79,7 +79,7 @@ export function buildPrivacyPage({ stylesHref }) {
   <meta property="og:title" content="${escapeHtml(title)}">
   <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonicalUrl}">
-  <meta property="og:image" content="https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp">
+  <meta property="og:image" content="https://storage.robsoncassiano.software/Robson-Cassiano.webp">
   <meta property="og:site_name" content="Robson Cassiano - Senior Software Engineer">
   <meta name="twitter:card" content="summary">
 

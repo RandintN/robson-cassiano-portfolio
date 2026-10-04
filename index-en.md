@@ -1,7 +1,7 @@
 ---
 title: "Robson Cassiano | Senior Java Backend Engineer & Enterprise Architect"
 description: "Executive and technical profile of Robson Cassiano: Senior Java Backend Engineer, Distributed Systems Architect, Polyglot, and Founder of Simple Software LTDA."
-image: "https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp"
+image: "https://storage.robsoncassiano.software/Robson-Cassiano.webp"
 canonical: "https://eu.robsoncassiano.software/en/"
 author: "Robson Cassiano"
 ---
@@ -122,7 +122,7 @@ Robson is a polyglot and actively studies 5 languages: Portuguese (native), Engl
 ## 📚 Canonical Published Articles (Blog)
 
 <!-- ARTICLES:START -->
-- [Quanto Ganha Dev Júnior, Pleno e Sênior na Gringa (Guia Real)](https://eu.robsoncassiano.software/artigos/quanto-ganha-dev-junior-pleno-senior-gringa/): Faixas salariais reais para desenvolvedores júnior, pleno e sênior nos EUA e exterior com base no Glassdoor e contratos remotos B2B direto do Brasil. ([markdown](https://eu.robsoncassiano.software/artigos/quanto-ganha-dev-junior-pleno-senior-gringa.md))
+- [US & Remote Tech Salaries: Junior, Mid-Level and Senior Real Guide](https://eu.robsoncassiano.software/artigos/quanto-ganha-dev-junior-pleno-senior-gringa/): Real compensation ranges for junior, mid-level and senior software engineers working remotely for US companies, based on Glassdoor data and international B2B contracts. ([markdown](https://eu.robsoncassiano.software/artigos/quanto-ganha-dev-junior-pleno-senior-gringa.md))
 - [AI-Run Technical Interviews: A Real Session Breakdown](https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia/): I broke down a real AI-conducted technical interview frame by frame: what the panel evaluates and the answers that separate a pass from a rejection. ([markdown](https://eu.robsoncassiano.software/artigos/como-passar-em-entrevistas-tecnicas-internacionais-feitas-por-ia.md))
 - [Coding Interview Prep: A Week-by-Week Study Plan](https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan/): A structured week-by-week plan for US tech coding interviews: core algorithm patterns, dynamic programming triage and readiness checkpoints. ([markdown](https://eu.robsoncassiano.software/artigos/coding-interview-preparation-week-by-week-study-plan.md))
 - [Developer in Portugal: Salary, Visa and What to Negotiate](https://eu.robsoncassiano.software/artigos/programador-portugal-salario-euro-visto-negociacao/): I recorded a real recruiting call for Portugal and break down each stage: visa, relocation allowance, family reunification and purchasing power parity. ([markdown](https://eu.robsoncassiano.software/artigos/programador-portugal-salario-euro-visto-negociacao.md))

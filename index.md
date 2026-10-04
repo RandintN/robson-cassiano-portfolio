@@ -131,7 +131,7 @@ O canal principal é o LinkedIn (https://www.linkedin.com/in/robsoncassiano-soft
         "url": "https://eu.robsoncassiano.software/",
         "image": {
           "@type": "ImageObject",
-          "url": "https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp",
+          "url": "https://storage.robsoncassiano.software/Robson-Cassiano.webp",
           "width": 800,
           "height": 800,
           "caption": "Robson Cassiano - Software Engineer na Epic Games & Cambridge CELTA Certified Teacher"
@@ -189,7 +189,7 @@ O canal principal é o LinkedIn (https://www.linkedin.com/in/robsoncassiano-soft
       "logo": {
         "@type": "ImageObject",
         "@id": "https://eu.robsoncassiano.software/#logo",
-        "url": "https://eu.robsoncassiano.software/assets/images/Robson-Cassiano.webp",
+        "url": "https://storage.robsoncassiano.software/Robson-Cassiano.webp",
         "caption": "Simple Software"
       },
       "founder": {
