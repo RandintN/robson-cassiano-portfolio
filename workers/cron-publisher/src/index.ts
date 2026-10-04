@@ -185,7 +185,10 @@ export default {
             contents: [{ parts: [{ text: body.prompt }] }],
             generationConfig: {
               temperature: 0.3,
-              maxOutputTokens: 8192
+              maxOutputTokens: 8192,
+              thinkingConfig: {
+                thinkingBudget: 0
+              }
             }
           }),
           signal: AbortSignal.timeout(35000),

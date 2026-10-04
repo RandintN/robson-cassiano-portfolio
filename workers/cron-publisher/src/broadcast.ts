@@ -39,34 +39,34 @@ export async function processBroadcast(env: Env, body: BroadcastRequest): Promis
         const firstName = subscriber.name ? escapeHtml(subscriber.name.split(' ')[0]) : 'dev';
 
         const html = `
-          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #08080a; color: #f4f4f6; padding: 30px; border-radius: 12px; border: 1px solid #252530;">
+          <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background-color: #08080a; color: #f4f4f6; padding: 32px 24px; border-radius: 12px; border: 1px solid #252530; line-height: 1.6;">
             <div style="margin-bottom: 20px;">
               <span style="background-color: rgba(223, 177, 91, 0.15); color: #dfb15b; border: 1px solid rgba(223, 177, 91, 0.3); padding: 4px 12px; border-radius: 9999px; font-weight: 800; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;">
-                Ensaio Técnico de Engenharia
+                Análise Técnica de Engenharia
               </span>
             </div>
             <h1 style="color: #ffffff; font-size: 22px; line-height: 1.3; margin-bottom: 16px;">${safeTitle}</h1>
-            <p style="font-size: 16px; line-height: 1.6; color: #cbd5e1; margin-bottom: 24px;">
-              Olá, ${firstName}! Preparei uma análise aprofundada sobre engenharia de software e decisões de arquitetura em escala internacional para respaldar suas escolhas técnicas em projetos de alta complexidade.
+            <p style="font-size: 15px; color: #cbd5e1; margin-bottom: 20px;">
+              Olá, ${firstName}! Decisões de arquitetura e comunicação em equipes internacionais exigem clareza técnica e previsibilidade.
             </p>
             <div style="background-color: #141418; padding: 18px; border-radius: 8px; border-left: 4px solid #dfb15b; margin-bottom: 24px;">
-              <p style="margin: 0; font-size: 15px; color: #cbd5e1; line-height: 1.6;">
+              <p style="margin: 0; font-size: 14px; color: #e2e8f0; line-height: 1.6;">
                 ${safePreviewText}
               </p>
             </div>
-            <div style="margin-bottom: 30px;">
+            <div style="margin-bottom: 28px;">
               <a href="${safeUrl}" style="display: inline-block; background: linear-gradient(135deg, #dfb15b, #c99839); color: #08080a; font-weight: 800; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 15px; box-shadow: 0 4px 12px rgba(223, 177, 91, 0.25);">
-                Acessar Análise Técnica Completa &rarr;
+                Ler Análise Técnica Completa &rarr;
               </a>
             </div>
-            <p style="font-size: 12px; color: #64748b; border-top: 1px solid #252530; padding-top: 20px; margin-top: 30px;">
+            <p style="font-size: 12px; color: #64748b; border-top: 1px solid #252530; padding-top: 20px; margin-top: 28px;">
               Você recebeu este e-mail como assinante da lista técnica em <a href="https://eu.robsoncassiano.software" style="color: #dfb15b;">eu.robsoncassiano.software</a>.<br />
               <a href="https://eu.robsoncassiano.software/privacidade" style="color: #94a3b8; text-decoration: none;">Política de Privacidade</a> • Para deixar de receber novos ensaios, <a href="${unsubLink}" style="color: #ef4444;">cancele sua inscrição aqui</a>.
             </p>
           </div>
         `;
 
-        const textContent = `Olá, ${firstName}!\n\nPreparei uma nova análise técnica de arquitetura e engenharia aplicada:\n\n"${body.title}"\n\n${body.previewText}\n\nAcesse o ensaio completo e os diagramas técnicos no portal:\n${safeUrl}\n\nRobson Cassiano\nEngenheiro de Software Sênior e Mentor Internacional\neu.robsoncassiano.software\n\nPrivacidade: https://eu.robsoncassiano.software/privacidade\nPara cancelar sua inscrição: ${unsubLink}`;
+        const textContent = `Olá, ${firstName}!\n\nDecisões de arquitetura e comunicação em equipes internacionais exigem clareza técnica e previsibilidade:\n\n"${body.title}"\n\n${body.previewText}\n\nAcesse o ensaio completo e os diagramas técnicos no blog:\n${safeUrl}\n\nRobson Cassiano\nEngenheiro de Software Sênior e Mentor Internacional\neu.robsoncassiano.software\n\nPrivacidade: https://eu.robsoncassiano.software/privacidade\nPara cancelar sua inscrição: ${unsubLink}`;
 
         const ok = await sendEmail({
           to: subscriber.email,

@@ -28,6 +28,7 @@ export interface YouTubeVideoItem {
   isShort: boolean;
   typeLabel: string;
   durationSeconds: number;
+  privacyStatus: 'public' | 'unlisted' | 'private' | string;
 }
 
 export interface SendMailPayload {

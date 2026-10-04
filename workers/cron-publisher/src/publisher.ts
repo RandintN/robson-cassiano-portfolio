@@ -1,4 +1,29 @@
 import { Env, PublishMode, YouTubeVideoItem } from './types';
+import { processBroadcast } from './broadcast';
+
+async function waitForArticleLive(url: string, maxAttempts = 15, delayMs = 10000): Promise<boolean> {
+  console.log(`[HealthCheck] Aguardando propagação do artigo em ${url}...`);
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const res = await fetch(url, {
+        method: 'HEAD',
+        headers: {
+          'User-Agent': 'Cloudflare-Worker-Cron-Publisher-HealthCheck'
+        }
+      });
+      if (res.status === 200) {
+        console.log(`[HealthCheck] Artigo disponível em produção na tentativa ${attempt}! Status 200.`);
+        return true;
+      }
+      console.log(`[HealthCheck] Tentativa ${attempt}/${maxAttempts} retornou status ${res.status}. Aguardando ${delayMs / 1000}s...`);
+    } catch (e: any) {
+      console.log(`[HealthCheck] Tentativa ${attempt}/${maxAttempts} falhou na requisição: ${e?.message || e}`);
+    }
+    await new Promise(r => setTimeout(r, delayMs));
+  }
+  console.warn(`[HealthCheck] Limite de espera atingido. Prosseguindo com o envio do broadcast.`);
+  return false;
+}
 
 function parseDurationInSeconds(isoDuration?: string): number {
   if (!isoDuration) return 0;
@@ -89,28 +114,31 @@ async function fetchChannelVideos(accessToken: string, mode: PublishMode): Promi
 
   if (videoIds.length === 0) return [];
 
-  const videoDetailsRes = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoIds.join(',')}&part=snippet,contentDetails,liveStreamingDetails`, {
+  const videoDetailsRes = await fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoIds.join(',')}&part=snippet,contentDetails,liveStreamingDetails,status`, {
     headers: { Authorization: `Bearer ${accessToken}` }
   });
 
-  const videoDetails = await videoDetailsRes.json<{ items?: Array<{ id: string; snippet: { title: string; publishedAt: string }; contentDetails: { duration: string }; liveStreamingDetails?: unknown }> }>();
+  const videoDetails = await videoDetailsRes.json<{ items?: Array<{ id: string; snippet: { title: string; publishedAt: string }; contentDetails: { duration: string }; liveStreamingDetails?: unknown; status?: { privacyStatus: string } }> }>();
 
-  return (videoDetails.items || []).map(v => {
-    const durationSeconds = parseDurationInSeconds(v.contentDetails?.duration);
-    const isLive = !!v.liveStreamingDetails;
-    const isShort = !isLive && durationSeconds > 0 && durationSeconds <= 60;
-    const typeLabel = isLive ? 'LIVE' : isShort ? 'SHORT' : 'VIDEO LONGO';
+  return (videoDetails.items || [])
+    .filter(v => v.status?.privacyStatus === 'public')
+    .map(v => {
+      const durationSeconds = parseDurationInSeconds(v.contentDetails?.duration);
+      const isLive = !!v.liveStreamingDetails;
+      const isShort = !isLive && durationSeconds > 0 && durationSeconds <= 60;
+      const typeLabel = isLive ? 'LIVE' : isShort ? 'SHORT' : 'VIDEO LONGO';
 
-    return {
-      id: v.id,
-      title: v.snippet.title,
-      publishedAt: v.snippet.publishedAt.slice(0, 10),
-      isLive,
-      isShort,
-      typeLabel,
-      durationSeconds
-    };
-  });
+      return {
+        id: v.id,
+        title: v.snippet.title,
+        publishedAt: v.snippet.publishedAt.slice(0, 10),
+        isLive,
+        isShort,
+        typeLabel,
+        durationSeconds,
+        privacyStatus: v.status?.privacyStatus || 'public'
+      };
+    });
 }
 
 async function fetchExistingArticleSlugs(env: Env): Promise<string[]> {
@@ -166,13 +194,16 @@ INFORMAÇÕES DO VÍDEO:
 TRANSCRIÇÃO BRUTA:
 ${transcript.slice(0, 32000)}
 
-REGRAS DE LINGUAGEM OBRIGATÓRIAS (RIGOR MÁXIMO):
-1. PROIBIDO ESTRUTURAS CONTRASTIVAS RETÓRICAS ("não é X, é Y", "not merely X but Y", "não apenas X—Y", "longe de ser X, trata-se de Y"). Se algo tem duas dimensões, nomeie ambas diretamente sem andaimes de negação.
-2. PROIBIDO TRAVESSÕES (— ou –). Substitua qualquer pontuação de travessão por vírgulas, dois-pontos ou parênteses.
-3. USO MANDATÓRIO DE ETIMOLOGIA GRECO-LATINA: Trace conexões com as raízes linguísticas greco-latinas dos conceitos tratados (ex: carreira do latim carraria; experiência do latim experientia, ex + periri; técnica do grego techne; disciplina do latim disciplina; problema do grego pro + ballein; escola do grego schole; mercado do latim mercatus; trabalho do latim tripalium; contrato do latim contractus; valor do latim valere).
-4. PROIBIDO TOM MOTIVACIONAL, COACH, CORPORATIVO OU SYCOPHANTIC: Responda direto com densidade analítica e profundidade histórica.
-5. CITAÇÕES E RELATOS REAIS: Inclua citações fiéis às falas de Robson Cassiano e preserve os casos reais mencionados na transmissão.
-6. PROIBIDO O TERMO SATURADO "deixar dinheiro na mesa".
+REGRAS DE LINGUAGEM E ESTILO OBRIGATÓRIAS (RIGOR MÁXIMO):
+1. TOM INFORMAL E CONVERSACIONAL: Redija em tom informal, direto e autêntico, como um desenvolvedor experiente conversando diretamente com outro profissional. Linguagem próxima e franca, sem formalismo acadêmico acartonado ou burocrático.
+2. PROIBIDO ESTRUTURAS CONTRASTIVAS RETÓRICAS ("não é X, é Y", "not merely X but Y", "não apenas X—Y", "longe de ser X, trata-se de Y"). Se algo tem duas dimensões, nomeie ambas diretamente sem andaimes de negação.
+3. PROIBIDO TRAVESSÕES (— ou –). Substitua qualquer pontuação de travessão por vírgulas, dois-pontos ou parênteses.
+4. USO MANDATÓRIO DE ETIMOLOGIA GRECO-LATINA: Conecte os conceitos tratados às raízes linguísticas greco-latinas de forma orgânica e fluida na conversa (ex: carreira do latim carraria; experiência do latim experientia, ex + periri; técnica do grego techne; disciplina do latim disciplina; problema do grego pro + ballein; escola do grego schole; mercado do latim mercatus; trabalho do latim tripalium; contrato do latim contractus; valor do latim valere; comunicação do latim communicare, communis; decisão do latim decidere, de + caedere; salário do latim salarium; autoridade do latim auctoritas).
+5. PROIBIDO TOM MOTIVACIONAL, COACH, CORPORATIVO OU SYCOPHANTIC: Sem introduções bajuladoras, sem jargões de autoajuda. Fale a verdade com franqueza técnica e prática real de mercado.
+6. LISTA DE PALAVRAS E EXPRESSÕES PROIBIDAS: coach, coaching, executivo, ruído, reside, assertivo, deliberado, "deixar dinheiro na mesa", "virar o jogo", "mudar o jogo", "inverter o jogo".
+7. PROIBIDO FÓRMULAS DE FECHO: Proibido encerrar com "em conclusão", "por fim", "finalmente", "e por fim". Finalize diretamente no último ponto prático ou argumento factual.
+8. CITAÇÕES E RELATOS REAIS: Inclua falas fiéis de Robson Cassiano e preserve os casos reais relatados durante a transmissão.
+9. DIRETRIZ FIX-MY-COPY (ESPELHO DO LEITOR): O texto deve atuar como um espelho da realidade prática do desenvolvedor leitor. Aplique o princípio de foco no cliente/leitor ('mesmo fato, dono diferente'): ao apresentar experiências, ferramentas ou cases de Robson Cassiano, traduza imediatamente para o ganho prático do leitor ('o que isso muda na sua rotina, na sua visibilidade e no seu código'). Mantenha fatos e provas concretas ancorados nos desafios diários enfrentados pelo profissional.
 
 ESTRUTURA DE RESPOSTA OBRIGATÓRIA:
 Retorne EXCLUSIVAMENTE o conteúdo do arquivo Markdown com frontmatter YAML completo no início:
@@ -209,7 +240,10 @@ preSoldTarget: "mentoria"
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
             temperature: 0.3,
-            maxOutputTokens: 8192
+            maxOutputTokens: 8192,
+            thinkingConfig: {
+              thinkingBudget: 0
+            }
           }
         })
       });
@@ -247,7 +281,15 @@ preSoldTarget: "mentoria"
     throw new Error(`Falha ao gerar o ensaio. Detalhes: ${lastAiError}`);
   }
 
-  markdown = markdown.replace(/^```(?:markdown)?\r?\n/, '').replace(/\r?\n```$/, '').trim();
+  markdown = markdown
+    .replace(/^```(?:markdown)?\r?\n/, '')
+    .replace(/\r?\n```$/, '')
+    .replace(/—/g, ', ')
+    .replace(/–/g, ', ')
+    .replace(/\b(reside|residem)\b/gi, 'consiste')
+    .replace(/##\s*Conclusão:?\s*/gi, '## ')
+    .replace(/\b(Em conclusão|Por fim|Finalmente|E por fim)[,\s]*/gi, '')
+    .trim();
 
   const slugMatch = markdown.match(/slug:\s*["']?([^\r\n"']+)["']?/i);
   const rawSlug = slugMatch ? slugMatch[1] : video.title;
@@ -256,7 +298,13 @@ preSoldTarget: "mentoria"
   const titleMatch = markdown.match(/title:\s*["']([^"']+)["']/i);
   const title = titleMatch ? titleMatch[1] : video.title;
 
-  return { title, slug, markdown };
+  const summaryMatch = markdown.match(/summary:\s*["']([^"']+)["']/i);
+  const summary = summaryMatch ? summaryMatch[1] : '';
+
+  const canonicalMatch = markdown.match(/canonicalUrl:\s*["']([^"']+)["']/i);
+  const canonicalUrl = canonicalMatch ? canonicalMatch[1] : `https://eu.robsoncassiano.software/artigos/${slug}/`;
+
+  return { title, slug, summary, canonicalUrl, markdown };
 }
 
 async function commitArticleToGitHub(env: Env, slug: string, markdown: string, videoTitle: string): Promise<string> {
@@ -296,6 +344,7 @@ export async function processAutomatedPublishing(env: Env, mode: PublishMode = '
   slug?: string;
   commitSha?: string;
   selectedType?: string;
+  broadcastSentCount?: number;
 }> {
   const accessToken = await getGoogleAccessToken(env);
   const videos = await fetchChannelVideos(accessToken, mode);
@@ -337,11 +386,33 @@ export async function processAutomatedPublishing(env: Env, mode: PublishMode = '
   const essay = await generateEssayWithAI(env, selectedVideo, transcript);
   const commitSha = await commitArticleToGitHub(env, essay.slug, essay.markdown, selectedVideo.title);
 
+  // Aguarda propagação no Cloudflare Pages para garantir disponibilidade antes de notificar assinantes
+  const articleUrl = essay.canonicalUrl || `https://eu.robsoncassiano.software/artigos/${essay.slug}/`;
+  await waitForArticleLive(articleUrl);
+
+  let broadcastSentCount = 0;
+  if (env.DB) {
+    try {
+      const broadcastRes = await processBroadcast(env, {
+        subject: `${essay.title}`,
+        title: essay.title,
+        previewText: essay.summary || 'Acesse a nova análise técnica no blog.',
+        articleUrl: articleUrl,
+        articleSlug: essay.slug
+      });
+      broadcastSentCount = broadcastRes.sentCount;
+      console.log(`[Automated Broadcast Success]: Notificados ${broadcastSentCount} inscritos para o ensaio '${essay.slug}'.`);
+    } catch (broadcastErr: any) {
+      console.error('[Automated Broadcast Error]:', broadcastErr?.message || broadcastErr);
+    }
+  }
+
   return {
     success: true,
-    message: `Ensaio '${essay.title}' publicado com sucesso! [Modo: ${mode}] Commit acionado no repositório.`,
+    message: `Ensaio '${essay.title}' publicado e notificado para ${broadcastSentCount} inscritos! [Modo: ${mode}] Commit: ${commitSha}`,
     slug: essay.slug,
     commitSha,
-    selectedType: selectedVideo.typeLabel
+    selectedType: selectedVideo.typeLabel,
+    broadcastSentCount
   };
 }
