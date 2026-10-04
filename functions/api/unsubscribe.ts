@@ -10,18 +10,6 @@ interface PagesEnv {
 export const onRequest: PagesFunction<PagesEnv> = async (context) => {
   const { request, env } = context;
 
-  if (request.method === 'OPTIONS') {
-    return new Response(null, {
-      status: 204,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization, List-Unsubscribe-Post',
-        'Access-Control-Max-Age': '86400',
-      },
-    });
-  }
-
   const url = new URL(request.url);
   const targetPath = `/api/unsubscribe${url.search}`;
 

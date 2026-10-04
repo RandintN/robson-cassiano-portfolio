@@ -79,20 +79,27 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        // União dos allowlists das rotas: capture (cf-turnstile-response) e
+        // descadastro (List-Unsubscribe-Post, RFC 8058).
+        "Access-Control-Allow-Headers": "Content-Type, Authorization, cf-turnstile-response, List-Unsubscribe-Post",
         "Access-Control-Max-Age": "86400",
       },
     });
   }
 
   const response = await context.next();
-  response.headers.set("Vary", "Accept");
-  response.headers.set("Access-Control-Allow-Origin", "*");
 
-  // Responses produced by Pages Functions ignore the _headers file, so the crawl
-  // directive for the capture API has to be set on the response itself.
   if (url.pathname.startsWith("/api/")) {
+    // Respostas de API têm política CORS própria (capture-worker e
+    // cron-publisher definem Allow-Origin restrito + Vary: Origin). Não
+    // sobrescrever; só acrescentar a variante de negociação, preservando o Vary.
+    response.headers.append("Vary", "Accept");
+    // Responses produced by Pages Functions ignore the _headers file, so the crawl
+    // directive for the capture API has to be set on the response itself.
     response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  } else {
+    response.headers.set("Vary", "Accept");
+    response.headers.set("Access-Control-Allow-Origin", "*");
   }
 
   return response;
