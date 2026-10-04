@@ -4,6 +4,7 @@ export interface Env {
   YOUTUBE_REFRESH_TOKEN: string;
   GITHUB_TOKEN: string;
   GEMINI_API_KEY?: string;
+  GEMINI_MODEL?: string;
   GITHUB_REPO_OWNER?: string;
   GITHUB_REPO_NAME?: string;
   CRON_SECRET?: string;

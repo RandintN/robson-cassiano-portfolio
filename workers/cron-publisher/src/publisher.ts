@@ -229,11 +229,12 @@ preSoldTarget: "mentoria"
 
   let markdown = '';
   let lastAiError = '';
+  const geminiModel = env.GEMINI_MODEL || 'gemini-3.8-flash';
 
-  // 1. Motor Primário: Google Gemini 3.6 Flash (AI Studio)
+  // 1. Motor Primário: Google Gemini API (AI Studio)
   if (env.GEMINI_API_KEY) {
     try {
-      const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${env.GEMINI_API_KEY}`, {
+      const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent?key=${env.GEMINI_API_KEY}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -253,7 +254,7 @@ preSoldTarget: "mentoria"
         markdown = aiData.candidates?.[0]?.content?.parts?.[0]?.text || '';
       } else {
         const errText = await aiRes.text();
-        lastAiError = `Gemini 3.6 Flash Error: ${errText}`;
+        lastAiError = `Gemini (${geminiModel}) Error: ${errText}`;
       }
     } catch (e: any) {
       lastAiError = `Gemini Fetch Error: ${e.message}`;

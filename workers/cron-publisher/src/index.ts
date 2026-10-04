@@ -174,7 +174,7 @@ export default {
     if (path === '/generate-custom' && request.method === 'POST') {
       try {
         const body = await request.json<{ prompt: string }>();
-        const endpoint = 'gemini-3.6-flash';
+        const endpoint = env.GEMINI_MODEL || 'gemini-3.8-flash';
         const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${endpoint}:generateContent`, {
           method: 'POST',
           headers: {

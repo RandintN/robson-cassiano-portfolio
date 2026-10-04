@@ -4,6 +4,9 @@ compatibility_date = "2026-03-01"
 compatibility_flags = ["nodejs_compat"]
 workers_dev = true
 
+[vars]
+GEMINI_MODEL = "gemini-3.8-flash"
+
 [triggers]
 # 1. Diariamente às 15:00 UTC (12:00 BRT): Disparo da Sequência de E-mails de 7 Dias
 # 2. Segunda-feira às 15:00 UTC: Artigo da Live mais recente
