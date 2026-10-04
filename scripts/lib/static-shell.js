@@ -257,7 +257,7 @@ export function buildArticlesHub({ articles, t, stylesHref }) {
   const canonicalUrl = 'https://eu.robsoncassiano.software/artigos/';
   const title = 'Artigos e Ensaios de Engenharia de Software | Robson Cassiano';
   const description =
-    'Os 13 ensaios técnicos de Robson Cassiano: backend Java e Spring, arquitetura resiliente, carreira internacional, negociação em dólar e entrevistas técnicas em inglês.';
+    `Os ${articles.length} ensaios técnicos de Robson Cassiano: backend Java e Spring, arquitetura resiliente, carreira internacional, negociação em dólar e entrevistas técnicas em inglês.`;
   const ogImage = 'https://eu.robsoncassiano.software/assets/images/og/por-que-spring-boot-domina-backend-global.jpg';
 
   const jsonLd = {
