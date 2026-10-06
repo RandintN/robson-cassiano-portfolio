@@ -5,7 +5,7 @@
   <!-- Página Principal (Português / Canônico x-default) -->
   <url>
     <loc>https://eu.robsoncassiano.software/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -22,7 +22,7 @@
   <!-- Dedicated English Portal (International SEO / English Speakers) -->
   <url>
     <loc>https://eu.robsoncassiano.software/en/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/" />
@@ -39,7 +39,7 @@
   <!-- Hub de Artigos (Blog) -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -51,7 +51,7 @@
   <!-- Depoimentos (prova pública com prints de evidência) -->
   <url>
     <loc>https://eu.robsoncassiano.software/depoimentos/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="pt" href="https://eu.robsoncassiano.software/depoimentos/" />
@@ -63,7 +63,7 @@
   <!-- Testimonials English Mirror (Real Wins / Evidence) -->
   <url>
     <loc>https://eu.robsoncassiano.software/en/testimonials/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://eu.robsoncassiano.software/en/testimonials/" />
@@ -75,9 +75,22 @@
   <!-- Política de Privacidade (LGPD): referenciada em todos os e-mails da régua -->
   <url>
     <loc>https://eu.robsoncassiano.software/privacidade/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- Artigo: Domine o Daily Stand-up: Comunicação Técnica e Inglês Profissional para Desenvolvedores -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/domine-daily-stand-up-comunicacao-tecnica-ingles-desenvolvedores/</loc>
+    <lastmod>2026-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/domine-daily-stand-up-comunicacao-tecnica-ingles-desenvolvedores.jpg</image:loc>
+      <image:title>Domine o Daily Stand-up: Comunicação Técnica e Inglês Profissional para Desenvolvedores</image:title>
+      <image:caption>Aprenda a comunicar seu progresso e desafios no daily stand-up com clareza e impacto, usando técnicas de linguagem que elevam sua visibilidade profissional.</image:caption>
+    </image:image>
   </url>
 
   <!-- Artigo: Quanto Ganha Dev Júnior, Pleno e Sênior na Gringa (Guia Real) -->

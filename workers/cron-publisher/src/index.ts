@@ -22,23 +22,26 @@ async function isAuthorized(request: Request, env: Env): Promise<boolean> {
 export default {
   // Disparos agendados na Cloudflare (Crons nativos)
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
-    // 1. Diariamente às 15:00 UTC (12:00 BRT): Disparo in-process da Sequência de 7 Dias
-    // Execução direta no banco D1 sem necessidade de requisição HTTP externa
-    if (event.cron === '0 15 * * *') {
+    // 1. Diariamente às 14:00 UTC (11:00 BRT) ou 15:00 UTC: Disparo da Sequência de 7 Dias
+    if (event.cron === '0 14 * * *' || event.cron === '0 15 * * *') {
       ctx.waitUntil(
         processSequenceDispatch(env)
           .then(res => console.log('[Cron Sequence Dispatch Result]:', JSON.stringify(res)))
           .catch(err => console.error('[Cron Sequence Dispatch Error]:', err))
       );
-      return;
     }
 
-    // 2. Publicação automatizada de artigos
+    // 2. Publicação automatizada de artigos (Segundas e Sextas às 15:00 UTC)
     let mode: PublishMode | null = null;
     if (event.cron === '0 15 * * 1') {
       mode = 'LATEST_LIVE';
     } else if (event.cron === '0 15 * * 5') {
       mode = 'RANDOM_ARCHIVE';
+    } else if (event.cron === '0 14 * * *' || event.cron === '0 15 * * *') {
+      // Fallback defensivo caso haja consolidação na Cloudflare
+      const dayOfWeek = new Date().getUTCDay();
+      if (dayOfWeek === 1) mode = 'LATEST_LIVE';
+      else if (dayOfWeek === 5) mode = 'RANDOM_ARCHIVE';
     }
 
     if (mode) {
@@ -50,7 +53,9 @@ export default {
       return;
     }
 
-    console.warn('[Cron Warning]: Gatilho cron não reconhecido:', event.cron);
+    if (event.cron !== '0 14 * * *' && event.cron !== '0 15 * * *') {
+      console.warn('[Cron Warning]: Gatilho cron não reconhecido:', event.cron);
+    }
   },
 
   // Handlers HTTP para rotas públicas e operacionais

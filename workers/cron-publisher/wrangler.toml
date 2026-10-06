@@ -12,7 +12,7 @@ GEMINI_MODEL = "gemini-3.8-flash"
 # 2. Segunda-feira às 15:00 UTC: Artigo da Live mais recente
 # 3. Sexta-feira às 15:00 UTC: Artigo de Conteúdo Aleatório do acervo
 crons = [
-  "0 15 * * *",
+  "0 14 * * *",
   "0 15 * * 1",
   "0 15 * * 5"
 ]
