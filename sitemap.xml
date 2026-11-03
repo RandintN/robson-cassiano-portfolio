@@ -80,16 +80,29 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- Artigo: Domine o Daily Stand-up: Comunicação Técnica e Inglês Profissional para Desenvolvedores -->
+  <!-- Artigo: Comunicação Técnica na Daily: Engenharia Verbal para Desenvolvedores Internacionais -->
   <url>
-    <loc>https://eu.robsoncassiano.software/artigos/domine-daily-stand-up-comunicacao-tecnica-ingles-desenvolvedores/</loc>
+    <loc>https://eu.robsoncassiano.software/artigos/comunicacao-tecnica-daily-ingles-desenvolvedores/</loc>
     <lastmod>2026-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://eu.robsoncassiano.software/assets/images/og/domine-daily-stand-up-comunicacao-tecnica-ingles-desenvolvedores.jpg</image:loc>
-      <image:title>Domine o Daily Stand-up: Comunicação Técnica e Inglês Profissional para Desenvolvedores</image:title>
-      <image:caption>Aprenda a comunicar seu progresso e desafios no daily stand-up com clareza e impacto, usando técnicas de linguagem que elevam sua visibilidade profissional.</image:caption>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/comunicacao-tecnica-daily-ingles-desenvolvedores.jpg</image:loc>
+      <image:title>Comunicação Técnica na Daily: Engenharia Verbal para Desenvolvedores Internacionais</image:title>
+      <image:caption>Como estruturar seus status updates em inglês com clareza técnica, previsibilidade e autoridade em times globais.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: Por Que Recrutadores Não Olham Seu GitHub na Triagem Inicial -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/por-que-recrutadores-nao-olham-github/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/por-que-recrutadores-nao-olham-github.jpg</image:loc>
+      <image:title>Por Que Recrutadores Não Olham Seu GitHub na Triagem Inicial</image:title>
+      <image:caption>Entenda por que enviar repositórios para recrutadores na primeira fase sabota seus processos seletivos e como alinhar seu perfil aos filtros reais.</image:caption>
     </image:image>
   </url>
 
@@ -171,6 +184,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: The Reflected Shadow: O Que a Superfície do Seu Código Esconde -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/the-reflected-shadow-arquitetura-e-ilusao-de-software/</loc>
+    <lastmod>2026-04-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/the-reflected-shadow-arquitetura-e-ilusao-de-software.jpg</image:loc>
+      <image:title>The Reflected Shadow: O Que a Superfície do Seu Código Esconde</image:title>
+      <image:caption>Uma análise prática sobre abstrações falsas, ilusões de estabilidade no código e como descer nas camadas profundas da engenharia de software.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Aristóteles e a Arquitetura de Software: as Quatro Causas -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/filosofia-classica-e-arquitetura-de-software/</loc>
@@ -210,6 +236,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: A Camada View no Backend: A Fronteira Entre JSON, Thymeleaf e Transpilação -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/camada-view-backend-json-template-engines/</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/camada-view-backend-json-template-engines.jpg</image:loc>
+      <image:title>A Camada View no Backend: A Fronteira Entre JSON, Thymeleaf e Transpilação</image:title>
+      <image:caption>Entenda o papel real da View no backend: por que JSON é uma visualização e como templates e transpilação moldam a arquitetura dos sistemas modernos.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Circuit Breaker: Resiliência e Falhas em Cascata -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata/</loc>
@@ -223,6 +262,45 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Wille zur Vollendung: A Vontade de Concretização na Engenharia de Software -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/vontade-de-concretizacao-engenharia-de-software/</loc>
+    <lastmod>2026-01-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/vontade-de-concretizacao-engenharia-de-software.jpg</image:loc>
+      <image:title>Wille zur Vollendung: A Vontade de Concretização na Engenharia de Software</image:title>
+      <image:caption>Como a busca pelo domínio técnico e a vontade de concretização transformam sua postura e seu código em mercados internacionais de alta exigência.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: A Engenharia da Certeza: Autonomia Técnica e Construção de Valor no Mercado Global -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/engenharia-da-certeza-autonomia-tecnica-mercado-global/</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/engenharia-da-certeza-autonomia-tecnica-mercado-global.jpg</image:loc>
+      <image:title>A Engenharia da Certeza: Autonomia Técnica e Construção de Valor no Mercado Global</image:title>
+      <image:caption>Analise a postura técnica, a autonomia operacional e a psicologia prática necessárias para sustentar contratos globais de alto valor em engenharia.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: Além do Binário: A Engenharia Ternária Balanceada do Computador Setun -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/alem-do-binario-computador-setun-simulador/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/alem-do-binario-computador-setun-simulador.jpg</image:loc>
+      <image:title>Além do Binário: A Engenharia Ternária Balanceada do Computador Setun</image:title>
+      <image:caption>Por que usamos bits em vez de trits? Uma análise prática da arquitetura ternária balanceada do computador soviético Setun e seu impacto na computação moderna.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: ATS na Prática: Workable vs Greenhouse e o Seu Currículo -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/a-mecanica-oculta-dos-ats-workable-vs-greenhouse/</loc>
@@ -233,6 +311,19 @@
       <image:loc>https://eu.robsoncassiano.software/assets/images/og/a-mecanica-oculta-dos-ats-workable-vs-greenhouse.jpg</image:loc>
       <image:title>ATS na Prática: Workable vs Greenhouse e o Seu Currículo</image:title>
       <image:caption>Testei o Workable na prática e comparei com o Greenhouse: parser de currículo, preços e o mito do Canva que elimina candidatos antes da entrevista.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: Por Dentro do ATS: Como o Workable Filtra Engenheiros nas Entrevistas Internacionais -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/workable-como-ats-avalia-engenheiros-entrevistas-internacionais/</loc>
+    <lastmod>2025-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/workable-como-ats-avalia-engenheiros-entrevistas-internacionais.jpg</image:loc>
+      <image:title>Por Dentro do ATS: Como o Workable Filtra Engenheiros nas Entrevistas Internacionais</image:title>
+      <image:caption>Descubra como o Workable opera na ponta do avaliador técnico e ajuste sua resposta no Tell Me About Yourself para ser aprovado em vagas internacionais.</image:caption>
     </image:image>
   </url>
 
