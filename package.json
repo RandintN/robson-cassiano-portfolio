@@ -7,6 +7,8 @@
     "build:css": "bunx @tailwindcss/cli -i src/styles.css -o src/assets/css/styles.css --minify",
     "dev": "bun run build:css && bunx ng serve",
     "sync": "bun scripts/sync-content.js",
+    "db:migrate": "bun scripts/migrate-multi-site.js",
+    "db:backup": "bunx wrangler d1 export robson-cassiano-portfolio-db --remote --output=backup-d1.sql",
     "og:images": "bun scripts/generate-og-images.js",
     "build": "bun run build:css && bun scripts/sync-content.js && bunx ng build && bun scripts/generate-static-articles.js && bun scripts/validate-static-output.js",
     "deploy": "bunx ng build --base-href /robson-cassiano-portfolio/",

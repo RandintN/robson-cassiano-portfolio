@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'bun:test';
 import { handleUnsubscribe } from './unsubscribe';
+import { generateUnsubscribeToken } from './security';
 import { Env } from './types';
 
 describe('Unsubscribe Handler', () => {
@@ -14,7 +15,7 @@ describe('Unsubscribe Handler', () => {
 
     const res = await handleUnsubscribe(req, fakeEnv);
     expect(res.status).toBe(400);
-    const body = await res.json();
+    const body = (await res.json()) as { error?: string };
     expect(body.error).toBeDefined();
     expect(body.error).toContain('Informe o endereço de e-mail');
   });
@@ -92,8 +93,48 @@ describe('Unsubscribe Handler', () => {
 
     const res = await handleUnsubscribe(req, fakeEnv);
     expect(res.status).toBe(200);
-    const data = await res.json();
+    const data = (await res.json()) as { success: boolean };
     expect(data.success).toBe(true);
     expect(executedEmail).toBe('rfc8058@exemplo.com');
+  });
+
+  it('deve rejeitar token inválido mesmo sem segredo configurado', async () => {
+    const fakeEnv: Env = {
+      YOUTUBE_CLIENT_ID: '',
+      YOUTUBE_CLIENT_SECRET: '',
+      YOUTUBE_REFRESH_TOKEN: '',
+      GITHUB_TOKEN: '',
+    };
+
+    const req = new Request(
+      'https://worker.internal/api/unsubscribe?email=dev@exemplo.com&token=deadbeefdeadbeefdeadbeefdeadbeef',
+      { method: 'GET', headers: { Accept: 'application/json' } }
+    );
+
+    const res = await handleUnsubscribe(req, fakeEnv);
+
+    expect(res.status).toBe(403);
+    const body = (await res.json()) as { error: string };
+    expect(body.error).toContain('Token de descadastro inválido');
+  });
+
+  it('deve aceitar token gerado com o segredo configurado', async () => {
+    const env: Env = {
+      YOUTUBE_CLIENT_ID: '',
+      YOUTUBE_CLIENT_SECRET: '',
+      YOUTUBE_REFRESH_TOKEN: '',
+      GITHUB_TOKEN: '',
+      ADMIN_SECRET: 'segredo-de-teste',
+    };
+    const token = await generateUnsubscribeToken('dev@exemplo.com', 'segredo-de-teste');
+
+    const req = new Request(
+      `https://worker.internal/api/unsubscribe?email=dev@exemplo.com&token=${token}`,
+      { method: 'GET', headers: { Accept: 'application/json' } }
+    );
+
+    const res = await handleUnsubscribe(req, env);
+
+    expect(res.status).toBe(200);
   });
 });

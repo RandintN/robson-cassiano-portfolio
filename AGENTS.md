@@ -20,11 +20,13 @@ This project is a high-performance **Portfolio + Sovereign Headless CMS + Email 
 - **Dynamic Sitemap:** `sitemap.xml` is automatically regenerated on every build with exact article URLs, `<lastmod>`, `<priority>`, and image metadata.
 
 ### 3. Serverless Edge Functions (`functions/api/`)
-- **File-based Routing:** Located in `/functions/api/` and compiled natively by Cloudflare Pages:
-  - `functions/api/subscribe.ts`: Validates email and persists subscribers into Cloudflare D1.
-  - `functions/api/unsubscribe.ts`: 1-click tokenized unsubscribe endpoint.
-  - `functions/api/broadcast.ts`: Protected endpoint to broadcast newsletters.
-- **Database:** Cloudflare D1 SQL database defined in `schema.sql`.
+- **File-based Routing:** Located in `/functions/api/` and compiled natively by Cloudflare Pages. Todas são proxies: validação e persistência vivem no worker de captura (`capture.robsoncassiano.software`), não aqui.
+  - `functions/api/subscribe.ts`: Proxy para a ingestão de leads do capture-worker.
+  - `functions/api/unsubscribe.ts`: Proxy de descadastro 1-clique tokenizado (GET e POST RFC 8058).
+  - `functions/api/broadcast.ts`: Proxy autenticado para o broadcast de newsletters no cron-publisher.
+  - `functions/api/sequence/{dispatch,preview}.ts`: Proxy autenticado para a sequência de 7 dias.
+- **Regra dos proxies:** repassar a política CORS do worker. O `_middleware` não reescreve respostas de `/api/*`, então fixar `Access-Control-Allow-Origin` no proxy apaga a origem restrita do worker.
+- **Database:** Cloudflare D1 SQL database defined in `schema.sql`, acessada pelos workers.
 
 ### 4. Agentic Web Standards (`llms.txt`, `llms-full.txt`, `index.md`)
 - **AI Discovery:** Full semantic documentation optimized for LLMs, AI agents, and Answer Engines (ChatGPT Search, Claude, Perplexity, Gemini).

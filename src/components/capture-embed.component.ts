@@ -45,13 +45,14 @@ export class CaptureEmbedComponent implements AfterViewInit {
     }
 
     const script = document.createElement('script');
-    script.src = 'https://capture.robsoncassiano.software/embed.js';
+    script.src = 'https://capture.robsoncassiano.software/embed.js?v=3';
     script.async = true;
     script.setAttribute('data-source', 'portfolio_home');
     script.setAttribute('data-mode', 'both');
     script.setAttribute('data-target', '#newsletter-container');
-    script.setAttribute('data-turnstile-sitekey', '0x4AAAAAAEjUfJwT3yG_vHIF');
-    script.setAttribute('data-ebook-url', 'https://robsoncassiano.software/7-passos-simples-dev-na-gringa');
+    // Sitekey, ação do Turnstile e e-book vêm do catálogo do worker, resolvidos
+    // pelo Origin. Aqui só a identidade do site e a apresentação.
+    script.setAttribute('data-site', 'portfolio');
     // Os textos internos do SDK (placeholders, autocorreção de e-mail, estados de
     // carregamento/erro/sucesso) vêm do dicionário do próprio embed.
     script.setAttribute('data-lang', this.languageService.language() === 'en' ? 'en' : 'pt-BR');

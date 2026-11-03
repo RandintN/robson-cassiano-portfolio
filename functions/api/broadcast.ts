@@ -31,8 +31,12 @@ export const onRequestPost: PagesFunction<PagesEnv> = async (context) => {
       body: request.body,
     });
 
+    // O worker já define a política CORS (origem restrita + Vary: Origin). Fixar
+    // '*' aqui a apagava e o `_middleware` não reescreve respostas de /api.
     const responseHeaders = new Headers(res.headers);
-    responseHeaders.set('Access-Control-Allow-Origin', '*');
+    if (!responseHeaders.has('Access-Control-Allow-Origin')) {
+      responseHeaders.set('Access-Control-Allow-Origin', '*');
+    }
 
     return new Response(res.body, {
       status: res.status,

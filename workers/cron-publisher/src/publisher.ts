@@ -180,7 +180,11 @@ async function downloadCaption(accessToken: string, videoId: string): Promise<st
   return cleanSrtToText(rawSrt);
 }
 
-async function generateEssayWithAI(env: Env, video: YouTubeVideoItem, transcript: string): Promise<{ title: string; slug: string; markdown: string }> {
+async function generateEssayWithAI(
+  env: Env,
+  video: YouTubeVideoItem,
+  transcript: string
+): Promise<{ title: string; slug: string; summary: string; canonicalUrl: string; markdown: string }> {
   const prompt = `Você é um refinado editor e filósofo de tecnologia trabalhando em conjunto com o engenheiro de software sênior e mentor internacional Robson Cassiano (+10 anos de experiência, passagens por Epic Games e fundador da Simple Software).
 
 Sua missão é transformar a transcrição bruta da transmissão do canal de Robson em um ensaio técnico aprofundado e persuasivo para o blog soberano (eu.robsoncassiano.software/artigos).

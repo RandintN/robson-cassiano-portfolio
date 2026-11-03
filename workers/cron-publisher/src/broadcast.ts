@@ -1,32 +1,55 @@
 import { Env, BroadcastRequest } from './types';
 import { sendEmail } from './email';
-import { escapeHtml, generateUnsubscribeToken } from './security';
+import { escapeHtml, generateUnsubscribeToken, resolveTokenSecret } from './security';
+
+const ARTICLE_ORIGIN = 'https://eu.robsoncassiano.software';
+
+/** Erro de entrada do operador, distinto de falha de infraestrutura. */
+export class BroadcastInputError extends Error {}
+
+/**
+ * Teto por chamada. Cada inscrito custa um envio sequencial, então o lote é
+ * limitado e a resposta avisa quando a lista não foi coberta inteira.
+ */
+const BATCH_LIMIT = 200;
 
 export async function processBroadcast(env: Env, body: BroadcastRequest): Promise<{
   success: boolean;
   message: string;
   sentCount: number;
+  hasMore: boolean;
+  remaining: number;
 }> {
   if (!env.DB) {
     throw new Error('Banco D1 não configurado no ambiente do Worker.');
   }
 
   if (!body.subject || !body.articleUrl) {
-    throw new Error('Campos subject e articleUrl são obrigatórios.');
+    throw new BroadcastInputError('Campos subject e articleUrl são obrigatórios.');
   }
 
-  const safeUrl = body.articleUrl.trim();
-  if (!safeUrl.startsWith('https://eu.robsoncassiano.software')) {
-    throw new Error('A URL do artigo precisa pertencer obrigatoriamente ao domínio eu.robsoncassiano.software');
+  // Comparação por origem, não por prefixo: startsWith aceitaria
+  // https://eu.robsoncassiano.software.dominio-alheio.com como interno.
+  let articleUrl: URL;
+  try {
+    articleUrl = new URL(body.articleUrl.trim());
+  } catch {
+    throw new BroadcastInputError('A URL do artigo é inválida.');
   }
+  if (articleUrl.origin !== ARTICLE_ORIGIN) {
+    throw new BroadcastInputError('A URL do artigo precisa pertencer obrigatoriamente ao domínio eu.robsoncassiano.software');
+  }
+
+  const safeUrl = articleUrl.toString();
+  const safeUrlHtml = escapeHtml(safeUrl);
 
   const safeTitle = escapeHtml(body.title ? body.title.trim() : body.subject.trim());
   const safePreviewText = escapeHtml(body.previewText ? body.previewText.trim() : '');
-  const secret = env.ADMIN_SECRET || env.CRON_SECRET || 'secret-token-key';
+  const secret = resolveTokenSecret(env);
 
   // Busca inscritos ativos com limite defensivo de lote para estabilidade de runtime
   const { results } = await env.DB.prepare(
-    "SELECT id, email, name FROM subscribers WHERE status = 'active' ORDER BY id ASC LIMIT 200"
+    `SELECT id, email, name FROM subscribers WHERE status = 'active' ORDER BY id ASC LIMIT ${BATCH_LIMIT}`
   ).all<{ id: number; email: string; name: string }>();
 
   let sentCount = 0;
@@ -55,7 +78,7 @@ export async function processBroadcast(env: Env, body: BroadcastRequest): Promis
               </p>
             </div>
             <div style="margin-bottom: 28px;">
-              <a href="${safeUrl}" style="display: inline-block; background: linear-gradient(135deg, #dfb15b, #c99839); color: #08080a; font-weight: 800; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 15px; box-shadow: 0 4px 12px rgba(223, 177, 91, 0.25);">
+              <a href="${safeUrlHtml}" style="display: inline-block; background: linear-gradient(135deg, #dfb15b, #c99839); color: #08080a; font-weight: 800; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-size: 15px; box-shadow: 0 4px 12px rgba(223, 177, 91, 0.25);">
                 Ler Análise Técnica Completa &rarr;
               </a>
             </div>
@@ -91,9 +114,23 @@ export async function processBroadcast(env: Env, body: BroadcastRequest): Promis
     "INSERT INTO newsletters_sent (article_slug, subject, sent_count) VALUES (?, ?, ?)"
   ).bind(body.articleSlug || 'custom', body.subject, sentCount).run();
 
+  const batchFull = (results?.length ?? 0) >= BATCH_LIMIT;
+  let remaining = 0;
+
+  if (batchFull) {
+    const counted = await env.DB.prepare(
+      "SELECT COUNT(*) AS total FROM subscribers WHERE status = 'active'"
+    ).first<{ total: number }>();
+    remaining = Math.max((counted?.total ?? 0) - sentCount, 0);
+  }
+
   return {
     success: true,
-    message: `Newsletter enviada com sucesso para ${sentCount} inscritos.`,
+    message: remaining > 0
+      ? `Lote de ${sentCount} e-mails enviado. Restam ${remaining} inscritos ativos fora deste lote.`
+      : `Newsletter enviada com sucesso para ${sentCount} inscritos.`,
     sentCount,
+    hasMore: remaining > 0,
+    remaining,
   };
 }

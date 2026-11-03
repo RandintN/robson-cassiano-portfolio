@@ -1,5 +1,5 @@
 import { Env } from './types';
-import { escapeHtml, validateEmail, verifyUnsubscribeToken } from './security';
+import { escapeHtml, resolveTokenSecret, validateEmail, verifyUnsubscribeToken } from './security';
 
 export async function handleUnsubscribe(request: Request, env: Env): Promise<Response> {
   const url = new URL(request.url);
@@ -44,10 +44,12 @@ export async function handleUnsubscribe(request: Request, env: Env): Promise<Res
     });
   }
 
-  // Validação opcional de token HMAC para proteção contra IDOR
-  // Se o token for fornecido, deve ser válido; se omitido, permite cancelamento de links legados
-  const secret = env.ADMIN_SECRET || env.CRON_SECRET || '';
-  if (token && secret) {
+  // Validação de token HMAC contra IDOR. Token presente PRECISA ser válido; a
+  // ausência continua aceita para links legados e para o painel manual. Antes a
+  // checagem também exigia segredo configurado, então qualquer token passava
+  // quando ADMIN_SECRET/CRON_SECRET faltavam no ambiente.
+  if (token) {
+    const secret = resolveTokenSecret(env);
     const isValidToken = await verifyUnsubscribeToken(normalizedEmail, token, secret);
     if (!isValidToken) {
       return new Response(JSON.stringify({ error: 'Token de descadastro inválido ou expirado.' }), {

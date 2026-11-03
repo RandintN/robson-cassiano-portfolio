@@ -1,7 +1,7 @@
 import { Env, Subscriber } from './types';
 import { sendEmail } from './email';
 import { SEQUENCE_TEMPLATES } from './sequence_templates';
-import { generateUnsubscribeToken } from './security';
+import { escapeHtml, generateUnsubscribeToken, resolveTokenSecret } from './security';
 
 export async function processSequenceDispatch(env: Env): Promise<{
   success: boolean;
@@ -15,7 +15,7 @@ export async function processSequenceDispatch(env: Env): Promise<{
     throw new Error('Banco D1 não configurado no ambiente do Worker.');
   }
 
-  const secret = env.ADMIN_SECRET || env.CRON_SECRET || 'secret-token-key';
+  const secret = resolveTokenSecret(env);
 
   // 0. Trava de concorrência em nível de execução
   // Remove locks expirados (mais de 10 minutos) antes da checagem
@@ -48,6 +48,7 @@ export async function processSequenceDispatch(env: Env): Promise<{
       FROM subscribers
       WHERE status = 'active'
         AND sequence_status = 'active'
+        AND sequence_enabled = 1
         AND sequence_step < 7
         AND (strftime('%s', 'now') - strftime('%s', COALESCE(last_sequence_sent_at, created_at))) >= 72000
       ORDER BY id ASC
@@ -80,6 +81,7 @@ export async function processSequenceDispatch(env: Env): Promise<{
           AND sequence_step = ?
           AND status = 'active'
           AND sequence_status = 'active'
+          AND sequence_enabled = 1
           AND (strftime('%s', 'now') - strftime('%s', COALESCE(last_sequence_sent_at, created_at))) >= 72000
       `).bind(nextStep, newStatus, subscriber.id, currentStep).run();
 
@@ -88,7 +90,7 @@ export async function processSequenceDispatch(env: Env): Promise<{
         continue;
       }
 
-      const firstName = subscriber.name ? subscriber.name.split(' ')[0] : 'dev';
+      const firstName = subscriber.name ? escapeHtml(subscriber.name.split(' ')[0]) : 'dev';
       const token = await generateUnsubscribeToken(subscriber.email, secret);
       const unsubLink = `https://eu.robsoncassiano.software/api/unsubscribe?email=${encodeURIComponent(subscriber.email)}&token=${token}`;
       const html = template.renderHtml(firstName, unsubLink);
@@ -131,6 +133,7 @@ export async function processSequenceDispatch(env: Env): Promise<{
             WHERE id = ?
               AND sequence_step = ?
               AND status = 'active'
+              AND sequence_enabled = 1
           `).bind(currentStep, subscriber.last_sequence_sent_at ?? null, subscriber.id, nextStep).run();
 
           details.push({ email: subscriber.email, step: nextStep, status: 'failed_dispatch' });
@@ -146,6 +149,7 @@ export async function processSequenceDispatch(env: Env): Promise<{
           WHERE id = ?
             AND sequence_step = ?
             AND status = 'active'
+            AND sequence_enabled = 1
         `).bind(currentStep, subscriber.last_sequence_sent_at ?? null, subscriber.id, nextStep).run();
 
         details.push({ email: subscriber.email, step: nextStep, status: 'network_error' });
@@ -191,8 +195,8 @@ export async function previewSequenceStep(
     throw new Error(`Passo da sequência inválido: ${body.step}. Use de 1 a 7.`);
   }
 
-  const secret = env.ADMIN_SECRET || env.CRON_SECRET || 'secret-token-key';
-  const firstName = body.name ? body.name.split(' ')[0] : 'dev';
+  const secret = resolveTokenSecret(env);
+  const firstName = body.name ? escapeHtml(body.name.split(' ')[0]) : 'dev';
   const token = await generateUnsubscribeToken(body.email, secret);
   const unsubLink = `https://eu.robsoncassiano.software/api/unsubscribe?email=${encodeURIComponent(body.email)}&token=${token}`;
 

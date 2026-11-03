@@ -41,3 +41,5 @@ __pycache__/
 
 .wrangler
 
+# Dump do D1 (contém dado pessoal, nunca versionar)
+backup-*.sql

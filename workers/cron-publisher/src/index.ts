@@ -1,7 +1,7 @@
 import { Env, PublishMode } from './types';
 import { processAutomatedPublishing } from './publisher';
 import { processSequenceDispatch, previewSequenceStep } from './sequence';
-import { processBroadcast } from './broadcast';
+import { processBroadcast, BroadcastInputError } from './broadcast';
 import { handleUnsubscribe } from './unsubscribe';
 import { isTimingSafeEqual, getSecurityCorsHeaders } from './security';
 
@@ -22,8 +22,13 @@ async function isAuthorized(request: Request, env: Env): Promise<boolean> {
 export default {
   // Disparos agendados na Cloudflare (Crons nativos)
   async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
-    // 1. Diariamente às 14:00 UTC (11:00 BRT) ou 15:00 UTC: Disparo da Sequência de 7 Dias
-    if (event.cron === '0 14 * * *' || event.cron === '0 15 * * *') {
+    const isDailySequenceCron = event.cron === '0 14 * * *' || event.cron === '0 15 * * *';
+    const isPublishCron = event.cron === '0 15 * * 1' || event.cron === '0 15 * * 5';
+
+    // Unknown trigger (including the local manual run, which arrives with an empty
+    // `cron`) used to do nothing at all. The sequence is guarded by a lock and by
+    // the 20h window, so running it is safe and avoids a silently dead schedule.
+    if (isDailySequenceCron || !isPublishCron) {
       ctx.waitUntil(
         processSequenceDispatch(env)
           .then(res => console.log('[Cron Sequence Dispatch Result]:', JSON.stringify(res)))
@@ -31,13 +36,13 @@ export default {
       );
     }
 
-    // 2. Publicação automatizada de artigos (Segundas e Sextas às 15:00 UTC)
+    // Publicação automatizada de artigos (Segundas e Sextas às 15:00 UTC)
     let mode: PublishMode | null = null;
     if (event.cron === '0 15 * * 1') {
       mode = 'LATEST_LIVE';
     } else if (event.cron === '0 15 * * 5') {
       mode = 'RANDOM_ARCHIVE';
-    } else if (event.cron === '0 14 * * *' || event.cron === '0 15 * * *') {
+    } else if (isDailySequenceCron) {
       // Fallback defensivo caso haja consolidação na Cloudflare
       const dayOfWeek = new Date().getUTCDay();
       if (dayOfWeek === 1) mode = 'LATEST_LIVE';
@@ -53,8 +58,8 @@ export default {
       return;
     }
 
-    if (event.cron !== '0 14 * * *' && event.cron !== '0 15 * * *') {
-      console.warn('[Cron Warning]: Gatilho cron não reconhecido:', event.cron);
+    if (!isDailySequenceCron) {
+      console.warn('[Cron Warning]: Gatilho cron não reconhecido, executada a sequência diária:', event.cron);
     }
   },
 
@@ -165,8 +170,11 @@ export default {
         });
       } catch (err: any) {
         console.error('[Broadcast Error]:', err);
-        return new Response(JSON.stringify({ error: 'Erro no processamento do broadcast de e-mails.' }), {
-          status: 500,
+        const isInput = err instanceof BroadcastInputError;
+        return new Response(JSON.stringify({
+          error: isInput ? err.message : 'Erro no processamento do broadcast de e-mails.',
+        }), {
+          status: isInput ? 400 : 500,
           headers: {
             'Content-Type': 'application/json',
             ...corsHeaders,
