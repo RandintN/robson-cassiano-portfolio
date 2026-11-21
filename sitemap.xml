@@ -39,7 +39,7 @@
   <!-- Hub de Artigos (Blog) -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/</loc>
-    <lastmod>2026-10-04</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -78,6 +78,32 @@
     <lastmod>2026-11-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- Artigo: O Sistema do Joinha no ATS: Como os Entrevistadores Eliminam Candidatos nos Bastidores -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/o-sistema-do-joinha-no-ats/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/o-sistema-do-joinha-no-ats.jpg</image:loc>
+      <image:title>O Sistema do Joinha no ATS: Como os Entrevistadores Eliminam Candidatos nos Bastidores</image:title>
+      <image:caption>Entenda a mecânica binária dos sistemas ATS e como os critérios de desempate técnico determinam a sua eliminação em processos seletivos internacionais.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: O botão vermelho da desqualificação técnica nas entrevistas internacionais -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/o-botao-vermelho-da-desqualificacao/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/o-botao-vermelho-da-desqualificacao.jpg</image:loc>
+      <image:title>O botão vermelho da desqualificação técnica nas entrevistas internacionais</image:title>
+      <image:caption>Entenda por que a trava na fala elimina desenvolvedores qualificados em vagas globais e como alinhar sua comunicação técnica com o mercado exterior.</image:caption>
+    </image:image>
   </url>
 
   <!-- Artigo: Comunicação Técnica na Daily: Engenharia Verbal para Desenvolvedores Internacionais -->
@@ -262,6 +288,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Como passar em entrevistas internacionais de Java sênior falando a língua do dinheiro -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/entrevista-java-senior-portugal-finops-carreira/</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/entrevista-java-senior-portugal-finops-carreira.jpg</image:loc>
+      <image:title>Como passar em entrevistas internacionais de Java sênior falando a língua do dinheiro</image:title>
+      <image:caption>Entenda os bastidores técnicos e de negócios para negociar salários em euro e dominar entrevistas internacionais para posições de Java sênior.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Wille zur Vollendung: A Vontade de Concretização na Engenharia de Software -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/vontade-de-concretizacao-engenharia-de-software/</loc>
@@ -288,6 +327,19 @@
     </image:image>
   </url>
 
+  <!-- Artigo: Destinado à Grandeza: A Arquitetura Mental da Prosperidade e Soberania Técnica -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/destinado-a-grandeza-arquitetura-mental-soberania-tecnica/</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/destinado-a-grandeza-arquitetura-mental-soberania-tecnica.jpg</image:loc>
+      <image:title>Destinado à Grandeza: A Arquitetura Mental da Prosperidade e Soberania Técnica</image:title>
+      <image:caption>Como a clareza mental, a responsabilidade financeira e a excelência técnica moldam a carreira de um engenheiro de software de alto impacto global.</image:caption>
+    </image:image>
+  </url>
+
   <!-- Artigo: Além do Binário: A Engenharia Ternária Balanceada do Computador Setun -->
   <url>
     <loc>https://eu.robsoncassiano.software/artigos/alem-do-binario-computador-setun-simulador/</loc>
@@ -298,6 +350,32 @@
       <image:loc>https://eu.robsoncassiano.software/assets/images/og/alem-do-binario-computador-setun-simulador.jpg</image:loc>
       <image:title>Além do Binário: A Engenharia Ternária Balanceada do Computador Setun</image:title>
       <image:caption>Por que usamos bits em vez de trits? Uma análise prática da arquitetura ternária balanceada do computador soviético Setun e seu impacto na computação moderna.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: Computação Ternária Balanceada: A Engenharia Esquecida do Computador Setun -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/computacao-ternaria-balanceada-setun-simulator/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/computacao-ternaria-balanceada-setun-simulator.jpg</image:loc>
+      <image:title>Computação Ternária Balanceada: A Engenharia Esquecida do Computador Setun</image:title>
+      <image:caption>Entenda a arquitetura do Setun, a base 3 balanceada e como a física da informação expõe as limitações de densidade do silício binário moderno.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Artigo: O Framework Operacional de Quatro Pilares: Por Que o Seu Pull Request Precisa Rodar -->
+  <url>
+    <loc>https://eu.robsoncassiano.software/artigos/o-framework-operacional-de-quatro-pilares/</loc>
+    <lastmod>2025-10-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://eu.robsoncassiano.software/assets/images/og/o-framework-operacional-de-quatro-pilares.jpg</image:loc>
+      <image:title>O Framework Operacional de Quatro Pilares: Por Que o Seu Pull Request Precisa Rodar</image:title>
+      <image:caption>Entenda o modelo de quatro pilares para transformar tarefas de software em entregas funcionais e gerenciar prazos, bloqueios e visibilidade técnica.</image:caption>
     </image:image>
   </url>
 

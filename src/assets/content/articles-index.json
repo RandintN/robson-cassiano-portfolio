@@ -1,5 +1,45 @@
 [
   {
+    "slug": "o-sistema-do-joinha-no-ats",
+    "title": "O Sistema do Joinha no ATS: Como os Entrevistadores Eliminam Candidatos nos Bastidores",
+    "date": "2026-11-03",
+    "updated": "2026-11-03",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "8 min de leitura",
+    "tags": [
+      "ATS",
+      "Entrevistas Técnicas",
+      "Carreira Internacional",
+      "Recrutamento"
+    ],
+    "summary": "Entenda a mecânica binária dos sistemas ATS e como os critérios de desempate técnico determinam a sua eliminação em processos seletivos internacionais.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/o-sistema-do-joinha-no-ats.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/o-sistema-do-joinha-no-ats/",
+    "youtubeVideoId": "5RtqWmJfMUU"
+  },
+  {
+    "slug": "o-botao-vermelho-da-desqualificacao",
+    "title": "O botão vermelho da desqualificação técnica nas entrevistas internacionais",
+    "date": "2026-11-02",
+    "updated": "2026-11-02",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "8 min de leitura",
+    "tags": [
+      "Carreira Internacional",
+      "Inglês Técnico",
+      "Engenharia de Software",
+      "Processos Seletivos"
+    ],
+    "summary": "Entenda por que a trava na fala elimina desenvolvedores qualificados em vagas globais e como alinhar sua comunicação técnica com o mercado exterior.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/o-botao-vermelho-da-desqualificacao.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/o-botao-vermelho-da-desqualificacao/",
+    "youtubeVideoId": "EpXcV7uhl4A"
+  },
+  {
     "slug": "comunicacao-tecnica-daily-ingles-desenvolvedores",
     "title": "Comunicação Técnica na Daily: Engenharia Verbal para Desenvolvedores Internacionais",
     "date": "2026-10-04",
@@ -289,6 +329,27 @@
     "canonicalUrl": "https://eu.robsoncassiano.software/artigos/resiliencia-arquitetural-circuit-breaker-falhas-cascata/"
   },
   {
+    "slug": "entrevista-java-senior-portugal-finops-carreira",
+    "title": "Como passar em entrevistas internacionais de Java sênior falando a língua do dinheiro",
+    "date": "2026-01-16",
+    "updated": "2026-01-16",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "8 min de leitura",
+    "tags": [
+      "Java",
+      "FinOps",
+      "Carreira Internacional",
+      "Multithreading",
+      "Arquitetura"
+    ],
+    "summary": "Entenda os bastidores técnicos e de negócios para negociar salários em euro e dominar entrevistas internacionais para posições de Java sênior.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/entrevista-java-senior-portugal-finops-carreira.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/entrevista-java-senior-portugal-finops-carreira/",
+    "youtubeVideoId": "81cBovOVi0c"
+  },
+  {
     "slug": "vontade-de-concretizacao-engenharia-de-software",
     "title": "Wille zur Vollendung: A Vontade de Concretização na Engenharia de Software",
     "date": "2026-01-02",
@@ -329,6 +390,26 @@
     "youtubeVideoId": "emtROO8V6p0"
   },
   {
+    "slug": "destinado-a-grandeza-arquitetura-mental-soberania-tecnica",
+    "title": "Destinado à Grandeza: A Arquitetura Mental da Prosperidade e Soberania Técnica",
+    "date": "2026-01-01",
+    "updated": "2026-01-01",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "8 min de leitura",
+    "tags": [
+      "Mentalidade Técnica",
+      "Carreira Global",
+      "Engenharia de Software",
+      "Soberania Financeira"
+    ],
+    "summary": "Como a clareza mental, a responsabilidade financeira e a excelência técnica moldam a carreira de um engenheiro de software de alto impacto global.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/destinado-a-grandeza-arquitetura-mental-soberania-tecnica.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/destinado-a-grandeza-arquitetura-mental-soberania-tecnica/",
+    "youtubeVideoId": "emtROO8V6p0"
+  },
+  {
     "slug": "alem-do-binario-computador-setun-simulador",
     "title": "Além do Binário: A Engenharia Ternária Balanceada do Computador Setun",
     "date": "2025-10-19",
@@ -348,6 +429,47 @@
     "ogImage": "assets/images/og/alem-do-binario-computador-setun-simulador.jpg",
     "canonicalUrl": "https://eu.robsoncassiano.software/artigos/alem-do-binario-computador-setun-simulador/",
     "youtubeVideoId": "NuAWG3BX-GM"
+  },
+  {
+    "slug": "computacao-ternaria-balanceada-setun-simulator",
+    "title": "Computação Ternária Balanceada: A Engenharia Esquecida do Computador Setun",
+    "date": "2025-10-19",
+    "updated": "2025-10-19",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "9 min de leitura",
+    "tags": [
+      "Arquitetura de Computadores",
+      "Setun",
+      "Lógica Ternária",
+      "JavaScript",
+      "Engenharia de Software"
+    ],
+    "summary": "Entenda a arquitetura do Setun, a base 3 balanceada e como a física da informação expõe as limitações de densidade do silício binário moderno.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/computacao-ternaria-balanceada-setun-simulator.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/computacao-ternaria-balanceada-setun-simulator/",
+    "youtubeVideoId": "NuAWG3BX-GM"
+  },
+  {
+    "slug": "o-framework-operacional-de-quatro-pilares",
+    "title": "O Framework Operacional de Quatro Pilares: Por Que o Seu Pull Request Precisa Rodar",
+    "date": "2025-10-14",
+    "updated": "2025-10-14",
+    "author": "Robson Cassiano",
+    "category": "Carreira & Engenharia",
+    "readTime": "9 min de leitura",
+    "tags": [
+      "Engenharia de Software",
+      "Carreira",
+      "Observabilidade",
+      "Performance Profissional"
+    ],
+    "summary": "Entenda o modelo de quatro pilares para transformar tarefas de software em entregas funcionais e gerenciar prazos, bloqueios e visibilidade técnica.",
+    "coverImage": "assets/images/robson-cassiano-mentor.jpg",
+    "ogImage": "assets/images/og/o-framework-operacional-de-quatro-pilares.jpg",
+    "canonicalUrl": "https://eu.robsoncassiano.software/artigos/o-framework-operacional-de-quatro-pilares/",
+    "youtubeVideoId": "N-F9CE5yP34"
   },
   {
     "slug": "a-mecanica-oculta-dos-ats-workable-vs-greenhouse",
