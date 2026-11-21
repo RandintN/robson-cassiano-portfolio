@@ -458,6 +458,8 @@ ${body ? `        <p class="dep-body">${escapeHtml(body)}</p>` : ''}
   <link rel="manifest" href="/assets/icons/site.webmanifest">
   <link rel="alternate" type="text/markdown" href="${MD_URL}" title="Markdown Version for AI Agents">
   <link rel="alternate" type="text/plain" href="https://eu.robsoncassiano.software/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="application/rss+xml" href="https://eu.robsoncassiano.software/rss.xml" title="Robson Cassiano (RSS)">
+  <link rel="alternate" type="application/atom+xml" href="https://eu.robsoncassiano.software/atom.xml" title="Robson Cassiano (Atom)">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="${isEn ? 'en_US' : 'pt_BR'}">
@@ -695,7 +697,7 @@ ${cards}
 
   <footer>
     <div class="dep-wrap">
-      <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="${breadcrumbHomeUrl}">eu.robsoncassiano.software</a> · <a href="/artigos/">Blog</a> · <a href="/privacidade/">${isEn ? 'Privacy Policy' : 'Política de Privacidade'}</a></p>
+      <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="${breadcrumbHomeUrl}">eu.robsoncassiano.software</a> · <a href="/artigos/">Blog</a> · <a href="/privacidade/">${isEn ? 'Privacy Policy' : 'Política de Privacidade'}</a> · <a href="/rss.xml">RSS</a> · <a href="/atom.xml">Atom</a></p>
     </div>
   </footer>
 </body>

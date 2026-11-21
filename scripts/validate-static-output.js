@@ -401,6 +401,91 @@ for (const catalog of ['llms.txt', 'llms-full.txt', 'index.md', 'index-en.md']) 
 }
 
 // ---------------------------------------------------------------------------
+// 6. Feeds RSS 2.0 (/rss.xml), Atom 1.0 (/atom.xml), autodescoberta e headers.
+// ---------------------------------------------------------------------------
+const rss = read(path.join(distDir, 'rss.xml'));
+if (rss) {
+  check('rss.xml: cabeçalho XML UTF-8', rss.startsWith('<?xml version="1.0" encoding="UTF-8"?>'));
+  check('rss.xml: elemento <rss version="2.0"', rss.includes('<rss version="2.0"'));
+  check(
+    'rss.xml: atom:link self',
+    rss.includes('<atom:link href="https://eu.robsoncassiano.software/rss.xml" rel="self"')
+  );
+  check(`rss.xml: ${articles.length} itens`, count(rss, /<item>/g) === articles.length, `${count(rss, /<item>/g)}`);
+  check(
+    `rss.xml: ${articles.length} guids permanentes`,
+    count(rss, /<guid isPermaLink="true">/g) === articles.length
+  );
+  const pubDates = rss.match(/<pubDate>([^<]+)<\/pubDate>/g) || [];
+  check(`rss.xml: ${articles.length} pubDates`, pubDates.length === articles.length, `${pubDates.length}`);
+  const rfc822Re = /^<pubDate>(Sun|Mon|Tue|Wed|Thu|Fri|Sat), \d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \d{4} \d{2}:\d{2}:\d{2} [+-]\d{4}<\/pubDate>$/;
+  check('rss.xml: pubDates em formato RFC 822', pubDates.every((tag) => rfc822Re.test(tag)));
+  check(
+    `rss.xml: ${articles.length} blocos content:encoded`,
+    count(rss, /<content:encoded>/g) === articles.length
+  );
+  check('rss.xml: sem src="/ ou href="/ relativos nos corpos', !/\b(?:src|href)=["']\//i.test(rss));
+}
+
+const atom = read(path.join(distDir, 'atom.xml'));
+if (atom) {
+  check('atom.xml: cabeçalho XML UTF-8', atom.startsWith('<?xml version="1.0" encoding="UTF-8"?>'));
+  check('atom.xml: elemento <feed xmlns="http://www.w3.org/2005/Atom"', atom.includes('<feed xmlns="http://www.w3.org/2005/Atom"'));
+  check(
+    'atom.xml: link self',
+    atom.includes('<link href="https://eu.robsoncassiano.software/atom.xml" rel="self"')
+  );
+  check(`atom.xml: ${articles.length} entradas`, count(atom, /<entry>/g) === articles.length, `${count(atom, /<entry>/g)}`);
+  const publishedTags = atom.match(/<published>([^<]+)<\/published>/g) || [];
+  const updatedTags = atom.match(/<updated>([^<]+)<\/updated>/g) || [];
+  check(`atom.xml: ${articles.length} published`, publishedTags.length === articles.length, `${publishedTags.length}`);
+  check(`atom.xml: ${articles.length + 1} updated`, updatedTags.length === articles.length + 1, `${updatedTags.length}`);
+  const rfc3339Re = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
+  const allTimestamps = [
+    ...publishedTags.map((t) => t.replace(/<\/?published>/g, '')),
+    ...updatedTags.map((t) => t.replace(/<\/?updated>/g, '')),
+  ];
+  check('atom.xml: timestamps em formato RFC 3339', allTimestamps.every((ts) => rfc3339Re.test(ts)));
+  check(
+    'atom.xml: sem src=&quot;/ ou href=&quot;/ relativos nos corpos',
+    !/\b(?:src|href)=(?:&quot;|&apos;)\//i.test(atom)
+  );
+}
+
+for (const pageRel of [
+  'index.html',
+  path.join('en', 'index.html'),
+  path.join('artigos', 'index.html'),
+  path.join('artigos', articles[0].slug, 'index.html'),
+  path.join('depoimentos', 'index.html'),
+  path.join('en', 'testimonials', 'index.html'),
+  path.join('privacidade', 'index.html'),
+]) {
+  const html = read(path.join(distDir, pageRel));
+  if (!html) continue;
+  check(
+    `${pageRel}: autodescoberta RSS`,
+    html.includes('application/rss+xml') && html.includes('https://eu.robsoncassiano.software/rss.xml')
+  );
+  check(
+    `${pageRel}: autodescoberta Atom`,
+    html.includes('application/atom+xml') && html.includes('https://eu.robsoncassiano.software/atom.xml')
+  );
+}
+
+const distHeaders = read(path.join(distDir, '_headers'));
+if (distHeaders) {
+  check(
+    '_headers: regra /rss.xml com application/rss+xml',
+    /\/rss\.xml[\s\S]*?Content-Type:\s*application\/rss\+xml/i.test(distHeaders)
+  );
+  check(
+    '_headers: regra /atom.xml com application/atom+xml',
+    /\/atom\.xml[\s\S]*?Content-Type:\s*application\/atom\+xml/i.test(distHeaders)
+  );
+}
+
+// ---------------------------------------------------------------------------
 const label = problems.length === 0 ? 'OK' : 'FALHOU';
 console.log(`\n${problems.length === 0 ? '✓' : '✗'} Validação do build: ${label} (${checks.total} verificações)`);
 if (problems.length) {

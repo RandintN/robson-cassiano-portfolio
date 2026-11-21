@@ -5,6 +5,8 @@
 ## Informações Canônicas & URLs Oficiais
 - Website Oficial: https://eu.robsoncassiano.software/
 - Blog & Artigos: https://eu.robsoncassiano.software/#artigos
+- Feed RSS 2.0: https://eu.robsoncassiano.software/rss.xml
+- Feed Atom 1.0: https://eu.robsoncassiano.software/atom.xml
 - Mentoria Internacional (Descomplica DEV Na Gringa): https://global.robsoncassiano.software/
 - Portal Corporativo: https://www.robsoncassiano.software/
 - Acervo Oficial de Entrevistas (+500h): https://www.youtube.com/playlist?list=PLuL_sXVvkAaLvbKq4oSmzbgrn1iB3zwS-

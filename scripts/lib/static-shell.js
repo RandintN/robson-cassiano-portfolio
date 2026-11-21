@@ -230,7 +230,7 @@ ${faq}
         ${socialLinks(lang)}
         </nav>
         <p>${escapeHtml(stripHtml(t('FOOTER_RIGHTS')))}</p>
-        <p><a href="/artigos/">${isEn ? 'All articles' : 'Todos os artigos'}</a> · <a href="${isEn ? '/en/testimonials/' : '/depoimentos/'}" hreflang="${isEn ? 'en' : 'pt-BR'}">${isEn ? 'Testimonials' : 'Depoimentos'}</a> · <a href="/privacidade/" hreflang="pt-BR">${isEn ? 'Privacy Policy (PT)' : 'Política de Privacidade'}</a> · <a href="${isEn ? '/' : '/en/'}">${isEn ? 'Português' : 'English'}</a></p>
+        <p><a href="/artigos/">${isEn ? 'All articles' : 'Todos os artigos'}</a> · <a href="${isEn ? '/en/testimonials/' : '/depoimentos/'}" hreflang="${isEn ? 'en' : 'pt-BR'}">${isEn ? 'Testimonials' : 'Depoimentos'}</a> · <a href="/privacidade/" hreflang="pt-BR">${isEn ? 'Privacy Policy (PT)' : 'Política de Privacidade'}</a> · <a href="/rss.xml">RSS</a> · <a href="/atom.xml">Atom</a> · <a href="${isEn ? '/' : '/en/'}">${isEn ? 'Português' : 'English'}</a></p>
       </div>
     </footer>
   </div>`;
@@ -327,6 +327,8 @@ export function buildArticlesHub({ articles, t, stylesHref }) {
   <link rel="manifest" href="/assets/icons/site.webmanifest">
   <link rel="alternate" type="text/markdown" href="https://eu.robsoncassiano.software/artigos/index.md" title="Markdown Version for AI Agents">
   <link rel="alternate" type="text/plain" href="https://eu.robsoncassiano.software/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="application/rss+xml" href="https://eu.robsoncassiano.software/rss.xml" title="Robson Cassiano (RSS)">
+  <link rel="alternate" type="application/atom+xml" href="https://eu.robsoncassiano.software/atom.xml" title="Robson Cassiano (Atom)">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
@@ -403,7 +405,7 @@ ${cards}
   </main>
 
   <footer>
-    <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="/">eu.robsoncassiano.software</a> · <a href="/artigos/">Blog</a> · <a href="/depoimentos/">Depoimentos</a> · <a href="/privacidade/">Política de Privacidade</a></p>
+    <p>&copy; ${new Date().getFullYear()} Robson Cassiano · <a href="/">eu.robsoncassiano.software</a> · <a href="/artigos/">Blog</a> · <a href="/depoimentos/">Depoimentos</a> · <a href="/privacidade/">Política de Privacidade</a> · <a href="/rss.xml">RSS</a> · <a href="/atom.xml">Atom</a></p>
   </footer>
 </body>
 </html>
@@ -421,6 +423,8 @@ export function buildArticlesHubMarkdown({ articles, t, translations = {} }) {
     '- Author: Robson Cassiano (https://eu.robsoncassiano.software/#person)',
     `- Language: pt-BR`,
     `- Articles: ${articles.length}`,
+    `- RSS: https://eu.robsoncassiano.software/rss.xml`,
+    `- Atom: https://eu.robsoncassiano.software/atom.xml`,
     '',
     '---',
     '',

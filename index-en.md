@@ -121,6 +121,9 @@ Robson is a polyglot and actively studies 5 languages: Portuguese (native), Engl
 
 ## 📚 Canonical Published Articles (Blog)
 
+- **RSS 2.0 Feed**: https://eu.robsoncassiano.software/rss.xml
+- **Atom 1.0 Feed**: https://eu.robsoncassiano.software/atom.xml
+
 <!-- ARTICLES:START -->
 - [Comunicação Técnica na Daily: Engenharia Verbal para Desenvolvedores Internacionais](https://eu.robsoncassiano.software/artigos/comunicacao-tecnica-daily-ingles-desenvolvedores/): Como estruturar seus status updates em inglês com clareza técnica, previsibilidade e autoridade em times globais. ([markdown](https://eu.robsoncassiano.software/artigos/comunicacao-tecnica-daily-ingles-desenvolvedores.md))
 - [Por Que Recrutadores Não Olham Seu GitHub na Triagem Inicial](https://eu.robsoncassiano.software/artigos/por-que-recrutadores-nao-olham-github/): Entenda por que enviar repositórios para recrutadores na primeira fase sabota seus processos seletivos e como alinhar seu perfil aos filtros reais. ([markdown](https://eu.robsoncassiano.software/artigos/por-que-recrutadores-nao-olham-github.md))

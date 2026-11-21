@@ -10,6 +10,7 @@ import {
 } from './lib/static-shell.js';
 import { buildPrivacyPage } from './lib/privacy-page.js';
 import { buildTestimonialsPage, buildTestimonialsMarkdown } from './lib/testimonials-page.js';
+import { buildRssFeed, buildAtomFeed } from './lib/feeds.js';
 
 const articlesFile = path.resolve('src/assets/content/articles.json');
 const articlesEnFile = path.resolve('src/assets/content/articles.en.json');
@@ -247,6 +248,8 @@ for (const art of articles) {
   <link rel="manifest" href="/assets/icons/site.webmanifest">
   <link rel="alternate" type="text/markdown" href="https://eu.robsoncassiano.software/artigos/${art.slug}.md" title="Markdown Version for AI Agents">
   <link rel="alternate" type="text/plain" href="https://eu.robsoncassiano.software/llms.txt" title="LLMs.txt">
+  <link rel="alternate" type="application/rss+xml" href="https://eu.robsoncassiano.software/rss.xml" title="Robson Cassiano (RSS)">
+  <link rel="alternate" type="application/atom+xml" href="https://eu.robsoncassiano.software/atom.xml" title="Robson Cassiano (Atom)">
 
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="article">
@@ -463,7 +466,7 @@ ${JSON.stringify(jsonLd, null, 2)}
   <!-- Footer -->
   <footer class="border-t border-[#252530] py-10 mt-16 bg-[#08080a] text-center text-xs text-slate-500">
     <p>© ${new Date().getFullYear()} Robson Cassiano. Todos os direitos reservados.</p>
-    <p class="mt-2"><a href="/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">global.robsoncassiano.software</a> | <a href="/depoimentos/" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Depoimentos</a> | <a href="/privacidade/" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Política de Privacidade</a></p>
+    <p class="mt-2"><a href="/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">eu.robsoncassiano.software</a> | <a href="https://global.robsoncassiano.software/" class="text-[#dfb15b] hover:text-[#f6e0a4] hover:underline transition-colors">global.robsoncassiano.software</a> | <a href="/depoimentos/" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Depoimentos</a> | <a href="/privacidade/" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Política de Privacidade</a> | <a href="/rss.xml" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">RSS</a> | <a href="/atom.xml" class="text-slate-400 hover:text-[#dfb15b] hover:underline transition-colors">Atom</a></p>
   </footer>
 
   <!-- Sovereign Cloudflare Lead Capture Modal -->
@@ -838,3 +841,8 @@ if (testimonials.length) {
   const publicados = testimonials.filter((t) => t.consent).length;
   console.log(`✓ Depoimentos gerados em dist/depoimentos/ e dist/en/testimonials/ (${publicados}/${testimonials.length} com consentimento, + index.md)`);
 }
+
+// 7. Feeds RSS 2.0 (/rss.xml) e Atom 1.0 (/atom.xml)
+await Bun.write(path.join(distDir, 'rss.xml'), buildRssFeed(articles));
+await Bun.write(path.join(distDir, 'atom.xml'), buildAtomFeed(articles));
+console.log(`✓ Feeds RSS 2.0 e Atom 1.0 gerados em dist/rss.xml e dist/atom.xml (${articles.length} artigos)`);

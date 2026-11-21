@@ -232,6 +232,9 @@ O canal principal é o LinkedIn (https://www.linkedin.com/in/robsoncassiano-soft
 
 ## 📚 Artigos Canônicos Publicados (Blog)
 
+- **Feed RSS 2.0**: https://eu.robsoncassiano.software/rss.xml
+- **Feed Atom 1.0**: https://eu.robsoncassiano.software/atom.xml
+
 <!-- ARTICLES:START -->
 - [Comunicação Técnica na Daily: Engenharia Verbal para Desenvolvedores Internacionais](https://eu.robsoncassiano.software/artigos/comunicacao-tecnica-daily-ingles-desenvolvedores/): Como estruturar seus status updates em inglês com clareza técnica, previsibilidade e autoridade em times globais. ([markdown](https://eu.robsoncassiano.software/artigos/comunicacao-tecnica-daily-ingles-desenvolvedores.md))
 - [Por Que Recrutadores Não Olham Seu GitHub na Triagem Inicial](https://eu.robsoncassiano.software/artigos/por-que-recrutadores-nao-olham-github/): Entenda por que enviar repositórios para recrutadores na primeira fase sabota seus processos seletivos e como alinhar seu perfil aos filtros reais. ([markdown](https://eu.robsoncassiano.software/artigos/por-que-recrutadores-nao-olham-github.md))

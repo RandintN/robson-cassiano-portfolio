@@ -73,6 +73,8 @@ export function buildPrivacyPage({ stylesHref }) {
   <link rel="shortcut icon" href="/assets/icons/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="/assets/icons/site.webmanifest">
+  <link rel="alternate" type="application/rss+xml" href="https://eu.robsoncassiano.software/rss.xml" title="Robson Cassiano (RSS)">
+  <link rel="alternate" type="application/atom+xml" href="https://eu.robsoncassiano.software/atom.xml" title="Robson Cassiano (Atom)">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">

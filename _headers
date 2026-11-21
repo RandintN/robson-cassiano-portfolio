@@ -84,6 +84,16 @@
   Content-Type: application/xml
   Cache-Control: public, max-age=0, must-revalidate
 
+/rss.xml
+  Content-Type: application/rss+xml; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+  Access-Control-Allow-Origin: *
+
+/atom.xml
+  Content-Type: application/atom+xml; charset=utf-8
+  Cache-Control: public, max-age=0, must-revalidate
+  Access-Control-Allow-Origin: *
+
 /robots.txt
   Content-Type: text/plain
   Cache-Control: public, max-age=0, must-revalidate
